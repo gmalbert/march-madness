@@ -1,124 +1,137 @@
-# Roadmap: Data Scope
+# Roadmap: Data Scope (Basketball Betting)
 
-*What data to gather and how far back.*
+*What basketball data to gather for March Madness betting predictions.*
 
 ## Recommended Historical Range
 - **Minimum**: 5 years (2021-2025)
 - **Recommended**: 10 years (2016-2025)
-- **Maximum useful**: 15 years (2011-2025)
+- **Note**: Data availability may vary; tournament structure consistent since 2011
 
-Older data may have less relevance due to rule changes, conference realignments, and evolving play styles.
+## Core Data Sets for Betting Models
 
-## Core Data Sets
-
-### 1. Games Data
-Essential for win/loss records and score differentials.
+### 1. Tournament Games with Results
+Essential for training win prediction models.
 
 ```python
-def fetch_all_games(start_year=2016, end_year=2025):
-    """Fetch comprehensive games data."""
-    with get_api_client() as api_client:
-        games_api = cfbd.GamesApi(api_client)
-        all_games = []
-        for year in range(start_year, end_year + 1):
-            games = games_api.get_games(year=year)
-            all_games.extend(games)
-        return all_games
+def fetch_all_tournament_games(start_year=2016, end_year=2025):
+    """Fetch all March Madness tournament games."""
+    all_games = []
+    for year in range(start_year, end_year + 1):
+        games = fetch_games(year, season_type="postseason")
+        all_games.extend(games)
+    return all_games
 ```
 
-### 2. Team Statistics
-Season-level team performance metrics.
+### 2. Betting Lines (Spreads, O/U, Moneyline)
+Critical for spread and total predictions.
 
 ```python
-def fetch_team_stats(year: int):
-    """Fetch team season stats."""
-    with get_api_client() as api_client:
-        stats_api = cfbd.StatsApi(api_client)
-        return stats_api.get_team_stats(year=year)
+def fetch_historical_lines(start_year=2016, end_year=2025):
+    """Fetch historical betting lines for tournament games."""
+    all_lines = []
+    for year in range(start_year, end_year + 1):
+        lines = fetch_betting_lines(year, "postseason")
+        all_lines.extend(lines)
+    return all_lines
 ```
 
-### 3. Advanced Stats
-EPA, PPA, success rates, and efficiency metrics.
+**Key fields from betting lines:**
+- `spread`: Point spread (favorite gives points)
+- `over_under`: Total points line
+- `home_moneyline`, `away_moneyline`: Moneyline odds
+- `provider`: Source (consensus, individual books)
+
+### 3. Team Season Statistics
+For building team strength profiles.
 
 ```python
-def fetch_advanced_stats(year: int):
-    """Fetch advanced season statistics."""
+def fetch_team_season_data(year: int):
+    """Fetch comprehensive team stats."""
     with get_api_client() as api_client:
-        stats_api = cfbd.StatsApi(api_client)
-        return stats_api.get_advanced_season_stats(year=year)
+        stats_api = cbbd.StatsApi(api_client)
+        return stats_api.get_team_season_stats(year=year)
 ```
 
-### 4. Rankings and Ratings
-Poll rankings, Elo, SP+, SRS ratings.
+**Key metrics:**
+- Points per game (offense/defense)
+- Field goal percentages (FG%, 3P%, FT%)
+- Rebounds, assists, turnovers
+- Four Factors: eFG%, TO%, ORB%, FTRate
+
+### 4. Adjusted Efficiency Ratings
+Best predictors for tournament success.
 
 ```python
-def fetch_ratings(year: int):
-    """Fetch multiple rating systems."""
+def fetch_efficiency_ratings(year: int):
+    """Fetch adjusted efficiency ratings."""
     with get_api_client() as api_client:
-        ratings_api = cfbd.RatingsApi(api_client)
-        return {
-            "elo": ratings_api.get_elo(year=year),
-            "sp": ratings_api.get_sp(year=year),
-            "srs": ratings_api.get_srs(year=year)
-        }
+        ratings_api = cbbd.RatingsApi(api_client)
+        return ratings_api.get_adjusted_efficiency(year=year)
 ```
 
-### 5. Recruiting Data
-Team talent and recruiting rankings.
+**Key metrics:**
+- Adjusted Offensive Efficiency (points per 100 possessions)
+- Adjusted Defensive Efficiency
+- Net Efficiency Rating
+- Tempo (pace of play)
+
+### 5. Rankings
+For seeding and public perception factors.
 
 ```python
-def fetch_recruiting(year: int):
-    """Fetch recruiting rankings."""
+def fetch_rankings(year: int, week: int = None):
+    """Fetch poll rankings."""
     with get_api_client() as api_client:
-        recruiting_api = cfbd.RecruitingApi(api_client)
-        teams_api = cfbd.TeamsApi(api_client)
-        return {
-            "recruiting": recruiting_api.get_team_recruiting_rankings(year=year),
-            "talent": teams_api.get_talent(year=year)
-        }
+        rankings_api = cbbd.RankingsApi(api_client)
+        return rankings_api.get_rankings(year=year, week=week)
 ```
 
-## Secondary Data Sets
+## Data Priority for Betting
 
-### 6. Betting Lines
-Historical spreads and over/unders.
+| Priority | Data Set | Bet Types | Years |
+|----------|----------|-----------|-------|
+| **P0** | Betting Lines | All | 10 |
+| **P0** | Game Results | All | 10 |
+| **P0** | Adjusted Efficiency | All | 10 |
+| **P1** | Team Season Stats | Spread, O/U | 10 |
+| **P1** | Four Factors | All | 10 |
+| **P2** | Rankings | Moneyline | 10 |
+| **P2** | Player Stats | Props | 5 |
 
-```python
-def fetch_betting_lines(year: int):
-    """Fetch betting data."""
-    with get_api_client() as api_client:
-        betting_api = cfbd.BettingApi(api_client)
-        return betting_api.get_lines(year=year)
+## Target Prediction Types
+
+1. **Winner Prediction (Moneyline)**
+   - Binary classification: which team wins
+   - Key data: efficiency ratings, rankings
+
+2. **Spread Prediction (ATS)**
+   - Regression: predict margin of victory
+   - Compare to betting spread
+   - Key data: efficiency differential, historical ATS
+
+3. **Over/Under Prediction**
+   - Regression: predict total points
+   - Compare to betting total
+   - Key data: tempo, offensive/defensive efficiency
+
+4. **Underdog Value Bets**
+   - Identify underdogs with >expected probability
+   - Key data: efficiency vs seed, recent form
+
+## Storage Structure
+
 ```
-
-### 7. Player Stats
-For tracking key player performance.
-
-```python
-def fetch_player_stats(year: int):
-    """Fetch player season stats."""
-    with get_api_client() as api_client:
-        stats_api = cfbd.StatsApi(api_client)
-        return stats_api.get_player_season_stats(year=year)
+data_files/
+├── raw/
+│   ├── games_2024.json
+│   ├── lines_2024.json
+│   └── efficiency_2024.json
+├── processed/
+│   ├── training_data.csv
+│   └── betting_features.csv
+└── cache/
 ```
-
-## Data Collection Priorities
-
-| Priority | Data Set | Years | Use Case |
-|----------|----------|-------|----------|
-| High | Games | 10 | Win/loss, scores |
-| High | Advanced Stats | 10 | Efficiency metrics |
-| High | Ratings (SP+, Elo) | 10 | Team strength |
-| Medium | Team Stats | 10 | Traditional stats |
-| Medium | Recruiting | 10 | Talent evaluation |
-| Low | Betting Lines | 5 | Market expectations |
-| Low | Player Stats | 5 | Key player impact |
-
-## Storage Recommendations
-- Store raw JSON in `data_files/raw/`
-- Store processed CSV/Parquet in `data_files/processed/`
-- Use year-based naming: `games_2024.json`, `stats_2024.csv`
 
 ## Next Steps
-- See `roadmap-features.md` for feature engineering
-- See `roadmap-modeling.md` for model building
+- See `roadmap-betting-features.md` for feature engineering
+- See `roadmap-betting-models.md` for model approaches

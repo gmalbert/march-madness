@@ -1,0 +1,334 @@
+"""
+March Madness Data Collection and API Testing
+
+This module handles data collection from the College Basketball Data API
+for March Madness betting predictions.
+"""
+
+import os
+import json
+from pathlib import Path
+from typing import List, Dict, Optional
+import cbbd
+from cbbd.rest import ApiException
+
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # python-dotenv not installed
+
+# Configuration - check for various possible environment variable names
+API_KEY = (os.environ.get("CBBD_API_KEY") or 
+           os.environ.get("COLLEGE_BASKETBALL_API_KEY") or
+           os.environ.get("COLLEGE_BASKETBALL_DATA_API_KEY"))
+
+if not API_KEY:
+    raise ValueError(
+        "API key not found. Set one of these environment variables:\n"
+        "  CBBD_API_KEY\n"
+        "  COLLEGE_BASKETBALL_API_KEY\n"
+        "  COLLEGE_BASKETBALL_DATA_API_KEY\n"
+        "Get your API key from https://collegebasketballdata.com/"
+    )
+
+configuration = cbbd.Configuration(
+    host="https://api.collegebasketballdata.com",
+    access_token=API_KEY
+)
+
+# Cache directory
+DATA_DIR = Path("data_files")
+CACHE_DIR = DATA_DIR / "cache"
+CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def get_api_client():
+    """Returns a configured API client."""
+    return cbbd.ApiClient(configuration)
+
+
+def cache_data(filename: str, data: List) -> None:
+    """Save data to cache file."""
+    filepath = CACHE_DIR / f"{filename}.json"
+    with open(filepath, "w") as f:
+        # Convert objects to dict if they have to_dict method
+        if data and hasattr(data[0], 'to_dict'):
+            json.dump([item.to_dict() for item in data], f, indent=2, default=str)
+        else:
+            json.dump(data, f, indent=2, default=str)
+    print(f"Cached {len(data)} items to {filepath}")
+
+
+def load_cached(filename: str) -> Optional[List]:
+    """Load data from cache if exists, or from bundled historical data."""
+    filepath = CACHE_DIR / f"{filename}.json"
+    if filepath.exists():
+        with open(filepath, "r") as f:
+            return json.load(f)
+    
+    # Check bundled historical data
+    bundled_path = DATA_DIR / "historical_data.json.gz"
+    if bundled_path.exists():
+        import gzip
+        with gzip.open(bundled_path, "rt") as f:
+            data = json.load(f)
+        if filename in data:
+            return data[filename]
+    
+    return None
+
+
+def fetch_games(year: int, season_type: str = "regular") -> List:
+    """Fetch games for a given year and season type."""
+    cache_filename = f"games_{year}_{season_type}"
+
+    # Check cache first
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} games from cache for {year} {season_type}")
+        return cached
+
+    with get_api_client() as api_client:
+        games_api = cbbd.GamesApi(api_client)
+        try:
+            games = games_api.get_games(season=year, season_type=season_type)
+            cache_data(cache_filename, games)
+            print(f"Fetched {len(games)} games for {year} {season_type}")
+            return games
+        except ApiException as e:
+            print(f"Error fetching games: {e}")
+            return []
+
+
+def fetch_tournament_games(year: int) -> List:
+    """Fetch March Madness tournament games specifically."""
+    return fetch_games(year, season_type="postseason")
+
+
+def fetch_betting_lines(year: int, season_type: str = "postseason") -> List:
+    """Fetch betting lines including spreads, over/unders, moneylines."""
+    cache_filename = f"lines_{year}_{season_type}"
+
+    # Check cache first
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} betting lines from cache for {year} {season_type}")
+        return cached
+
+    with get_api_client() as api_client:
+        lines_api = cbbd.LinesApi(api_client)
+        try:
+            # Try without parameters first to see what works
+            lines = lines_api.get_lines()
+            cache_data(cache_filename, lines)
+            print(f"Fetched {len(lines)} betting lines")
+            return lines
+        except ApiException as e:
+            print(f"Error fetching betting lines: {e}")
+            return []
+
+
+def fetch_team_stats(year: int) -> List:
+    """Fetch team season statistics."""
+    cache_filename = f"team_stats_{year}"
+
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} team stats from cache for {year}")
+        return cached
+
+    with get_api_client() as api_client:
+        stats_api = cbbd.StatsApi(api_client)
+        try:
+            stats = stats_api.get_team_season_stats(season=year)
+            cache_data(cache_filename, stats)
+            print(f"Fetched {len(stats)} team stats for {year}")
+            return stats
+        except ApiException as e:
+            print(f"Error fetching team stats: {e}")
+            return []
+
+
+def fetch_adjusted_efficiency(year: int) -> List:
+    """Fetch adjusted efficiency ratings (KenPom-style metrics)."""
+    cache_filename = f"efficiency_{year}"
+
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} efficiency ratings from cache for {year}")
+        return cached
+
+    with get_api_client() as api_client:
+        ratings_api = cbbd.RatingsApi(api_client)
+        try:
+            # Try without year parameter first
+            efficiency = ratings_api.get_adjusted_efficiency()
+            cache_data(cache_filename, efficiency)
+            print(f"Fetched {len(efficiency)} efficiency ratings")
+            return efficiency
+        except ApiException as e:
+            print(f"Error fetching efficiency ratings: {e}")
+            return []
+
+
+def test_api_connection() -> bool:
+    """Test basic API connection by fetching current year teams."""
+    try:
+        with get_api_client() as api_client:
+            teams_api = cbbd.TeamsApi(api_client)
+            teams = teams_api.get_teams()
+            print(f"✅ API connection successful! Found {len(teams)} teams.")
+            return True
+    except Exception as e:
+        print(f"❌ API connection failed: {e}")
+        return False
+
+
+def test_betting_lines() -> bool:
+    """Test fetching betting lines."""
+    try:
+        # Try to get lines for postseason
+        lines = fetch_betting_lines(2024, "postseason")
+        if lines:
+            print(f"✅ Betting lines fetch successful! Found {len(lines)} games with lines.")
+            # Show sample
+            if lines:
+                sample = lines[0]
+                print(f"Sample game: {sample['homeTeam']} vs {sample['awayTeam']}")
+                if sample.get('lines') and len(sample['lines']) > 0:
+                    line = sample['lines'][0]
+                    print(f"  Spread: {line.get('spread', 'N/A')}")
+                    print(f"  Over/Under: {line.get('overUnder', 'N/A')}")
+                    print(f"  Home Moneyline: {line.get('homeMoneyline', 'N/A')}")
+            return True
+        else:
+            print("⚠️  No betting lines found (may be expected for future tournaments)")
+            return True
+    except Exception as e:
+        print(f"❌ Betting lines fetch failed: {e}")
+        return False
+
+
+def test_efficiency_ratings() -> bool:
+    """Test fetching efficiency ratings."""
+    try:
+        efficiency = fetch_adjusted_efficiency(2024)
+        if efficiency:
+            print(f"✅ Efficiency ratings fetch successful! Found {len(efficiency)} teams.")
+            # Show sample
+            if efficiency:
+                sample = efficiency[0]
+                if isinstance(sample, dict):
+                    print(f"Sample team: {sample.get('team', 'Unknown')}")
+                    print(f"  Adj Offense: {sample.get('adjOffense', 'N/A')}")
+                    print(f"  Adj Defense: {sample.get('adjDefense', 'N/A')}")
+                else:
+                    print(f"Sample team: {getattr(sample, 'team', 'Unknown')}")
+                    print(f"  Adj Offense: {getattr(sample, 'adj_offense', 'N/A')}")
+                    print(f"  Adj Defense: {getattr(sample, 'adj_defense', 'N/A')}")
+            return True
+        else:
+            print("⚠️  No efficiency ratings found")
+            return False
+    except Exception as e:
+        print(f"❌ Efficiency ratings fetch failed: {e}")
+        return False
+
+
+def collect_historical_betting_data(start_year: int, end_year: int):
+    """Collect all data needed for betting model training."""
+    print(f"Collecting data from {start_year} to {end_year}...")
+    
+    # Note: Betting lines API doesn't filter by year, so we get all available
+    # We'll need to filter by date in post-processing
+    
+    # Get all available betting lines
+    lines = fetch_betting_lines(2024, "all")  # Year parameter ignored
+    print(f"Available betting lines: {len(lines)}")
+    
+    # Get efficiency ratings (current season)
+    efficiency = fetch_adjusted_efficiency(2024)
+    print(f"Efficiency ratings: {len(efficiency)}")
+    
+    # For historical games, we'll need to fetch by year
+    for year in range(start_year, end_year + 1):
+        print(f"Processing {year}...")
+        
+        # Regular season games
+        reg_games = fetch_games(year, "regular")
+        print(f"  Regular season games: {len(reg_games)}")
+        
+        # Tournament games
+        tourn_games = fetch_tournament_games(year)
+        print(f"  Tournament games: {len(tourn_games)}")
+        
+        # Team stats
+        team_stats = fetch_team_stats(year)
+        print(f"  Team stats: {len(team_stats)}")
+    
+    print("Data collection complete!")
+
+
+def collect_historical_betting_data(start_year: int, end_year: int):
+    """Collect all data needed for betting model training."""
+    for year in range(start_year, end_year + 1):
+        print(f"Collecting {year} data...")
+
+        # Core data
+        games = fetch_games(year)
+        cache_data(f"games_{year}", games)
+
+        tournament = fetch_tournament_games(year)
+        cache_data(f"tournament_{year}", tournament)
+
+        # Betting lines
+        lines = fetch_betting_lines(year, "postseason")
+        cache_data(f"lines_tournament_{year}", lines)
+
+        # Team stats
+        stats = fetch_team_stats(year)
+        cache_data(f"team_stats_{year}", stats)
+
+        # Ratings
+        efficiency = fetch_adjusted_efficiency(year)
+        cache_data(f"efficiency_{year}", efficiency)
+
+        print(f"  {year} complete")
+
+
+if __name__ == "__main__":
+    print("🔍 Testing CBBD API Connection...")
+    print("=" * 50)
+
+    # Test basic connection
+    api_ok = test_api_connection()
+    print()
+
+    if api_ok:
+        # Test betting lines
+        lines_ok = test_betting_lines()
+        print()
+
+        # Test efficiency ratings
+        efficiency_ok = test_efficiency_ratings()
+        print()
+
+        # Summary
+        print("=" * 50)
+        print("API Test Summary:")
+        print(f"  Connection: {'✅' if api_ok else '❌'}")
+        print(f"  Betting Lines: {'✅' if lines_ok else '❌'}")
+        print(f"  Efficiency Ratings: {'✅' if efficiency_ok else '❌'}")
+
+        if api_ok and lines_ok and efficiency_ok:
+            print("\n🎉 All API tests passed! Ready to collect data.")
+            
+            # Test data collection function
+            print("\n🔄 Testing data collection function...")
+            collect_historical_betting_data(2023, 2023)  # Test with one year
+        else:
+            print("\n⚠️  Some tests failed. Check your API key and network connection.")
+    else:
+        print("❌ Cannot proceed without API connection. Check your CBBD_API_KEY environment variable.")

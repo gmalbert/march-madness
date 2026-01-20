@@ -137,6 +137,10 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# Data and cache files
+data_files/cache/
+data_files/cache/*.json
+
 # Environments
 .env
 .envrc
@@ -208,3 +212,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Test files
+predictions_ui.py

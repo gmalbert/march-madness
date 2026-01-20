@@ -37,6 +37,13 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'spread_random_forest.joblib'),
             'linear': joblib.load(MODEL_DIR / 'spread_linear_regression.joblib')
         }
+        # Load scaler for linear regression
+        try:
+            models['spread_scalers'] = {
+                'linear': joblib.load(MODEL_DIR / 'spread_linear_regression_scaler.joblib')
+            }
+        except:
+            models['spread_scalers'] = {}
     except:
         st.error("Spread models not found. Please run model training first.")
         models['spread'] = None
@@ -48,6 +55,13 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'total_random_forest.joblib'),
             'linear': joblib.load(MODEL_DIR / 'total_linear_regression.joblib')
         }
+        # Load scaler for linear regression
+        try:
+            models['total_scalers'] = {
+                'linear': joblib.load(MODEL_DIR / 'total_linear_regression_scaler.joblib')
+            }
+        except:
+            models['total_scalers'] = {}
     except:
         st.error("Total models not found. Please run model training first.")
         models['total'] = None
@@ -59,6 +73,13 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'moneyline_random_forest.joblib'),
             'logistic': joblib.load(MODEL_DIR / 'moneyline_logistic_regression.joblib')
         }
+        # Load scaler for logistic regression
+        try:
+            models['moneyline_scalers'] = {
+                'logistic': joblib.load(MODEL_DIR / 'moneyline_logistic_regression_scaler.joblib')
+            }
+        except:
+            models['moneyline_scalers'] = {}
     except:
         st.error("Moneyline models not found. Please run model training first.")
         models['moneyline'] = None
@@ -124,80 +145,209 @@ def sort_games_by_date(games: List) -> List:
 
     return sorted(games, key=get_game_datetime, reverse=True)
 
-def get_upcoming_games() -> List[Dict]:
-    """Get games for analysis - shows recent games since upcoming games may not be scheduled yet."""
+@st.cache_data(ttl=3600)
+def load_espn_games() -> pd.DataFrame:
+    """Load ESPN game data from CSV."""
+    espn_file = DATA_DIR / "espn_cbb_current_season.csv"
+    if espn_file.exists():
+        return pd.read_csv(espn_file)
+    return pd.DataFrame()
+
+def normalize_team_name(espn_name: str) -> str:
+    """Convert ESPN team name to CBBD format.
+    ESPN uses 'Michigan Wolverines', CBBD uses 'Michigan'.
+    """
+    # Common patterns: remove mascots/nicknames
+    # Split on space and take first part(s) that aren't mascots
+    mascots = [
+        'Wolverines', 'Hoosiers', 'Cyclones', 'Knights', 'Gators', 'Tigers',
+        'Wolfpack', 'Dukes', 'Billikens', 'Flashes', 'RedHawks', 'Ducks',
+        'Spartans', 'Bears', 'Raiders', 'Razorbacks', 'Commodores', 'Bulldogs',
+        'Bruins', 'Boilermakers', 'Buffaloes', 'Jayhawks', 'Wildcats', 'Aggies',
+        'Huskies', 'Tar Heels', 'Blue Devils', 'Cardinals', 'Sooners', 'Longhorns',
+        'Crimson Tide', 'Volunteers', 'Gamecocks', 'Rebels', 'Broncos', 'Cougars',
+        'Panthers', 'Eagles', 'Owls', 'Rams', 'Bulls', 'Golden Knights', 'Mean Green',
+        'Thundering Herd', 'Miners', 'Roadrunners', 'Hilltoppers', 'Golden Flashes'
+    ]
+    
+    # Handle special cases
+    special_cases = {
+        'Miami (FL)': 'Miami',
+        'Miami (OH)': 'Miami (OH)',
+        'NC State': 'North Carolina State',
+        'UCF': 'UCF',
+        'UCLA': 'UCLA',
+        'USC': 'USC',
+        'LSU': 'LSU',
+        'TCU': 'TCU',
+        'SMU': 'SMU',
+        'BYU': 'BYU',
+        'VCU': 'VCU',
+        'UNLV': 'UNLV',
+    }
+    
+    if espn_name in special_cases:
+        return special_cases[espn_name]
+    
+    # Remove mascot from end
+    parts = espn_name.split()
+    if len(parts) > 1 and parts[-1] in mascots:
+        return ' '.join(parts[:-1])
+    
+    return espn_name
+
+@st.cache_data(ttl=3600)
+def get_team_data(season: int = 2025):
+    """Fetch team stats and efficiency ratings for specified season with fallback to previous seasons."""
+    # Try current season first, then fall back to previous seasons
+    for s in [season, season-1, season-2]:
+        try:
+            efficiency_list = fetch_adjusted_efficiency(s)
+            stats_list = fetch_team_stats(s)
+            if efficiency_list and stats_list:
+                return efficiency_list, stats_list, s
+        except:
+            continue
+    return [], [], None
+
+def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, season_used) -> Optional[Dict]:
+    """Combine ESPN game data with CBBD stats and efficiency ratings."""
     try:
-        # For January 2026, we're in the 2025-2026 season
-        current_year = 2026  # API uses the end year of the season
+        home_team_espn = game_row['home_team']
+        away_team_espn = game_row['away_team']
+        
+        # Normalize team names to match CBBD format
+        home_team = normalize_team_name(home_team_espn)
+        away_team = normalize_team_name(away_team_espn)
+        
+        # Find matching efficiency and stats (CBBD returns dicts, not objects)
+        home_eff = next((e for e in efficiency_list if e.get('team') == home_team), None)
+        away_eff = next((e for e in efficiency_list if e.get('team') == away_team), None)
+        home_stats_obj = next((s for s in stats_list if s.get('team') == home_team), None)
+        away_stats_obj = next((s for s in stats_list if s.get('team') == away_team), None)
+        
+        # Skip game if we don't have data for both teams
+        if not (home_eff and away_eff and home_stats_obj and away_stats_obj):
+            return None
+        
+        # Create efficiency dicts (we already verified these exist above)
+        home_eff_dict = {
+            'offensiveRating': home_eff.get('offensiveRating', 100),
+            'defensiveRating': home_eff.get('defensiveRating', 100),
+            'netRating': home_eff.get('netRating', 0)
+        }
+        
+        away_eff_dict = {
+            'offensiveRating': away_eff.get('offensiveRating', 100),
+            'defensiveRating': away_eff.get('defensiveRating', 100),
+            'netRating': away_eff.get('netRating', 0)
+        }
+        
+        # Create stats dicts (we already verified these exist above)
+        def extract_stats(stats_dict):
+            team_stats = stats_dict.get('teamStats', {})
+            opp_stats = stats_dict.get('opponentStats', {})
+            four_factors = team_stats.get('fourFactors', {})
+            field_goals = team_stats.get('fieldGoals', {})
+            three_pt_fg = team_stats.get('threePointFieldGoals', {})
+            games = stats_dict.get('games', 32)
+            
+            return {
+                'ppg': team_stats.get('points', {}).get('total', 2240) / games,
+                'pace': stats_dict.get('pace', 70),
+                'efg_pct': four_factors.get('effectiveFieldGoalPct', 48.0) / 100.0,
+                'to_rate': four_factors.get('turnoverRatio', 0.15),
+                'orb_pct': four_factors.get('offensiveReboundPct', 30.0) / 100.0,
+                'ft_rate': four_factors.get('freeThrowRate', 30.0) / 100.0,
+                'opp_ppg': opp_stats.get('points', {}).get('total', 2240) / games,
+                'fg_pct': field_goals.get('pct', 44.0) / 100.0,
+                'three_pct': three_pt_fg.get('pct', 33.0) / 100.0
+            }
+        
+        home_stats_dict = extract_stats(home_stats_obj)
+        away_stats_dict = extract_stats(away_stats_obj)
+        
+        return {
+            'home_team': home_team_espn,  # Use ESPN name for display
+            'away_team': away_team_espn,  # Use ESPN name for display
+            'home_eff': home_eff_dict,
+            'away_eff': away_eff_dict,
+            'home_stats': home_stats_dict,
+            'away_stats': away_stats_dict,
+            'betting_spread': None,  # ESPN doesn't provide betting lines
+            'betting_over_under': None,
+            'game_date': game_row.get('date', ''),
+            'status': game_row.get('status', ''),
+            'venue': game_row.get('venue', ''),
+            'neutral_site': game_row.get('neutral_site', False),
+            'home_rank': game_row.get('home_rank'),
+            'away_rank': game_row.get('away_rank'),
+            'season_used': season_used  # Track which season data we used
+        }
+    except Exception as e:
+        return None
 
-        # Try to fetch both postseason and regular season games
-        all_games = []
-        postseason_games = fetch_games(current_year, "postseason")
-        regular_games = fetch_games(current_year, "regular")
-
-        all_games.extend(postseason_games)
-        all_games.extend(regular_games)
-
-        st.info(f"Found {len(postseason_games)} postseason games and {len(regular_games)} regular season games")
-
-        if not all_games:
-            st.warning("No games found for the current season. Using sample data.")
+def get_upcoming_games() -> List[Dict]:
+    """Get games from ESPN data and enrich with CBBD stats for predictions."""
+    try:
+        # Load ESPN games
+        espn_df = load_espn_games()
+        
+        if espn_df.empty:
+            st.warning("No ESPN game data found. Run fetch_espn_cbb_scores.py first.")
             return get_sample_games()
-
-        # Check for upcoming games
+        
+        # Get team data from CBBD (uses most recent available season)
+        with st.spinner("Fetching team stats from recent seasons..."):
+            efficiency_list, stats_list, season_used = get_team_data(2025)
+        
+        if not efficiency_list or not stats_list:
+            st.error("Could not fetch team data from CBBD API.")
+            return get_sample_games()
+        
+        st.success(f"Using {season_used} season data for predictions")
+        
+        # Filter for upcoming or recent games
         eastern = pytz.timezone('US/Eastern')
         now = datetime.now(eastern)
-        upcoming_games = []
-
-        for game in all_games:
-            if isinstance(game, dict):
-                start_date_str = game.get('startDate') or game.get('start_date')
-            else:
-                start_date_str = getattr(game, 'startDate', None) or getattr(game, 'start_date', None)
-
-            if start_date_str:
-                try:
-                    game_datetime = date_parser.parse(start_date_str)
-                    game_datetime_et = game_datetime.astimezone(eastern)
-                    if game_datetime_et > now:
-                        upcoming_games.append(game)
-                except:
-                    pass
-
-        if upcoming_games:
-            st.success(f"Found {len(upcoming_games)} upcoming games!")
-            # Sort upcoming games by date
-            games_to_show = sort_games_by_date(upcoming_games)[:20]
+        
+        # Convert date column to datetime
+        espn_df['date_dt'] = pd.to_datetime(espn_df['date'])
+        
+        # Separate upcoming and recent games
+        upcoming = espn_df[espn_df['date_dt'] > pd.Timestamp.now(tz='UTC')].copy()
+        recent = espn_df[espn_df['date_dt'] <= pd.Timestamp.now(tz='UTC')].copy()
+        
+        # Prioritize upcoming games, but show recent if none upcoming
+        if len(upcoming) > 0:
+            st.success(f"Found {len(upcoming)} upcoming games!")
+            games_to_process = upcoming.sort_values('date_dt').head(20)
         else:
-            st.info("No upcoming games found. This may be because:")
-            st.info("• College basketball season may be between conference tournaments")
-            st.info("• March Madness hasn't started yet (typically March)")
-            st.info("• Showing recent games for analysis instead")
-            # Since we're in January 2026, most games are already played
-            # Show recent games (last 20) for analysis
-            games_to_show = all_games[-20:] if len(all_games) >= 20 else all_games
-
-        # Convert API game objects to our expected format
-        formatted_games = []
-        for game in games_to_show:
-            try:
-                formatted_game = format_game_data(game)
-                if formatted_game:
-                    # Include the original game object for date access
-                    formatted_game['_original_game'] = game
-                    formatted_games.append(formatted_game)
-                else:
-                    pass  # Silently skip games that can't be formatted
-            except Exception as e:
-                pass  # Silently skip games with formatting errors
-
-        st.info(f"Successfully formatted {len(formatted_games)} games")
-
-        return formatted_games if formatted_games else get_sample_games()
-
+            st.info("No upcoming games scheduled. Showing recent games for analysis.")
+            games_to_process = recent.sort_values('date_dt', ascending=False).head(20)
+        
+        # Enrich games with CBBD data
+        enriched_games = []
+        skipped_count = 0
+        for idx, game_row in games_to_process.iterrows():
+            enriched = enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, season_used)
+            if enriched:
+                enriched_games.append(enriched)
+            else:
+                skipped_count += 1
+        
+        if skipped_count > 0:
+            st.info(f"Skipped {skipped_count} games due to missing team data in {season_used} season")
+        
+        if not enriched_games:
+            st.warning("Could not enrich games with team stats. Using sample data.")
+            return get_sample_games()
+        
+        st.info(f"Prepared {len(enriched_games)} games with team stats for predictions")
+        return enriched_games
+        
     except Exception as e:
-        st.error(f"Error fetching games: {e}")
-        st.info("Falling back to sample data.")
+        st.error(f"Error loading games: {e}")
         return get_sample_games()
 
 def get_sample_games() -> List[Dict]:
@@ -381,8 +531,8 @@ def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_ef
     avg_tempo = (home_team.get("pace", 0) + away_team.get("pace", 0)) / 2
     combined_ppg = home_team.get("ppg", 0) + away_team.get("ppg", 0)
     combined_opp_ppg = home_team.get("opp_ppg", 0) + away_team.get("opp_ppg", 0)
-    combined_fg_pct = home_team.get("fg_pct", 0) + away_team.get("fg_pct", 0)
-    combined_3pt_pct = home_team.get("three_pct", 0) + away_team.get("three_pct", 0)
+    combined_fg_pct = home_team.get("fg_pct", 0.44) + away_team.get("fg_pct", 0.44)
+    combined_3pt_pct = home_team.get("three_pct", 0.33) + away_team.get("three_pct", 0.33)
 
     # Projected total
     projected_total = (avg_off_eff + avg_def_eff) / 2 * (avg_tempo / 100) * 0.8
@@ -421,54 +571,144 @@ def make_predictions(game_data: Dict, models: Dict) -> Dict:
 
     predictions = {}
 
+    # Define feature names that match training data
+    spread_feature_names = [
+        'off_eff_diff', 'def_eff_diff', 'net_eff_diff',
+        'spread_net_rating_diff', 'spread_off_rating_diff', 'spread_def_rating_diff',
+        'spread_ppg_diff', 'spread_opp_ppg_diff', 'spread_margin_diff',
+        'spread_efg_diff', 'spread_to_rate_diff', 'spread_orb_diff', 'spread_ft_rate_diff'
+    ]
+    
+    total_feature_names = [
+        'total_combined_off_eff', 'total_combined_def_eff', 'total_avg_off_eff', 'total_avg_def_eff',
+        'total_combined_tempo', 'total_avg_tempo', 'total_combined_ppg', 'total_combined_opp_ppg',
+        'total_combined_fg_pct', 'total_combined_3pt_pct', 'total_projected_total'
+    ]
+
     # Spread predictions
     if models.get('spread'):
         spread_preds = []
+        # Convert to DataFrame with proper column names
+        spread_df = pd.DataFrame([features['spread']], columns=spread_feature_names)
+        scalers = models.get('spread_scalers', {})
+        
         for model_name, model in models['spread'].items():
-            pred = model.predict([features['spread']])[0]
-            spread_preds.append(pred)
+            try:
+                # Apply scaler if available (for linear regression)
+                if model_name in scalers:
+                    scaled_df = scalers[model_name].transform(spread_df)
+                    pred = model.predict(scaled_df)[0]
+                else:
+                    pred = model.predict(spread_df)[0]
+                spread_preds.append(pred)
+            except Exception as e:
+                print(f"Error predicting spread with {model_name}: {e}")
 
-        predictions['spread'] = {
-            'prediction': np.mean(spread_preds),
-            'range': f"{min(spread_preds):.1f} to {max(spread_preds):.1f}",
-            'models': spread_preds
-        }
+        if spread_preds:
+            predictions['spread'] = {
+                'prediction': np.mean(spread_preds),
+                'range': f"{min(spread_preds):.1f} to {max(spread_preds):.1f}",
+                'models': spread_preds
+            }
 
     # Total predictions
     if models.get('total'):
         total_preds = []
+        # Convert to DataFrame with proper column names
+        total_df = pd.DataFrame([features['total']], columns=total_feature_names)
+        scalers = models.get('total_scalers', {})
+        
         for model_name, model in models['total'].items():
-            pred = model.predict([features['total']])[0]
-            total_preds.append(pred)
+            try:
+                # Apply scaler if available (for linear regression)
+                if model_name in scalers:
+                    scaled_df = scalers[model_name].transform(total_df)
+                    pred = model.predict(scaled_df)[0]
+                else:
+                    pred = model.predict(total_df)[0]
+                total_preds.append(pred)
+            except Exception as e:
+                print(f"Error predicting total with {model_name}: {e}")
 
-        predictions['total'] = {
-            'prediction': np.mean(total_preds),
-            'range': f"{min(total_preds):.1f} to {max(total_preds):.1f}",
-            'models': total_preds
-        }
+        if total_preds:
+            predictions['total'] = {
+                'prediction': np.mean(total_preds),
+                'range': f"{min(total_preds):.1f} to {max(total_preds):.1f}",
+                'models': total_preds
+            }
 
     # Moneyline predictions
     if models.get('moneyline'):
         moneyline_preds = []
+        # Use same features as spread
+        moneyline_df = pd.DataFrame([features['moneyline']], columns=spread_feature_names)
+        scalers = models.get('moneyline_scalers', {})
+        
         for model_name, model in models['moneyline'].items():
-            pred_proba = model.predict_proba([features['moneyline']])[0]
-            home_win_prob = pred_proba[1]  # Probability of home win (class 1)
-            moneyline_preds.append(home_win_prob)
+            try:
+                # Apply scaler if available (for logistic regression)
+                if model_name in scalers:
+                    scaled_df = scalers[model_name].transform(moneyline_df)
+                    pred_proba = model.predict_proba(scaled_df)[0]
+                else:
+                    pred_proba = model.predict_proba(moneyline_df)[0]
+                home_win_prob = pred_proba[1]  # Probability of home win (class 1)
+                moneyline_preds.append(home_win_prob)
+            except Exception as e:
+                print(f"Error predicting moneyline with {model_name}: {e}")
 
-        avg_prob = np.mean(moneyline_preds)
-        predictions['moneyline'] = {
-            'home_win_prob': avg_prob,
-            'away_win_prob': 1 - avg_prob,
-            'prediction': 'Home' if avg_prob > 0.5 else 'Away',
-            'confidence': f"{max(avg_prob, 1-avg_prob):.1%}",
-            'models': moneyline_preds
-        }
+        if moneyline_preds:
+            avg_prob = np.mean(moneyline_preds)
+            predictions['moneyline'] = {
+                'home_win_prob': avg_prob,
+                'away_win_prob': 1 - avg_prob,
+                'prediction': 'Home' if avg_prob > 0.5 else 'Away',
+                'confidence': f"{max(avg_prob, 1-avg_prob):.1%}",
+                'models': moneyline_preds
+            }
 
     return predictions
 
 def render_game_prediction(game: Dict, predictions: Dict):
     """Render a game prediction card."""
-    st.subheader(f"🏀 {game['away_team']} @ {game['home_team']}")
+    # Show game header with rankings if available
+    home_rank_str = f" (#{int(game['home_rank'])})" if game.get('home_rank') else ""
+    away_rank_str = f" (#{int(game['away_rank'])})" if game.get('away_rank') else ""
+    
+    st.subheader(f"🏀 {game['away_team']}{away_rank_str} @ {game['home_team']}{home_rank_str}")
+    
+    # Show which season's data is being used
+    if game.get('season_used'):
+        st.caption(f"📊 Using {game['season_used']} season statistics")
+    
+    # Show game details
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        if game.get('game_date'):
+            try:
+                game_dt = pd.to_datetime(game['game_date'])
+                # Check if time is midnight (00:00:00), which means time is TBD
+                if game_dt.hour == 0 and game_dt.minute == 0:
+                    st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y')} (Time TBD)")
+                else:
+                    st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y %I:%M %p ET')}")
+            except:
+                st.caption(f"📅 {game.get('game_date', 'TBD')}")
+        else:
+            st.caption("📅 Date TBD")
+    with col2:
+        if game.get('venue'):
+            neutral = " (Neutral)" if game.get('neutral_site') else ""
+            st.caption(f"📍 {game['venue']}{neutral}")
+    with col3:
+        if game.get('status'):
+            status = game['status']
+            if status == 'STATUS_SCHEDULED':
+                st.caption("⏱️ Upcoming")
+            elif status == 'STATUS_FINAL':
+                st.caption("✅ Final")
+            else:
+                st.caption(f"📊 {status}")
 
     # Show actual score if available
     actual_home = game.get('actual_home_score')
@@ -488,12 +728,19 @@ def render_game_prediction(game: Dict, predictions: Dict):
         st.markdown("**Spread Prediction**")
         if 'spread' in predictions:
             pred = predictions['spread']
-            betting_spread = game.get('betting_spread', 'N/A')
+            betting_spread = game.get('betting_spread')
+            
+            # Format spread with team name
+            spread_val = pred['prediction']
+            if spread_val < 0:
+                spread_display = f"{game['home_team']} {spread_val:.1f}"
+            else:
+                spread_display = f"{game['away_team']} +{spread_val:.1f}"
 
             st.metric(
-                label=f"Predicted Spread ({betting_spread if betting_spread is not None else 'N/A'})",
-                value=f"{pred['prediction']:.1f}",
-                delta=f"{pred['prediction'] - betting_spread:.1f}" if betting_spread is not None and isinstance(betting_spread, (int, float)) else None
+                label="Predicted Spread" + (f" (Line: {betting_spread:.1f})" if betting_spread else ""),
+                value=spread_display,
+                delta=f"{abs(pred['prediction'] - betting_spread):.1f} pts difference" if betting_spread else None
             )
 
             if actual_home is not None and actual_away is not None:
@@ -506,27 +753,29 @@ def render_game_prediction(game: Dict, predictions: Dict):
                 else:
                     st.error(f"❌ Missed (Off by {abs(spread_diff):.1f} pts)")
 
-            if betting_spread is not None and isinstance(betting_spread, (int, float)) and abs(pred['prediction'] - betting_spread) > 3:
+            if betting_spread and abs(pred['prediction'] - betting_spread) > 3:
                 st.success("🎯 Potential Value Bet!")
-            elif betting_spread is not None and isinstance(betting_spread, (int, float)) and abs(pred['prediction'] - betting_spread) < 1:
-                st.warning("⚠️ Close to line")
-                st.warning("⚠️ Close to line")
+            elif betting_spread and abs(pred['prediction'] - betting_spread) < 1:
+                st.info("📊 Aligned with line")
 
     with col2:
-        st.markdown("**Total Prediction**")
+        st.markdown("**Total Prediction (Combined Score)**")
         if 'total' in predictions:
             pred = predictions['total']
-            betting_total = game.get('betting_over_under', 'N/A')
+            betting_total = game.get('betting_over_under')
+            
+            # Ensure total is positive (it's a combined score)
+            total_val = abs(pred['prediction'])
 
             st.metric(
-                label=f"Predicted Total ({betting_total if betting_total is not None else 'N/A'})",
-                value=f"{pred['prediction']:.1f}",
-                delta=f"{pred['prediction'] - betting_total:.1f}" if betting_total is not None and isinstance(betting_total, (int, float)) else None
+                label="Total Points (Both Teams)" + (f" - O/U Line: {betting_total:.1f}" if betting_total else ""),
+                value=f"{total_val:.1f} pts",
+                delta=f"{total_val - betting_total:.1f} pts difference" if betting_total else None
             )
 
             if actual_home is not None and actual_away is not None:
                 actual_total = actual_home + actual_away
-                total_diff = pred['prediction'] - actual_total
+                total_diff = total_val - actual_total
                 if abs(total_diff) <= 5:
                     st.success(f"✅ Accurate! (Off by {abs(total_diff):.1f} pts)")
                 elif abs(total_diff) <= 10:
@@ -570,7 +819,7 @@ def main():
     st.image("data_files/logo.png", width=250)
 
     st.title("🏀 Bracket Oracle - March Madness Predictions")
-    st.markdown("*AI-powered betting predictions using efficiency ratings and team statistics*")
+    # st.markdown("*AI-powered betting predictions using efficiency ratings and team statistics*")
 
     # Load models
     models = load_models()
@@ -581,8 +830,8 @@ def main():
     st.sidebar.metric("Total MAE", "11.58 pts")
     st.sidebar.metric("Moneyline Accuracy", "71.1%")
 
-    st.sidebar.header("Season Status")
-    st.sidebar.info("January 2026 - Regular season completed. March Madness begins in March.")
+    st.sidebar.header("Data Source")
+    st.sidebar.info("Using 2025 season statistics. Predictions based on team performance patterns from historical data.")
 
     # Get upcoming games
     games = get_upcoming_games()
@@ -600,9 +849,18 @@ def main():
     # Game selector with date/time
     game_options = []
     for game in games:
-        # Get the date/time from the original game object
-        original_game = game.get('_original_game')
-        date_str = format_game_datetime(original_game) if original_game else "Date TBD"
+        # Format date from game_date field
+        if game.get('game_date'):
+            try:
+                game_dt = pd.to_datetime(game['game_date'])
+                if game_dt.hour == 0 and game_dt.minute == 0:
+                    date_str = game_dt.strftime('%a, %b %d (Time TBD)')
+                else:
+                    date_str = game_dt.strftime('%a, %b %d %I:%M %p')
+            except:
+                date_str = "Date TBD"
+        else:
+            date_str = "Date TBD"
         game_options.append(f"{game['away_team']} @ {game['home_team']} - {date_str}")
 
     selected_game_idx = st.selectbox(
@@ -624,8 +882,17 @@ def main():
     # Show all games in an expander
     with st.expander("📅 View All Available Games"):
         for i, game in enumerate(games):
-            original_game = game.get('_original_game')
-            date_str = format_game_datetime(original_game) if original_game else "Date TBD"
+            if game.get('game_date'):
+                try:
+                    game_dt = pd.to_datetime(game['game_date'])
+                    if game_dt.hour == 0 and game_dt.minute == 0:
+                        date_str = game_dt.strftime('%a, %b %d (Time TBD)')
+                    else:
+                        date_str = game_dt.strftime('%a, %b %d %I:%M %p')
+                except:
+                    date_str = "Date TBD"
+            else:
+                date_str = "Date TBD"
             game_display = f"{game['away_team']} @ {game['home_team']} - {date_str}"
 
             if i == selected_game_idx:

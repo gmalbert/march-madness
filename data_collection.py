@@ -298,37 +298,214 @@ def collect_historical_betting_data(start_year: int, end_year: int):
         print(f"  {year} complete")
 
 
-if __name__ == "__main__":
-    print("🔍 Testing CBBD API Connection...")
-    print("=" * 50)
+# Implementation of roadmap functions
 
-    # Test basic connection
-    api_ok = test_api_connection()
-    print()
-
-    if api_ok:
-        # Test betting lines
-        lines_ok = test_betting_lines()
-        print()
-
-        # Test efficiency ratings
-        efficiency_ok = test_efficiency_ratings()
-        print()
-
-        # Summary
-        print("=" * 50)
-        print("API Test Summary:")
-        print(f"  Connection: {'✅' if api_ok else '❌'}")
-        print(f"  Betting Lines: {'✅' if lines_ok else '❌'}")
-        print(f"  Efficiency Ratings: {'✅' if efficiency_ok else '❌'}")
-
-        if api_ok and lines_ok and efficiency_ok:
-            print("\n🎉 All API tests passed! Ready to collect data.")
-            
-            # Test data collection function
-            print("\n🔄 Testing data collection function...")
-            collect_historical_betting_data(2023, 2023)  # Test with one year
+def fetch_all_tournament_games(start_year: int = 2016, end_year: int = 2025) -> List[Dict]:
+    """Fetch all March Madness tournament games across multiple years."""
+    all_games = []
+    for year in range(start_year, end_year + 1):
+        print(f"Fetching tournament games for {year}...")
+        games = fetch_tournament_games(year)
+        if games:
+            # Add year to each game for tracking
+            for game in games:
+                if isinstance(game, dict):
+                    game['season_year'] = year
+                else:
+                    # Handle object format
+                    game.season_year = year
+            all_games.extend(games)
+            print(f"  Found {len(games)} games for {year}")
         else:
-            print("\n⚠️  Some tests failed. Check your API key and network connection.")
+            print(f"  No games found for {year}")
+    
+    print(f"Total tournament games collected: {len(all_games)}")
+    return all_games
+
+
+def fetch_historical_lines(start_year: int = 2016, end_year: int = 2025) -> List[Dict]:
+    """Fetch historical betting lines for tournament games across multiple years."""
+    all_lines = []
+    for year in range(start_year, end_year + 1):
+        print(f"Fetching betting lines for {year}...")
+        lines = fetch_betting_lines(year, "postseason")
+        if lines:
+            # Add year to each line for tracking
+            for line in lines:
+                if isinstance(line, dict):
+                    line['season_year'] = year
+                else:
+                    # Handle object format
+                    line.season_year = year
+            all_lines.extend(lines)
+            print(f"  Found {len(lines)} lines for {year}")
+        else:
+            print(f"  No lines found for {year}")
+    
+    print(f"Total betting lines collected: {len(all_lines)}")
+    return all_lines
+
+
+def fetch_team_season_data(year: int) -> List[Dict]:
+    """Fetch comprehensive team stats for a season (alias for fetch_team_stats)."""
+    return fetch_team_stats(year)
+
+
+def fetch_efficiency_ratings(year: int) -> List[Dict]:
+    """Fetch adjusted efficiency ratings for a season (alias for fetch_adjusted_efficiency)."""
+    return fetch_adjusted_efficiency(year)
+
+
+def fetch_rankings(year: int, week: int = None) -> List[Dict]:
+    """Fetch poll rankings for a given year and optional week."""
+    cache_filename = f"rankings_{year}" + (f"_week_{week}" if week else "_all")
+
+    # Check cache first
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} rankings from cache for {year}" + (f" week {week}" if week else ""))
+        return cached
+
+    with get_api_client() as api_client:
+        rankings_api = cbbd.RankingsApi(api_client)
+        try:
+            if week:
+                rankings = rankings_api.get_rankings(season=year, week=week)
+            else:
+                rankings = rankings_api.get_rankings(season=year)
+            cache_data(cache_filename, rankings)
+            print(f"Fetched {len(rankings)} rankings for {year}" + (f" week {week}" if week else ""))
+            return rankings
+        except ApiException as e:
+            print(f"Error fetching rankings: {e}")
+            return []
+
+
+def collect_comprehensive_betting_data(start_year: int = 2016, end_year: int = 2025):
+    """Collect all data sets needed for comprehensive betting model training."""
+    print(f"🔄 Collecting comprehensive betting data from {start_year} to {end_year}")
+    print("=" * 60)
+
+    # 1. Tournament games with results
+    print("\n🏀 Collecting tournament games...")
+    tournament_games = fetch_all_tournament_games(start_year, end_year)
+    print(f"✅ Collected {len(tournament_games)} tournament games")
+
+    # 2. Historical betting lines
+    print("\n💰 Collecting betting lines...")
+    betting_lines = fetch_historical_lines(start_year, end_year)
+    print(f"✅ Collected {len(betting_lines)} betting lines")
+
+    # 3. Team season statistics
+    print("\n📊 Collecting team season statistics...")
+    team_stats_data = {}
+    for year in range(start_year, end_year + 1):
+        stats = fetch_team_season_data(year)
+        team_stats_data[year] = stats
+        print(f"  {year}: {len(stats)} teams")
+    total_team_stats = sum(len(stats) for stats in team_stats_data.values())
+    print(f"✅ Collected {total_team_stats} team stat records")
+
+    # 4. Efficiency ratings
+    print("\n⚡ Collecting efficiency ratings...")
+    efficiency_data = {}
+    for year in range(start_year, end_year + 1):
+        efficiency = fetch_efficiency_ratings(year)
+        efficiency_data[year] = efficiency
+        print(f"  {year}: {len(efficiency)} teams")
+    total_efficiency = sum(len(eff) for eff in efficiency_data.values())
+    print(f"✅ Collected {total_efficiency} efficiency ratings")
+
+    # 5. Rankings (optional - get final rankings for each season)
+    print("\n🏆 Collecting final rankings...")
+    rankings_data = {}
+    for year in range(start_year, end_year + 1):
+        rankings = fetch_rankings(year)  # Get all rankings for the season
+        rankings_data[year] = rankings
+        print(f"  {year}: {len(rankings)} ranking entries")
+    total_rankings = sum(len(rankings) for rankings in rankings_data.values())
+    print(f"✅ Collected {total_rankings} ranking entries")
+
+    print("\n" + "=" * 60)
+    print("📋 Data Collection Summary:")
+    print(f"  Tournament Games: {len(tournament_games)}")
+    print(f"  Betting Lines: {len(betting_lines)}")
+    print(f"  Team Statistics: {total_team_stats}")
+    print(f"  Efficiency Ratings: {total_efficiency}")
+    print(f"  Rankings: {total_rankings}")
+    print("\n🎯 Ready for model training!")
+
+    return {
+        'tournament_games': tournament_games,
+        'betting_lines': betting_lines,
+        'team_stats': team_stats_data,
+        'efficiency_ratings': efficiency_data,
+        'rankings': rankings_data
+    }
+
+
+if __name__ == "__main__":
+    import sys
+    
+    if len(sys.argv) > 1 and sys.argv[1] == "--collect":
+        print("🚀 Starting comprehensive data collection (2016-2025)...")
+        collect_comprehensive_betting_data(2016, 2025)
     else:
-        print("❌ Cannot proceed without API connection. Check your CBBD_API_KEY environment variable.")
+        # Run API tests
+        print("🔍 Testing CBBD API Connection...")
+        print("=" * 50)
+
+        # Test basic connection
+        api_ok = test_api_connection()
+        print()
+
+        if api_ok:
+            # Test betting lines
+            lines_ok = test_betting_lines()
+            print()
+
+            # Test efficiency ratings
+            efficiency_ok = test_efficiency_ratings()
+            print()
+
+            # Test new comprehensive data collection functions
+            print("🧪 Testing comprehensive data collection functions...")
+            print("-" * 50)
+
+            # Test individual functions
+            print("Testing fetch_all_tournament_games...")
+            try:
+                games_2024 = fetch_all_tournament_games(2024, 2024)
+                print(f"✅ fetch_all_tournament_games: {len(games_2024)} games")
+            except Exception as e:
+                print(f"❌ fetch_all_tournament_games failed: {e}")
+
+            print("Testing fetch_historical_lines...")
+            try:
+                lines_2024 = fetch_historical_lines(2024, 2024)
+                print(f"✅ fetch_historical_lines: {len(lines_2024)} lines")
+            except Exception as e:
+                print(f"❌ fetch_historical_lines failed: {e}")
+
+            print("Testing fetch_rankings...")
+            try:
+                rankings_2024 = fetch_rankings(2024)
+                print(f"✅ fetch_rankings: {len(rankings_2024)} rankings")
+            except Exception as e:
+                print(f"❌ fetch_rankings failed: {e}")
+
+            # Summary
+            print("=" * 50)
+            print("API Test Summary:")
+            print(f"  Connection: {'✅' if api_ok else '❌'}")
+            print(f"  Betting Lines: {'✅' if lines_ok else '❌'}")
+            print(f"  Efficiency Ratings: {'✅' if efficiency_ok else '❌'}")
+
+            if api_ok and lines_ok and efficiency_ok:
+                print("\n🎉 All API tests passed! Ready to collect data.")
+                print("\n🔄 To run comprehensive data collection (2016-2025), run:")
+                print("    python data_collection.py --collect")
+            else:
+                print("\n⚠️  Some tests failed. Check your API key and network connection.")
+        else:
+            print("❌ Cannot proceed without API connection. Check your CBBD_API_KEY environment variable.")

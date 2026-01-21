@@ -31,15 +31,32 @@ def extract_team_stats(team_stats: dict) -> dict:
     team_stats_data = team_stats.get("teamStats", {})
     opp_stats_data = team_stats.get("opponentStats", {})
 
+    # Safely extract values with defaults
+    efg_pct = team_stats_data.get("fourFactors", {}).get("effectiveFieldGoalPct")
+    efg_pct = efg_pct / 100 if efg_pct is not None else 0
+
+    to_rate = team_stats_data.get("fourFactors", {}).get("turnoverRatio", 0)
+    orb_pct = team_stats_data.get("fourFactors", {}).get("offensiveReboundPct")
+    orb_pct = orb_pct / 100 if orb_pct is not None else 0
+
+    ft_rate = team_stats_data.get("fourFactors", {}).get("freeThrowRate")
+    ft_rate = ft_rate / 100 if ft_rate is not None else 0
+
+    fg_pct = team_stats_data.get("fieldGoals", {}).get("pct")
+    fg_pct = fg_pct / 100 if fg_pct is not None else 0
+
+    three_pct = team_stats_data.get("threePointFieldGoals", {}).get("pct")
+    three_pct = three_pct / 100 if three_pct is not None else 0
+
     return {
         "ppg": team_stats_data.get("points", {}).get("total", 0) / games,
         "pace": team_stats.get("pace", 0),
-        "efg_pct": team_stats_data.get("fourFactors", {}).get("effectiveFieldGoalPct", 0) / 100,  # Convert to decimal
-        "to_rate": team_stats_data.get("fourFactors", {}).get("turnoverRatio", 0),
-        "orb_pct": team_stats_data.get("fourFactors", {}).get("offensiveReboundPct", 0) / 100,
-        "ft_rate": team_stats_data.get("fourFactors", {}).get("freeThrowRate", 0) / 100,
-        "fg_pct": team_stats_data.get("fieldGoals", {}).get("pct", 0) / 100,
-        "three_pct": team_stats_data.get("threePointFieldGoals", {}).get("pct", 0) / 100,
+        "efg_pct": efg_pct,
+        "to_rate": to_rate,
+        "orb_pct": orb_pct,
+        "ft_rate": ft_rate,
+        "fg_pct": fg_pct,
+        "three_pct": three_pct,
         "opp_ppg": opp_stats_data.get("points", {}).get("total", 0) / games,
     }
 
@@ -162,59 +179,177 @@ def create_game_features(game: dict, efficiency_data: List[dict], team_stats_loo
         print(f"Error processing game {game.get('gameId')}: {e}")
         return None
 
-def build_training_dataset(year: int) -> pd.DataFrame:
-    """Build complete training dataset for a given year."""
-    print(f"Building training dataset for {year}...")
+def build_weighted_training_dataset(start_year: int = 2016, end_year: int = 2025, tournament_weight: float = 5.0) -> pd.DataFrame:
+    """Build weighted training dataset combining regular season and tournament games."""
+    print(f"Building weighted training dataset from {start_year} to {end_year}...")
+    print(f"Tournament games weighted {tournament_weight}x more than regular season games")
 
-    # Load data
-    games = load_cached_data(f"games_{year}_regular")
-    # Use most recent efficiency ratings (they're updated throughout the season)
-    efficiency = load_cached_data("efficiency_2024")
-    team_stats = load_cached_data(f"team_stats_{year}")
+    all_features = []
 
-    if not games or not efficiency:
-        print(f"Missing data for {year} - games: {len(games) if games else 0}, efficiency: {len(efficiency) if efficiency else 0}")
-        return pd.DataFrame()
+    for year in range(start_year, end_year + 1):
+        print(f"Processing {year}...")
 
-    # Create team stats lookup dictionary
-    team_stats_lookup = {}
-    if team_stats:
-        for team in team_stats:
-            team_name = team.get("team")
-            if team_name:
-                team_stats_lookup[team_name] = extract_team_stats(team)
+        # Load efficiency data (use most recent)
+        efficiency = load_cached_data("efficiency_2024")
 
-    print(f"Loaded stats for {len(team_stats_lookup)} teams")
+        if not efficiency:
+            print(f"  Skipping {year} - no efficiency data")
+            continue
 
-    # Create features for each game
-    feature_list = []
-    for game in games:
-        features = create_game_features(game, efficiency, team_stats_lookup)
-        if features:
-            feature_list.append(features)
+        # Create team stats lookup
+        team_stats = load_cached_data(f"team_stats_{year}")
+        team_stats_lookup = {}
+        if team_stats:
+            for team in team_stats:
+                team_name = team.get("team")
+                if team_name:
+                    team_stats_lookup[team_name] = extract_team_stats(team)
+
+        # Process regular season games (limit to keep dataset manageable)
+        reg_games = load_cached_data(f"games_{year}_regular")
+        reg_count = 0
+        if reg_games:
+            for game in reg_games[:500]:  # Sample 500 regular season games per year
+                game['season'] = year
+                game['seasonType'] = 'regular'
+                features = create_game_features(game, efficiency, team_stats_lookup)
+                if features:
+                    features['sample_weight'] = 1.0  # Regular season weight
+                    features['game_type'] = 'regular'
+                    all_features.append(features)
+                    reg_count += 1
+
+        # Process tournament games
+        tour_games = load_cached_data(f"games_{year}_postseason")
+        tour_count = 0
+        if tour_games:
+            for game in tour_games:
+                game['season'] = year
+                game['seasonType'] = 'postseason'
+                features = create_game_features(game, efficiency, team_stats_lookup)
+                if features:
+                    features['sample_weight'] = tournament_weight  # Tournament weight
+                    features['game_type'] = 'tournament'
+                    all_features.append(features)
+                    tour_count += 1
+
+        print(f"  Added {reg_count} regular season, {tour_count} tournament games")
 
     # Convert to DataFrame
-    df = pd.DataFrame(feature_list)
+    df = pd.DataFrame(all_features)
 
-    print(f"Created dataset with {len(df)} games and {len(df.columns)} features")
+    if not df.empty:
+        print(f"✅ Weighted dataset created: {len(df)} games, {len(df.columns)} features")
+        print(f"   Years covered: {sorted(df['season'].unique())}")
+        print(f"   Game types: {df['game_type'].value_counts().to_dict()}")
+        print(f"   Weight distribution: Regular={1.0}, Tournament={tournament_weight}")
+        print(f"   Total effective weight: {df['sample_weight'].sum():.1f}")
+
+        # Save to CSV
+        output_path = DATA_DIR / "training_data_weighted.csv"
+        df.to_csv(output_path, index=False)
+        print(f"   Saved to {output_path}")
+
+    return df
+
+def build_tournament_training_dataset(start_year: int = 2016, end_year: int = 2025) -> pd.DataFrame:
+    """Build training dataset specifically from tournament games."""
+    print(f"Building tournament training dataset from {start_year} to {end_year}...")
+
+    all_features = []
+
+    for year in range(start_year, end_year + 1):
+        print(f"Processing tournament {year}...")
+
+        # Load tournament games and betting lines
+        tournament_games = load_cached_data(f"games_{year}_postseason")
+        betting_lines = load_cached_data(f"lines_{year}_postseason")
+        efficiency = load_cached_data("efficiency_2024")  # Use most recent efficiency ratings
+        team_stats = load_cached_data(f"team_stats_{year}")
+
+        if not tournament_games:
+            print(f"  Skipping {year} - no tournament games")
+            continue
+
+        # Create team stats lookup dictionary
+        team_stats_lookup = {}
+        if team_stats:
+            for team in team_stats:
+                team_name = team.get("team")
+                if team_name:
+                    team_stats_lookup[team_name] = extract_team_stats(team)
+
+        # Create betting lines lookup by game ID
+        lines_lookup = {}
+        if betting_lines:
+            for line in betting_lines:
+                game_id = line.get("gameId") or line.get("id")
+                if game_id:
+                    lines_lookup[game_id] = line
+
+        print(f"  Loaded {len(tournament_games)} tournament games, {len(lines_lookup)} betting lines, stats for {len(team_stats_lookup)} teams")
+
+        # Create features for each tournament game
+        year_features = []
+        for game in tournament_games:
+            game_id = game.get("id") or game.get("gameId")
+            features = create_game_features(game, efficiency, team_stats_lookup)
+
+            # Add betting line data if available
+            if game_id and game_id in lines_lookup:
+                line = lines_lookup[game_id]
+                features.update({
+                    "betting_spread": line.get("spread"),
+                    "betting_over_under": line.get("overUnder"),
+                    "home_moneyline": line.get("homeMoneyline"),
+                    "away_moneyline": line.get("awayMoneyline"),
+                })
+
+            if features:
+                year_features.append(features)
+
+        all_features.extend(year_features)
+        print(f"  Added {len(year_features)} tournament games from {year}")
+
+    # Convert to DataFrame
+    df = pd.DataFrame(all_features)
+
+    if not df.empty:
+        print(f"✅ Tournament dataset created: {len(df)} games, {len(df.columns)} features")
+        print(f"   Years covered: {sorted(df['season'].unique())}")
+        print(f"   Games with betting data: {df['betting_spread'].notna().sum()}")
+
+        # Save to CSV
+        output_path = DATA_DIR / "training_data_tournament.csv"
+        df.to_csv(output_path, index=False)
+        print(f"   Saved to {output_path}")
 
     return df
 
 if __name__ == "__main__":
-    # Test feature engineering
-    print("🧪 Testing feature engineering...")
+    # Build weighted training dataset (regular season + tournament with higher tournament weight)
+    print("🏀 Building weighted training dataset (2016-2025)...")
+    print("Regular season + Tournament games (tournament weighted 5x more)")
 
-    # Build dataset for 2023
-    df = build_training_dataset(2023)
+    df = build_weighted_training_dataset(2016, 2025, tournament_weight=5.0)
 
     if not df.empty:
-        print(f"✅ Dataset created: {df.shape}")
-        print("Sample features:")
-        print(df.head())
+        print("\n✅ Weighted dataset summary:")
+        print(f"   Total games: {len(df)}")
+        print(f"   Years: {sorted(df['season'].unique())}")
+        print(f"   Features: {len(df.columns)}")
+        print(f"   Game breakdown: {df['game_type'].value_counts().to_dict()}")
+        print(f"   Weight distribution: Regular=1.0, Tournament=5.0")
+        print(f"   Effective sample size: {df['sample_weight'].sum():.0f} (vs raw {len(df)})")
+        print(f"   Games with results: {df['actual_spread'].notna().sum()}")
 
-        # Save to CSV
-        output_path = DATA_DIR / "training_data_2023.csv"
-        df.to_csv(output_path, index=False)
-        print(f"Saved to {output_path}")
+        # Show sample
+        print("\nSample games:")
+        sample_reg = df[df['game_type'] == 'regular'].head(2)
+        sample_tour = df[df['game_type'] == 'tournament'].head(2)
+        for _, row in pd.concat([sample_reg, sample_tour]).iterrows():
+            weight = row.get('sample_weight', 1.0)
+            spread = row.get('actual_spread', 'N/A')
+            print(f"  {row['game_type'].title()}: {row['home_team']} vs {row['away_team']} (weight: {weight}, spread: {spread})")
     else:
-        print("❌ Failed to create dataset")
+        print("❌ Failed to create weighted dataset")

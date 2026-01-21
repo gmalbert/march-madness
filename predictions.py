@@ -167,7 +167,14 @@ def normalize_team_name(espn_name: str) -> str:
         'Huskies', 'Tar Heels', 'Blue Devils', 'Cardinals', 'Sooners', 'Longhorns',
         'Crimson Tide', 'Volunteers', 'Gamecocks', 'Rebels', 'Broncos', 'Cougars',
         'Panthers', 'Eagles', 'Owls', 'Rams', 'Bulls', 'Golden Knights', 'Mean Green',
-        'Thundering Herd', 'Miners', 'Roadrunners', 'Hilltoppers', 'Golden Flashes'
+        'Thundering Herd', 'Miners', 'Roadrunners', 'Hilltoppers', 'Golden Flashes',
+        'Bearcats', 'Fighting Illini', 'Terrapins', 'Cornhuskers', 'Waves'
+    ]
+    
+    # Multi-word mascots that need special handling
+    multi_word_mascots = [
+        'Tar Heels', 'Blue Devils', 'Fighting Irish', 'Golden Flashes', 'Red Raiders',
+        'Golden Knights', 'Thundering Herd', 'Crimson Tide', 'Mean Green', 'Fighting Illini'
     ]
     
     # Handle special cases
@@ -175,6 +182,8 @@ def normalize_team_name(espn_name: str) -> str:
         'Miami (FL)': 'Miami',
         'Miami (OH)': 'Miami (OH)',
         'NC State': 'North Carolina State',
+        'Kent State Golden Flashes': 'Kent State',
+        'Texas Tech Red Raiders': 'Texas Tech',
         'UCF': 'UCF',
         'UCLA': 'UCLA',
         'USC': 'USC',
@@ -189,7 +198,12 @@ def normalize_team_name(espn_name: str) -> str:
     if espn_name in special_cases:
         return special_cases[espn_name]
     
-    # Remove mascot from end
+    # Check for multi-word mascots first
+    for mascot in multi_word_mascots:
+        if espn_name.endswith(' ' + mascot):
+            return espn_name[:-len(' ' + mascot)].strip()
+    
+    # Remove single-word mascot from end
     parts = espn_name.split()
     if len(parts) > 1 and parts[-1] in mascots:
         return ' '.join(parts[:-1])
@@ -538,28 +552,14 @@ def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_ef
     projected_total = (avg_off_eff + avg_def_eff) / 2 * (avg_tempo / 100) * 0.8
 
     return {
-        # Spread features
-        'spread': [
-            off_eff_diff, def_eff_diff, net_eff_diff,
-            net_eff_diff, off_eff_diff, def_eff_diff,  # Duplicated for the model format
-            ppg_diff, opp_ppg_diff, margin_diff,
-            efg_diff, to_rate_diff, orb_diff, ft_rate_diff
-        ],
+        # Spread features (only the 3 features used in training)
+        'spread': [off_eff_diff, def_eff_diff, net_eff_diff],
 
-        # Total features
-        'total': [
-            combined_off_eff, combined_def_eff, avg_off_eff, avg_def_eff,
-            combined_tempo, avg_tempo, combined_ppg, combined_opp_ppg,
-            combined_fg_pct, combined_3pt_pct, projected_total
-        ],
+        # Total features (only the 3 features used in training)
+        'total': [off_eff_diff, def_eff_diff, net_eff_diff],
 
-        # Moneyline features (same as spread)
-        'moneyline': [
-            off_eff_diff, def_eff_diff, net_eff_diff,
-            net_eff_diff, off_eff_diff, def_eff_diff,
-            ppg_diff, opp_ppg_diff, margin_diff,
-            efg_diff, to_rate_diff, orb_diff, ft_rate_diff
-        ]
+        # Moneyline features (only the 3 features used in training)
+        'moneyline': [off_eff_diff, def_eff_diff, net_eff_diff]
     }
 
 def make_predictions(game_data: Dict, models: Dict) -> Dict:
@@ -571,19 +571,10 @@ def make_predictions(game_data: Dict, models: Dict) -> Dict:
 
     predictions = {}
 
-    # Define feature names that match training data
-    spread_feature_names = [
-        'off_eff_diff', 'def_eff_diff', 'net_eff_diff',
-        'spread_net_rating_diff', 'spread_off_rating_diff', 'spread_def_rating_diff',
-        'spread_ppg_diff', 'spread_opp_ppg_diff', 'spread_margin_diff',
-        'spread_efg_diff', 'spread_to_rate_diff', 'spread_orb_diff', 'spread_ft_rate_diff'
-    ]
-    
-    total_feature_names = [
-        'total_combined_off_eff', 'total_combined_def_eff', 'total_avg_off_eff', 'total_avg_def_eff',
-        'total_combined_tempo', 'total_avg_tempo', 'total_combined_ppg', 'total_combined_opp_ppg',
-        'total_combined_fg_pct', 'total_combined_3pt_pct', 'total_projected_total'
-    ]
+    # Define feature names that match training data (only the 3 features used)
+    spread_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+    total_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+    moneyline_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
 
     # Spread predictions
     if models.get('spread'):
@@ -826,9 +817,47 @@ def main():
 
     # Sidebar
     st.sidebar.header("Model Performance")
-    st.sidebar.metric("Spread MAE", "11.25 pts")
-    st.sidebar.metric("Total MAE", "11.58 pts")
-    st.sidebar.metric("Moneyline Accuracy", "71.1%")
+    
+    # Load real metrics from training
+    import json
+    spread_metrics = {}
+    total_metrics = {}
+    moneyline_metrics = {}
+    
+    try:
+        with open(MODEL_DIR / "spread_metrics.json", 'r') as f:
+            spread_metrics = json.load(f)
+    except:
+        pass
+    
+    try:
+        with open(MODEL_DIR / "total_metrics.json", 'r') as f:
+            total_metrics = json.load(f)
+    except:
+        pass
+    
+    try:
+        with open(MODEL_DIR / "moneyline_metrics.json", 'r') as f:
+            moneyline_metrics = json.load(f)
+    except:
+        pass
+    
+    # Display metrics with real values or fallbacks
+    spread_mae = spread_metrics.get('mae', 11.25)
+    total_mae = total_metrics.get('mae', 11.58)
+    moneyline_acc = moneyline_metrics.get('accuracy', 0.711)
+    
+    st.sidebar.metric("Spread MAE", f"{spread_mae:.2f} pts")
+    st.sidebar.metric("Total MAE", f"{total_mae:.2f} pts")
+    st.sidebar.metric("Moneyline Accuracy", f"{moneyline_acc:.1%}")
+    
+    # Show metric ranges if available
+    if spread_metrics.get('mae_range'):
+        st.sidebar.caption(f"Spread range: {spread_metrics['mae_range']}")
+    if total_metrics.get('mae_range'):
+        st.sidebar.caption(f"Total range: {total_metrics['mae_range']}")
+    if moneyline_metrics.get('accuracy_range'):
+        st.sidebar.caption(f"Moneyline range: {moneyline_metrics['accuracy_range']}")
 
     st.sidebar.header("Data Source")
     st.sidebar.info("Using 2025 season statistics. Predictions based on team performance patterns from historical data.")

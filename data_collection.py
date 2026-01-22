@@ -107,8 +107,12 @@ def fetch_tournament_games(year: int) -> List:
     return fetch_games(year, season_type="postseason")
 
 
-def fetch_betting_lines(year: int, season_type: str = "postseason") -> List:
-    """Fetch betting lines including spreads, over/unders, moneylines."""
+def fetch_betting_lines(year: int, season_type: str = "regular") -> List:
+    """Fetch betting lines including spreads, over/unders, moneylines.
+    
+    Uses date range filtering to get all games (regular season has 6000+ games,
+    which exceeds the 3000 game API pagination limit).
+    """
     cache_filename = f"lines_{year}_{season_type}"
 
     # Check cache first
@@ -120,10 +124,51 @@ def fetch_betting_lines(year: int, season_type: str = "postseason") -> List:
     with get_api_client() as api_client:
         lines_api = cbbd.LinesApi(api_client)
         try:
-            # Try without parameters first to see what works
-            lines = lines_api.get_lines()
+            from datetime import datetime
+            
+            if season_type == "postseason":
+                # Tournament games: March Madness proper
+                # Selection Sunday is typically second Sunday in March
+                # Championship is first Monday in April
+                start_date = datetime(year, 3, 14)
+                end_date = datetime(year, 4, 10)
+                
+                lines = lines_api.get_lines(
+                    season=year,
+                    start_date_range=start_date,
+                    end_date_range=end_date
+                )
+                
+            else:
+                # Regular season: ~6000 games, exceeds 3000 limit
+                # Fetch in chunks: Nov-Dec, Jan-Feb, Early March
+                print(f"Fetching regular season in chunks to bypass 3000-game limit...")
+                
+                # Season year maps to academic year (e.g., 2023 = 2022-23 season)
+                chunks = [
+                    (datetime(year - 1, 11, 1), datetime(year - 1, 12, 31)),  # Nov-Dec
+                    (datetime(year, 1, 1), datetime(year, 2, 28)),            # Jan-Feb
+                    (datetime(year, 3, 1), datetime(year, 3, 13)),            # Early March
+                ]
+                
+                all_lines = []
+                for start, end in chunks:
+                    chunk = lines_api.get_lines(
+                        season=year,
+                        start_date_range=start,
+                        end_date_range=end
+                    )
+                    all_lines.extend(chunk)
+                    print(f"  {start.strftime('%b %Y')}-{end.strftime('%b %Y')}: {len(chunk)} games")
+                
+                lines = all_lines
+            
             cache_data(cache_filename, lines)
-            print(f"Fetched {len(lines)} betting lines")
+            
+            # Count how many have actual betting lines
+            with_lines = [g for g in lines if g.lines and len(g.lines) > 0]
+            print(f"Fetched {len(lines)} games for {year} {season_type}, {len(with_lines)} with betting lines")
+            
             return lines
         except ApiException as e:
             print(f"Error fetching betting lines: {e}")

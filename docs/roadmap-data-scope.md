@@ -167,10 +167,10 @@ def fetch_rankings(year: int, week: int = None):
    - Key data: tempo, offensive/defensive efficiency
    - *Status: ✅ Implemented - 16.58 MAE (15.03-17.38 range)*
 
-4. **❌ Underdog Value Bets**
+4. **✅ Underdog Value Bets**
    - Identify underdogs with >expected probability
    - Key data: efficiency vs seed, recent form
-   - *Status: ❌ Not specifically implemented*
+   - *Status: ✅ Implemented - Automatic value detection with Kelly Criterion betting recommendations*
 
 ## Storage Structure
 
@@ -210,9 +210,12 @@ data_files/
 - Moneyline: 66.3% accuracy (63.5%-67.8% range) - trained on 25,368 games
 - Spread: 11.87 MAE (11.54-12.35 range) - trained on 25,368 games  
 - Total: 15.81 MAE (15.07-16.86 range) - trained on 25,368 games
+- **Value Bets**: Automatic underdog identification with 5%+ expected value
+  - Compares model probabilities vs. implied odds
+  - Kelly Criterion for optimal bet sizing
+  - ROI calculation and betting recommendations
 
 **⚠️ Limitations:**
 - Player-level statistics not implemented
-- Underdog value bet identification not specifically implemented
 
 **🎯 System Status:** Production-ready for tournament predictions using efficiency-based modeling

@@ -16,8 +16,14 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from data_collection import fetch_games, fetch_betting_lines, fetch_adjusted_efficiency, fetch_team_stats
-except ImportError:
-    st.error("Could not import data collection functions. Make sure data_collection.py is in the same directory.")
+    from underdog_value import (
+        identify_underdog_value, 
+        format_value_bet_display, 
+        get_betting_recommendation,
+        moneyline_to_implied_probability
+    )
+except ImportError as e:
+    st.error(f"Could not import required functions: {e}")
     st.stop()
 
 # Configuration
@@ -798,6 +804,52 @@ def render_game_prediction(game: Dict, predictions: Dict):
                     st.error("❌ Wrong winner prediction")
 
             st.caption(f"Confidence: {pred['confidence']}")
+    
+    # Check for underdog value bets
+    if 'moneyline' in predictions and game.get('home_moneyline') and game.get('away_moneyline'):
+        value_bet = identify_underdog_value(
+            game,
+            predictions['moneyline']['home_win_prob'],
+            min_ev_threshold=5.0
+        )
+        
+        if value_bet:
+            st.divider()
+            st.markdown("### 🎯 VALUE BET DETECTED!")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown(f"**{value_bet['team']}** (Underdog)")
+                st.metric("Moneyline", f"{value_bet['moneyline']:+d}")
+                st.metric("Model Probability", f"{value_bet['model_prob']:.1%}")
+                st.metric("Implied Probability", f"{value_bet['implied_prob']:.1%}")
+            
+            with col2:
+                st.metric("Edge", f"{value_bet['edge']:.1%}", delta="Positive")
+                st.metric("Expected Value (per $100)", f"${value_bet['expected_value']:.2f}")
+                st.metric("ROI", f"{value_bet['roi']:.1f}%", delta="Positive")
+            
+            # Betting recommendation
+            with st.expander("📊 Betting Recommendation"):
+                bankroll = st.number_input("Your Bankroll ($)", min_value=100, max_value=100000, value=1000, step=100)
+                kelly_fraction = st.slider("Kelly Fraction (Conservative: 0.25)", 0.1, 1.0, 0.25, 0.05)
+                
+                recommendation = get_betting_recommendation(value_bet, bankroll, kelly_fraction)
+                
+                st.markdown(f"""
+                **Recommended Bet Size**: ${recommendation['recommended_bet']:.2f} ({recommendation['kelly_percentage']:.1f}% of bankroll)
+                
+                **Potential Outcomes**:
+                - Risk: ${recommendation['risk_amount']:.2f}
+                - Win: ${recommendation['potential_profit']:.2f} profit
+                - Total Return: ${recommendation['potential_return']:.2f}
+                
+                💡 *Using fractional Kelly criterion for risk management*
+                """)
+                
+                st.warning("⚠️ This is for informational purposes only. Bet responsibly!")
+
 
 def main():
     st.set_page_config(
@@ -946,6 +998,11 @@ def main():
         - Moneyline: XGBoost, Random Forest, Logistic Regression
 
         **Training Data:** 2022 NCAA Regular Season (2,194 games)
+        
+        **Value Bet Detection:**
+        - Identifies underdogs with higher win probability than odds suggest
+        - Uses Kelly Criterion for optimal bet sizing
+        - Minimum 5% ROI threshold for value identification
         """)
 
 if __name__ == "__main__":

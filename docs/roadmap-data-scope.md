@@ -105,18 +105,36 @@ def fetch_efficiency_ratings(year: int):
 
 *Status: ✅ Implemented - 4,593 efficiency ratings (2025 season)*
 
-### 5. ❌ Rankings
-For seeding and public perception factors. **NOT IMPLEMENTED**
+### 5. ✅ Rankings
+For seeding and public perception factors. **IMPLEMENTED**
 
 ```python
 def fetch_rankings(year: int, week: int = None):
-    """Fetch poll rankings."""
+    """Fetch poll rankings for a given year and optional week."""
+    cache_filename = f"rankings_{year}" + (f"_week_{week}" if week else "_all")
+
+    # Check cache first
+    cached = load_cached(cache_filename)
+    if cached:
+        print(f"Loaded {len(cached)} rankings from cache for {year}" + (f" week {week}" if week else ""))
+        return cached
+
     with get_api_client() as api_client:
         rankings_api = cbbd.RankingsApi(api_client)
-        return rankings_api.get_rankings(year=year, week=week)
+        try:
+            if week:
+                rankings = rankings_api.get_rankings(season=year, week=week)
+            else:
+                rankings = rankings_api.get_rankings(season=year)
+            cache_data(cache_filename, rankings)
+            print(f"Fetched {len(rankings)} rankings for {year}" + (f" week {week}" if week else ""))
+            return rankings
+        except ApiException as e:
+            print(f"Error fetching rankings: {e}")
+            return []
 ```
 
-*Status: ❌ Not implemented - could enhance moneyline predictions*
+*Status: ✅ Implemented - 1,825 ranking entries (2024 season)*
 
 ## Data Priority for Betting
 
@@ -127,7 +145,7 @@ def fetch_rankings(year: int, week: int = None):
 | **P0** | ✅ Adjusted Efficiency | All | 10 | 365 D-I teams (84.3% game coverage, 15.7% skipped for D-II/III/NAIA) |
 | **P1** | ✅ Team Season Stats | Spread, O/U | 10 | 700 teams with comprehensive stats |
 | **P1** | ✅ Four Factors | All | 10 | eFG%, TO%, ORB%, FTR extracted |
-| **P2** | ❌ Rankings | Moneyline | 10 | Not implemented |
+| **P2** | ✅ Rankings | Moneyline | 10 | 1,825 ranking entries (2024 season) |
 | **P2** | ❌ Player Stats | Props | 5 | Not implemented |
 
 ## Target Prediction Types
@@ -183,6 +201,7 @@ data_files/
 - **Training dataset: 26,230 games (19,547 with betting lines) from 31,125 collected**
   - 84.3% coverage (4,877 games skipped due to missing efficiency data for D-II/III/NAIA teams)
   - Tournament games: 1,119 (weighted 5x for importance)
+- Poll rankings data collection (1,825 ranking entries for 2024 season)
 - ML model training pipeline (XGBoost, Random Forest, Linear/Logistic Regression)
 - Real-time predictions with Streamlit UI
 - Team name normalization for ESPN ↔ CBBD compatibility
@@ -193,7 +212,6 @@ data_files/
 - Total: 15.81 MAE (15.07-16.86 range) - trained on 25,368 games
 
 **⚠️ Limitations:**
-- Team rankings data not implemented (not available in CBBD API)
 - Player-level statistics not implemented
 - Underdog value bet identification not specifically implemented
 

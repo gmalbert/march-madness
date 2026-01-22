@@ -357,8 +357,10 @@ def fetch_all_tournament_games(start_year: int = 2016, end_year: int = 2025) -> 
                 if isinstance(game, dict):
                     game['season_year'] = year
                 else:
-                    # Handle object format
-                    game.season_year = year
+                    # Convert to dict and add season_year
+                    game_dict = game.to_dict() if hasattr(game, 'to_dict') else dict(game.__dict__)
+                    game_dict['season_year'] = year
+                    game = game_dict
             all_games.extend(games)
             print(f"  Found {len(games)} games for {year}")
         else:
@@ -380,8 +382,10 @@ def fetch_historical_lines(start_year: int = 2016, end_year: int = 2025) -> List
                 if isinstance(line, dict):
                     line['season_year'] = year
                 else:
-                    # Handle object format
-                    line.season_year = year
+                    # Convert to dict and add season_year
+                    line_dict = line.to_dict() if hasattr(line, 'to_dict') else dict(line.__dict__)
+                    line_dict['season_year'] = year
+                    line = line_dict
             all_lines.extend(lines)
             print(f"  Found {len(lines)} lines for {year}")
         else:

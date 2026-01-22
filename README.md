@@ -8,6 +8,8 @@ A comprehensive March Madness betting prediction system that combines historical
 - **Comprehensive Data Collection**: 10 years of historical tournament data (2016-2025)
 - **Machine Learning Models**: XGBoost, Random Forest, Linear/Logistic Regression
 - **Real-time Predictions**: Live game schedules with betting predictions
+- **Underdog Value Bets**: Automatic detection of profitable underdog opportunities
+- **Kelly Criterion Betting**: Optimal bet sizing recommendations
 - **Dual API Integration**: CBBD for historical data + ESPN for current season games
 - **Streamlit UI**: Interactive web interface for predictions
 
@@ -87,6 +89,43 @@ efficiency = fetch_efficiency_ratings(2024)
 ### Examples
 See `examples/data_collection_examples.py` for complete usage examples.
 
+## Underdog Value Bets
+
+### Finding Profitable Opportunities
+The system automatically identifies underdog betting opportunities where the model predicts a higher win probability than the betting odds suggest.
+
+```python
+from underdog_value import identify_underdog_value
+
+# Example: Model gives underdog 40% chance, but odds imply 27%
+game = {
+    'home_team': 'Kansas',
+    'away_team': 'NC State',
+    'home_moneyline': -350,
+    'away_moneyline': +275
+}
+
+home_win_prob = 0.60  # Model prediction
+value_bet = identify_underdog_value(game, home_win_prob, min_ev_threshold=5.0)
+
+if value_bet:
+    print(f"Value bet: {value_bet['team']}")
+    print(f"Edge: {value_bet['edge']:.1%}")
+    print(f"ROI: {value_bet['roi']:.1f}%")
+```
+
+### Kelly Criterion Bet Sizing
+```python
+from underdog_value import get_betting_recommendation
+
+recommendation = get_betting_recommendation(value_bet, bankroll=1000)
+print(f"Recommended bet: ${recommendation['recommended_bet']:.2f}")
+print(f"Kelly %: {recommendation['kelly_percentage']:.1f}%")
+```
+
+### Examples
+See `examples/underdog_value_examples.py` for detailed examples.
+
 ## Running Predictions
 
 ### Streamlit UI
@@ -150,6 +189,9 @@ march-madness/
 - [x] Streamlit prediction interface
 - [x] Team name normalization
 - [x] Data caching and compression
+- [x] **Underdog value bet detection**
+- [x] **Kelly Criterion bet sizing**
+- [x] **Expected value calculations**
 
 ### 🔄 Next Steps
 - [ ] Advanced betting features (road/neutral advantages)

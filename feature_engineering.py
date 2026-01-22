@@ -120,6 +120,8 @@ def calculate_total_features(home_stats: dict, away_stats: dict, home_team_eff: 
 def create_game_features(game: dict, efficiency_data: List[dict], team_stats_lookup: dict = None) -> Optional[dict]:
     """Create feature set for a single game."""
     try:
+        if game is None or not isinstance(game, dict):
+            return None
         # Find efficiency ratings for both teams
         home_team_eff = None
         away_team_eff = None
@@ -131,7 +133,14 @@ def create_game_features(game: dict, efficiency_data: List[dict], team_stats_loo
                 away_team_eff = eff
 
         if not home_team_eff or not away_team_eff:
+            print(f"  Skipping game - missing efficiency data: home={home_team_eff is not None}, away={away_team_eff is not None}")
             return None  # Skip games where we don't have efficiency data
+
+        # Debug: check for None values in efficiency data
+        # if home_team_eff.get("offensiveRating") is None or home_team_eff.get("defensiveRating") is None or home_team_eff.get("netRating") is None:
+        #     print(f"  Home team {game.get('homeTeam')} has None efficiency values: off={home_team_eff.get('offensiveRating')}, def={home_team_eff.get('defensiveRating')}, net={home_team_eff.get('netRating')}")
+        # if away_team_eff.get("offensiveRating") is None or away_team_eff.get("defensiveRating") is None or away_team_eff.get("netRating") is None:
+        #     print(f"  Away team {game.get('awayTeam')} has None efficiency values: off={away_team_eff.get('offensiveRating')}, def={away_team_eff.get('defensiveRating')}, net={away_team_eff.get('netRating')}")
 
         # Get team stats
         home_stats = team_stats_lookup.get(game.get("homeTeam"), {}) if team_stats_lookup else {}
@@ -180,7 +189,7 @@ def create_game_features(game: dict, efficiency_data: List[dict], team_stats_loo
         return None
 
 def build_weighted_training_dataset(start_year: int = 2016, end_year: int = 2025, tournament_weight: float = 5.0) -> pd.DataFrame:
-    """Build weighted training dataset combining regular season and tournament games."""
+    """Build weighted training dataset by merging betting lines with games data."""
     print(f"Building weighted training dataset from {start_year} to {end_year}...")
     print(f"Tournament games weighted {tournament_weight}x more than regular season games")
 
@@ -205,35 +214,109 @@ def build_weighted_training_dataset(start_year: int = 2016, end_year: int = 2025
                 if team_name:
                     team_stats_lookup[team_name] = extract_team_stats(team)
 
-        # Process regular season games (limit to keep dataset manageable)
-        reg_games = load_cached_data(f"games_{year}_regular")
+        # Load betting lines and games data
+        regular_lines = load_cached_data(f"lines_{year}_regular")
+        tournament_lines = load_cached_data(f"lines_{year}_postseason")
+        regular_games = load_cached_data(f"games_{year}_regular")
+        tournament_games = load_cached_data(f"games_{year}_postseason")
+
+        # Create betting lines lookup by team matchup
+        lines_lookup = {}
+        if regular_lines:
+            for game in regular_lines:
+                if game is None:
+                    continue  # Skip None games
+                if game.get('lines') and len(game['lines']) > 0:
+                    # Create lookup key using sorted team names to handle home/away ordering
+                    teams = sorted([game['homeTeam'], game['awayTeam']])
+                    key = f"{year}_{teams[0]}_{teams[1]}"
+                    lines_lookup[key] = {
+                        'home_team': game['homeTeam'],
+                        'away_team': game['awayTeam'],
+                        'line': game['lines'][0]
+                    }
+
+        if tournament_lines:
+            for game in tournament_lines:
+                if game is None:
+                    continue  # Skip None games
+                if game.get('lines') and len(game['lines']) > 0:
+                    teams = sorted([game['homeTeam'], game['awayTeam']])
+                    key = f"{year}_{teams[0]}_{teams[1]}"
+                    lines_lookup[key] = {
+                        'home_team': game['homeTeam'],
+                        'away_team': game['awayTeam'],
+                        'line': game['lines'][0]
+                    }
+
+        # Process regular season games and merge with betting lines
         reg_count = 0
-        if reg_games:
-            for game in reg_games[:500]:  # Sample 500 regular season games per year
+        if regular_games:
+            print(f"  Processing {len(regular_games)} regular games")
+            for i, game in enumerate(regular_games):
+                if game is None:
+                    print(f"  Game {i} is None, skipping")
+                    continue  # Skip None games
+                if not isinstance(game, dict):
+                    print(f"  Game {i} is not a dict: {type(game)}, value: {game}")
+                    continue
                 game['season'] = year
                 game['seasonType'] = 'regular'
                 features = create_game_features(game, efficiency, team_stats_lookup)
+
+                # Try to match with betting lines
                 if features:
+                    teams = sorted([game['homeTeam'], game['awayTeam']])
+                    key = f"{year}_{teams[0]}_{teams[1]}"
+                    if key in lines_lookup:
+                        line_data = lines_lookup[key]
+                        line = line_data['line']
+                        features.update({
+                            'betting_spread': line.get('spread'),
+                            'betting_over_under': line.get('overUnder'),
+                            'home_moneyline': line.get('homeMoneyline'),
+                            'away_moneyline': line.get('awayMoneyline'),
+                            'betting_provider': line.get('provider')
+                        })
+
                     features['sample_weight'] = 1.0  # Regular season weight
                     features['game_type'] = 'regular'
                     all_features.append(features)
                     reg_count += 1
 
-        # Process tournament games
-        tour_games = load_cached_data(f"games_{year}_postseason")
+        # Process tournament games and merge with betting lines
         tour_count = 0
-        if tour_games:
-            for game in tour_games:
+        if tournament_games:
+            print(f"  Processing {len(tournament_games)} tournament games")
+            for game in tournament_games:
+                if game is None:
+                    print(f"  Tournament game is None, skipping")
+                    continue  # Skip None games
                 game['season'] = year
                 game['seasonType'] = 'postseason'
                 features = create_game_features(game, efficiency, team_stats_lookup)
+
+                # Try to match with betting lines
                 if features:
+                    teams = sorted([game['homeTeam'], game['awayTeam']])
+                    key = f"{year}_{teams[0]}_{teams[1]}"
+                    if key in lines_lookup:
+                        line_data = lines_lookup[key]
+                        line = line_data['line']
+                        features.update({
+                            'betting_spread': line.get('spread'),
+                            'betting_over_under': line.get('overUnder'),
+                            'home_moneyline': line.get('homeMoneyline'),
+                            'away_moneyline': line.get('awayMoneyline'),
+                            'betting_provider': line.get('provider')
+                        })
+
                     features['sample_weight'] = tournament_weight  # Tournament weight
                     features['game_type'] = 'tournament'
                     all_features.append(features)
                     tour_count += 1
 
-        print(f"  Added {reg_count} regular season, {tour_count} tournament games")
+        print(f"  Added {reg_count} regular season games, {tour_count} tournament games")
 
     # Convert to DataFrame
     df = pd.DataFrame(all_features)
@@ -244,6 +327,7 @@ def build_weighted_training_dataset(start_year: int = 2016, end_year: int = 2025
         print(f"   Game types: {df['game_type'].value_counts().to_dict()}")
         print(f"   Weight distribution: Regular={1.0}, Tournament={tournament_weight}")
         print(f"   Total effective weight: {df['sample_weight'].sum():.1f}")
+        print(f"   Games with betting lines: {df['betting_spread'].notna().sum()}")
 
         # Save to CSV
         output_path = DATA_DIR / "training_data_weighted.csv"
@@ -283,6 +367,8 @@ def build_tournament_training_dataset(start_year: int = 2016, end_year: int = 20
         lines_lookup = {}
         if betting_lines:
             for line in betting_lines:
+                if line is None:
+                    continue  # Skip None lines
                 game_id = line.get("gameId") or line.get("id")
                 if game_id:
                     lines_lookup[game_id] = line
@@ -292,6 +378,8 @@ def build_tournament_training_dataset(start_year: int = 2016, end_year: int = 20
         # Create features for each tournament game
         year_features = []
         for game in tournament_games:
+            if game is None:
+                continue  # Skip None games
             game_id = game.get("id") or game.get("gameId")
             features = create_game_features(game, efficiency, team_stats_lookup)
 

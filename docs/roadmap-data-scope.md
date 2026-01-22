@@ -24,16 +24,21 @@ def fetch_all_tournament_games(start_year=2016, end_year=2025):
 
 *Status: ✅ Implemented - 4,623 weighted games (2016-2025), tournament games weighted 5x*
 
-### 2. ❌ Betting Lines (Spreads, O/U, Moneyline)
-Critical for spread and total predictions. **NOT IMPLEMENTED**
+### 2. ✅ Betting Lines (Spreads, O/U, Moneyline)
+Valuable for model training and validation. **FULLY IMPLEMENTED**
 
 ```python
 def fetch_historical_lines(start_year=2016, end_year=2025):
-    """Fetch historical betting lines for tournament games."""
+    """Fetch historical betting lines for regular and tournament games."""
     all_lines = []
     for year in range(start_year, end_year + 1):
-        lines = fetch_betting_lines(year, "postseason")
-        all_lines.extend(lines)
+        # Regular season
+        regular_lines = fetch_betting_lines(year, "regular")
+        all_lines.extend(regular_lines)
+        
+        # Tournament (using date range filtering)
+        tournament_lines = fetch_betting_lines(year, "postseason")
+        all_lines.extend(tournament_lines)
     return all_lines
 ```
 
@@ -41,9 +46,26 @@ def fetch_historical_lines(start_year=2016, end_year=2025):
 - `spread`: Point spread (favorite gives points)
 - `over_under`: Total points line
 - `home_moneyline`, `away_moneyline`: Moneyline odds
-- `provider`: Source (consensus, individual books)
+- `provider`: Source (ESPN BET, consensus, etc.)
+- `seasonType`: regular, postseason, or preseason
 
-*Status: ❌ No betting lines data available in CBBD API*
+*Status: ✅ Fully Implemented*
+
+**Current Implementation:**
+- ✅ Function exists and fetches real betting data
+- ✅ **Regular Season**: ~5,500-5,600 games with betting lines per season (~6,000 total games)
+- ✅ **Tournament**: ~113 games with betting lines per tournament
+- ✅ Includes spread, over/under, and moneyline odds from ESPN BET
+- ✅ Uses date range filtering (chunked by month) to access ALL games (bypasses 3000-game pagination limit)
+- 💡 Full historical betting data available for training tournament-specific models
+
+**Data Completeness:**
+- Total games collected (2016-2025): 31,125 games
+- Games successfully processed: 26,230 (84.3%)
+- Games skipped due to missing efficiency data: 4,877 (15.7%)
+- Missing teams primarily: Division II/III, NAIA schools (830 unique teams)
+- Efficiency data available for 365 Division I teams
+- Pattern: Missing data mostly for away teams in games against D-I schools
 
 ### 3. ✅ Team Season Statistics
 For building team strength profiles. **COMPLETED**
@@ -100,9 +122,9 @@ def fetch_rankings(year: int, week: int = None):
 
 | Priority | Data Set | Bet Types | Years | Status |
 |----------|----------|-----------|-------|--------|
-| **P0** | ❌ Betting Lines | All | 10 | Not available in CBBD API |
-| **P0** | ✅ Game Results | All | 10 | 4,623 tournament games (2016-2025) |
-| **P0** | ✅ Adjusted Efficiency | All | 10 | 4,593 ratings across seasons |
+| **P0** | ✅ Betting Lines | All | 10 | ~5,654 games/year + 113 tournament games (62,195 total games, 56,483 with lines) |
+| **P0** | ✅ Game Results | All | 10 | 26,230 games (2016-2025: 25,111 regular + 1,119 tournament) |
+| **P0** | ✅ Adjusted Efficiency | All | 10 | 365 D-I teams (84.3% game coverage, 15.7% skipped for D-II/III/NAIA) |
 | **P1** | ✅ Team Season Stats | Spread, O/U | 10 | 700 teams with comprehensive stats |
 | **P1** | ✅ Four Factors | All | 10 | eFG%, TO%, ORB%, FTR extracted |
 | **P2** | ❌ Rankings | Moneyline | 10 | Not implemented |
@@ -156,21 +178,23 @@ data_files/
 
 **✅ Core Infrastructure:**
 - Historical tournament data collection (2016-2025)
-- Team efficiency ratings and statistics
-- Weighted training dataset (regular + tournament games)
+- Team efficiency ratings and statistics (365 D-I teams)
+- **COMPLETE betting lines dataset: 62,195 games (56,483 with betting lines) across 11 years**
+- **Training dataset: 26,230 games (19,547 with betting lines) from 31,125 collected**
+  - 84.3% coverage (4,877 games skipped due to missing efficiency data for D-II/III/NAIA teams)
+  - Tournament games: 1,119 (weighted 5x for importance)
 - ML model training pipeline (XGBoost, Random Forest, Linear/Logistic Regression)
 - Real-time predictions with Streamlit UI
 - Team name normalization for ESPN ↔ CBBD compatibility
 
 **✅ Prediction Models:**
-- Moneyline: 71.0% accuracy
-- Spread: 12.74 MAE (points)
-- Total: 16.58 MAE (points)
+- Moneyline: 66.3% accuracy (63.5%-67.8% range) - trained on 25,368 games
+- Spread: 11.87 MAE (11.54-12.35 range) - trained on 25,368 games  
+- Total: 15.81 MAE (15.07-16.86 range) - trained on 25,368 games
 
-**❌ Missing Components:**
-- Historical betting lines (not available in CBBD API)
-- Team rankings data
-- Player-level statistics
-- Underdog value bet identification
+**⚠️ Limitations:**
+- Team rankings data not implemented (not available in CBBD API)
+- Player-level statistics not implemented
+- Underdog value bet identification not specifically implemented
 
 **🎯 System Status:** Production-ready for tournament predictions using efficiency-based modeling

@@ -89,6 +89,44 @@ efficiency = fetch_efficiency_ratings(2024)
 ### Examples
 See `examples/data_collection_examples.py` for complete usage examples.
 
+## Automated Data Collection
+
+### Nightly Game Updates
+The system automatically fetches current season games (both played and upcoming) every night at 2 AM ET using GitHub Actions.
+
+**What gets updated:**
+- Current season schedules (regular season, conference tournaments, NCAA tournament)
+- Game dates, teams, and venues
+- Real-time game status updates
+- **AI predictions for upcoming games** (moneyline, spread, total)
+
+**Manual trigger:**
+You can also manually run the data collection:
+```bash
+python fetch_espn_cbb_scores.py
+```
+
+**Generate predictions manually:**
+```bash
+python generate_predictions.py
+```
+
+**View predictions:**
+```bash
+python display_predictions.py
+```
+
+**Output files:**
+- `data_files/espn_cbb_current_season.csv` - Current season games
+- `data_files/upcoming_game_predictions.json` - AI predictions for upcoming games
+
+### GitHub Actions Workflow
+The automated workflow (`.github/workflows/fetch-upcoming-games.yml`):
+- Runs nightly at 2 AM Eastern Time
+- Commits changes back to the repository
+- Only commits if data has actually changed
+- Can be triggered manually from the Actions tab
+
 ## Underdog Value Bets
 
 ### Finding Profitable Opportunities

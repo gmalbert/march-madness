@@ -1,0 +1,592 @@
+[
+  {
+    "game_info": {
+      "game_id": 401828387,
+      "home_team": "St. Bonaventure Bonnies",
+      "away_team": "Saint Louis Billikens",
+      "date": "2026-01-23 22:30:00+00:00",
+      "venue": "Reilly Center",
+      "home_rank": 99,
+      "away_rank": 24,
+      "home_eff": {
+        "adj_off": 111.7,
+        "adj_def": 111.1
+      },
+      "away_eff": {
+        "adj_off": 110,
+        "adj_def": 108
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 277,
+        "team": "St. Bonaventure",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 22,
+        "losses": 12,
+        "totalMinutes": 1375,
+        "pace": 64.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 44.4,
+            "attempted": 1918,
+            "made": 852
+          },
+          "twoPointFieldGoals": {
+            "pct": 51.6,
+            "attempted": 1242,
+            "made": 641
+          },
+          "threePointFieldGoals": {
+            "pct": 31.2,
+            "attempted": 676,
+            "made": 211
+          },
+          "freeThrows": {
+            "pct": 72.9,
+            "attempted": 575,
+            "made": 419
+          },
+          "rebounds": {
+            "total": 1140,
+            "defensive": 824,
+            "offensive": 316
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 456
+          },
+          "points": {
+            "fastBreak": 385,
+            "offTurnovers": 469,
+            "inPaint": 1176,
+            "total": 2334
+          },
+          "fourFactors": {
+            "freeThrowRate": 30,
+            "offensiveReboundPct": 27.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 49.9
+          },
+          "assists": 373,
+          "blocks": 110,
+          "steals": 256,
+          "possessions": 2210,
+          "rating": 105.6,
+          "trueShooting": 53.8
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 1889,
+            "made": 798
+          },
+          "twoPointFieldGoals": {
+            "pct": 50.6,
+            "attempted": 1001,
+            "made": 507
+          },
+          "threePointFieldGoals": {
+            "pct": 32.8,
+            "attempted": 888,
+            "made": 291
+          },
+          "freeThrows": {
+            "pct": 72.1,
+            "attempted": 459,
+            "made": 331
+          },
+          "rebounds": {
+            "total": 1119,
+            "defensive": 819,
+            "offensive": 300
+          },
+          "turnovers": {
+            "teamTotal": 26,
+            "total": 425
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 6,
+            "total": 502
+          },
+          "points": {
+            "fastBreak": 288,
+            "offTurnovers": 375,
+            "inPaint": 916,
+            "total": 2218
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 26.8,
+            "turnoverRatio": 0.19,
+            "effectiveFieldGoalPct": 49.9
+          },
+          "assists": 464,
+          "blocks": 114,
+          "steals": 209,
+          "possessions": 2208,
+          "rating": 100.5,
+          "trueShooting": 53
+        }
+      },
+      "away_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 252,
+        "team": "Saint Louis",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 19,
+        "losses": 15,
+        "totalMinutes": 1390,
+        "pace": 67.2,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 47.7,
+            "attempted": 1886,
+            "made": 899
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.1,
+            "attempted": 941,
+            "made": 566
+          },
+          "threePointFieldGoals": {
+            "pct": 35.2,
+            "attempted": 945,
+            "made": 333
+          },
+          "freeThrows": {
+            "pct": 68.6,
+            "attempted": 577,
+            "made": 396
+          },
+          "rebounds": {
+            "total": 1198,
+            "defensive": 940,
+            "offensive": 258
+          },
+          "turnovers": {
+            "teamTotal": 14,
+            "total": 431
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 499
+          },
+          "points": {
+            "fastBreak": 323,
+            "offTurnovers": 376,
+            "inPaint": 1058,
+            "total": 2527
+          },
+          "fourFactors": {
+            "freeThrowRate": 30.6,
+            "offensiveReboundPct": 21.5,
+            "turnoverRatio": 0.18,
+            "effectiveFieldGoalPct": 56.5
+          },
+          "assists": 509,
+          "blocks": 105,
+          "steals": 216,
+          "possessions": 2333,
+          "rating": 108.3,
+          "trueShooting": 59
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 2117,
+            "made": 893
+          },
+          "twoPointFieldGoals": {
+            "pct": 48.1,
+            "attempted": 1286,
+            "made": 618
+          },
+          "threePointFieldGoals": {
+            "pct": 33.1,
+            "attempted": 831,
+            "made": 275
+          },
+          "freeThrows": {
+            "pct": 70.3,
+            "attempted": 515,
+            "made": 362
+          },
+          "rebounds": {
+            "total": 1186,
+            "defensive": 828,
+            "offensive": 358
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 4,
+            "total": 533
+          },
+          "points": {
+            "fastBreak": 307,
+            "offTurnovers": 480,
+            "inPaint": 1040,
+            "total": 2423
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 30.2,
+            "turnoverRatio": 0.15,
+            "effectiveFieldGoalPct": 48.7
+          },
+          "assists": 428,
+          "blocks": 107,
+          "steals": 247,
+          "possessions": 2337,
+          "rating": 103.7,
+          "trueShooting": 51.7
+        }
+      }
+    },
+    "predictions": {
+      "spread": {
+        "prediction": 18.468979442399338,
+        "range": "-15.1 to 80.0",
+        "models_used": 3
+      },
+      "spread_advanced": {
+        "prediction": -3.2703099250793457,
+        "model": "advanced"
+      },
+      "total": {
+        "prediction": 133.49192663034674,
+        "range": "100.8 to 155.3",
+        "models_used": 3
+      },
+      "total_advanced": {
+        "prediction": 142.68917846679688,
+        "model": "advanced"
+      },
+      "moneyline": {
+        "home_win_prob": 0.6516703233547473,
+        "away_win_prob": 0.3483296766452527,
+        "prediction": "Home",
+        "confidence": "65.2%",
+        "models_used": 3
+      },
+      "moneyline_advanced": {
+        "home_win_prob": 0.5920194029808045,
+        "away_win_prob": 0.40798059701919553,
+        "prediction": "Home",
+        "confidence": "59.2%",
+        "model": "advanced_calibrated"
+      }
+    },
+    "generated_at": "2026-01-23T16:36:06.261233",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825464,
+      "home_team": "Michigan Wolverines",
+      "away_team": "Ohio State Buckeyes",
+      "date": "2026-01-24 01:00:00+00:00",
+      "venue": "Crisler Center",
+      "home_rank": 3,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 114,
+        "adj_def": 110.7
+      },
+      "away_eff": {
+        "adj_off": 111,
+        "adj_def": 108
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 37,
+        "wins": 27,
+        "losses": 10,
+        "totalMinutes": 1510,
+        "pace": 67.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.8,
+            "attempted": 2160,
+            "made": 1011
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.7,
+            "attempted": 1253,
+            "made": 710
+          },
+          "threePointFieldGoals": {
+            "pct": 33.2,
+            "attempted": 907,
+            "made": 301
+          },
+          "freeThrows": {
+            "pct": 72.8,
+            "attempted": 772,
+            "made": 562
+          },
+          "rebounds": {
+            "total": 1422,
+            "defensive": 1013,
+            "offensive": 409
+          },
+          "turnovers": {
+            "teamTotal": 12,
+            "total": 517
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 634
+          },
+          "points": {
+            "fastBreak": 357,
+            "offTurnovers": 471,
+            "inPaint": 1322,
+            "total": 2885
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.7,
+            "offensiveReboundPct": 28.8,
+            "turnoverRatio": 0.2,
+            "effectiveFieldGoalPct": 53.8
+          },
+          "assists": 586,
+          "blocks": 135,
+          "steals": 198,
+          "possessions": 2543,
+          "rating": 113.4,
+          "trueShooting": 57.7
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 40.1,
+            "attempted": 2340,
+            "made": 938
+          },
+          "twoPointFieldGoals": {
+            "pct": 46,
+            "attempted": 1425,
+            "made": 656
+          },
+          "threePointFieldGoals": {
+            "pct": 30.8,
+            "attempted": 915,
+            "made": 282
+          },
+          "freeThrows": {
+            "pct": 73.1,
+            "attempted": 665,
+            "made": 486
+          },
+          "rebounds": {
+            "total": 1262,
+            "defensive": 824,
+            "offensive": 438
+          },
+          "turnovers": {
+            "teamTotal": 23,
+            "total": 417
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 686
+          },
+          "points": {
+            "fastBreak": 297,
+            "offTurnovers": 561,
+            "inPaint": 1054,
+            "total": 2644
+          },
+          "fourFactors": {
+            "freeThrowRate": 28.4,
+            "offensiveReboundPct": 34.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 46.1
+          },
+          "assists": 421,
+          "blocks": 93,
+          "steals": 269,
+          "possessions": 2540,
+          "rating": 104.1,
+          "trueShooting": 50.2
+        }
+      },
+      "away_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 216,
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "games": 32,
+        "wins": 17,
+        "losses": 15,
+        "totalMinutes": 1350,
+        "pace": 65.4,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.6,
+            "attempted": 1884,
+            "made": 878
+          },
+          "twoPointFieldGoals": {
+            "pct": 52.6,
+            "attempted": 1173,
+            "made": 617
+          },
+          "threePointFieldGoals": {
+            "pct": 36.7,
+            "attempted": 711,
+            "made": 261
+          },
+          "freeThrows": {
+            "pct": 74.8,
+            "attempted": 675,
+            "made": 505
+          },
+          "rebounds": {
+            "total": 1078,
+            "defensive": 773,
+            "offensive": 305
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 349
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 2,
+            "total": 626
+          },
+          "points": {
+            "fastBreak": 176,
+            "offTurnovers": 418,
+            "inPaint": 1062,
+            "total": 2522
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.8,
+            "offensiveReboundPct": 28.3,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 53.5
+          },
+          "assists": 421,
+          "blocks": 115,
+          "steals": 207,
+          "possessions": 2201,
+          "rating": 114.6,
+          "trueShooting": 57.8
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.8,
+            "attempted": 1851,
+            "made": 793
+          },
+          "twoPointFieldGoals": {
+            "pct": 50.3,
+            "attempted": 1155,
+            "made": 581
+          },
+          "threePointFieldGoals": {
+            "pct": 30.5,
+            "attempted": 696,
+            "made": 212
+          },
+          "freeThrows": {
+            "pct": 75.2,
+            "attempted": 738,
+            "made": 555
+          },
+          "rebounds": {
+            "total": 1089,
+            "defensive": 750,
+            "offensive": 339
+          },
+          "turnovers": {
+            "teamTotal": 15,
+            "total": 376
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 8,
+            "total": 604
+          },
+          "points": {
+            "fastBreak": 162,
+            "offTurnovers": 385,
+            "inPaint": 988,
+            "total": 2353
+          },
+          "fourFactors": {
+            "freeThrowRate": 39.9,
+            "offensiveReboundPct": 31.1,
+            "turnoverRatio": 0.17,
+            "effectiveFieldGoalPct": 48.6
+          },
+          "assists": 380,
+          "blocks": 107,
+          "steals": 135,
+          "possessions": 2211,
+          "rating": 106.4,
+          "trueShooting": 54.1
+        }
+      }
+    },
+    "predictions": {
+      "spread": {
+        "prediction": -8.504773266403726,
+        "range": "-26.7 to 4.5",
+        "models_used": 3
+      },
+      "spread_advanced": {
+        "prediction": -3.818946123123169,
+        "model": "advanced"
+      },
+      "total": {
+        "prediction": 145.470203541866,
+        "range": "140.4 to 154.1",
+        "models_used": 3
+      },
+      "total_advanced": {
+        "prediction": 145.38739013671875,
+        "model": "advanced"
+      },
+      "moneyline": {
+        "home_win_prob": 0.6654574952362494,
+        "away_win_prob": 0.3345425047637506,
+        "prediction": "Home",
+        "confidence": "66.5%",
+        "models_used": 3
+      },
+      "moneyline_advanced": {
+        "home_win_prob": 0.6579249024391174,
+        "away_win_prob": 0.3420750975608826,
+        "prediction": "Home",
+        "confidence": "65.8%",
+        "model": "advanced_calibrated"
+      }
+    },
+    "generated_at": "2026-01-23T16:36:06.363360",
+    "season": 2025
+  }
+]

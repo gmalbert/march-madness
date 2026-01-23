@@ -1,0 +1,97 @@
+name: Fetch Upcoming Games
+
+on:
+  schedule:
+    # Run nightly at 2 AM ET (6 AM UTC)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  fetch-games:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Use a personal access token for pushing changes
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Fetch upcoming games
+      run: |
+        echo "Fetching upcoming college basketball games..."
+        python fetch_espn_cbb_scores.py
+
+    - name: Generate predictions for upcoming games
+      run: |
+        echo "Generating predictions for upcoming games..."
+        python generate_predictions.py
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        changed=false
+        if [ -f "data_files/espn_cbb_current_season.csv" ]; then
+          echo "Games data file exists"
+          # Check if file has been modified
+          if git diff --quiet "data_files/espn_cbb_current_season.csv"; then
+            echo "No changes to games data"
+          else
+            echo "Games data has been updated"
+            changed=true
+          fi
+        else
+          echo "Games data file created"
+          changed=true
+        fi
+        
+        if [ -f "data_files/upcoming_game_predictions.json" ]; then
+          echo "Predictions file exists"
+          # Check if predictions have been modified
+          if git diff --quiet "data_files/upcoming_game_predictions.json"; then
+            echo "No changes to predictions"
+          else
+            echo "Predictions have been updated"
+            changed=true
+          fi
+        else
+          echo "Predictions file created"
+          changed=true
+        fi
+        
+        echo "changed=$changed" >> $GITHUB_OUTPUT
+
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data_files/espn_cbb_current_season.csv
+        git add data_files/upcoming_game_predictions.json
+        git commit -m "🤖 Auto-update: Fetch games & generate predictions
+
+        - Updated current season games data
+        - Generated AI predictions for upcoming games
+        - Includes moneyline, spread, and total predictions
+        - Scheduled run: $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "No changes to commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

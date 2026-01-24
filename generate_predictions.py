@@ -26,33 +26,7 @@ def load_models():
     """Load trained prediction models."""
     models = {}
 
-    # Load basic models (spread, total, moneyline)
-    model_types = ['spread', 'total', 'moneyline']
-
-    for model_type in model_types:
-        models[model_type] = {}
-        models[f'{model_type}_scalers'] = {}
-
-        # Try to load each model variant
-        for variant in ['xgboost', 'random_forest', 'linear_regression', 'logistic_regression']:
-            model_file = MODEL_DIR / f"{model_type}_{variant}.joblib"
-            if model_file.exists():
-                try:
-                    models[model_type][variant] = joblib.load(model_file)
-                    print(f"Loaded {model_type} {variant} model")
-                except Exception as e:
-                    print(f"Error loading {model_type} {variant}: {e}")
-
-        # Load scalers for linear/logistic models
-        scaler_file = MODEL_DIR / f"{model_type}_linear_regression_scaler.joblib"
-        if scaler_file.exists():
-            try:
-                models[f'{model_type}_scalers']['linear'] = joblib.load(scaler_file)
-                print(f"Loaded {model_type} linear scaler")
-            except Exception as e:
-                print(f"Error loading {model_type} scaler: {e}")
-
-    # Load advanced models if available
+    # Load advanced models first (these are the primary models)
     advanced_models = ['moneyline_advanced', 'spread_advanced', 'total_advanced']
     for model_name in advanced_models:
         model_file = MODEL_DIR / f"{model_name}.joblib"
@@ -63,6 +37,35 @@ def load_models():
                 print(f"Loaded advanced {model_key} model")
             except Exception as e:
                 print(f"Error loading advanced {model_name}: {e}")
+
+    # Load basic models as fallback (suppress warnings for old versions)
+    import warnings
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
+
+        model_types = ['spread', 'total', 'moneyline']
+        for model_type in model_types:
+            models[model_type] = {}
+            models[f'{model_type}_scalers'] = {}
+
+            # Try to load each model variant
+            for variant in ['xgboost', 'random_forest', 'linear_regression', 'logistic_regression']:
+                model_file = MODEL_DIR / f"{model_type}_{variant}.joblib"
+                if model_file.exists():
+                    try:
+                        models[model_type][variant] = joblib.load(model_file)
+                        print(f"Loaded {model_type} {variant} model")
+                    except Exception as e:
+                        print(f"Error loading {model_type} {variant}: {e}")
+
+            # Load scalers for linear/logistic models
+            scaler_file = MODEL_DIR / f"{model_type}_linear_regression_scaler.joblib"
+            if scaler_file.exists():
+                try:
+                    models[f'{model_type}_scalers']['linear'] = joblib.load(scaler_file)
+                    print(f"Loaded {model_type} linear scaler")
+                except Exception as e:
+                    print(f"Error loading {model_type} scaler: {e}")
 
     return models
 
@@ -103,8 +106,38 @@ def make_predictions(game_data, models):
     # Define feature names that match training data
     feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
 
-    # Spread predictions
-    if models.get('spread'):
+    # Use advanced models if available (prioritize these)
+    feature_df = pd.DataFrame([features['spread']], columns=feature_names)
+
+    # Advanced spread model
+    if models.get('spread_advanced'):
+        try:
+            pred = models['spread_advanced'].predict(feature_df)[0]
+            predictions['spread_prediction'] = float(pred)
+        except Exception as e:
+            print(f"Error with advanced spread model: {e}")
+
+    # Advanced total model
+    if models.get('total_advanced'):
+        try:
+            pred = models['total_advanced'].predict(feature_df)[0]
+            predictions['total_prediction'] = float(pred)
+        except Exception as e:
+            print(f"Error with advanced total model: {e}")
+
+    # Advanced moneyline model
+    if models.get('moneyline_advanced'):
+        try:
+            pred_proba = models['moneyline_advanced'].predict_proba(feature_df)[0]
+            home_win_prob = pred_proba[1]
+            away_win_prob = pred_proba[0]
+            predictions['moneyline_home_win_prob'] = float(home_win_prob)
+            predictions['moneyline_away_win_prob'] = float(away_win_prob)
+        except Exception as e:
+            print(f"Error with advanced moneyline model: {e}")
+
+    # Fallback to basic models only if advanced models not available
+    if not models.get('spread_advanced') and models.get('spread'):
         spread_preds = []
         spread_df = pd.DataFrame([features['spread']], columns=feature_names)
         scalers = models.get('spread_scalers', {})
@@ -121,26 +154,9 @@ def make_predictions(game_data, models):
                 print(f"Error predicting spread with {model_name}: {e}")
 
         if spread_preds:
-            predictions['spread'] = {
-                'prediction': float(np.mean(spread_preds)),
-                'range': f"{min(spread_preds):.1f} to {max(spread_preds):.1f}",
-                'models_used': len(spread_preds)
-            }
+            predictions['spread_prediction'] = float(np.mean(spread_preds))
 
-    # Use advanced spread model if available
-    if models.get('spread_advanced'):
-        try:
-            spread_df = pd.DataFrame([features['spread']], columns=feature_names)
-            pred = models['spread_advanced'].predict(spread_df)[0]
-            predictions['spread_advanced'] = {
-                'prediction': float(pred),
-                'model': 'advanced'
-            }
-        except Exception as e:
-            print(f"Error with advanced spread model: {e}")
-
-    # Total predictions
-    if models.get('total'):
+    if not models.get('total_advanced') and models.get('total'):
         total_preds = []
         total_df = pd.DataFrame([features['total']], columns=feature_names)
         scalers = models.get('total_scalers', {})
@@ -157,26 +173,9 @@ def make_predictions(game_data, models):
                 print(f"Error predicting total with {model_name}: {e}")
 
         if total_preds:
-            predictions['total'] = {
-                'prediction': float(np.mean(total_preds)),
-                'range': f"{min(total_preds):.1f} to {max(total_preds):.1f}",
-                'models_used': len(total_preds)
-            }
+            predictions['total_prediction'] = float(np.mean(total_preds))
 
-    # Use advanced total model if available
-    if models.get('total_advanced'):
-        try:
-            total_df = pd.DataFrame([features['total']], columns=feature_names)
-            pred = models['total_advanced'].predict(total_df)[0]
-            predictions['total_advanced'] = {
-                'prediction': float(pred),
-                'model': 'advanced'
-            }
-        except Exception as e:
-            print(f"Error with advanced total model: {e}")
-
-    # Moneyline predictions
-    if models.get('moneyline'):
+    if not models.get('moneyline_advanced') and models.get('moneyline'):
         moneyline_preds = []
         moneyline_df = pd.DataFrame([features['moneyline']], columns=feature_names)
         scalers = models.get('moneyline_scalers', {})
@@ -188,38 +187,32 @@ def make_predictions(game_data, models):
                     pred_proba = model.predict_proba(scaled_df)[0]
                 else:
                     pred_proba = model.predict_proba(moneyline_df)[0]
-                home_win_prob = pred_proba[1]  # Probability of home win
+                home_win_prob = pred_proba[1]
                 moneyline_preds.append(home_win_prob)
             except Exception as e:
                 print(f"Error predicting moneyline with {model_name}: {e}")
 
         if moneyline_preds:
             avg_prob = np.mean(moneyline_preds)
-            predictions['moneyline'] = {
-                'home_win_prob': float(avg_prob),
-                'away_win_prob': float(1 - avg_prob),
-                'prediction': 'Home' if avg_prob > 0.5 else 'Away',
-                'confidence': f"{max(avg_prob, 1-avg_prob):.1%}",
-                'models_used': len(moneyline_preds)
-            }
-
-    # Use advanced moneyline model if available
-    if models.get('moneyline_advanced'):
-        try:
-            moneyline_df = pd.DataFrame([features['moneyline']], columns=feature_names)
-            pred_proba = models['moneyline_advanced'].predict_proba(moneyline_df)[0]
-            home_win_prob = pred_proba[1]
-            predictions['moneyline_advanced'] = {
-                'home_win_prob': float(home_win_prob),
-                'away_win_prob': float(1 - home_win_prob),
-                'prediction': 'Home' if home_win_prob > 0.5 else 'Away',
-                'confidence': f"{max(home_win_prob, 1-home_win_prob):.1%}",
-                'model': 'advanced_calibrated'
-            }
-        except Exception as e:
-            print(f"Error with advanced moneyline model: {e}")
+            predictions['moneyline_home_win_prob'] = float(avg_prob)
+            predictions['moneyline_away_win_prob'] = float(1 - avg_prob)
 
     return predictions
+
+def load_team_data_once():
+    """Load team efficiency and stats data once for all games."""
+    current_year = 2025  # Use 2025 season data for current predictions
+
+    print("Loading team data for all games...")
+    efficiency_data = fetch_efficiency_ratings(current_year)
+    team_stats_data = fetch_team_stats(current_year)
+
+    # Create lookup dictionaries
+    efficiency_lookup = {team['team']: team for team in efficiency_data}
+    stats_lookup = {team['team']: team for team in team_stats_data}
+
+    print(f"Loaded data for {len(efficiency_data)} teams")
+    return efficiency_lookup, stats_lookup
 
 def load_upcoming_games():
     """Load upcoming games from the current season CSV."""
@@ -237,19 +230,11 @@ def load_upcoming_games():
 
     return upcoming.to_dict('records')
 
-def fetch_game_data(game):
-    """Fetch team stats and efficiency data for a game."""
+def fetch_game_data(game, efficiency_lookup, stats_lookup):
+    """Fetch team stats and efficiency data for a game using pre-loaded data."""
     current_year = 2025  # Use 2025 season data for current predictions
 
     try:
-        # Fetch efficiency ratings
-        efficiency_data = fetch_efficiency_ratings(current_year)
-        team_stats_data = fetch_team_stats(current_year)
-
-        # Create lookup dictionaries
-        efficiency_lookup = {team['team']: team for team in efficiency_data}
-        stats_lookup = {team['team']: team for team in team_stats_data}
-
         # Get data for both teams
         home_team = game['home_team']
         away_team = game['away_team']
@@ -321,6 +306,9 @@ def generate_predictions():
         print("No models found. Please run model training first.")
         return
 
+    # Load team data once for all games
+    efficiency_lookup, stats_lookup = load_team_data_once()
+
     # Load upcoming games
     upcoming_games = load_upcoming_games()
     if not upcoming_games:
@@ -333,8 +321,8 @@ def generate_predictions():
     for game in upcoming_games:
         print(f"Predicting: {game['away_team']} @ {game['home_team']}")
 
-        # Fetch game data
-        game_data = fetch_game_data(game)
+        # Fetch game data using pre-loaded team data
+        game_data = fetch_game_data(game, efficiency_lookup, stats_lookup)
         if not game_data:
             print(f"  Could not fetch data for this game")
             continue

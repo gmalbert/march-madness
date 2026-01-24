@@ -45,18 +45,20 @@ def display_predictions():
             print(f"   📍 {game_info['venue']}")
 
         # Predictions
-        if 'moneyline_advanced' in predictions:
-            ml = predictions['moneyline_advanced']
-            print(f"   💰 Moneyline: {ml['prediction']} ({ml['confidence']})")
-            print(".1%")
+        if 'moneyline_home_win_prob' in predictions:
+            home_prob = predictions['moneyline_home_win_prob']
+            away_prob = predictions['moneyline_away_win_prob']
+            prediction = "Home" if home_prob > 0.5 else "Away"
+            confidence = f"{max(home_prob, away_prob):.1%}"
+            print(f"   💰 Moneyline: {prediction} ({confidence})")
 
-        if 'spread_advanced' in predictions:
-            spread = predictions['spread_advanced']
-            print(f"   📏 Spread: {spread['prediction']:+.1f} points")
+        if 'spread_prediction' in predictions:
+            spread = predictions['spread_prediction']
+            print(f"   📏 Spread: {spread:+.1f} points")
 
-        if 'total_advanced' in predictions:
-            total = predictions['total_advanced']
-            print(f"   🔢 Total: {total['prediction']:.1f} points")
+        if 'total_prediction' in predictions:
+            total = predictions['total_prediction']
+            print(f"   🔢 Total: {total:.1f} points")
 
         # Basic model predictions (if advanced not available)
         if 'moneyline' in predictions and 'moneyline_advanced' not in predictions:

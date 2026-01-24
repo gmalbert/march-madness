@@ -163,41 +163,40 @@ See `examples/data_collection_examples.py` for complete usage examples.
 
 ## Automated Data Collection
 
-### Nightly Game Updates
-The system automatically fetches current season games (both played and upcoming) every night at 2 AM ET using GitHub Actions.
+### Automated Efficiency Data Updates
+The system automatically fetches KenPom and BartTorvik efficiency ratings daily at 2 AM ET, but only during basketball season and only when games are scheduled.
+
+**When it runs:**
+- Basketball season: October 15 - April 15
+- Games scheduled: Today or tomorrow have college basketball games
+- Time: Daily at 2 AM Eastern Time (with random 0-60 minute delay)
+
+**Anti-detection measures:**
+- Randomized timing to avoid consistent patterns
+- Headless Chrome with anti-bot countermeasures
+- Custom user agents and browser fingerprinting evasion
+- Random delays between site requests
+- Only runs when actually needed (season + games scheduled)
 
 **What gets updated:**
-- Current season schedules (regular season, conference tournaments, NCAA tournament)
-- Game dates, teams, and venues
-- Real-time game status updates
-- **AI predictions for upcoming games** (moneyline, spread, total)
+- `data_files/kenpom_ratings.csv` - Raw KenPom data
+- `data_files/barttorvik_ratings.csv` - Raw BartTorvik data
+- `data_files/kenpom_canonical.csv` - Cleaned KenPom with canonical names
+- `data_files/barttorvik_canonical.csv` - Cleaned BartTorvik with canonical names
 
 **Manual trigger:**
-You can also manually run the data collection:
+You can also manually run the efficiency data update:
 ```bash
-python fetch_espn_cbb_scores.py
+python check_efficiency_update_needed.py && python download_kenpom.py && python download_barttorvik.py && python data_tools/efficiency_loader.py
 ```
 
-**Generate predictions manually:**
-```bash
-python generate_predictions.py
-```
-
-**View predictions:**
-```bash
-python display_predictions.py
-```
-
-**Output files:**
-- `data_files/espn_cbb_current_season.csv` - Current season games
-- `data_files/upcoming_game_predictions.json` - AI predictions for upcoming games
-
-### GitHub Actions Workflow
-The automated workflow (`.github/workflows/fetch-upcoming-games.yml`):
-- Runs nightly at 2 AM Eastern Time
+**GitHub Actions Workflow:**
+The automated workflow (`.github/workflows/update-efficiency-ratings.yml`):
+- Runs daily at 2 AM ET (7 AM UTC) with randomization
+- Only executes during basketball season with scheduled games
+- Includes anti-detection measures to avoid blocking
 - Commits changes back to the repository
-- Only commits if data has actually changed
-- Can be triggered manually from the Actions tab
+- Only commits if efficiency data has actually changed
 
 ## Underdog Value Bets
 

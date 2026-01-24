@@ -17,6 +17,13 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from data_collection import fetch_team_stats, fetch_efficiency_ratings, fetch_adjusted_efficiency
+from features import (
+    calculate_efficiency_differential,
+    calculate_spread_features,
+    calculate_total_features,
+    calculate_win_probability_features,
+    project_game_total,
+)
 
 # Configuration
 DATA_DIR = Path("data_files")
@@ -70,28 +77,73 @@ def load_models():
     return models
 
 def calculate_features(home_stats, away_stats, home_eff, away_eff):
-    """Calculate prediction features from team data."""
-    # Extract efficiency ratings
-    home_off_eff = home_eff.get('adj_off', 100) if home_eff else 100
-    home_def_eff = home_eff.get('adj_def', 100) if home_eff else 100
-    away_off_eff = away_eff.get('adj_off', 100) if away_eff else 100
-    away_def_eff = away_eff.get('adj_def', 100) if away_eff else 100
+    """Calculate prediction features from team data using `features.py` helpers.
 
-    # Calculate differences
-    off_eff_diff = home_off_eff - away_off_eff
-    def_eff_diff = home_def_eff - away_def_eff
-    net_eff_diff = off_eff_diff - def_eff_diff
+    Falls back to the original minimal efficiency-diff features if richer
+    fields aren't available.
+    """
+    # Try to compute efficiency differentials using features helper
+    try:
+        eff_diff = calculate_efficiency_differential(home_eff or {}, away_eff or {})
+    except Exception:
+        # Fallback to legacy keys
+        home_off = (home_eff.get('adj_off') if home_eff else None) or (home_eff.get('offensiveRating') if home_eff else None) or 100
+        away_off = (away_eff.get('adj_off') if away_eff else None) or (away_eff.get('offensiveRating') if away_eff else None) or 100
+        home_def = (home_eff.get('adj_def') if home_eff else None) or (home_eff.get('defensiveRating') if home_eff else None) or 100
+        away_def = (away_eff.get('adj_def') if away_eff else None) or (away_eff.get('defensiveRating') if away_eff else None) or 100
+        eff_diff = {
+            'off_eff_diff': float(home_off) - float(away_off),
+            'def_eff_diff': float(home_def) - float(away_def),
+            'net_eff_diff': (float(home_off) - float(home_def)) - (float(away_off) - float(away_def))
+        }
 
-    features = {
-        'off_eff_diff': off_eff_diff,
-        'def_eff_diff': def_eff_diff,
-        'net_eff_diff': net_eff_diff
+    # Build spread/total/moneyline feature dicts using helpers when possible
+    try:
+        spread_feats = calculate_spread_features(home_stats or {}, away_stats or {}, home_eff or {}, away_eff or {})
+    except Exception:
+        spread_feats = {
+            'net_rating_diff': eff_diff.get('net_eff_diff', 0),
+            'off_rating_diff': eff_diff.get('off_eff_diff', 0),
+            'def_rating_diff': eff_diff.get('def_eff_diff', 0),
+            'ppg_diff': (home_stats or {}).get('ppg', 0) - (away_stats or {}).get('ppg', 0),
+            'opp_ppg_diff': (home_stats or {}).get('opp_ppg', 0) - (away_stats or {}).get('opp_ppg', 0),
+            'margin_diff': 0,
+            'efg_diff': (home_stats or {}).get('efg_pct', 0) - (away_stats or {}).get('efg_pct', 0),
+            'to_rate_diff': (home_stats or {}).get('to_rate', 0) - (away_stats or {}).get('to_rate', 0),
+            'orb_diff': (home_stats or {}).get('orb_pct', 0) - (away_stats or {}).get('orb_pct', 0),
+            'ft_rate_diff': (home_stats or {}).get('ft_rate', 0) - (away_stats or {}).get('ft_rate', 0),
+        }
+
+    try:
+        total_feats = calculate_total_features(home_stats or {}, away_stats or {}, home_eff or {}, away_eff or {})
+    except Exception:
+        total_feats = {
+            'combined_tempo': (home_stats or {}).get('pace', 70) + (away_stats or {}).get('pace', 70),
+            'avg_tempo': ((home_stats or {}).get('pace', 70) + (away_stats or {}).get('pace', 70)) / 2,
+            'combined_ppg': (home_stats or {}).get('ppg', 0) + (away_stats or {}).get('ppg', 0),
+            'combined_opp_ppg': (home_stats or {}).get('opp_ppg', 0) + (away_stats or {}).get('opp_ppg', 0),
+            'combined_off_eff': (home_eff or {}).get('offensiveRating', 0) + (away_eff or {}).get('offensiveRating', 0),
+            'combined_def_eff': (home_eff or {}).get('defensiveRating', 0) + (away_eff or {}).get('defensiveRating', 0),
+            'projected_total': project_game_total(home_eff or {}, away_eff or {})
+        }
+
+    # Moneyline features: reuse spread_feats + win-prob helpers when available
+    try:
+        win_feats = calculate_win_probability_features(home_stats or {}, away_stats or {})
+    except Exception:
+        win_feats = {'net_rating_diff': eff_diff.get('net_eff_diff', 0)}
+
+    # Also include the original 3-feature vector for backward compatibility
+    minimal = {
+        'off_eff_diff': eff_diff.get('off_eff_diff', 0),
+        'def_eff_diff': eff_diff.get('def_eff_diff', 0),
+        'net_eff_diff': eff_diff.get('net_eff_diff', 0)
     }
 
     return {
-        'spread': features,
-        'total': features,
-        'moneyline': features
+        'spread': {**minimal, **spread_feats},
+        'total': {**minimal, **total_feats},
+        'moneyline': {**minimal, **win_feats}
     }
 
 def make_predictions(game_data, models):

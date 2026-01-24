@@ -229,14 +229,19 @@ def normalize_team_name(espn_name: str) -> str:
         'BYU': 'BYU',
         'VCU': 'VCU',
         'UNLV': 'UNLV',
-        'IU Indianapolis Jaguars': 'IUPUI',
-        'Long Island University Sharks': 'LIU',
+        'IU Indianapolis Jaguars': 'IU Indianapolis',
+        'IU Indianapolis': 'IU Indianapolis',
+        'IUPUI': 'IU Indianapolis',
+        'Long Island University Sharks': 'Long Island University',
+        'LIU': 'Long Island University',
+        'LIU Sharks': 'Long Island University',
         'Purdue Fort Wayne Mastodons': 'Purdue Fort Wayne',
         'Central Connecticut Blue Devils': 'Central Connecticut',
         'Chicago State Cougars': 'Chicago State',
         'Southern Illinois Salukis': 'Southern Illinois',
         'Saint Francis Red Flash': 'Saint Francis (PA)',
-        'New Haven Chargers': 'Sacred Heart',
+        'New Haven Chargers': 'New Haven',
+        'New Haven': 'New Haven',
         'Stonehill Skyhawks': 'Stonehill',
         'Mercyhurst Lakers': 'Mercyhurst',
         'Wagner Seahawks': 'Wagner',
@@ -268,7 +273,7 @@ def normalize_team_name(espn_name: str) -> str:
     
     return espn_name
 
-@st.cache_data(ttl=3600)
+# @st.cache_data(ttl=3600)
 def get_team_data(season: int = 2025):
     """Fetch team stats and efficiency ratings for specified season with fallback to previous seasons."""
     # Try current season first, then fall back to previous seasons
@@ -329,15 +334,22 @@ def enrich_with_advanced_metrics(home_team_name, away_team_name, kenpom_df=None,
         away_bt = bart_df[bart_df['canonical_team'] == away_team_name]
         
         if not home_bt.empty:
+            row = home_bt.iloc[0]
+            # BartTorvik canonical CSV may use different column names; try common names with fallbacks
+            adj_oe = row.get('Adj OE') if 'Adj OE' in home_bt.columns else (row.get('Adj_OE') if 'Adj_OE' in home_bt.columns else (row.get('H2') if 'H2' in home_bt.columns else None))
+            adj_de = row.get('Adj DE') if 'Adj DE' in home_bt.columns else (row.get('Adj_DE') if 'Adj_DE' in home_bt.columns else (row.get('H3') if 'H3' in home_bt.columns else None))
             metrics['home']['barttorvik'] = {
-                'Adj OE': home_bt.iloc[0]['Adj OE'],
-                'Adj DE': home_bt.iloc[0]['Adj DE']
+                'Adj OE': adj_oe,
+                'Adj DE': adj_de
             }
         
         if not away_bt.empty:
+            row = away_bt.iloc[0]
+            adj_oe = row.get('Adj OE') if 'Adj OE' in away_bt.columns else (row.get('Adj_OE') if 'Adj_OE' in away_bt.columns else (row.get('H2') if 'H2' in away_bt.columns else None))
+            adj_de = row.get('Adj DE') if 'Adj DE' in away_bt.columns else (row.get('Adj_DE') if 'Adj_DE' in away_bt.columns else (row.get('H3') if 'H3' in away_bt.columns else None))
             metrics['away']['barttorvik'] = {
-                'Adj OE': away_bt.iloc[0]['Adj OE'],
-                'Adj DE': away_bt.iloc[0]['Adj DE']
+                'Adj OE': adj_oe,
+                'Adj DE': adj_de
             }
     
     return metrics
@@ -358,9 +370,50 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
         home_stats_obj = next((s for s in stats_list if s.get('team') == home_team), None)
         away_stats_obj = next((s for s in stats_list if s.get('team') == away_team), None)
         
-        # Skip game if we don't have data for both teams
-        if not (home_eff and away_eff and home_stats_obj and away_stats_obj):
-            return None
+        # If any data is missing, substitute reasonable defaults so the game can be
+        # enriched and passed to the prediction step instead of being skipped.
+        def default_eff_from_rank(rank):
+            # Create a conservative default offensive/defensive rating based on rank
+            try:
+                r = int(rank) if rank is not None else None
+            except Exception:
+                r = None
+            if r and r != 99:
+                val = 110 - (r / 10)
+            else:
+                val = 100.1
+            return {'offensiveRating': val, 'defensiveRating': val, 'netRating': 0}
+
+        def default_stats():
+            # Minimal stats structure matching what extract_stats() expects
+            return {
+                'games': 32,
+                'pace': 70,
+                'teamStats': {
+                    'points': {'total': 2240},
+                    'fourFactors': {
+                        'effectiveFieldGoalPct': 48.0,
+                        'turnoverRatio': 0.15,
+                        'offensiveReboundPct': 30.0,
+                        'freeThrowRate': 30.0
+                    },
+                    'fieldGoals': {'pct': 44.0},
+                    'threePointFieldGoals': {'pct': 33.0}
+                },
+                'opponentStats': {'points': {'total': 2240}}
+            }
+
+        # Fill missing efficiency entries with defaults derived from ranks
+        if not home_eff:
+            home_eff = default_eff_from_rank(game_row.get('home_rank'))
+        if not away_eff:
+            away_eff = default_eff_from_rank(game_row.get('away_rank'))
+
+        # Fill missing stats objects with minimal defaults
+        if not home_stats_obj:
+            home_stats_obj = default_stats()
+        if not away_stats_obj:
+            away_stats_obj = default_stats()
         
         # Create efficiency dicts (we already verified these exist above)
         home_eff_dict = {

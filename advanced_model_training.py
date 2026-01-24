@@ -95,30 +95,28 @@ def prepare_features(df: pd.DataFrame, target_type: str) -> Tuple[pd.DataFrame, 
 
 def train_win_probability_model(X: pd.DataFrame, y: pd.Series, weights: Optional[pd.Series] = None) -> xgb.XGBClassifier:
     """Train model to predict win probability with calibrated probabilities."""
-    print("Training calibrated win probability model...")
+    print("Training win probability model...")
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42, stratify=y
     )
 
-    # XGBoost with calibration for better probabilities
-    base_model = xgb.XGBClassifier(
+    # XGBoost classifier with good probability estimates
+    model = xgb.XGBClassifier(
         n_estimators=100,
         max_depth=4,
         learning_rate=0.1,
-        random_state=42
+        random_state=42,
+        objective='binary:logistic'
     )
-
-    # Calibrate probabilities for better betting odds conversion
-    model = CalibratedClassifierCV(base_model, method="isotonic", cv=5)
 
     # Fit with sample weights if provided
     sample_weight = weights.loc[X_train.index] if weights is not None else None
     model.fit(X_train, y_train, sample_weight=sample_weight)
 
-    # Evaluate calibration
-    y_prob = model.predict_proba(X_test)[:, 1]
+    # Evaluate
     y_pred = model.predict(X_test)
+    y_prob = model.predict_proba(X_test)[:, 1]
 
     accuracy = accuracy_score(y_test, y_pred)
     brier = brier_score_loss(y_test, y_prob)
@@ -290,7 +288,7 @@ def create_betting_ensemble() -> Tuple[VotingClassifier, VotingRegressor]:
         estimators=[
             ("lr", LogisticRegression(max_iter=1000, random_state=42)),
             ("rf", RandomForestClassifier(n_estimators=100, random_state=42)),
-            ("xgb", xgb.XGBClassifier(n_estimators=100, random_state=42))
+            ("xgb", xgb.XGBClassifier(n_estimators=100, random_state=42, objective='binary:logistic'))
         ],
         voting="soft"  # Use probability averaging
     )
@@ -316,7 +314,7 @@ def train_advanced_models(df: pd.DataFrame) -> Dict:
 
     models = {}
 
-    # 1. Moneyline Model (Calibrated Classification)
+    # 1. Moneyline Model (Win Probability)
     print("\n🏆 MONEYLINE MODEL (Win Probability)")
     print("-" * 40)
     X_ml, y_ml, weights_ml = prepare_features(df, 'moneyline')
@@ -355,28 +353,31 @@ def train_advanced_models(df: pd.DataFrame) -> Dict:
     # 4. Ensemble Models
     print("\n🎭 ENSEMBLE MODELS")
     print("-" * 40)
-    if not X_ml.empty and not X_spread.empty:
-        clf_ensemble, reg_ensemble = create_betting_ensemble()
+    try:
+        if not X_ml.empty and not X_spread.empty:
+            clf_ensemble, reg_ensemble = create_betting_ensemble()
 
-        # Train classification ensemble
-        X_train_ml, X_test_ml, y_train_ml, y_test_ml = train_test_split(
-            X_ml, y_ml, test_size=0.2, random_state=42, stratify=y_ml
-        )
-        clf_ensemble.fit(X_train_ml, y_train_ml)
+            # Train classification ensemble
+            X_train_ml, X_test_ml, y_train_ml, y_test_ml = train_test_split(
+                X_ml, y_ml, test_size=0.2, random_state=42, stratify=y_ml
+            )
+            clf_ensemble.fit(X_train_ml, y_train_ml)
 
-        # Train regression ensemble
-        X_train_reg, X_test_reg, y_train_reg, y_test_reg = train_test_split(
-            X_spread, y_spread, test_size=0.2, random_state=42
-        )
-        reg_ensemble.fit(X_train_reg, y_train_reg)
+            # Train regression ensemble
+            X_train_reg, X_test_reg, y_train_reg, y_test_reg = train_test_split(
+                X_spread, y_spread, test_size=0.2, random_state=42
+            )
+            reg_ensemble.fit(X_train_reg, y_train_reg)
 
-        models['ensemble_clf'] = clf_ensemble
-        models['ensemble_reg'] = reg_ensemble
+            models['ensemble_clf'] = clf_ensemble
+            models['ensemble_reg'] = reg_ensemble
 
-        # Save ensembles
-        joblib.dump(clf_ensemble, MODEL_DIR / 'ensemble_classifier.joblib')
-        joblib.dump(reg_ensemble, MODEL_DIR / 'ensemble_regressor.joblib')
-        print("💾 Saved ensemble models")
+            # Save ensembles
+            joblib.dump(clf_ensemble, MODEL_DIR / 'ensemble_classifier.joblib')
+            joblib.dump(reg_ensemble, MODEL_DIR / 'ensemble_regressor.joblib')
+            print("💾 Saved ensemble models")
+    except Exception as e:
+        print(f"⚠️  Skipping ensemble models due to: {e}")
 
     return models
 

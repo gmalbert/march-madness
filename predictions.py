@@ -30,6 +30,31 @@ except ImportError as e:
 DATA_DIR = Path("data_files")
 MODEL_DIR = DATA_DIR / "models"
 
+def get_dataframe_height(df, row_height=35, header_height=38, padding=2, max_height=600):
+    """
+    Calculate the optimal height for a Streamlit dataframe based on number of rows.
+    
+    Args:
+        df (pd.DataFrame): The dataframe to display
+        row_height (int): Height per row in pixels. Default: 35
+        header_height (int): Height of header row in pixels. Default: 38
+        padding (int): Extra padding in pixels. Default: 2
+        max_height (int): Maximum height cap in pixels. Default: 600 (None for no limit)
+    
+    Returns:
+        int: Calculated height in pixels
+    
+    Example:
+        height = get_dataframe_height(my_df)
+        st.dataframe(my_df, height=height)
+    """
+    num_rows = len(df)
+    calculated_height = (num_rows * row_height) + header_height + padding
+    
+    if max_height is not None:
+        return min(calculated_height, max_height)
+    return calculated_height
+
 # Load models
 @st.cache_resource
 def load_models():
@@ -167,20 +192,24 @@ def normalize_team_name(espn_name: str) -> str:
     # Split on space and take first part(s) that aren't mascots
     mascots = [
         'Wolverines', 'Hoosiers', 'Cyclones', 'Knights', 'Gators', 'Tigers',
-        'Wolfpack', 'Dukes', 'Billikens', 'Flashes', 'RedHawks', 'Ducks',
+        'Wolfpack', 'Dukes', 'Billikens', 'Bonnies', 'Buckeyes', 'Demon Deacons', 'Flashes', 'RedHawks', 'Ducks',
         'Spartans', 'Bears', 'Raiders', 'Razorbacks', 'Commodores', 'Bulldogs',
         'Bruins', 'Boilermakers', 'Buffaloes', 'Jayhawks', 'Wildcats', 'Aggies',
         'Huskies', 'Tar Heels', 'Blue Devils', 'Cardinals', 'Sooners', 'Longhorns',
         'Crimson Tide', 'Volunteers', 'Gamecocks', 'Rebels', 'Broncos', 'Cougars',
         'Panthers', 'Eagles', 'Owls', 'Rams', 'Bulls', 'Golden Knights', 'Mean Green',
         'Thundering Herd', 'Miners', 'Roadrunners', 'Hilltoppers', 'Golden Flashes',
-        'Bearcats', 'Fighting Illini', 'Terrapins', 'Cornhuskers', 'Waves'
+        'Bearcats', 'Fighting Illini', 'Terrapins', 'Cornhuskers', 'Waves', 'Golden Gophers',
+        'Cavaliers', 'Mountaineers', 'Hokies', 'Cowboys', 'Utes', 'Dons', 'Dolphins', 'Red Flash',
+        'Chargers', 'Skyhawks', 'Lakers', 'Mastodons', 'Jaguars', 'Seahawks', 'Sharks', 'Salukis',
+        'Purple Aces', 'Trojans', 'Badgers', 'Scarlet Knights', 'Friars', 'Revolutionaries', 'Minutemen', 'Horned Frogs', 'Flyers'
     ]
     
     # Multi-word mascots that need special handling
     multi_word_mascots = [
         'Tar Heels', 'Blue Devils', 'Fighting Irish', 'Golden Flashes', 'Red Raiders',
-        'Golden Knights', 'Thundering Herd', 'Crimson Tide', 'Mean Green', 'Fighting Illini'
+        'Golden Knights', 'Thundering Herd', 'Crimson Tide', 'Mean Green', 'Fighting Illini',
+        'Demon Deacons', 'Golden Gophers', 'Yellow Jackets', 'Red Flash', 'Purple Aces', 'Scarlet Knights'
     ]
     
     # Handle special cases
@@ -199,6 +228,28 @@ def normalize_team_name(espn_name: str) -> str:
         'BYU': 'BYU',
         'VCU': 'VCU',
         'UNLV': 'UNLV',
+        'IU Indianapolis Jaguars': 'IUPUI',
+        'Long Island University Sharks': 'LIU',
+        'Purdue Fort Wayne Mastodons': 'Purdue Fort Wayne',
+        'Central Connecticut Blue Devils': 'Central Connecticut',
+        'Chicago State Cougars': 'Chicago State',
+        'Southern Illinois Salukis': 'Southern Illinois',
+        'Saint Francis Red Flash': 'Saint Francis (PA)',
+        'New Haven Chargers': 'Sacred Heart',
+        'Stonehill Skyhawks': 'Stonehill',
+        'Mercyhurst Lakers': 'Mercyhurst',
+        'Wagner Seahawks': 'Wagner',
+        'Le Moyne Dolphins': 'Le Moyne',
+        'San Francisco Dons': 'San Francisco',
+        'USC Trojans': 'USC',
+        'Wisconsin Badgers': 'Wisconsin',
+        'Michigan State Spartans': 'Michigan State',
+        'Rutgers Scarlet Knights': 'Rutgers',
+        'Providence Friars': 'Providence',
+        'George Washington Revolutionaries': 'George Washington',
+        'Massachusetts Minutemen': 'Massachusetts',
+        'TCU Horned Frogs': 'TCU',
+        'Dayton Flyers': 'Dayton'
     }
     
     if espn_name in special_cases:
@@ -300,8 +351,8 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
             'status': game_row.get('status', ''),
             'venue': game_row.get('venue', ''),
             'neutral_site': game_row.get('neutral_site', False),
-            'home_rank': game_row.get('home_rank'),
-            'away_rank': game_row.get('away_rank'),
+            'home_rank': game_row.get('home_rank') if game_row.get('home_rank') != 99 else None,
+            'away_rank': game_row.get('away_rank') if game_row.get('away_rank') != 99 else None,
             'season_used': season_used  # Track which season data we used
         }
     except Exception as e:
@@ -341,7 +392,9 @@ def get_upcoming_games() -> List[Dict]:
         # Prioritize upcoming games, but show recent if none upcoming
         if len(upcoming) > 0:
             st.success(f"Found {len(upcoming)} upcoming games!")
-            games_to_process = upcoming.sort_values('date_dt').head(20)
+            # Process all upcoming games (no artificial limit)
+            games_to_process = upcoming.sort_values('date_dt')
+            st.info(f"Processing all {len(upcoming)} upcoming games chronologically")
         else:
             st.info("No upcoming games scheduled. Showing recent games for analysis.")
             games_to_process = recent.sort_values('date_dt', ascending=False).head(20)
@@ -653,6 +706,8 @@ def make_predictions(game_data: Dict, models: Dict) -> Dict:
                 moneyline_preds.append(home_win_prob)
             except Exception as e:
                 print(f"Error predicting moneyline with {model_name}: {e}")
+                # Skip this model if it fails
+                continue
 
         if moneyline_preds:
             avg_prob = np.mean(moneyline_preds)
@@ -846,9 +901,7 @@ def render_game_prediction(game: Dict, predictions: Dict):
                 - Total Return: ${recommendation['potential_return']:.2f}
                 
                 💡 *Using fractional Kelly criterion for risk management*
-                """)
-                
-                st.warning("⚠️ This is for informational purposes only. Bet responsibly!")
+                """)             
 
 
 def main():
@@ -924,45 +977,24 @@ def main():
     # Sort games by date (most recent first)
     games = sort_games_by_date(games)
 
-    st.header("🎯 Game Analysis")
-    st.markdown("*Analyzing recent games - no upcoming games currently scheduled*")
+    # Create tabs
+    tab1, tab2 = st.tabs(["📊 All Games Table", "🎯 Individual Game Analysis"])
 
-    # Game selector with date/time
-    game_options = []
-    for game in games:
-        # Format date from game_date field
-        if game.get('game_date'):
+    with tab1:
+        st.header("📊 All Games with Predictions")
+        st.markdown("Complete table of all upcoming games with AI-powered betting predictions.")
+
+        # Create table data
+        table_data = []
+        for game in games:
+            # Make predictions for this game
             try:
-                game_dt = pd.to_datetime(game['game_date'])
-                if game_dt.hour == 0 and game_dt.minute == 0:
-                    date_str = game_dt.strftime('%a, %b %d (Time TBD)')
-                else:
-                    date_str = game_dt.strftime('%a, %b %d %I:%M %p')
-            except:
-                date_str = "Date TBD"
-        else:
-            date_str = "Date TBD"
-        game_options.append(f"{game['away_team']} @ {game['home_team']} - {date_str}")
+                predictions = make_predictions(game, models)
+            except Exception as e:
+                st.warning(f"Could not generate predictions for {game['away_team']} @ {game['home_team']}: {e}")
+                predictions = {}
 
-    selected_game_idx = st.selectbox(
-        "Select a game to analyze:",
-        range(len(game_options)),
-        format_func=lambda x: game_options[x]
-    )
-
-    selected_game = games[selected_game_idx]
-
-    # Make predictions for selected game
-    predictions = make_predictions(selected_game, models)
-
-    # Display the prediction
-    render_game_prediction(selected_game, predictions)
-
-    st.info("💡 **Note:** Showing recent games for analysis. Predictions show what the model would have forecasted before the game.")
-
-    # Show all games in an expander
-    with st.expander("📅 View All Available Games"):
-        for i, game in enumerate(games):
+            # Format date
             if game.get('game_date'):
                 try:
                     game_dt = pd.to_datetime(game['game_date'])
@@ -974,36 +1006,104 @@ def main():
                     date_str = "Date TBD"
             else:
                 date_str = "Date TBD"
-            game_display = f"{game['away_team']} @ {game['home_team']} - {date_str}"
 
-            if i == selected_game_idx:
-                st.markdown(f"**→ {game_display}** (currently selected)")
+            # Format rankings
+            away_rank = f"(#{int(game['away_rank'])})" if game.get('away_rank') else ""
+            home_rank = f"(#{int(game['home_rank'])})" if game.get('home_rank') else ""
+
+            # Format predictions
+            moneyline_pred = predictions.get('moneyline', {})
+            spread_pred = predictions.get('spread', {})
+            total_pred = predictions.get('total', {})
+
+            moneyline_str = f"{moneyline_pred.get('prediction', 'N/A')} ({moneyline_pred.get('confidence', 'N/A')})" if moneyline_pred else "N/A"
+            
+            # Format spread to show which team has the line
+            if spread_pred and 'prediction' in spread_pred:
+                spread_val = spread_pred['prediction']
+                if spread_val < 0:
+                    spread_str = f"Home {spread_val:+.1f}"
+                else:
+                    spread_str = f"Away {spread_val:+.1f}"
             else:
-                st.markdown(game_display)
-            if i < len(games) - 1:
-                st.divider()
+                spread_str = "N/A"
+                
+            total_str = f"{total_pred.get('prediction', 'N/A'):.1f}" if total_pred else "N/A"
 
-    # Model details
-    with st.expander("🤖 Model Details"):
-        st.markdown("""
-        **Features Used:**
-        - Efficiency ratings (offensive, defensive, net)
-        - Scoring statistics (PPG, opponent PPG)
-        - Four factors (eFG%, turnover rate, ORB%, FTR)
-        - Pace and tempo data
+            table_data.append({
+                'Date': date_str,
+                'Away Team': f"{game['away_team']} {away_rank}".strip(),
+                'Home Team': f"{game['home_team']} {home_rank}".strip(),
+                'Moneyline': moneyline_str,
+                'Spread': spread_str,
+                'Total': total_str
+            })
 
-        **Models Trained:**
-        - Spread: XGBoost, Random Forest, Linear Regression
-        - Total: XGBoost, Random Forest, Linear Regression
-        - Moneyline: XGBoost, Random Forest, Logistic Regression
+        # Display table
+        if table_data:
+            df = pd.DataFrame(table_data)
+            st.dataframe(df, width='stretch', hide_index=True, height=get_dataframe_height(df))
+        else:
+            st.warning("No games available for display.")
 
-        **Training Data:** 2022 NCAA Regular Season (2,194 games)
-        
-        **Value Bet Detection:**
-        - Identifies underdogs with higher win probability than odds suggest
-        - Uses Kelly Criterion for optimal bet sizing
-        - Minimum 5% ROI threshold for value identification
-        """)
+    with tab2:
+        st.header("🎯 Individual Game Analysis")
+        st.markdown("*Select a specific game for detailed analysis and betting recommendations*")
+
+        # Game selector with date/time
+        game_options = []
+        for game in games:
+            # Format date from game_date field
+            if game.get('game_date'):
+                try:
+                    game_dt = pd.to_datetime(game['game_date'])
+                    if game_dt.hour == 0 and game_dt.minute == 0:
+                        date_str = game_dt.strftime('%a, %b %d (Time TBD)')
+                    else:
+                        date_str = game_dt.strftime('%a, %b %d %I:%M %p')
+                except:
+                    date_str = "Date TBD"
+            else:
+                date_str = "Date TBD"
+            game_options.append(f"{game['away_team']} @ {game['home_team']} - {date_str}")
+
+        selected_game_idx = st.selectbox(
+            "Select a game to analyze:",
+            range(len(game_options)),
+            format_func=lambda x: game_options[x]
+        )
+
+        selected_game = games[selected_game_idx]
+
+        # Make predictions for selected game
+        predictions = make_predictions(selected_game, models)
+
+        # Display the prediction
+        render_game_prediction(selected_game, predictions)
+
+        st.info("💡 **Note:** Predictions show what the model would have forecasted before the game.")
+
+        # Model details
+        with st.expander("🤖 Model Details"):
+            st.markdown("""
+            **Features Used:**
+            - Efficiency ratings (offensive, defensive, net)
+            - Scoring statistics (PPG, opponent PPG)
+            - Four factors (eFG%, turnover rate, ORB%, FTR)
+            - Pace and tempo data
+
+            **Models Trained:**
+            - Spread: XGBoost, Random Forest, Linear Regression
+            - Total: XGBoost, Random Forest, Linear Regression
+            - Moneyline: XGBoost, Random Forest, Logistic Regression
+
+            **Training Data:** 2022 NCAA Regular Season (2,194 games)
+            
+            **Value Bet Detection:**
+            - Identifies underdogs with higher win probability than odds suggest
+            - Uses Kelly Criterion for optimal bet sizing
+            - Minimum 5% ROI threshold for value identification
+            """)
 
 if __name__ == "__main__":
     main()

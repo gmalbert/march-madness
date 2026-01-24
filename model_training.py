@@ -33,12 +33,11 @@ def load_weighted_training_data() -> pd.DataFrame:
         return pd.DataFrame()
 
 def prepare_spread_data(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series]:
-    """Prepare data for spread prediction."""
-    # Use basic efficiency features available in weighted dataset
-    spread_features = [
-        'off_eff_diff', 'def_eff_diff', 'net_eff_diff'
-    ]
+    """Prepare data for spread prediction.
 
+    Prefer expanded spread_* columns if present, otherwise fall back to the
+    legacy efficiency-diff features used historically.
+    """
     # Filter to games with actual spread results
     valid_games = df.dropna(subset=['actual_spread'])
 
@@ -46,56 +45,84 @@ def prepare_spread_data(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.S
         print("No games with actual spread data found")
         return pd.DataFrame(), pd.Series(), pd.Series()
 
-    X = valid_games[spread_features]
+    # Prefer columns beginning with 'spread_' (feature_engineering output)
+    spread_cols = [c for c in valid_games.columns if c.startswith('spread_')]
+    if spread_cols:
+        X = valid_games[spread_cols].copy()
+        print(f"Using expanded spread features: {len(spread_cols)} columns")
+    else:
+        # Fallback to minimal efficiency diffs
+        spread_features = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+        missing = [c for c in spread_features if c not in valid_games.columns]
+        if missing:
+            raise ValueError(f"Missing required spread feature columns: {missing}")
+        X = valid_games[spread_features].copy()
+
     y = valid_games['actual_spread']
     weights = valid_games['sample_weight']
 
-    print(f"Prepared spread data: {len(X)} samples, {len(spread_features)} features")
+    print(f"Prepared spread data: {len(X)} samples, {len(X.columns)} features")
     print(f"  Regular games: {len(valid_games[valid_games['game_type']=='regular'])}, Tournament games: {len(valid_games[valid_games['game_type']=='tournament'])}")
     return X, y, weights
 
 def prepare_total_data(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series]:
-    """Prepare data for total prediction."""
-    # Use basic efficiency features for total prediction
-    total_features = [
-        'off_eff_diff', 'def_eff_diff', 'net_eff_diff'
-    ]
+    """Prepare data for total prediction.
 
-    # Filter to games with actual total results
+    Prefer expanded total_* columns if present, otherwise fall back to the
+    legacy efficiency-diff features used historically.
+    """
     valid_games = df.dropna(subset=['actual_total'])
 
     if len(valid_games) == 0:
         print("No games with actual total data found")
         return pd.DataFrame(), pd.Series(), pd.Series()
 
-    X = valid_games[total_features]
+    total_cols = [c for c in valid_games.columns if c.startswith('total_')]
+    if total_cols:
+        X = valid_games[total_cols].copy()
+        print(f"Using expanded total features: {len(total_cols)} columns")
+    else:
+        total_features = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+        missing = [c for c in total_features if c not in valid_games.columns]
+        if missing:
+            raise ValueError(f"Missing required total feature columns: {missing}")
+        X = valid_games[total_features].copy()
+
     y = valid_games['actual_total']
     weights = valid_games['sample_weight']
 
-    print(f"Prepared total data: {len(X)} samples, {len(total_features)} features")
+    print(f"Prepared total data: {len(X)} samples, {len(X.columns)} features")
     print(f"  Regular games: {len(valid_games[valid_games['game_type']=='regular'])}, Tournament games: {len(valid_games[valid_games['game_type']=='tournament'])}")
     return X, y, weights
 
 def prepare_moneyline_data(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series, pd.Series]:
-    """Prepare data for moneyline prediction (classification)."""
-    # Use same basic features as spread but predict win/loss
-    spread_features = [
-        'off_eff_diff', 'def_eff_diff', 'net_eff_diff'
-    ]
+    """Prepare data for moneyline prediction (classification).
 
-    # Filter to games with actual results
+    Use expanded spread features if available; otherwise fall back to legacy set.
+    The label `y` is derived from `actual_spread` (home win indicator).
+    """
     valid_games = df.dropna(subset=['actual_spread'])
 
     if len(valid_games) == 0:
         print("No games with moneyline data found")
         return pd.DataFrame(), pd.Series(), pd.Series()
 
-    X = valid_games[spread_features]
-    # Home team win if actual_spread > 0 (home team covered the spread)
-    y = (valid_games['actual_spread'] < 0).astype(int)  # 1 if home team won, 0 if away team won
+    # Prefer spread_ prefixed features
+    spread_cols = [c for c in valid_games.columns if c.startswith('spread_')]
+    if spread_cols:
+        X = valid_games[spread_cols].copy()
+    else:
+        spread_features = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+        missing = [c for c in spread_features if c not in valid_games.columns]
+        if missing:
+            raise ValueError(f"Missing required moneyline feature columns: {missing}")
+        X = valid_games[spread_features].copy()
+
+    # Home team win indicator (1 if home won)
+    y = (valid_games['actual_spread'] < 0).astype(int)
     weights = valid_games['sample_weight']
 
-    print(f"Prepared moneyline data: {len(X)} samples, {len(spread_features)} features")
+    print(f"Prepared moneyline data: {len(X)} samples, {len(X.columns)} features")
     print(f"  Regular games: {len(valid_games[valid_games['game_type']=='regular'])}, Tournament games: {len(valid_games[valid_games['game_type']=='tournament'])}")
     return X, y, weights
 

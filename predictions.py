@@ -693,10 +693,24 @@ def format_game_data(game) -> Optional[Dict]:
 
 def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_eff: Dict, advanced_metrics: Dict = None) -> Dict:
     """Calculate prediction features for a game."""
-    # Efficiency features (CBBD - these are the original 3 features)
-    off_eff_diff = home_eff.get("offensiveRating", 0) - away_eff.get("offensiveRating", 0)
-    def_eff_diff = home_eff.get("defensiveRating", 0) - away_eff.get("defensiveRating", 0)
-    net_eff_diff = home_eff.get("netRating", 0) - away_eff.get("netRating", 0)
+    # Prefer centralized feature helpers from features.py when available
+    try:
+        from features import (
+            calculate_efficiency_differential as _calc_eff_diff,
+            calculate_spread_features as _calc_spread_feats,
+            calculate_total_features as _calc_total_feats,
+            calculate_win_probability_features as _calc_win_feats,
+        )
+
+        eff = _calc_eff_diff(home_eff or {}, away_eff or {})
+        off_eff_diff = eff.get('off_eff_diff', 0)
+        def_eff_diff = eff.get('def_eff_diff', 0)
+        net_eff_diff = eff.get('net_eff_diff', 0)
+    except Exception:
+        # Efficiency features (CBBD - these are the original 3 features)
+        off_eff_diff = home_eff.get("offensiveRating", 0) - away_eff.get("offensiveRating", 0)
+        def_eff_diff = home_eff.get("defensiveRating", 0) - away_eff.get("defensiveRating", 0)
+        net_eff_diff = home_eff.get("netRating", 0) - away_eff.get("netRating", 0)
 
     # Advanced KenPom features (if available)
     kenpom_features = []
@@ -724,20 +738,50 @@ def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_ef
             home_bt['Adj DE'] - away_bt['Adj DE']   # Defensive efficiency diff
         ]
 
-    # Stats features
-    ppg_diff = home_team.get("ppg", 0) - away_team.get("ppg", 0)
-    opp_ppg_diff = home_team.get("opp_ppg", 0) - away_team.get("opp_ppg", 0)
-    margin_diff = (home_team.get("ppg", 0) - home_team.get("opp_ppg", 0)) - (away_team.get("ppg", 0) - away_team.get("opp_ppg", 0))
+    # Stats and extended features: try to compute via helpers, otherwise compute inline
+    try:
+        spread_feats = _calc_spread_feats(home_team or {}, away_team or {}, home_eff or {}, away_eff or {})
+        ppg_diff = spread_feats.get('ppg_diff', 0)
+        opp_ppg_diff = spread_feats.get('opp_ppg_diff', 0)
+        margin_diff = spread_feats.get('margin_diff', 0)
+        efg_diff = spread_feats.get('efg_diff', 0)
+        to_rate_diff = spread_feats.get('to_rate_diff', 0)
+        orb_diff = spread_feats.get('orb_diff', 0)
+        ft_rate_diff = spread_feats.get('ft_rate_diff', 0)
 
-    efg_diff = home_team.get("efg_pct", 0) - away_team.get("efg_pct", 0)
-    to_rate_diff = home_team.get("to_rate", 0) - away_team.get("to_rate", 0)
-    orb_diff = home_team.get("orb_pct", 0) - away_team.get("orb_pct", 0)
-    ft_rate_diff = home_team.get("ft_rate", 0) - away_team.get("ft_rate", 0)
+        total_feats = _calc_total_feats(home_team or {}, away_team or {}, home_eff or {}, away_eff or {})
+        combined_off_eff = total_feats.get('combined_off_eff', 0)
+        combined_def_eff = total_feats.get('combined_def_eff', 0)
+        avg_off_eff = total_feats.get('avg_off_eff', 0)
+        avg_def_eff = total_feats.get('avg_def_eff', 0)
+        combined_tempo = total_feats.get('combined_tempo', (home_team or {}).get('pace', 70) + (away_team or {}).get('pace', 70))
+        avg_tempo = total_feats.get('avg_tempo', ((home_team or {}).get('pace', 70) + (away_team or {}).get('pace', 70)) / 2)
+        combined_ppg = total_feats.get('combined_ppg', (home_team or {}).get('ppg', 0) + (away_team or {}).get('ppg', 0))
+        combined_opp_ppg = total_feats.get('combined_opp_ppg', (home_team or {}).get('opp_ppg', 0) + (away_team or {}).get('opp_ppg', 0))
+        combined_fg_pct = total_feats.get('combined_fg_pct', (home_team or {}).get('fg_pct', 0) + (away_team or {}).get('fg_pct', 0))
+        combined_3pt_pct = total_feats.get('combined_3pt_pct', (home_team or {}).get('three_pct', 0) + (away_team or {}).get('three_pct', 0))
+        projected_total = total_feats.get('projected_total')
+    except Exception:
+        ppg_diff = home_team.get("ppg", 0) - away_team.get("ppg", 0)
+        opp_ppg_diff = home_team.get("opp_ppg", 0) - away_team.get("opp_ppg", 0)
+        margin_diff = (home_team.get("ppg", 0) - home_team.get("opp_ppg", 0)) - (away_team.get("ppg", 0) - away_team.get("opp_ppg", 0))
 
-    # Total features
-    combined_off_eff = home_eff.get("offensiveRating", 0) + away_eff.get("offensiveRating", 0)
-    combined_def_eff = home_eff.get("defensiveRating", 0) + away_eff.get("defensiveRating", 0)
-    avg_off_eff = (home_eff.get("offensiveRating", 0) + away_eff.get("offensiveRating", 0)) / 2
+        efg_diff = home_team.get("efg_pct", 0) - away_team.get("efg_pct", 0)
+        to_rate_diff = home_team.get("to_rate", 0) - away_team.get("to_rate", 0)
+        orb_diff = home_team.get("orb_pct", 0) - away_team.get("orb_pct", 0)
+        ft_rate_diff = home_team.get("ft_rate", 0) - away_team.get("ft_rate", 0)
+
+        combined_off_eff = home_eff.get("offensiveRating", 0) + away_eff.get("offensiveRating", 0)
+        combined_def_eff = home_eff.get("defensiveRating", 0) + away_eff.get("defensiveRating", 0)
+        avg_off_eff = (home_eff.get("offensiveRating", 0) + away_eff.get("offensiveRating", 0)) / 2
+        avg_def_eff = (home_eff.get("defensiveRating", 0) + away_eff.get("defensiveRating", 0)) / 2
+        combined_tempo = (home_team.get("pace", 0) + away_team.get("pace", 0))
+        avg_tempo = (home_team.get("pace", 0) + away_team.get("pace", 0)) / 2
+        combined_ppg = home_team.get("ppg", 0) + away_team.get("ppg", 0)
+        combined_opp_ppg = home_team.get("opp_ppg", 0) + away_team.get("opp_ppg", 0)
+        combined_fg_pct = home_team.get("fg_pct", 0.44) + away_team.get("fg_pct", 0.44)
+        combined_3pt_pct = home_team.get("three_pct", 0.33) + away_team.get("three_pct", 0.33)
+        projected_total = (avg_off_eff + avg_def_eff) / 2 * (avg_tempo / 100) * 0.8
     avg_def_eff = (home_eff.get("defensiveRating", 0) + away_eff.get("defensiveRating", 0)) / 2
 
     combined_tempo = home_team.get("pace", 0) + away_team.get("pace", 0)
@@ -876,11 +920,16 @@ def make_predictions(game_data: Dict, models: Dict, advanced_metrics: Dict = Non
 
         if moneyline_preds:
             avg_prob = np.mean(moneyline_preds)
+            max_prob = max(avg_prob, 1 - avg_prob)
+            # Predicted probability: probability for the predicted side (Home or Away)
+            predicted_prob = avg_prob if avg_prob > 0.5 else (1 - avg_prob)
+
             predictions['moneyline'] = {
                 'home_win_prob': avg_prob,
                 'away_win_prob': 1 - avg_prob,
                 'prediction': 'Home' if avg_prob > 0.5 else 'Away',
-                'confidence': f"{max(avg_prob, 1-avg_prob):.1%}",
+                # Keep the key `confidence` for compatibility, but store raw predicted probability.
+                'confidence': f"{predicted_prob:.1%}",
                 'models': moneyline_preds
             }
 
@@ -1005,16 +1054,15 @@ def render_game_prediction(game: Dict, predictions: Dict):
         if 'moneyline' in predictions:
             pred = predictions['moneyline']
 
-            if pred['prediction'] == 'Home':
-                st.metric(
-                    label=f"{game['home_team']} Win Probability",
-                    value=f"{pred['home_win_prob']:.1%}"
-                )
-            else:
-                st.metric(
-                    label=f"{game['away_team']} Win Probability",
-                    value=f"{pred['away_win_prob']:.1%}"
-                )
+            # Show full probability column: both home and away win probabilities
+            st.metric(
+                label=f"{game['home_team']} Win Probability",
+                value=f"{pred.get('home_win_prob', 0):.1%}"
+            )
+            st.metric(
+                label=f"{game['away_team']} Win Probability",
+                value=f"{pred.get('away_win_prob', 0):.1%}"
+            )
 
             if actual_home is not None and actual_away is not None:
                 actual_winner = 'Home' if actual_home > actual_away else 'Away'
@@ -1023,7 +1071,7 @@ def render_game_prediction(game: Dict, predictions: Dict):
                 else:
                     st.error("❌ Wrong winner prediction")
 
-            st.caption(f"Confidence: {pred['confidence']}")
+            st.caption(f"Predicted Probability: {pred['confidence']}")
     
     # Check for underdog value bets
     if 'moneyline' in predictions and game.get('home_moneyline') and game.get('away_moneyline'):
@@ -1224,11 +1272,23 @@ def main():
                 
             total_str = f"{total_pred.get('prediction', 'N/A'):.1f}" if total_pred else "N/A"
 
+            # Predicted probability for the favored side (Home/Away)
+            pred_prob_str = "N/A"
+            if moneyline_pred:
+                try:
+                    if moneyline_pred.get('prediction') == 'Home':
+                        pred_prob_str = f"Home {moneyline_pred.get('home_win_prob', 0):.1%}"
+                    else:
+                        pred_prob_str = f"Away {moneyline_pred.get('away_win_prob', 0):.1%}"
+                except Exception:
+                    pred_prob_str = moneyline_pred.get('confidence', 'N/A')
+
             table_data.append({
                 'Date': date_str,
                 'Away Team': f"{game['away_team']} {away_rank}".strip(),
                 'Home Team': f"{game['home_team']} {home_rank}".strip(),
                 'Moneyline': moneyline_str,
+                'Predicted Probability': pred_prob_str,
                 'Spread': spread_str,
                 'Total': total_str
             })

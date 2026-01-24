@@ -22,6 +22,7 @@ try:
         get_betting_recommendation,
         moneyline_to_implied_probability
     )
+    from data_tools.efficiency_loader import EfficiencyDataLoader
 except ImportError as e:
     st.error(f"Could not import required functions: {e}")
     st.stop()
@@ -280,6 +281,66 @@ def get_team_data(season: int = 2025):
         except:
             continue
     return [], [], None
+
+def get_kenpom_barttorvik_data():
+    """Load KenPom and BartTorvik efficiency data for all teams."""
+    try:
+        loader = EfficiencyDataLoader()
+        kenpom_df = loader.load_kenpom()
+        bart_df = loader.load_barttorvik()
+        return kenpom_df, bart_df
+    except Exception as e:
+        print(f"Error loading KenPom/BartTorvik data: {e}")
+        return None, None
+
+def enrich_with_advanced_metrics(home_team_name, away_team_name, kenpom_df=None, bart_df=None):
+    """Enrich team efficiency with KenPom and BartTorvik metrics."""
+    metrics = {
+        'home': {'kenpom': None, 'barttorvik': None},
+        'away': {'kenpom': None, 'barttorvik': None}
+    }
+    
+    if kenpom_df is not None:
+        home_kp = kenpom_df[kenpom_df['canonical_team'] == home_team_name]
+        away_kp = kenpom_df[kenpom_df['canonical_team'] == away_team_name]
+        
+        if not home_kp.empty:
+            metrics['home']['kenpom'] = {
+                'NetRtg': home_kp.iloc[0]['NetRtg'],
+                'ORtg': home_kp.iloc[0]['ORtg'],
+                'DRtg': home_kp.iloc[0]['DRtg'],
+                'AdjT': home_kp.iloc[0]['AdjT'],
+                'Luck': home_kp.iloc[0]['Luck'],
+                'SOS_NetRtg': home_kp.iloc[0]['SOS_NetRtg']
+            }
+        
+        if not away_kp.empty:
+            metrics['away']['kenpom'] = {
+                'NetRtg': away_kp.iloc[0]['NetRtg'],
+                'ORtg': away_kp.iloc[0]['ORtg'],
+                'DRtg': away_kp.iloc[0]['DRtg'],
+                'AdjT': away_kp.iloc[0]['AdjT'],
+                'Luck': away_kp.iloc[0]['Luck'],
+                'SOS_NetRtg': away_kp.iloc[0]['SOS_NetRtg']
+            }
+    
+    if bart_df is not None:
+        home_bt = bart_df[bart_df['canonical_team'] == home_team_name]
+        away_bt = bart_df[bart_df['canonical_team'] == away_team_name]
+        
+        if not home_bt.empty:
+            metrics['home']['barttorvik'] = {
+                'Adj OE': home_bt.iloc[0]['Adj OE'],
+                'Adj DE': home_bt.iloc[0]['Adj DE']
+            }
+        
+        if not away_bt.empty:
+            metrics['away']['barttorvik'] = {
+                'Adj OE': away_bt.iloc[0]['Adj OE'],
+                'Adj DE': away_bt.iloc[0]['Adj DE']
+            }
+    
+    return metrics
 
 def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, season_used) -> Optional[Dict]:
     """Combine ESPN game data with CBBD stats and efficiency ratings."""
@@ -577,12 +638,38 @@ def format_game_data(game) -> Optional[Dict]:
         print(f"Error formatting game {game}: {e}")
         return None
 
-def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_eff: Dict) -> Dict:
+def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_eff: Dict, advanced_metrics: Dict = None) -> Dict:
     """Calculate prediction features for a game."""
-    # Efficiency features
+    # Efficiency features (CBBD - these are the original 3 features)
     off_eff_diff = home_eff.get("offensiveRating", 0) - away_eff.get("offensiveRating", 0)
     def_eff_diff = home_eff.get("defensiveRating", 0) - away_eff.get("defensiveRating", 0)
     net_eff_diff = home_eff.get("netRating", 0) - away_eff.get("netRating", 0)
+
+    # Advanced KenPom features (if available)
+    kenpom_features = []
+    if advanced_metrics and advanced_metrics.get('home', {}).get('kenpom') and advanced_metrics.get('away', {}).get('kenpom'):
+        home_kp = advanced_metrics['home']['kenpom']
+        away_kp = advanced_metrics['away']['kenpom']
+        
+        kenpom_features = [
+            home_kp['NetRtg'] - away_kp['NetRtg'],  # Net rating diff
+            home_kp['ORtg'] - away_kp['ORtg'],      # Offensive rating diff
+            home_kp['DRtg'] - away_kp['DRtg'],      # Defensive rating diff (negative is better for home)
+            home_kp['AdjT'] - away_kp['AdjT'],      # Tempo diff
+            home_kp['Luck'] - away_kp['Luck'],      # Luck diff
+            home_kp['SOS_NetRtg'] - away_kp['SOS_NetRtg']  # SOS diff
+        ]
+    
+    # Advanced BartTorvik features (if available)
+    bart_features = []
+    if advanced_metrics and advanced_metrics.get('home', {}).get('barttorvik') and advanced_metrics.get('away', {}).get('barttorvik'):
+        home_bt = advanced_metrics['home']['barttorvik']
+        away_bt = advanced_metrics['away']['barttorvik']
+        
+        bart_features = [
+            home_bt['Adj OE'] - away_bt['Adj OE'],  # Offensive efficiency diff
+            home_bt['Adj DE'] - away_bt['Adj DE']   # Defensive efficiency diff
+        ]
 
     # Stats features
     ppg_diff = home_team.get("ppg", 0) - away_team.get("ppg", 0)
@@ -610,36 +697,61 @@ def calculate_features(home_team: Dict, away_team: Dict, home_eff: Dict, away_ef
     # Projected total
     projected_total = (avg_off_eff + avg_def_eff) / 2 * (avg_tempo / 100) * 0.8
 
+    # Base features (original 3 used in current models)
+    base_features = [off_eff_diff, def_eff_diff, net_eff_diff]
+    
+    # Extended features for model predictions
+    extended_features = base_features.copy()
+    
+    # Add KenPom features if available
+    if len(kenpom_features) > 0:
+        extended_features.extend(kenpom_features)
+    else:
+        # Add zeros as placeholders if KenPom not available
+        extended_features.extend([0, 0, 0, 0, 0, 0])
+    
+    # Add BartTorvik features if available
+    if len(bart_features) > 0:
+        extended_features.extend(bart_features)
+    else:
+        # Add zeros as placeholders if BartTorvik not available
+        extended_features.extend([0, 0])
+
     return {
-        # Spread features (only the 3 features used in training)
-        'spread': [off_eff_diff, def_eff_diff, net_eff_diff],
-
-        # Total features (only the 3 features used in training)
-        'total': [off_eff_diff, def_eff_diff, net_eff_diff],
-
-        # Moneyline features (only the 3 features used in training)
-        'moneyline': [off_eff_diff, def_eff_diff, net_eff_diff]
+        # Use extended features for all predictions (11 features total)
+        'spread': extended_features,
+        'total': extended_features,
+        'moneyline': extended_features,
+        
+        # Metadata
+        'kenpom_available': len(kenpom_features) > 0,
+        'barttorvik_available': len(bart_features) > 0
     }
 
-def make_predictions(game_data: Dict, models: Dict) -> Dict:
+def make_predictions(game_data: Dict, models: Dict, advanced_metrics: Dict = None) -> Dict:
     """Make predictions for a game using trained models."""
     features = calculate_features(
         game_data['home_stats'], game_data['away_stats'],
-        game_data['home_eff'], game_data['away_eff']
+        game_data['home_eff'], game_data['away_eff'],
+        advanced_metrics
     )
 
     predictions = {}
+    
+    # Store advanced metrics availability
+    predictions['advanced_metrics_available'] = features.get('kenpom_available', False) or features.get('barttorvik_available', False)
 
-    # Define feature names that match training data (only the 3 features used)
-    spread_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
-    total_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
-    moneyline_feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+    # Define feature names that match training data (11 features)
+    feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff',
+                     'kenpom_netrtg_diff', 'kenpom_ortg_diff', 'kenpom_drtg_diff',
+                     'kenpom_adjt_diff', 'kenpom_luck_diff', 'kenpom_sos_diff',
+                     'bart_oe_diff', 'bart_de_diff']
 
     # Spread predictions
     if models.get('spread'):
         spread_preds = []
         # Convert to DataFrame with proper column names
-        spread_df = pd.DataFrame([features['spread']], columns=spread_feature_names)
+        spread_df = pd.DataFrame([features['spread']], columns=feature_names)
         scalers = models.get('spread_scalers', {})
         
         for model_name, model in models['spread'].items():
@@ -665,7 +777,7 @@ def make_predictions(game_data: Dict, models: Dict) -> Dict:
     if models.get('total'):
         total_preds = []
         # Convert to DataFrame with proper column names
-        total_df = pd.DataFrame([features['total']], columns=total_feature_names)
+        total_df = pd.DataFrame([features['total']], columns=feature_names)
         scalers = models.get('total_scalers', {})
         
         for model_name, model in models['total'].items():
@@ -691,7 +803,7 @@ def make_predictions(game_data: Dict, models: Dict) -> Dict:
     if models.get('moneyline'):
         moneyline_preds = []
         # Use same features as spread
-        moneyline_df = pd.DataFrame([features['moneyline']], columns=spread_feature_names)
+        moneyline_df = pd.DataFrame([features['moneyline']], columns=feature_names)
         scalers = models.get('moneyline_scalers', {})
         
         for model_name, model in models['moneyline'].items():
@@ -919,6 +1031,22 @@ def main():
 
     # Load models
     models = load_models()
+    
+    # Load advanced efficiency metrics
+    kenpom_df, bart_df = get_kenpom_barttorvik_data()
+    if kenpom_df is not None:
+        st.sidebar.success(f"✓ KenPom data loaded ({len(kenpom_df)} teams)")
+    if bart_df is not None:
+        st.sidebar.success(f"✓ BartTorvik data loaded ({len(bart_df)} teams)")
+    
+    # Fetch team data for predictions
+    efficiency_list, stats_list, season_used = get_team_data()
+    if efficiency_list and stats_list:
+        st.sidebar.success(f"✓ Team data loaded (season {season_used})")
+    else:
+        st.sidebar.error("❌ Could not load team data for predictions")
+        st.error("Unable to load team statistics. Predictions cannot be generated.")
+        return
 
     # Sidebar
     st.sidebar.header("Model Performance")
@@ -987,9 +1115,22 @@ def main():
         # Create table data
         table_data = []
         for game in games:
+            # Enrich game with CBBD data
+            enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
+            if not enriched_game:
+                # Skip games we can't enrich
+                continue
+            
+            # Get advanced metrics for this game
+            advanced_metrics = None
+            if kenpom_df is not None or bart_df is not None:
+                home_team = normalize_team_name(game['home_team'])
+                away_team = normalize_team_name(game['away_team'])
+                advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
+            
             # Make predictions for this game
             try:
-                predictions = make_predictions(game, models)
+                predictions = make_predictions(enriched_game, models, advanced_metrics)
             except Exception as e:
                 st.warning(f"Could not generate predictions for {game['away_team']} @ {game['home_team']}: {e}")
                 predictions = {}
@@ -1075,8 +1216,21 @@ def main():
 
         selected_game = games[selected_game_idx]
 
+        # Enrich selected game with CBBD data
+        enriched_game = enrich_espn_game_with_cbbd_data(selected_game, efficiency_list, stats_list, season_used)
+        if not enriched_game:
+            st.error("Unable to load data for this game. Please try another game.")
+            return
+
+        # Get advanced metrics for selected game
+        advanced_metrics = None
+        if kenpom_df is not None or bart_df is not None:
+            home_team = normalize_team_name(selected_game['home_team'])
+            away_team = normalize_team_name(selected_game['away_team'])
+            advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
+
         # Make predictions for selected game
-        predictions = make_predictions(selected_game, models)
+        predictions = make_predictions(enriched_game, models, advanced_metrics)
 
         # Display the prediction
         render_game_prediction(selected_game, predictions)

@@ -76,7 +76,7 @@ Automated collection of advanced efficiency metrics:
 # Download KenPom ratings
 python download_kenpom.py
 
-# Download BartTorvik ratings
+# Download BartTorvik ratings (auto-renames and cleans duplicates)
 python download_barttorvik.py
 
 # Create canonical datasets
@@ -85,7 +85,7 @@ python data_tools/efficiency_loader.py
 
 **Output files:**
 - `data_files/kenpom_ratings.csv` - Raw KenPom data (365 teams)
-- `data_files/barttorvik_ratings.csv` - Raw BartTorvik data (365 teams)
+- `data_files/barttorvik_ratings.csv` - Raw BartTorvik data (365 teams, auto-renamed from download)
 - `data_files/kenpom_canonical.csv` - Cleaned with canonical names (364 teams)
 - `data_files/barttorvik_canonical.csv` - Cleaned with canonical names (364 teams)
 

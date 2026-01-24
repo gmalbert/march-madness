@@ -37,4 +37,30 @@ time.sleep(5)
 # Close the driver
 driver.quit()
 
-print("Download attempted. Check data_files/ for the CSV file.")
+# Rename the downloaded file to the expected name
+import glob
+import shutil
+
+# Find the most recently downloaded CSV file (should be trank_team_table_data.csv or trank_team_table_data (1).csv)
+csv_files = glob.glob('data_files/trank_team_table_data*.csv')
+if csv_files:
+    # Sort by modification time, get the most recent
+    latest_file = max(csv_files, key=os.path.getmtime)
+    target_file = 'data_files/barttorvik_ratings.csv'
+    
+    # Copy/rename to the expected filename
+    shutil.copy2(latest_file, target_file)
+    print(f"Renamed {latest_file} to {target_file}")
+    
+    # Clean up old files (keep only the canonical one)
+    for old_file in csv_files:
+        if old_file != target_file:
+            try:
+                os.remove(old_file)
+                print(f"Cleaned up duplicate file: {old_file}")
+            except:
+                pass
+else:
+    print("Warning: No BartTorvik CSV file found after download")
+
+print("Download and file management completed. Check data_files/barttorvik_ratings.csv")

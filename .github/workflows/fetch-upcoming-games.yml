@@ -26,9 +26,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-actions.txt') }}
+        key: ${{ runner.os }}-py311-pip-${{ hashFiles('**/requirements-actions.txt') }}
         restore-keys: |
-          ${{ runner.os }}-pip-
+          ${{ runner.os }}-py311-pip-
 
     - name: Install dependencies
       run: |

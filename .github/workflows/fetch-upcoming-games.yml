@@ -1,4 +1,4 @@
-name: Fetch Upcoming Games
+name: Fetch and Predict Games
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Allow manual triggering
 
 jobs:
-  fetch-games:
+  fetch-and-predict:
     runs-on: ubuntu-latest
 
     steps:

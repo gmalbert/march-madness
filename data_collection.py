@@ -188,6 +188,11 @@ def fetch_team_stats(year: int) -> List:
         stats_api = cbbd.StatsApi(api_client)
         try:
             stats = stats_api.get_team_season_stats(season=year)
+            
+            # Convert objects to dictionaries if needed
+            if stats and hasattr(stats[0], 'to_dict'):
+                stats = [item.to_dict() for item in stats]
+            
             cache_data(cache_filename, stats)
             print(f"Fetched {len(stats)} team stats for {year}")
             return stats
@@ -210,6 +215,11 @@ def fetch_adjusted_efficiency(year: int) -> List:
         try:
             # Try without year parameter first
             efficiency = ratings_api.get_adjusted_efficiency()
+            
+            # Convert objects to dictionaries if needed
+            if efficiency and hasattr(efficiency[0], 'to_dict'):
+                efficiency = [item.to_dict() for item in efficiency]
+            
             cache_data(cache_filename, efficiency)
             print(f"Fetched {len(efficiency)} efficiency ratings")
             return efficiency

@@ -24,6 +24,7 @@ try:
     )
     from data_tools.efficiency_loader import EfficiencyDataLoader
     from fetch_live_odds import fetch_live_odds
+    from features import find_upset_candidates, predict_win_probability
 except ImportError as e:
     st.error(f"Could not import required functions: {e}")
     st.stop()
@@ -1135,7 +1136,7 @@ def make_predictions(game_data: Dict, models: Dict, advanced_metrics: Dict = Non
 
     return predictions
 
-def render_game_prediction(game: Dict, predictions: Dict):
+def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List = None, stats_list: List = None, models: Dict = None):
     """Render a game prediction card."""
     # Show game header with rankings if available
     home_rank_str = f" (#{int(game['home_rank'])})" if game.get('home_rank') else ""
@@ -1346,6 +1347,69 @@ def render_game_prediction(game: Dict, predictions: Dict):
                 💡 *Using fractional Kelly criterion for risk management*
                 """)             
 
+    # Check for upset potential (for tournament games)
+    if 'moneyline' in predictions and game.get('home_rank') and game.get('away_rank'):
+        # Determine favorite and underdog based on rankings
+        home_rank = game.get('home_rank', 99)
+        away_rank = game.get('away_rank', 99)
+        
+        if home_rank and away_rank and home_rank != away_rank:
+            # Lower rank number = better team
+            favorite_rank = min(home_rank, away_rank)
+            underdog_rank = max(home_rank, away_rank)
+            rank_diff = underdog_rank - favorite_rank
+            
+            # Only check for significant rank differences (like seed differences)
+            if rank_diff >= 10:  # Equivalent to about 3-4 seed difference
+                favorite_team = game['home_team'] if home_rank == favorite_rank else game['away_team']
+                underdog_team = game['away_team'] if home_rank == favorite_rank else game['home_team']
+                
+                # Get moneyline for underdog
+                underdog_ml = game.get('away_moneyline') if underdog_team == game['away_team'] else game.get('home_moneyline')
+                
+                if underdog_ml:
+                    # Create matchup data for upset detection
+                    matchup = {
+                        'higher_seed_team': favorite_team,
+                        'lower_seed_team': underdog_team,
+                        'higher_seed': favorite_rank,
+                        'lower_seed': underdog_rank,
+                        'underdog_ml': underdog_ml
+                    }
+                    
+                    # Create efficiency and stats lookups
+                    efficiency_lookup = {team['team']: team for team in efficiency_list}
+                    stats_lookup = {team['team']: team for team in stats_list}
+                    
+                    # Find upset candidates
+                    upsets = find_upset_candidates(
+                        [matchup], 
+                        min_seed_diff=rank_diff,
+                        efficiency_data=efficiency_lookup,
+                        stats_data=stats_lookup,
+                        models=models
+                    )
+                    
+                    if upsets:
+                        upset = upsets[0]  # Should only be one
+                        st.divider()
+                        st.markdown("### 🔥 UPSET ALERT!")
+                        
+                        col1, col2 = st.columns(2)
+                        
+                        with col1:
+                            st.markdown(f"**{upset['underdog']}** (Underdog)")
+                            st.markdown(f"vs **{upset['favorite']}** (Favorite)")
+                            st.metric("Rank Matchup", upset['seed_matchup'])
+                            st.metric("Moneyline", f"{upset['moneyline']:+d}")
+                        
+                        with col2:
+                            st.metric("Upset Probability", f"{upset['upset_prob']:.1%}")
+                            st.metric("Implied Probability", f"{upset['implied_prob']:.1%}")
+                            st.metric("Edge", f"{upset['edge']:.1%}", delta="Positive" if upset['edge'] > 0 else "normal")
+                        
+                        st.info("💡 This underdog has a strong chance of pulling off an upset based on efficiency metrics!")
+
 
 def main():
     st.set_page_config(
@@ -1437,7 +1501,7 @@ def main():
     games = sort_games_by_date(games)
 
     # Create tabs
-    tab1, tab2 = st.tabs(["📊 All Games Table", "🎯 Individual Game Analysis"])
+    tab1, tab2, tab3, tab4 = st.tabs(["📊 All Games Table", "🎯 Individual Game Analysis", "🎲 Parlay Builder", "📈 Historical Against the Spread"])
 
     with tab1:
         st.header("📊 All Games with Predictions")
@@ -1554,6 +1618,49 @@ def main():
             except Exception:
                 pass
 
+            # Check for upset potential
+            upset_alert = ""
+            if game.get('home_rank') and game.get('away_rank') and home_ml and away_ml:
+                home_rank = game.get('home_rank', 99)
+                away_rank = game.get('away_rank', 99)
+                
+                if home_rank and away_rank and home_rank != away_rank:
+                    # Lower rank number = better team
+                    favorite_rank = min(home_rank, away_rank)
+                    underdog_rank = max(home_rank, away_rank)
+                    rank_diff = underdog_rank - favorite_rank
+                    
+                    # Check for significant rank differences
+                    if rank_diff >= 10:  # Equivalent to about 3-4 seed difference
+                        favorite_team = game['home_team'] if home_rank == favorite_rank else game['away_team']
+                        underdog_team = game['away_team'] if home_rank == favorite_rank else game['home_team']
+                        
+                        # Get moneyline for underdog
+                        underdog_ml = game.get('away_moneyline') if underdog_team == game['away_team'] else game.get('home_moneyline')
+                        
+                        if underdog_ml:
+                            # Create matchup data for upset detection
+                            matchup = {
+                                'higher_seed_team': favorite_team,
+                                'lower_seed_team': underdog_team,
+                                'higher_seed': favorite_rank,
+                                'lower_seed': underdog_rank,
+                                'underdog_ml': underdog_ml
+                            }
+                            
+                            # Find upset candidates
+                            upsets = find_upset_candidates(
+                                [matchup], 
+                                min_seed_diff=rank_diff,
+                                efficiency_data={team['team']: team for team in efficiency_list},
+                                stats_data={team['team']: team for team in stats_list},
+                                models=models
+                            )
+                            
+                            if upsets:
+                                upset = upsets[0]
+                                upset_alert = f"🔥 {upset['underdog']} ({upset['edge']:.1%})"
+
             table_data.append({
                 'Date': date_str,
                 'Away Team': f"{game['away_team']} {away_rank}".strip(),
@@ -1562,6 +1669,7 @@ def main():
                 'Model Prob': pred_model_str,
                 'Market Prob': market_prob_str,
                 'Edge': edge_str,
+                'Upset Alert': upset_alert,
                 'Spread': spread_str,
                 'Total': total_str
             })
@@ -1619,7 +1727,7 @@ def main():
         predictions = make_predictions(enriched_game, models, advanced_metrics)
 
         # Display the prediction
-        render_game_prediction(enriched_game, predictions)
+        render_game_prediction(enriched_game, predictions, efficiency_list, stats_list, models)
 
         st.info("💡 **Note:** Predictions show what the model would have forecasted before the game.")
 
@@ -1644,6 +1752,180 @@ def main():
             - Uses Kelly Criterion for optimal bet sizing
             - Minimum 5% ROI threshold for value identification
             """)
+
+    with tab3:
+        st.header("🎲 Parlay Builder")
+        st.markdown("Build custom parlays from upcoming games and calculate combined odds and expected value.")
+        
+        # Import the parlay function
+        from features import build_parlay
+        
+        st.markdown("### Select Games for Your Parlay")
+        
+        # Get available games with predictions
+        parlay_games = []
+        for game in games[:10]:  # Limit to first 10 games for UI simplicity
+            enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
+            if enriched_game:
+                predictions = make_predictions(enriched_game, models, None)
+                if 'moneyline' in predictions and predictions['moneyline']:
+                    parlay_games.append({
+                        'game': game,
+                        'enriched': enriched_game,
+                        'predictions': predictions
+                    })
+        
+        if not parlay_games:
+            st.warning("No games available for parlay building.")
+        else:
+            # Multiselect for games
+            game_options = [f"{g['game']['away_team']} @ {g['game']['home_team']}" for g in parlay_games]
+            selected_indices = st.multiselect(
+                "Select games to include in your parlay:",
+                range(len(parlay_games)),
+                format_func=lambda x: game_options[x],
+                max_selections=6  # Reasonable limit for parlays
+            )
+            
+            if selected_indices:
+                st.markdown("### Your Parlay Picks")
+                
+                picks = []
+                for idx in selected_indices:
+                    game_data = parlay_games[idx]
+                    game = game_data['game']
+                    predictions = game_data['predictions']
+                    
+                    # Determine which side to bet based on model probability
+                    home_prob = predictions['moneyline']['home_win_prob']
+                    away_prob = predictions['moneyline']['away_win_prob']
+                    
+                    # Get moneyline odds (handle None values)
+                    home_ml = game.get('home_moneyline') or 0
+                    away_ml = game.get('away_moneyline') or 0
+                    
+                    if home_prob > away_prob:
+                        # Bet home team
+                        pick = {
+                            'team': game['home_team'],
+                            'odds': home_ml,
+                            'model_prob': home_prob,
+                            'opponent': game['away_team']
+                        }
+                    else:
+                        # Bet away team
+                        pick = {
+                            'team': game['away_team'],
+                            'odds': away_ml,
+                            'model_prob': away_prob,
+                            'opponent': game['home_team']
+                        }
+                    
+                    picks.append(pick)
+                    
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.markdown(f"**{pick['team']}** vs {pick['opponent']}")
+                    with col2:
+                        if pick['odds'] and pick['odds'] != 0:
+                            st.markdown(f"Moneyline: {pick['odds']:+d}")
+                        else:
+                            st.markdown("Moneyline: N/A")
+                    with col3:
+                        st.markdown(f"Model Prob: {pick['model_prob']:.1%}")
+                
+                if st.button("Calculate Parlay", type="primary"):
+                    parlay_result = build_parlay(picks)
+                    
+                    st.success("Parlay Calculated!")
+                    
+                    col1, col2, col3, col4 = st.columns(4)
+                    with col1:
+                        st.metric("Parlay Odds", f"{parlay_result['parlay_odds']:+.0f}")
+                    with col2:
+                        st.metric("Decimal Odds", f"{parlay_result['decimal_odds']:.2f}")
+                    with col3:
+                        st.metric("Combined Probability", f"{parlay_result['combined_prob']:.1%}")
+                    with col4:
+                        ev_color = "green" if parlay_result['is_positive_ev'] else "red"
+                        st.metric("Expected Value", f"{parlay_result['expected_value']:.1%}", 
+                                delta="+" if parlay_result['is_positive_ev'] else "-")
+                    
+                    if parlay_result['is_positive_ev']:
+                        st.success("✅ Positive Expected Value - This parlay has a mathematical edge!")
+                    else:
+                        st.warning("⚠️ Negative Expected Value - This parlay may not be profitable long-term.")
+            else:
+                st.info("Select games above to build your parlay.")
+
+    with tab4:
+        st.header("📈 Historical Against the Spread Trends")
+        st.markdown("Analyze team's historical against-the-spread performance over the past 5 seasons.")
+        
+        # Import the ATS analysis function
+        from features import analyze_ats_trends
+        
+        # Team selector
+        team_options = sorted(list(set([game['home_team'] for game in games] + [game['away_team'] for game in games])))
+        selected_team = st.selectbox("Select a team to analyze:", team_options)
+        
+        if selected_team:
+            with st.spinner(f"Analyzing {selected_team}'s Against the Spread trends..."):
+                try:
+                    # Normalize team name to match historical data format
+                    normalized_team = normalize_team_name(selected_team)
+                    ats_results = analyze_ats_trends(normalized_team, years=5)
+                    
+                    if ats_results and ats_results.get('overall_ats') and (ats_results['overall_ats']['wins'] + ats_results['overall_ats']['losses'] > 0):
+                        st.markdown(f"### {selected_team} Against the Spread Performance (Last 5 Seasons)")
+                        
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            wins = ats_results['overall_ats']['wins']
+                            losses = ats_results['overall_ats']['losses']
+                            total = wins + losses
+                            pct = wins / total if total > 0 else 0
+                            st.metric("Overall Against the Spread", f"{wins}-{losses}", f"{pct:.1%}")
+                        
+                        with col2:
+                            fav_wins = ats_results['as_favorite']['wins']
+                            fav_losses = ats_results['as_favorite']['losses']
+                            fav_total = fav_wins + fav_losses
+                            fav_pct = fav_wins / fav_total if fav_total > 0 else 0
+                            st.metric("As Favorite", f"{fav_wins}-{fav_losses}", f"{fav_pct:.1%}")
+                        
+                        with col3:
+                            dog_wins = ats_results['as_underdog']['wins']
+                            dog_losses = ats_results['as_underdog']['losses']
+                            dog_total = dog_wins + dog_losses
+                            dog_pct = dog_wins / dog_total if dog_total > 0 else 0
+                            st.metric("As Underdog", f"{dog_wins}-{dog_losses}", f"{dog_pct:.1%}")
+                        
+                        # Additional insights
+                        st.markdown("### Key Insights")
+                        
+                        if pct > 0.52:
+                            st.success(f"✅ {selected_team} covers the spread {pct:.1%} of the time - strong Against the Spread performance!")
+                        elif pct < 0.48:
+                            st.warning(f"⚠️ {selected_team} only covers {pct:.1%} of the time - poor Against the Spread performance.")
+                        else:
+                            st.info(f"📊 {selected_team} has neutral Against the Spread performance at {pct:.1%}.")
+                        
+                        # Favorite vs Underdog analysis
+                        if fav_pct > dog_pct + 0.05:
+                            st.info(f"💪 Performs much better as a favorite ({fav_pct:.1%} vs {dog_pct:.1%} as underdog)")
+                        elif dog_pct > fav_pct + 0.05:
+                            st.info(f"🎯 Performs much better as an underdog ({dog_pct:.1%} vs {fav_pct:.1%} as favorite)")
+                        
+                        st.markdown(f"**Data Source:** {total} games with betting lines from {datetime.now().year-5}-{datetime.now().year-1} seasons")
+                    
+                    else:
+                        st.warning(f"No historical Against the Spread data found for {selected_team}.")
+                        st.info("This may be due to limited betting line coverage for this team, or the team may be newer to D1 basketball.")
+                        
+                except Exception as e:
+                    st.error(f"Error analyzing {selected_team}: {str(e)}")
+                    st.info("This feature requires historical betting data. Make sure the data collection has been run.")
 
 if __name__ == "__main__":
     main()

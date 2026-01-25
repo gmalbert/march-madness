@@ -1,33 +1,28 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-01-23 22:30:00+00:00,St. Bonaventure Bonnies,Saint Louis Billikens,179,139,0,0,99,24,Reilly Center,False,True,3,3,STATUS_SCHEDULED,401828387,Saint Louis Billikens at St. Bonaventure Bonnies
-2026,Regular,2026-01-24 01:00:00+00:00,Michigan Wolverines,Ohio State Buckeyes,130,194,0,0,3,99,Crisler Center,False,True,7,7,STATUS_SCHEDULED,401825464,Ohio State Buckeyes at Michigan Wolverines
-2026,Regular,2026-01-24 17:00:00+00:00,Duke Blue Devils,Wake Forest Demon Deacons,150,154,0,0,5,99,Cameron Indoor Stadium,False,True,2,2,STATUS_SCHEDULED,401820689,Wake Forest Demon Deacons at Duke Blue Devils
-2026,Regular,2026-01-24 17:00:00+00:00,Minnesota Golden Gophers,Nebraska Cornhuskers,135,158,0,0,99,7,Williams Arena,False,True,7,7,STATUS_SCHEDULED,401825467,Nebraska Cornhuskers at Minnesota Golden Gophers
-2026,Regular,2026-01-24 17:00:00+00:00,Michigan State Spartans,Maryland Terrapins,127,120,0,0,10,99,Breslin Center,False,True,7,7,STATUS_SCHEDULED,401825466,Maryland Terrapins at Michigan State Spartans
-2026,Regular,2026-01-24 17:00:00+00:00,Virginia Cavaliers,North Carolina Tar Heels,258,153,0,0,14,22,John Paul Jones Arena,False,True,2,2,STATUS_SCHEDULED,401820697,North Carolina Tar Heels at Virginia Cavaliers
-2026,Regular,2026-01-24 17:00:00+00:00,Mississippi State Bulldogs,Vanderbilt Commodores,344,238,0,0,99,15,Humphrey Coliseum,False,True,23,23,STATUS_SCHEDULED,401808195,Vanderbilt Commodores at Mississippi State Bulldogs
-2026,Regular,2026-01-24 17:00:00+00:00,Georgia Tech Yellow Jackets,Clemson Tigers,59,228,0,0,99,18,McCamish Pavilion,False,True,2,2,STATUS_SCHEDULED,401820690,Clemson Tigers at Georgia Tech Yellow Jackets
-2026,Regular,2026-01-24 17:30:00+00:00,UConn Huskies,Villanova Wildcats,41,222,0,0,2,99,PeoplesBank Arena,False,True,4,4,STATUS_SCHEDULED,401822913,Villanova Wildcats at UConn Huskies
-2026,Regular,2026-01-24 18:00:00+00:00,Texas Longhorns,Georgia Bulldogs,251,61,0,0,99,21,Moody Center,False,True,23,23,STATUS_SCHEDULED,401808198,Georgia Bulldogs at Texas Longhorns
-2026,Regular,2026-01-24 19:00:00+00:00,Arizona Wildcats,West Virginia Mountaineers,12,277,0,0,1,99,McKale Memorial Center,False,True,8,8,STATUS_SCHEDULED,401827639,West Virginia Mountaineers at Arizona Wildcats
-2026,Regular,2026-01-24 19:00:00+00:00,Texas Tech Red Raiders,Houston Cougars,2641,248,0,0,12,6,United Supermarkets Arena,False,True,8,8,STATUS_SCHEDULED,401827646,Houston Cougars at Texas Tech Red Raiders
-2026,Regular,2026-01-24 19:15:00+00:00,Louisville Cardinals,Virginia Tech Hokies,97,259,0,0,23,99,KFC Yum! Center,False,True,2,2,STATUS_SCHEDULED,401820691,Virginia Tech Hokies at Louisville Cardinals
-2026,Regular,2026-01-24 20:00:00+00:00,Purdue Boilermakers,Illinois Fighting Illini,2509,356,0,0,4,11,Mackey Arena,False,True,7,7,STATUS_SCHEDULED,401825468,Illinois Fighting Illini at Purdue Boilermakers
-2026,Regular,2026-01-24 20:00:00+00:00,Oklahoma State Cowboys,Iowa State Cyclones,197,66,0,0,99,9,Gallagher-Iba Arena,False,True,8,8,STATUS_SCHEDULED,401827645,Iowa State Cyclones at Oklahoma State Cowboys
-2026,Regular,2026-01-24 21:00:00+00:00,Florida Gators,Auburn Tigers,57,2,0,0,16,99,Stephen C. O'Connell Center,False,True,23,23,STATUS_SCHEDULED,401808193,Auburn Tigers at Florida Gators
-2026,Regular,2026-01-24 22:00:00+00:00,Arkansas Razorbacks,LSU Tigers,8,99,0,0,20,99,Bud Walton Arena,False,True,23,23,STATUS_SCHEDULED,401808192,LSU Tigers at Arkansas Razorbacks
-2026,Regular,2026-01-24 22:30:00+00:00,BYU Cougars,Utah Utes,252,254,0,0,13,99,Marriott Center,False,True,8,8,STATUS_SCHEDULED,401827642,Utah Utes at BYU Cougars
-2026,Regular,2026-01-25 01:00:00+00:00,Gonzaga Bulldogs,San Francisco Dons,2250,2539,0,0,8,99,McCarthey Athletic Center,False,True,29,29,STATUS_SCHEDULED,401829214,San Francisco Dons at Gonzaga Bulldogs
-2026,Regular,2026-01-25 01:00:00+00:00,Kansas State Wildcats,Kansas Jayhawks,2306,2305,0,0,99,19,Bramlage Coliseum,False,True,8,8,STATUS_SCHEDULED,401827644,Kansas Jayhawks at Kansas State Wildcats
-2026,Regular,2026-01-25 01:30:00+00:00,Alabama Crimson Tide,Tennessee Volunteers,333,2633,0,0,17,99,Coleman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808199,Tennessee Volunteers at Alabama Crimson Tide
-2026,Regular,2026-01-25 17:00:00+00:00,Fairleigh Dickinson Knights,Le Moyne Dolphins,161,2330,0,0,99,99,Bogota Savings Bank Center,False,True,19,19,STATUS_SCHEDULED,401812322,Le Moyne Dolphins at Fairleigh Dickinson Knights
-2026,Regular,2026-01-25 18:00:00+00:00,South Florida Bulls,Florida Atlantic Owls,58,2226,0,0,99,99,Yuengling Center,False,True,62,62,STATUS_SCHEDULED,401828195,Florida Atlantic Owls at South Florida Bulls
+2026,Regular,2026-01-24 17:00:00+00:00,Duke Blue Devils,Wake Forest Demon Deacons,150,154,90,69,5,99,Cameron Indoor Stadium,False,True,2,2,STATUS_FINAL,401820689,Wake Forest Demon Deacons at Duke Blue Devils
+2026,Regular,2026-01-24 17:00:00+00:00,Minnesota Golden Gophers,Nebraska Cornhuskers,135,158,57,76,99,7,Williams Arena,False,True,7,7,STATUS_FINAL,401825467,Nebraska Cornhuskers at Minnesota Golden Gophers
+2026,Regular,2026-01-24 17:00:00+00:00,Michigan State Spartans,Maryland Terrapins,127,120,91,48,10,99,Breslin Center,False,True,7,7,STATUS_FINAL,401825466,Maryland Terrapins at Michigan State Spartans
+2026,Regular,2026-01-24 17:00:00+00:00,Virginia Cavaliers,North Carolina Tar Heels,258,153,80,85,14,22,John Paul Jones Arena,False,True,2,2,STATUS_FINAL,401820697,North Carolina Tar Heels at Virginia Cavaliers
+2026,Regular,2026-01-24 17:00:00+00:00,Mississippi State Bulldogs,Vanderbilt Commodores,344,238,56,88,99,15,Humphrey Coliseum,False,True,23,23,STATUS_FINAL,401808195,Vanderbilt Commodores at Mississippi State Bulldogs
+2026,Regular,2026-01-24 17:00:00+00:00,Georgia Tech Yellow Jackets,Clemson Tigers,59,228,63,77,99,18,McCamish Pavilion,False,True,2,2,STATUS_FINAL,401820690,Clemson Tigers at Georgia Tech Yellow Jackets
+2026,Regular,2026-01-24 17:30:00+00:00,UConn Huskies,Villanova Wildcats,41,222,75,67,2,99,PeoplesBank Arena,False,True,4,4,STATUS_FINAL,401822913,Villanova Wildcats at UConn Huskies
+2026,Regular,2026-01-24 18:00:00+00:00,Texas Longhorns,Georgia Bulldogs,251,61,87,67,99,21,Moody Center,False,True,23,23,STATUS_FINAL,401808198,Georgia Bulldogs at Texas Longhorns
+2026,Regular,2026-01-24 19:00:00+00:00,Arizona Wildcats,West Virginia Mountaineers,12,277,88,53,1,99,McKale Memorial Center,False,True,8,8,STATUS_FINAL,401827639,West Virginia Mountaineers at Arizona Wildcats
+2026,Regular,2026-01-24 19:00:00+00:00,Texas Tech Red Raiders,Houston Cougars,2641,248,90,86,12,6,United Supermarkets Arena,False,True,8,8,STATUS_FINAL,401827646,Houston Cougars at Texas Tech Red Raiders
+2026,Regular,2026-01-24 19:15:00+00:00,Louisville Cardinals,Virginia Tech Hokies,97,259,85,71,23,99,KFC Yum! Center,False,True,2,2,STATUS_FINAL,401820691,Virginia Tech Hokies at Louisville Cardinals
+2026,Regular,2026-01-24 20:00:00+00:00,Oklahoma State Cowboys,Iowa State Cyclones,197,66,71,84,99,9,Gallagher-Iba Arena,False,True,8,8,STATUS_FINAL,401827645,Iowa State Cyclones at Oklahoma State Cowboys
+2026,Regular,2026-01-24 20:00:00+00:00,Purdue Boilermakers,Illinois Fighting Illini,2509,356,82,88,4,11,Mackey Arena,False,True,7,7,STATUS_FINAL,401825468,Illinois Fighting Illini at Purdue Boilermakers
+2026,Regular,2026-01-24 21:00:00+00:00,Florida Gators,Auburn Tigers,57,2,67,76,16,99,Stephen C. O'Connell Center,False,True,23,23,STATUS_FINAL,401808193,Auburn Tigers at Florida Gators
+2026,Regular,2026-01-24 22:00:00+00:00,Arkansas Razorbacks,LSU Tigers,8,99,85,81,20,99,Bud Walton Arena,False,True,23,23,STATUS_FINAL,401808192,LSU Tigers at Arkansas Razorbacks
+2026,Regular,2026-01-24 22:30:00+00:00,BYU Cougars,Utah Utes,252,254,91,78,13,99,Marriott Center,False,True,8,8,STATUS_FINAL,401827642,Utah Utes at BYU Cougars
+2026,Regular,2026-01-25 01:00:00+00:00,Gonzaga Bulldogs,San Francisco Dons,2250,2539,60,57,8,99,McCarthey Athletic Center,False,True,29,29,STATUS_IN_PROGRESS,401829214,San Francisco Dons at Gonzaga Bulldogs
+2026,Regular,2026-01-25 01:00:00+00:00,Kansas State Wildcats,Kansas Jayhawks,2306,2305,52,59,99,19,Bramlage Coliseum,False,True,8,8,STATUS_IN_PROGRESS,401827644,Kansas Jayhawks at Kansas State Wildcats
+2026,Regular,2026-01-25 01:30:00+00:00,Alabama Crimson Tide,Tennessee Volunteers,333,2633,43,47,17,99,Coleman Coliseum,False,True,23,23,STATUS_IN_PROGRESS,401808199,Tennessee Volunteers at Alabama Crimson Tide
 2026,Regular,2026-01-25 18:00:00+00:00,New Haven Chargers,Saint Francis Red Flash,2441,2598,0,0,99,99,Jeffery P. Hazell Athletics Center,False,True,19,19,STATUS_SCHEDULED,401812393,Saint Francis Red Flash at New Haven Chargers
-2026,Regular,2026-01-25 19:00:00+00:00,Stonehill Skyhawks,Central Connecticut Blue Devils,284,2115,0,0,99,99,Merkert Gymnasium,False,True,19,19,STATUS_SCHEDULED,401812406,Central Connecticut Blue Devils at Stonehill Skyhawks
+2026,Regular,2026-01-25 18:00:00+00:00,South Florida Bulls,Florida Atlantic Owls,58,2226,0,0,99,99,Yuengling Center,False,True,62,62,STATUS_SCHEDULED,401828195,Florida Atlantic Owls at South Florida Bulls
 2026,Regular,2026-01-25 19:00:00+00:00,Mercyhurst Lakers,Chicago State Cougars,2385,2130,0,0,99,99,Mercyhurst Athletic Center,False,True,19,19,STATUS_SCHEDULED,401820218,Chicago State Cougars at Mercyhurst Lakers
-2026,Regular,2026-01-25 19:00:00+00:00,IU Indianapolis Jaguars,Purdue Fort Wayne Mastodons,85,2870,0,0,99,99,The Jungle,False,True,45,45,STATUS_SCHEDULED,401817640,Purdue Fort Wayne Mastodons at IU Indianapolis Jaguars
+2026,Regular,2026-01-25 19:00:00+00:00,IU Indianapolis Jaguars,Purdue Fort Wayne Mastodons,85,2870,0,0,99,99,The Jungle,False,True,45,45,STATUS_POSTPONED,401817640,Purdue Fort Wayne Mastodons at IU Indianapolis Jaguars
 2026,Regular,2026-01-25 20:00:00+00:00,Washington Huskies,Oregon Ducks,264,2483,0,0,99,99,Alaska Airlines Arena,False,True,7,7,STATUS_SCHEDULED,401825470,Oregon Ducks at Washington Huskies
-2026,Regular,2026-01-25 20:00:00+00:00,Long Island University Sharks,Wagner Seahawks,112358,2681,0,0,99,99,Steinberg Wellness Center,False,True,19,19,STATUS_SCHEDULED,401812370,Wagner Seahawks at Long Island University Sharks
 2026,Regular,2026-01-25 21:00:00+00:00,Evansville Purple Aces,Southern Illinois Salukis,339,79,0,0,99,99,Ford Center,False,True,18,18,STATUS_SCHEDULED,401830280,Southern Illinois Salukis at Evansville Purple Aces
 2026,Regular,2026-01-25 21:00:00+00:00,Wisconsin Badgers,USC Trojans,275,30,0,0,99,99,Kohl Center,False,True,7,7,STATUS_SCHEDULED,401825471,USC Trojans at Wisconsin Badgers
 2026,Regular,2026-01-27 00:00:00+00:00,Duke Blue Devils,Louisville Cardinals,150,97,0,0,5,23,Cameron Indoor Stadium,False,True,2,2,STATUS_SCHEDULED,401820698,Louisville Cardinals at Duke Blue Devils
@@ -39,13 +34,49 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-01-28 00:00:00+00:00,Notre Dame Fighting Irish,Virginia Cavaliers,87,258,0,0,99,14,Purcell Pavilion,False,True,2,2,STATUS_SCHEDULED,401820703,Virginia Cavaliers at Notre Dame Fighting Irish
 2026,Regular,2026-01-28 00:30:00+00:00,UConn Huskies,Providence Friars,41,2507,0,0,2,99,Gampel Pavilion,False,True,4,4,STATUS_SCHEDULED,401822918,Providence Friars at UConn Huskies
 2026,Regular,2026-01-28 01:00:00+00:00,Saint Louis Billikens,George Washington Revolutionaries,139,45,0,0,24,99,Chaifetz Arena,False,True,3,3,STATUS_SCHEDULED,401828394,George Washington Revolutionaries at Saint Louis Billikens
+2026,Regular,2026-01-28 02:00:00+00:00,Alabama Crimson Tide,Missouri Tigers,333,142,0,0,17,99,Coleman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808204,Missouri Tigers at Alabama Crimson Tide
 2026,Regular,2026-01-28 02:00:00+00:00,Indiana Hoosiers,Purdue Boilermakers,84,2509,0,0,99,4,Simon Skjodt Assembly Hall,False,True,7,7,STATUS_SCHEDULED,401825473,Purdue Boilermakers at Indiana Hoosiers
 2026,Regular,2026-01-28 02:00:00+00:00,Vanderbilt Commodores,Kentucky Wildcats,238,96,0,0,15,99,Memorial Gymnasium (TN),False,True,23,23,STATUS_SCHEDULED,401808205,Kentucky Wildcats at Vanderbilt Commodores
-2026,Regular,2026-01-28 02:00:00+00:00,Alabama Crimson Tide,Missouri Tigers,333,142,0,0,17,99,Coleman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808204,Missouri Tigers at Alabama Crimson Tide
 2026,Regular,2026-01-28 02:00:00+00:00,Miami (OH) RedHawks,Massachusetts Minutemen,193,113,0,0,25,99,Millett Hall,False,True,14,14,STATUS_SCHEDULED,401814543,Massachusetts Minutemen at Miami (OH) RedHawks
-2026,Regular,2026-01-29 02:00:00+00:00,TCU Horned Frogs,Houston Cougars,2628,248,0,0,99,6,Schollmaier Arena,False,True,8,8,STATUS_SCHEDULED,401827650,Houston Cougars at TCU Horned Frogs
 2026,Regular,2026-01-29 02:00:00+00:00,South Carolina Gamecocks,Florida Gators,2579,57,0,0,99,16,Colonial Life Arena,False,True,23,23,STATUS_SCHEDULED,401808203,Florida Gators at South Carolina Gamecocks
+2026,Regular,2026-01-29 02:00:00+00:00,TCU Horned Frogs,Houston Cougars,2628,248,0,0,99,6,Schollmaier Arena,False,True,8,8,STATUS_SCHEDULED,401827650,Houston Cougars at TCU Horned Frogs
 2026,Regular,2026-01-30 00:00:00+00:00,Iowa State Cyclones,Colorado Buffaloes,66,38,0,0,9,99,Hilton Coliseum,False,True,8,8,STATUS_SCHEDULED,401827651,Colorado Buffaloes at Iowa State Cyclones
 2026,Regular,2026-01-30 02:00:00+00:00,Illinois Fighting Illini,Washington Huskies,356,264,0,0,11,99,State Farm Center,False,True,7,7,STATUS_SCHEDULED,401825479,Washington Huskies at Illinois Fighting Illini
 2026,Regular,2026-01-31 01:00:00+00:00,Michigan State Spartans,Michigan Wolverines,127,130,0,0,10,3,Breslin Center,False,True,7,7,STATUS_SCHEDULED,401825481,Michigan Wolverines at Michigan State Spartans
 2026,Regular,2026-01-31 01:00:00+00:00,Saint Louis Billikens,Dayton Flyers,139,2168,0,0,24,99,Chaifetz Arena,False,True,3,3,STATUS_SCHEDULED,401828400,Dayton Flyers at Saint Louis Billikens
+2026,Regular,2026-01-31 17:00:00+00:00,Virginia Tech Hokies,Duke Blue Devils,259,150,0,0,99,5,Cassell Coliseum,False,True,2,2,STATUS_SCHEDULED,401820712,Duke Blue Devils at Virginia Tech Hokies
+2026,Regular,2026-01-31 17:00:00+00:00,Houston Cougars,Cincinnati Bearcats,248,2132,0,0,6,99,Fertitta Center,False,True,8,8,STATUS_SCHEDULED,401827654,Cincinnati Bearcats at Houston Cougars
+2026,Regular,2026-01-31 17:00:00+00:00,UCF Knights,Texas Tech Red Raiders,2116,2641,0,0,99,12,Addition Financial Arena,False,True,8,8,STATUS_SCHEDULED,401827653,Texas Tech Red Raiders at UCF Knights
+2026,Regular,2026-01-31 17:00:00+00:00,Clemson Tigers,Pittsburgh Panthers,228,221,0,0,18,99,Littlejohn Coliseum,False,True,2,2,STATUS_SCHEDULED,401820707,Pittsburgh Panthers at Clemson Tigers
+2026,Regular,2026-01-31 18:00:00+00:00,Georgia Bulldogs,Texas A&M Aggies,61,245,0,0,21,99,Stegeman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808209,Texas A&M Aggies at Georgia Bulldogs
+2026,Regular,2026-01-31 18:30:00+00:00,Boston College Eagles,Virginia Cavaliers,103,258,0,0,99,14,Conte Forum,False,True,2,2,STATUS_SCHEDULED,401820705,Virginia Cavaliers at Boston College Eagles
+2026,Regular,2026-01-31 19:00:00+00:00,Arizona State Sun Devils,Arizona Wildcats,9,12,0,0,99,1,Desert Financial Arena,False,True,8,8,STATUS_SCHEDULED,401827652,Arizona Wildcats at Arizona State Sun Devils
+2026,Regular,2026-01-31 19:00:00+00:00,Georgia Tech Yellow Jackets,North Carolina Tar Heels,59,153,0,0,99,22,McCamish Pavilion,False,True,2,2,STATUS_SCHEDULED,401820709,North Carolina Tar Heels at Georgia Tech Yellow Jackets
+2026,Regular,2026-01-31 19:00:00+00:00,Louisville Cardinals,SMU Mustangs,97,2567,0,0,23,99,KFC Yum! Center,False,True,2,2,STATUS_SCHEDULED,401820710,SMU Mustangs at Louisville Cardinals
+2026,Regular,2026-01-31 20:30:00+00:00,Miami (OH) RedHawks,Northern Illinois Huskies,193,2459,0,0,25,99,Millett Hall,False,True,14,14,STATUS_SCHEDULED,401814550,Northern Illinois Huskies at Miami (OH) RedHawks
+2026,Regular,2026-01-31 21:30:00+00:00,Kansas Jayhawks,BYU Cougars,2305,252,0,0,19,13,Allen Fieldhouse,False,True,8,8,STATUS_SCHEDULED,401827655,BYU Cougars at Kansas Jayhawks
+2026,Regular,2026-01-31 23:30:00+00:00,Arkansas Razorbacks,Kentucky Wildcats,8,96,0,0,20,99,Bud Walton Arena,False,True,23,23,STATUS_SCHEDULED,401808207,Kentucky Wildcats at Arkansas Razorbacks
+2026,Regular,2026-02-01 01:00:00+00:00,Creighton Bluejays,UConn Huskies,156,41,0,0,99,2,CHI Health Center Omaha,False,True,4,4,STATUS_SCHEDULED,401822923,UConn Huskies at Creighton Bluejays
+2026,Regular,2026-02-01 01:30:00+00:00,Ole Miss Rebels,Vanderbilt Commodores,145,238,0,0,99,15,The Sandy and John Black Pavilion at Ole Miss,False,True,23,23,STATUS_SCHEDULED,401808210,Vanderbilt Commodores at Ole Miss Rebels
+2026,Regular,2026-02-01 03:30:00+00:00,Gonzaga Bulldogs,Saint Mary's Gaels,2250,2608,0,0,8,99,McCarthey Athletic Center,False,True,29,29,STATUS_SCHEDULED,401829225,Saint Mary's Gaels at Gonzaga Bulldogs
+2026,Regular,2026-02-01 18:00:00+00:00,Florida Gators,Alabama Crimson Tide,57,333,0,0,16,17,Stephen C. O'Connell Center,False,True,23,23,STATUS_SCHEDULED,401808208,Alabama Crimson Tide at Florida Gators
+2026,Regular,2026-02-01 18:00:00+00:00,Maryland Terrapins,Purdue Boilermakers,120,2509,0,0,99,4,XFINITY Center,False,True,7,7,STATUS_SCHEDULED,401825486,Purdue Boilermakers at Maryland Terrapins
+2026,Regular,2026-02-01 19:00:00+00:00,Kansas State Wildcats,Iowa State Cyclones,2306,66,0,0,99,9,Bramlage Coliseum,False,True,8,8,STATUS_SCHEDULED,401827659,Iowa State Cyclones at Kansas State Wildcats
+2026,Regular,2026-02-01 21:00:00+00:00,Nebraska Cornhuskers,Illinois Fighting Illini,158,356,0,0,7,11,Pinnacle Bank Arena,False,True,7,7,STATUS_SCHEDULED,401825487,Illinois Fighting Illini at Nebraska Cornhuskers
+2026,Regular,2026-02-03 00:00:00+00:00,North Carolina Tar Heels,Syracuse Orange,153,183,0,0,22,99,Dean E. Smith Center,False,True,2,2,STATUS_SCHEDULED,401820714,Syracuse Orange at North Carolina Tar Heels
+2026,Regular,2026-02-03 02:00:00+00:00,Texas Tech Red Raiders,Kansas Jayhawks,2641,2305,0,0,12,19,United Supermarkets Arena,False,True,8,8,STATUS_SCHEDULED,401820817,Kansas Jayhawks at Texas Tech Red Raiders
+2026,Regular,2026-02-03 23:30:00+00:00,Buffalo Bulls,Miami (OH) RedHawks,2084,193,0,0,99,25,Alumni Arena,False,True,14,14,STATUS_SCHEDULED,401814556,Miami (OH) RedHawks at Buffalo Bulls
+2026,Regular,2026-02-04 00:00:00+00:00,UConn Huskies,Xavier Musketeers,41,2752,0,0,2,99,PeoplesBank Arena,False,True,4,4,STATUS_SCHEDULED,401822927,Xavier Musketeers at UConn Huskies
+2026,Regular,2026-02-04 00:00:00+00:00,Duke Blue Devils,Boston College Eagles,150,103,0,0,5,99,Cameron Indoor Stadium,False,True,2,2,STATUS_SCHEDULED,401820715,Boston College Eagles at Duke Blue Devils
+2026,Regular,2026-02-04 02:00:00+00:00,Davidson Wildcats,Saint Louis Billikens,2166,139,0,0,99,24,John M. Belk Arena,False,True,3,3,STATUS_SCHEDULED,401828407,Saint Louis Billikens at Davidson Wildcats
+2026,Regular,2026-02-04 02:00:00+00:00,Virginia Cavaliers,Pittsburgh Panthers,258,221,0,0,14,99,John Paul Jones Arena,False,True,2,2,STATUS_SCHEDULED,401820716,Pittsburgh Panthers at Virginia Cavaliers
+2026,Regular,2026-02-05 00:00:00+00:00,Houston Cougars,UCF Knights,248,2116,0,0,6,99,Fertitta Center,False,True,8,8,STATUS_SCHEDULED,401827661,UCF Knights at Houston Cougars
+2026,Regular,2026-02-05 00:00:00+00:00,Minnesota Golden Gophers,Michigan State Spartans,135,127,0,0,99,10,Williams Arena,False,True,7,7,STATUS_SCHEDULED,401825493,Michigan State Spartans at Minnesota Golden Gophers
+2026,Regular,2026-02-05 00:00:00+00:00,Alabama Crimson Tide,Texas A&M Aggies,333,245,0,0,17,99,Coleman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808215,Texas A&M Aggies at Alabama Crimson Tide
+2026,Regular,2026-02-05 00:00:00+00:00,Louisville Cardinals,Notre Dame Fighting Irish,97,87,0,0,23,99,KFC Yum! Center,False,True,2,2,STATUS_SCHEDULED,401820718,Notre Dame Fighting Irish at Louisville Cardinals
+2026,Regular,2026-02-05 02:00:00+00:00,Illinois Fighting Illini,Northwestern Wildcats,356,77,0,0,11,99,State Farm Center,False,True,7,7,STATUS_SCHEDULED,401825492,Northwestern Wildcats at Illinois Fighting Illini
+2026,Regular,2026-02-05 02:00:00+00:00,Oklahoma State Cowboys,BYU Cougars,197,252,0,0,99,13,Gallagher-Iba Arena,False,True,8,8,STATUS_SCHEDULED,401827662,BYU Cougars at Oklahoma State Cowboys
+2026,Regular,2026-02-05 03:00:00+00:00,Portland Pilots,Gonzaga Bulldogs,2501,2250,0,0,99,8,Chiles Center,False,True,29,29,STATUS_SCHEDULED,401829227,Gonzaga Bulldogs at Portland Pilots
+2026,Regular,2026-02-05 03:00:00+00:00,Stanford Cardinal,Clemson Tigers,24,228,0,0,99,18,Maples Pavilion,False,True,2,2,STATUS_SCHEDULED,401820720,Clemson Tigers at Stanford Cardinal
+2026,Regular,2026-02-05 23:30:00+00:00,Michigan Wolverines,Penn State Nittany Lions,130,213,0,0,3,99,Crisler Center,False,True,7,7,STATUS_SCHEDULED,401825496,Penn State Nittany Lions at Michigan Wolverines
+2026,Regular,2026-02-07 01:00:00+00:00,St. John's Red Storm,UConn Huskies,2599,41,0,0,99,2,Madison Square Garden,False,True,4,4,STATUS_SCHEDULED,401822932,UConn Huskies at St. John's Red Storm

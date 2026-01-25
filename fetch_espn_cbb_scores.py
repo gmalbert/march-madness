@@ -9,11 +9,12 @@ from datetime import datetime, timedelta
 all_scores = []
 seen_events = set()
 
-# Fetch games for the next 7 days (current date + 7 days)
+# Fetch games for the next 14 days (extended for better coverage)
 current_date = datetime.now()
-dates_to_fetch = [(current_date + timedelta(days=i)).strftime('%Y%m%d') for i in range(8)]
+dates_to_fetch = [(current_date + timedelta(days=i)).strftime('%Y%m%d') for i in range(14)]
 
 print(f"Fetching games for dates: {dates_to_fetch[0]} to {dates_to_fetch[-1]}...")
+print(f"Fetching 14 days of games for comprehensive coverage...")
 
 for date_str in dates_to_fetch:
     print(f"  Fetching games for {date_str}...")

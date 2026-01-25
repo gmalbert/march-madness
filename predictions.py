@@ -23,6 +23,7 @@ try:
         moneyline_to_implied_probability
     )
     from data_tools.efficiency_loader import EfficiencyDataLoader
+    from fetch_live_odds import fetch_live_odds
 except ImportError as e:
     st.error(f"Could not import required functions: {e}")
     st.stop()
@@ -118,6 +119,15 @@ def load_models():
 
     return models
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def load_live_odds():
+    """Load live betting odds, cached for 1 hour."""
+    try:
+        return fetch_live_odds()
+    except Exception as e:
+        st.warning(f"Could not load live odds: {e}")
+        return {}
+
 def format_game_datetime(game) -> str:
     """Format game date/time in Eastern Time."""
     try:
@@ -203,18 +213,26 @@ def normalize_team_name(espn_name: str) -> str:
         'Bearcats', 'Fighting Illini', 'Terrapins', 'Cornhuskers', 'Waves', 'Golden Gophers',
         'Cavaliers', 'Mountaineers', 'Hokies', 'Cowboys', 'Utes', 'Dons', 'Dolphins', 'Red Flash',
         'Chargers', 'Skyhawks', 'Lakers', 'Mastodons', 'Jaguars', 'Seahawks', 'Sharks', 'Salukis',
-        'Purple Aces', 'Trojans', 'Badgers', 'Scarlet Knights', 'Friars', 'Revolutionaries', 'Minutemen', 'Horned Frogs', 'Flyers'
+        'Purple Aces', 'Trojans', 'Badgers', 'Scarlet Knights', 'Friars', 'Revolutionaries', 'Minutemen', 'Horned Frogs', 'Flyers',
+        'Braves', 'Cardinal', 'Flames', 'Gaels', 'Grizzlies', 'Jaspers', 'Kangaroos', 'Leopards', 'Mavericks', 'Pilots', 'Redhawks', 'Stags'
     ]
     
     # Multi-word mascots that need special handling
     multi_word_mascots = [
         'Tar Heels', 'Blue Devils', 'Fighting Irish', 'Golden Flashes', 'Red Raiders',
         'Golden Knights', 'Thundering Herd', 'Crimson Tide', 'Mean Green', 'Fighting Illini',
-        'Demon Deacons', 'Golden Gophers', 'Yellow Jackets', 'Red Flash', 'Purple Aces', 'Scarlet Knights'
+        'Demon Deacons', 'Golden Gophers', 'Yellow Jackets', 'Red Flash', 'Purple Aces', 'Scarlet Knights',
+        'A&M Rattlers', 'Arizona Lumberjacks', 'Baptist Lancers', 'Beach St 49ers', 'Golden Lions',
+        'Canyon Antelopes', 'Diego Toreros', 'Fullerton Titans', 'Golden Griffins', 'Mary\'s Gaels',
+        'Michigan Chippewas', 'Mountain Hawks', 'Northridge Matadors', 'Rainbow Warriors',
+        'San Diego Tritons', 'Santa Barbara Gauchos', 'St Bobcats', 'St Braves', 'St Sun Devils',
+        'State Bengals', 'Tech Trailblazers', 'Utah Thunderbirds', 'Wolf Pack', 'Irvine Anteaters',
+        'Mexico Lobos', 'Poly Mustangs'
     ]
     
     # Handle special cases
     special_cases = {
+        # Existing mappings
         'Miami (FL)': 'Miami',
         'Miami (OH)': 'Miami (OH)',
         'NC State': 'North Carolina State',
@@ -255,7 +273,41 @@ def normalize_team_name(espn_name: str) -> str:
         'George Washington Revolutionaries': 'George Washington',
         'Massachusetts Minutemen': 'Massachusetts',
         'TCU Horned Frogs': 'TCU',
-        'Dayton Flyers': 'Dayton'
+        'Dayton Flyers': 'Dayton',
+        'Kansas St': 'Kansas State',
+        
+        # New mappings for Odds API abbreviations
+        'Pacific': 'Pacific',
+        'Seattle': 'Seattle',
+        'Long': 'Long Beach State',
+        'UC': 'UC Irvine',  # This might need refinement based on context
+        'Cal': 'California',
+        'CSU': 'Colorado State',
+        'Fresno St': 'Fresno State',
+        'Grand': 'Grand Canyon',
+        'Utah Valley': 'Utah Valley',
+        'UIC': 'Illinois Chicago',
+        'Northern': 'Northern Arizona',
+        'N Colorado': 'North Colorado',
+        'Weber State': 'Weber State',
+        'Saint': 'Saint Mary\'s',
+        'New': 'New Mexico',
+        'UMKC': 'UMKC',
+        'Omaha': 'Omaha',
+        'California Golden': 'California',
+        'Southern': 'Southern Utah',
+        'San': 'San Diego',
+        'Santa Clara': 'Santa Clara',
+        'Hawai\'i': 'Hawaii',
+        'Stonehill': 'Stonehill',
+        'Central Connecticut St': 'Central Connecticut',
+        'Mercyhurst': 'Mercyhurst',
+        'Chicago St': 'Chicago State',
+        'Fort Wayne': 'Purdue Fort Wayne',
+        
+        # Additional common abbreviations
+        'St': 'State',  # General St -> State mapping
+        'N': 'North',   # N Colorado -> North Colorado
     }
     
     if espn_name in special_cases:
@@ -364,6 +416,9 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
         home_team = normalize_team_name(home_team_espn)
         away_team = normalize_team_name(away_team_espn)
         
+        # Load live odds
+        live_odds = load_live_odds()
+        
         # Find matching efficiency and stats (CBBD returns dicts, not objects)
         home_eff = next((e for e in efficiency_list if e.get('team') == home_team), None)
         away_eff = next((e for e in efficiency_list if e.get('team') == away_team), None)
@@ -452,6 +507,101 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
         home_stats_dict = extract_stats(home_stats_obj)
         away_stats_dict = extract_stats(away_stats_obj)
         
+        # Attempt to fetch betting lines for this game and populate moneylines
+        betting_spread = None
+        betting_over_under = None
+        home_ml = None
+        away_ml = None
+        try:
+            lines_data = fetch_betting_lines(season_used or 2026, 'postseason')
+            for line in lines_data:
+                if isinstance(line, dict):
+                    line_home = line.get('homeTeam') or line.get('home_team') or line.get('home')
+                    line_away = line.get('awayTeam') or line.get('away_team') or line.get('away')
+                    providers = line.get('lines') or []
+                else:
+                    line_home = (getattr(line, 'home_team', None) or getattr(line, 'homeTeam', None) or getattr(line, 'home', None))
+                    line_away = (getattr(line, 'away_team', None) or getattr(line, 'awayTeam', None) or getattr(line, 'away', None))
+                    providers = getattr(line, 'lines', []) or []
+
+                try:
+                    lh = str(line_home) if line_home is not None else None
+                    la = str(line_away) if line_away is not None else None
+                except Exception:
+                    lh = line_home
+                    la = line_away
+
+                if ((lh == home_team_espn and la == away_team_espn) or
+                    (lh == home_team and la == away_team) or
+                    (lh == normalize_team_name(home_team_espn) and la == normalize_team_name(away_team_espn))):
+                    provider = providers[0] if providers and len(providers) > 0 else None
+                    if provider:
+                        if isinstance(provider, dict):
+                            betting_spread = provider.get('spread') or betting_spread
+                            betting_over_under = provider.get('overUnder') or provider.get('over_under') or betting_over_under
+                            home_ml = provider.get('homeMoneyline') or provider.get('home_moneyline') or home_ml
+                            away_ml = provider.get('awayMoneyline') or provider.get('away_moneyline') or away_ml
+                        else:
+                            betting_spread = getattr(provider, 'spread', None) or betting_spread
+                            betting_over_under = getattr(provider, 'overUnder', None) or betting_over_under
+                            home_ml = getattr(provider, 'homeMoneyline', None) or getattr(provider, 'home_moneyline', None) or home_ml
+                            away_ml = getattr(provider, 'awayMoneyline', None) or getattr(provider, 'away_moneyline', None) or away_ml
+                    else:
+                        if isinstance(line, dict):
+                            betting_spread = line.get('spread') or betting_spread
+                            betting_over_under = line.get('overUnder') or betting_over_under
+                            home_ml = line.get('homeMoneyline') or line.get('home_moneyline') or home_ml
+                            away_ml = line.get('awayMoneyline') or line.get('away_moneyline') or away_ml
+                        else:
+                            betting_spread = getattr(line, 'spread', None) or betting_spread
+                            betting_over_under = getattr(line, 'overUnder', None) or betting_over_under
+                            home_ml = getattr(line, 'homeMoneyline', None) or getattr(line, 'home_moneyline', None) or home_ml
+                            away_ml = getattr(line, 'awayMoneyline', None) or getattr(line, 'away_moneyline', None) or away_ml
+                    break
+        except Exception:
+            pass
+
+        # If no moneylines from CFBD, try live odds
+        if not home_ml and live_odds:
+            game_key = f"{normalize_team_name(home_team_espn)} vs {normalize_team_name(away_team_espn)}"
+            # Also try the reverse order in case Odds API has home/away swapped
+            reverse_key = f"{normalize_team_name(away_team_espn)} vs {normalize_team_name(home_team_espn)}"
+
+            odds = None
+            if game_key in live_odds:
+                odds = live_odds[game_key]
+            elif reverse_key in live_odds:
+                # If found with reversed order, we need to swap the odds too
+                odds = live_odds[reverse_key]
+                # Swap home/away odds since the teams are swapped
+                if odds:
+                    odds = odds.copy()
+                    # Swap moneyline
+                    orig_home_ml = odds.get('home_moneyline')
+                    orig_away_ml = odds.get('away_moneyline')
+                    odds['home_moneyline'] = orig_away_ml
+                    odds['away_moneyline'] = orig_home_ml
+                    # Swap spread (flip the sign)
+                    orig_home_spread = odds.get('home_spread')
+                    orig_away_spread = odds.get('away_spread')
+                    if orig_home_spread is not None and orig_away_spread is not None:
+                        odds['home_spread'] = -orig_away_spread  # Flip sign
+                        odds['away_spread'] = -orig_home_spread  # Flip sign
+                        # Keep the odds the same since spread direction changed
+                        orig_home_spread_odds = odds.get('home_spread_odds')
+                        orig_away_spread_odds = odds.get('away_spread_odds')
+                        odds['home_spread_odds'] = orig_away_spread_odds
+                        odds['away_spread_odds'] = orig_home_spread_odds
+
+            if odds:
+                home_ml = odds.get('home_moneyline')
+                away_ml = odds.get('away_moneyline')
+                # Optionally update spread/over_under if not set
+                if not betting_spread:
+                    betting_spread = odds.get('home_spread')
+                if not betting_over_under:
+                    betting_over_under = odds.get('total_line')
+
         return {
             'home_team': home_team_espn,  # Use ESPN name for display
             'away_team': away_team_espn,  # Use ESPN name for display
@@ -459,8 +609,12 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
             'away_eff': away_eff_dict,
             'home_stats': home_stats_dict,
             'away_stats': away_stats_dict,
-            'betting_spread': None,  # ESPN doesn't provide betting lines
-            'betting_over_under': None,
+            'betting_spread': betting_spread,
+            'betting_over_under': betting_over_under,
+            'home_moneyline': home_ml,
+            'away_moneyline': away_ml,
+            'home_ml': home_ml,
+            'away_ml': away_ml,
             'game_date': game_row.get('date', ''),
             'status': game_row.get('status', ''),
             'venue': game_row.get('venue', ''),
@@ -615,30 +769,71 @@ def format_game_data(game) -> Optional[Dict]:
             home_stats = {}
             away_stats = {}
 
-        # Try to get betting lines
+        # Try to get betting lines (spread, o/u, moneylines) and parse moneylines
         betting_spread = None
         betting_over_under = None
+        home_ml = None
+        away_ml = None
         try:
+            # Use the season we selected earlier where possible
             lines_data = fetch_betting_lines(2026, "postseason")
             # Find lines for this specific game - try multiple matching criteria
             for line in lines_data:
+                # The CFBD response may be a dict (cached JSON) or an object
                 if isinstance(line, dict):
-                    line_home = line.get('homeTeam') or line.get('home_team')
-                    line_away = line.get('awayTeam') or line.get('away_team')
+                    line_home = line.get('homeTeam') or line.get('home_team') or line.get('home')
+                    line_away = line.get('awayTeam') or line.get('away_team') or line.get('away')
+                    providers = line.get('lines') or []
                 else:
                     line_home = (getattr(line, 'home_team', None) or
-                               getattr(line, 'homeTeam', None) or
-                               getattr(line, 'home', None))
+                                 getattr(line, 'homeTeam', None) or
+                                 getattr(line, 'home', None))
                     line_away = (getattr(line, 'away_team', None) or
-                               getattr(line, 'awayTeam', None) or
-                               getattr(line, 'away', None))
+                                 getattr(line, 'awayTeam', None) or
+                                 getattr(line, 'away', None))
+                    providers = getattr(line, 'lines', []) or []
 
-                if ((line_home == home_team_name and line_away == away_team_name) or
-                    (line_home == home_team and line_away == away_team)):
-                    betting_spread = getattr(line, 'spread', None)
-                    betting_over_under = getattr(line, 'over_under', None)
+                # Normalize some values to strings for comparison
+                try:
+                    lh = str(line_home) if line_home is not None else None
+                    la = str(line_away) if line_away is not None else None
+                except Exception:
+                    lh = line_home
+                    la = line_away
+
+                # Match either by ESPN display name or normalized canonical name
+                if ((lh == home_team_name and la == away_team_name) or
+                    (lh == normalize_team_name(home_team_name) and la == normalize_team_name(away_team_name))):
+                    # Prefer the first provider entry if present
+                    provider = providers[0] if providers and len(providers) > 0 else None
+                    if provider:
+                        # provider may be dict-like or object-like
+                        if isinstance(provider, dict):
+                            betting_spread = provider.get('spread') or provider.get('formattedSpread') or betting_spread
+                            betting_over_under = provider.get('overUnder') or provider.get('over_under') or betting_over_under
+                            home_ml = provider.get('homeMoneyline') or provider.get('home_moneyline') or provider.get('homeML') or home_ml
+                            away_ml = provider.get('awayMoneyline') or provider.get('away_moneyline') or provider.get('awayML') or away_ml
+                        else:
+                            betting_spread = getattr(provider, 'spread', None) or getattr(provider, 'formattedSpread', None) or betting_spread
+                            betting_over_under = getattr(provider, 'overUnder', None) or getattr(provider, 'over_under', None) or betting_over_under
+                            home_ml = getattr(provider, 'homeMoneyline', None) or getattr(provider, 'home_moneyline', None) or getattr(provider, 'homeML', None) or home_ml
+                            away_ml = getattr(provider, 'awayMoneyline', None) or getattr(provider, 'away_moneyline', None) or getattr(provider, 'awayML', None) or away_ml
+                    else:
+                        # Some cached responses may put moneylines at top level
+                        if isinstance(line, dict):
+                            home_ml = line.get('homeMoneyline') or line.get('home_moneyline') or home_ml
+                            away_ml = line.get('awayMoneyline') or line.get('away_moneyline') or away_ml
+                            betting_spread = line.get('spread') or betting_spread
+                            betting_over_under = line.get('overUnder') or betting_over_under
+                        else:
+                            home_ml = getattr(line, 'homeMoneyline', None) or getattr(line, 'home_moneyline', None) or home_ml
+                            away_ml = getattr(line, 'awayMoneyline', None) or getattr(line, 'away_moneyline', None) or away_ml
+                            betting_spread = getattr(line, 'spread', None) or betting_spread
+                            betting_over_under = getattr(line, 'overUnder', None) or betting_over_under
+                    # Stop after first match
                     break
-        except:
+        except Exception:
+            # Do not fail enrichment if betting lines are unavailable
             pass
 
         # Get actual scores if available
@@ -684,7 +879,12 @@ def format_game_data(game) -> Optional[Dict]:
                 "opp_ppg": float(getattr(away_stats, 'opp_points_per_game', 70) or getattr(away_stats, 'opp_ppg', 70) or 70)
             },
             "betting_spread": betting_spread,
-            "betting_over_under": betting_over_under
+            "betting_over_under": betting_over_under,
+            # Moneyline fields for market comparisons (aliases for compatibility)
+            "home_moneyline": home_ml,
+            "away_moneyline": away_ml,
+            "home_ml": home_ml,
+            "away_ml": away_ml
         }
 
     except Exception as e:
@@ -1064,6 +1264,36 @@ def render_game_prediction(game: Dict, predictions: Dict):
                 value=f"{pred.get('away_win_prob', 0):.1%}"
             )
 
+            # Show market implied probabilities and edge if betting moneylines are available
+            try:
+                from features import calculate_implied_probability as _implied
+
+                home_ml = game.get('home_moneyline') or game.get('home_ml')
+                away_ml = game.get('away_moneyline') or game.get('away_ml')
+                if home_ml is not None and away_ml is not None:
+                    implied_home = _implied(home_ml)
+                    implied_away = _implied(away_ml)
+                    st.caption(f"Market Implied — {game['home_team']}: {implied_home:.1%}, {game['away_team']}: {implied_away:.1%}")
+                    # Edge for favored side if model probabilities exist
+                    if pred.get('prediction') == 'Home' and pred.get('home_win_prob') is not None:
+                        edge = pred.get('home_win_prob') - implied_home
+                        st.caption(f"Edge: {edge:.1%} (model - market)")
+                    elif pred.get('prediction') == 'Away' and pred.get('away_win_prob') is not None:
+                        edge = pred.get('away_win_prob') - implied_away
+                        st.caption(f"Edge: {edge:.1%} (model - market)")
+                elif home_ml is not None or away_ml is not None:
+                    ml = home_ml if home_ml is not None else away_ml
+                    implied = _implied(ml)
+                    st.caption(f"Market Implied: {implied:.1%}")
+                    if pred.get('prediction') == 'Home' and pred.get('home_win_prob') is not None:
+                        edge = pred.get('home_win_prob') - implied
+                        st.caption(f"Edge: {edge:.1%} (model - market)")
+                    elif pred.get('prediction') == 'Away' and pred.get('away_win_prob') is not None:
+                        edge = pred.get('away_win_prob') - implied
+                        st.caption(f"Edge: {edge:.1%} (model - market)")
+            except Exception:
+                pass
+
             if actual_home is not None and actual_away is not None:
                 actual_winner = 'Home' if actual_home > actual_away else 'Away'
                 if pred['prediction'] == actual_winner:
@@ -1272,23 +1502,66 @@ def main():
                 
             total_str = f"{total_pred.get('prediction', 'N/A'):.1f}" if total_pred else "N/A"
 
-            # Predicted probability for the favored side (Home/Away)
-            pred_prob_str = "N/A"
+            # Model probability, market implied probability (if available), and edge
+            pred_model_str = "N/A"
+            market_prob_str = "N/A"
+            edge_str = "N/A"
+
             if moneyline_pred:
                 try:
-                    if moneyline_pred.get('prediction') == 'Home':
-                        pred_prob_str = f"Home {moneyline_pred.get('home_win_prob', 0):.1%}"
+                    model_home = float(moneyline_pred.get('home_win_prob', 0) or 0)
+                    model_away = float(moneyline_pred.get('away_win_prob', 0) or 0)
+                    # Favored side according to model
+                    favored = moneyline_pred.get('prediction')
+                    if favored == 'Home':
+                        pred_model_str = f"Home {model_home:.1%}"
                     else:
-                        pred_prob_str = f"Away {moneyline_pred.get('away_win_prob', 0):.1%}"
+                        pred_model_str = f"Away {model_away:.1%}"
                 except Exception:
-                    pred_prob_str = moneyline_pred.get('confidence', 'N/A')
+                    pred_model_str = moneyline_pred.get('confidence', 'N/A')
+
+            # Try to compute market/implied probabilities from available moneyline odds
+            try:
+                from features import calculate_implied_probability as _implied
+
+                home_ml = enriched_game.get('home_moneyline') or enriched_game.get('home_ml') or None
+                away_ml = enriched_game.get('away_moneyline') or enriched_game.get('away_ml') or None
+                if home_ml is not None and away_ml is not None:
+                    implied_home = _implied(home_ml)
+                    implied_away = _implied(away_ml)
+                    if favored == 'Home':
+                        market_prob_str = f"Home {implied_home:.1%}"
+                        if pred_model_str != 'N/A':
+                            edge_str = f"{(model_home - implied_home):.1%}"
+                    else:
+                        market_prob_str = f"Away {implied_away:.1%}"
+                        if pred_model_str != 'N/A':
+                            edge_str = f"{(model_away - implied_away):.1%}"
+                else:
+                    # If only a single moneyline present (home_ml), show implied for whichever exists
+                    ml = home_ml if home_ml is not None else away_ml
+                    if ml is not None:
+                        implied = _implied(ml)
+                        # If model favors home, assume ml applies to home
+                        if favored == 'Home':
+                            market_prob_str = f"Home {implied:.1%}"
+                            if pred_model_str != 'N/A':
+                                edge_str = f"{(model_home - implied):.1%}"
+                        else:
+                            market_prob_str = f"Away {implied:.1%}"
+                            if pred_model_str != 'N/A':
+                                edge_str = f"{(model_away - implied):.1%}"
+            except Exception:
+                pass
 
             table_data.append({
                 'Date': date_str,
                 'Away Team': f"{game['away_team']} {away_rank}".strip(),
                 'Home Team': f"{game['home_team']} {home_rank}".strip(),
                 'Moneyline': moneyline_str,
-                'Predicted Probability': pred_prob_str,
+                'Model Prob': pred_model_str,
+                'Market Prob': market_prob_str,
+                'Edge': edge_str,
                 'Spread': spread_str,
                 'Total': total_str
             })
@@ -1346,7 +1619,7 @@ def main():
         predictions = make_predictions(enriched_game, models, advanced_metrics)
 
         # Display the prediction
-        render_game_prediction(selected_game, predictions)
+        render_game_prediction(enriched_game, predictions)
 
         st.info("💡 **Note:** Predictions show what the model would have forecasted before the game.")
 

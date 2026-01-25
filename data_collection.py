@@ -228,6 +228,86 @@ def fetch_adjusted_efficiency(year: int) -> List:
             return []
 
 
+def fetch_team_games_with_lines(team: str, years: int = 5) -> List[Dict]:
+    """Fetch team's games with betting lines for historical ATS analysis."""
+    import datetime
+    
+    games_with_lines = []
+    current_year = datetime.datetime.now().year
+    
+    # Look at completed historical seasons (exclude current year)
+    for year in range(current_year - years, current_year):
+        # Fetch games for this season
+        games = fetch_games(year, "regular")
+        lines = fetch_betting_lines(year, "regular")
+        
+        # Create lookup for lines by game ID
+        lines_lookup = {}
+        for line_data in lines:
+            if hasattr(line_data, 'to_dict'):
+                line_dict = line_data.to_dict()
+            else:
+                line_dict = line_data
+            
+            game_id = line_dict.get('id') or line_dict.get('gameId')
+            if game_id:
+                lines_lookup[game_id] = line_dict
+        
+        # Filter games for this team and add line data
+        for game in games:
+            if hasattr(game, 'to_dict'):
+                game_dict = game.to_dict()
+            else:
+                game_dict = game
+            
+            home_team = game_dict.get('homeTeam') or game_dict.get('home_team')
+            away_team = game_dict.get('awayTeam') or game_dict.get('away_team')
+            
+            if team.lower() in (home_team or '').lower() or team.lower() in (away_team or '').lower():
+                # Add line data if available
+                game_id = game_dict.get('id') or game_dict.get('gameId')
+                line_data = lines_lookup.get(game_id, {})
+                
+                if line_data.get('lines'):
+                    # Get the first (most recent) line
+                    line = line_data['lines'][0] if isinstance(line_data['lines'], list) else line_data['lines']
+                    
+                    # Determine if team is home or away and get appropriate spread
+                    is_home = team.lower() in (home_team or '').lower()
+                    
+                    spread = line.get('spread', 0)
+                    if spread is None:
+                        spread = 0
+                    
+                    if not is_home:
+                        spread = -spread  # Flip spread for away team
+                    
+                    # Get margin from final score (use correct field names)
+                    margin = None
+                    home_points = game_dict.get('homePoints')
+                    away_points = game_dict.get('awayPoints')
+                    
+                    if home_points is not None and away_points is not None:
+                        if is_home:
+                            margin = home_points - away_points
+                        else:
+                            margin = away_points - home_points
+                    
+                    game_with_line = {
+                        'season': year,
+                        'team': team,
+                        'opponent': away_team if is_home else home_team,
+                        'is_home': is_home,
+                        'spread': spread,
+                        'margin': margin,
+                        'covered': margin is not None and margin > -spread if spread != 0 else None
+                    }
+                    
+                    games_with_lines.append(game_with_line)
+    
+    return games_with_lines
+
+
 def test_api_connection() -> bool:
     """Test basic API connection by fetching current year teams."""
     try:

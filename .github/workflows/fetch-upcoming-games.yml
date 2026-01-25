@@ -41,6 +41,9 @@ jobs:
         python fetch_espn_cbb_scores.py
 
     - name: Generate predictions for upcoming games
+      env:
+        CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
       run: |
         echo "Generating predictions for upcoming games..."
         python generate_predictions.py

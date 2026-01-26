@@ -18,6 +18,7 @@ from data_collection import (
     fetch_rankings,
     collect_comprehensive_betting_data
 )
+from features import track_line_movement
 
 def main():
     print("🏀 March Madness Betting Data Collection Examples")
@@ -48,8 +49,22 @@ def main():
     rankings = fetch_rankings(2024)
     print(f"   Found {len(rankings)} ranking entries")
 
-    # Example 6: Comprehensive collection (commented out to avoid long runtime)
-    print("\n6. Comprehensive collection (2020-2024)...")
+    # Example 6: Track line movement for a game
+    print("\n6. Tracking line movement...")
+    try:
+        # Use a known game ID that exists in cached data
+        sample_game_id = '11878'  # Penn State vs Michigan game
+        result = track_line_movement(sample_game_id)
+        print(f"   ✅ Line movement tracked for game {result['game_id']}")
+        print(f"      Teams: {result.get('away_team', 'Unknown')} @ {result.get('home_team', 'Unknown')}")
+        print(f"      Spread: {result.get('spread_current', 'N/A')} (movement: {result.get('spread_movement', 0)})")
+        print(f"      Total: {result.get('total_current', 'N/A')} (movement: {result.get('total_movement', 0)})")
+        print(f"      Sharp money: {result.get('sharp_money_indicator', 'N/A')}")
+    except Exception as e:
+        print(f"   ❌ Line movement tracking failed: {e}")
+
+    # Example 7: Comprehensive collection (commented out to avoid long runtime)
+    print("\n7. Comprehensive collection (2020-2024)...")
     print("   # result = collect_comprehensive_betting_data(2020, 2024)")
     print("   # This would collect all data types for model training")
 

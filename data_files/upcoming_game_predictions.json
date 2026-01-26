@@ -1,1 +1,3557 @@
-[]
+[
+  {
+    "game_info": {
+      "game_id": 401820698,
+      "home_team": "Duke Blue Devils",
+      "away_team": "Louisville Cardinals",
+      "date": "2026-01-27 00:00:00+00:00",
+      "venue": "Cameron Indoor Stadium",
+      "home_rank": 4,
+      "away_rank": 20,
+      "home_eff": {
+        "adj_off": 109.6,
+        "adj_def": 109.6
+      },
+      "away_eff": {
+        "adj_off": 108.0,
+        "adj_def": 108.0
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": -400,
+      "away_moneyline": 310,
+      "home_ml": -400,
+      "away_ml": 310,
+      "home_spread": -7.5,
+      "away_spread": 7.5,
+      "total_line": 157.5
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.194745",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820816,
+      "home_team": "BYU Cougars",
+      "away_team": "Arizona Wildcats",
+      "date": "2026-01-27 02:00:00+00:00",
+      "venue": "Marriott Center",
+      "home_rank": 13,
+      "away_rank": 1,
+      "home_eff": {
+        "adj_off": 108.7,
+        "adj_def": 108.7
+      },
+      "away_eff": {
+        "adj_off": 109.9,
+        "adj_def": 109.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": 102,
+      "away_moneyline": -122,
+      "home_ml": 102,
+      "away_ml": -122,
+      "home_spread": 1.5,
+      "away_spread": -1.5,
+      "total_line": 165.5
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.238524",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825475,
+      "home_team": "Rutgers Scarlet Knights",
+      "away_team": "Michigan State Spartans",
+      "date": "2026-01-27 23:30:00+00:00",
+      "venue": "Jersey Mike\u2019s Arena",
+      "home_rank": 99,
+      "away_rank": 7,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.3,
+        "adj_def": 109.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.262597",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825474,
+      "home_team": "Michigan Wolverines",
+      "away_team": "Nebraska Cornhuskers",
+      "date": "2026-01-28 00:00:00+00:00",
+      "venue": "Crisler Center",
+      "home_rank": 3,
+      "away_rank": 5,
+      "home_eff": {
+        "adj_off": 114,
+        "adj_def": 110.7
+      },
+      "away_eff": {
+        "adj_off": 109.5,
+        "adj_def": 109.5
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 37,
+        "wins": 27,
+        "losses": 10,
+        "totalMinutes": 1510,
+        "pace": 67.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.8,
+            "attempted": 2160,
+            "made": 1011
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.7,
+            "attempted": 1253,
+            "made": 710
+          },
+          "threePointFieldGoals": {
+            "pct": 33.2,
+            "attempted": 907,
+            "made": 301
+          },
+          "freeThrows": {
+            "pct": 72.8,
+            "attempted": 772,
+            "made": 562
+          },
+          "rebounds": {
+            "total": 1422,
+            "defensive": 1013,
+            "offensive": 409
+          },
+          "turnovers": {
+            "teamTotal": 12,
+            "total": 517
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 634
+          },
+          "points": {
+            "fastBreak": 357,
+            "offTurnovers": 471,
+            "inPaint": 1322,
+            "total": 2885
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.7,
+            "offensiveReboundPct": 28.8,
+            "turnoverRatio": 0.2,
+            "effectiveFieldGoalPct": 53.8
+          },
+          "assists": 586,
+          "blocks": 135,
+          "steals": 198,
+          "possessions": 2543,
+          "rating": 113.4,
+          "trueShooting": 57.7
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 40.1,
+            "attempted": 2340,
+            "made": 938
+          },
+          "twoPointFieldGoals": {
+            "pct": 46,
+            "attempted": 1425,
+            "made": 656
+          },
+          "threePointFieldGoals": {
+            "pct": 30.8,
+            "attempted": 915,
+            "made": 282
+          },
+          "freeThrows": {
+            "pct": 73.1,
+            "attempted": 665,
+            "made": 486
+          },
+          "rebounds": {
+            "total": 1262,
+            "defensive": 824,
+            "offensive": 438
+          },
+          "turnovers": {
+            "teamTotal": 23,
+            "total": 417
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 686
+          },
+          "points": {
+            "fastBreak": 297,
+            "offTurnovers": 561,
+            "inPaint": 1054,
+            "total": 2644
+          },
+          "fourFactors": {
+            "freeThrowRate": 28.4,
+            "offensiveReboundPct": 34.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 46.1
+          },
+          "assists": 421,
+          "blocks": 93,
+          "steals": 269,
+          "possessions": 2540,
+          "rating": 104.1,
+          "trueShooting": 50.2
+        }
+      },
+      "away_stats": null,
+      "home_moneyline": -690,
+      "away_moneyline": 480,
+      "home_ml": -690,
+      "away_ml": 480,
+      "home_spread": -10.5,
+      "away_spread": 10.5,
+      "total_line": 154.5
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.305218",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808206,
+      "home_team": "Oklahoma Sooners",
+      "away_team": "Arkansas Razorbacks",
+      "date": "2026-01-28 00:00:00+00:00",
+      "venue": "Lloyd Noble Center",
+      "home_rank": 99,
+      "away_rank": 15,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.5,
+        "adj_def": 108.5
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.345948",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820703,
+      "home_team": "Notre Dame Fighting Irish",
+      "away_team": "Virginia Cavaliers",
+      "date": "2026-01-28 00:00:00+00:00",
+      "venue": "Purcell Pavilion",
+      "home_rank": 99,
+      "away_rank": 17,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.3,
+        "adj_def": 108.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.373930",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401822918,
+      "home_team": "UConn Huskies",
+      "away_team": "Providence Friars",
+      "date": "2026-01-28 00:30:00+00:00",
+      "venue": "Gampel Pavilion",
+      "home_rank": 2,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.8,
+        "adj_def": 109.8
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.421823",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808204,
+      "home_team": "Alabama Crimson Tide",
+      "away_team": "Missouri Tigers",
+      "date": "2026-01-28 01:00:00+00:00",
+      "venue": "Coleman Coliseum",
+      "home_rank": 23,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.7,
+        "adj_def": 107.7
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.449328",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401828394,
+      "home_team": "Saint Louis Billikens",
+      "away_team": "George Washington Revolutionaries",
+      "date": "2026-01-28 01:00:00+00:00",
+      "venue": "Chaifetz Arena",
+      "home_rank": 21,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 110,
+        "adj_def": 108
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 252,
+        "team": "Saint Louis",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 19,
+        "losses": 15,
+        "totalMinutes": 1390,
+        "pace": 67.2,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 47.7,
+            "attempted": 1886,
+            "made": 899
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.1,
+            "attempted": 941,
+            "made": 566
+          },
+          "threePointFieldGoals": {
+            "pct": 35.2,
+            "attempted": 945,
+            "made": 333
+          },
+          "freeThrows": {
+            "pct": 68.6,
+            "attempted": 577,
+            "made": 396
+          },
+          "rebounds": {
+            "total": 1198,
+            "defensive": 940,
+            "offensive": 258
+          },
+          "turnovers": {
+            "teamTotal": 14,
+            "total": 431
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 499
+          },
+          "points": {
+            "fastBreak": 323,
+            "offTurnovers": 376,
+            "inPaint": 1058,
+            "total": 2527
+          },
+          "fourFactors": {
+            "freeThrowRate": 30.6,
+            "offensiveReboundPct": 21.5,
+            "turnoverRatio": 0.18,
+            "effectiveFieldGoalPct": 56.5
+          },
+          "assists": 509,
+          "blocks": 105,
+          "steals": 216,
+          "possessions": 2333,
+          "rating": 108.3,
+          "trueShooting": 59
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 2117,
+            "made": 893
+          },
+          "twoPointFieldGoals": {
+            "pct": 48.1,
+            "attempted": 1286,
+            "made": 618
+          },
+          "threePointFieldGoals": {
+            "pct": 33.1,
+            "attempted": 831,
+            "made": 275
+          },
+          "freeThrows": {
+            "pct": 70.3,
+            "attempted": 515,
+            "made": 362
+          },
+          "rebounds": {
+            "total": 1186,
+            "defensive": 828,
+            "offensive": 358
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 4,
+            "total": 533
+          },
+          "points": {
+            "fastBreak": 307,
+            "offTurnovers": 480,
+            "inPaint": 1040,
+            "total": 2423
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 30.2,
+            "turnoverRatio": 0.15,
+            "effectiveFieldGoalPct": 48.7
+          },
+          "assists": 428,
+          "blocks": 107,
+          "steals": 247,
+          "possessions": 2337,
+          "rating": 103.7,
+          "trueShooting": 51.7
+        }
+      },
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.491684",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825473,
+      "home_team": "Indiana Hoosiers",
+      "away_team": "Purdue Boilermakers",
+      "date": "2026-01-28 02:00:00+00:00",
+      "venue": "Simon Skjodt Assembly Hall",
+      "home_rank": 99,
+      "away_rank": 12,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.8,
+        "adj_def": 108.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.507621",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808205,
+      "home_team": "Vanderbilt Commodores",
+      "away_team": "Kentucky Wildcats",
+      "date": "2026-01-28 02:00:00+00:00",
+      "venue": "Memorial Gymnasium (TN)",
+      "home_rank": 18,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.2,
+        "adj_def": 108.2
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.520566",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401814543,
+      "home_team": "Miami (OH) RedHawks",
+      "away_team": "Massachusetts Minutemen",
+      "date": "2026-01-28 02:00:00+00:00",
+      "venue": "Millett Hall",
+      "home_rank": 24,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.6,
+        "adj_def": 107.6
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.564918",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401822919,
+      "home_team": "St. John's Red Storm",
+      "away_team": "Butler Bulldogs",
+      "date": "2026-01-29 00:00:00+00:00",
+      "venue": "Madison Square Garden",
+      "home_rank": 25,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.5,
+        "adj_def": 107.5
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.608679",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827650,
+      "home_team": "TCU Horned Frogs",
+      "away_team": "Houston Cougars",
+      "date": "2026-01-29 02:00:00+00:00",
+      "venue": "Schollmaier Arena",
+      "home_rank": 99,
+      "away_rank": 10,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.0,
+        "adj_def": 109.0
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.630224",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808203,
+      "home_team": "South Carolina Gamecocks",
+      "away_team": "Florida Gators",
+      "date": "2026-01-29 02:00:00+00:00",
+      "venue": "Colonial Life Arena",
+      "home_rank": 99,
+      "away_rank": 19,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.1,
+        "adj_def": 108.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.675122",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827651,
+      "home_team": "Iowa State Cyclones",
+      "away_team": "Colorado Buffaloes",
+      "date": "2026-01-30 00:00:00+00:00",
+      "venue": "Hilton Coliseum",
+      "home_rank": 8,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.2,
+        "adj_def": 109.2
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.684459",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825479,
+      "home_team": "Illinois Fighting Illini",
+      "away_team": "Washington Huskies",
+      "date": "2026-01-30 02:00:00+00:00",
+      "venue": "State Farm Center",
+      "home_rank": 9,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.1,
+        "adj_def": 109.1
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.713148",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401828400,
+      "home_team": "Saint Louis Billikens",
+      "away_team": "Dayton Flyers",
+      "date": "2026-01-31 01:00:00+00:00",
+      "venue": "Chaifetz Arena",
+      "home_rank": 21,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 110,
+        "adj_def": 108
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 252,
+        "team": "Saint Louis",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 19,
+        "losses": 15,
+        "totalMinutes": 1390,
+        "pace": 67.2,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 47.7,
+            "attempted": 1886,
+            "made": 899
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.1,
+            "attempted": 941,
+            "made": 566
+          },
+          "threePointFieldGoals": {
+            "pct": 35.2,
+            "attempted": 945,
+            "made": 333
+          },
+          "freeThrows": {
+            "pct": 68.6,
+            "attempted": 577,
+            "made": 396
+          },
+          "rebounds": {
+            "total": 1198,
+            "defensive": 940,
+            "offensive": 258
+          },
+          "turnovers": {
+            "teamTotal": 14,
+            "total": 431
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 499
+          },
+          "points": {
+            "fastBreak": 323,
+            "offTurnovers": 376,
+            "inPaint": 1058,
+            "total": 2527
+          },
+          "fourFactors": {
+            "freeThrowRate": 30.6,
+            "offensiveReboundPct": 21.5,
+            "turnoverRatio": 0.18,
+            "effectiveFieldGoalPct": 56.5
+          },
+          "assists": 509,
+          "blocks": 105,
+          "steals": 216,
+          "possessions": 2333,
+          "rating": 108.3,
+          "trueShooting": 59
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 2117,
+            "made": 893
+          },
+          "twoPointFieldGoals": {
+            "pct": 48.1,
+            "attempted": 1286,
+            "made": 618
+          },
+          "threePointFieldGoals": {
+            "pct": 33.1,
+            "attempted": 831,
+            "made": 275
+          },
+          "freeThrows": {
+            "pct": 70.3,
+            "attempted": 515,
+            "made": 362
+          },
+          "rebounds": {
+            "total": 1186,
+            "defensive": 828,
+            "offensive": 358
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 4,
+            "total": 533
+          },
+          "points": {
+            "fastBreak": 307,
+            "offTurnovers": 480,
+            "inPaint": 1040,
+            "total": 2423
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 30.2,
+            "turnoverRatio": 0.15,
+            "effectiveFieldGoalPct": 48.7
+          },
+          "assists": 428,
+          "blocks": 107,
+          "steals": 247,
+          "possessions": 2337,
+          "rating": 103.7,
+          "trueShooting": 51.7
+        }
+      },
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.749914",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825481,
+      "home_team": "Michigan State Spartans",
+      "away_team": "Michigan Wolverines",
+      "date": "2026-01-31 01:00:00+00:00",
+      "venue": "Breslin Center",
+      "home_rank": 7,
+      "away_rank": 3,
+      "home_eff": {
+        "adj_off": 109.3,
+        "adj_def": 109.3
+      },
+      "away_eff": {
+        "adj_off": 114,
+        "adj_def": 110.7
+      },
+      "home_stats": null,
+      "away_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 37,
+        "wins": 27,
+        "losses": 10,
+        "totalMinutes": 1510,
+        "pace": 67.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.8,
+            "attempted": 2160,
+            "made": 1011
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.7,
+            "attempted": 1253,
+            "made": 710
+          },
+          "threePointFieldGoals": {
+            "pct": 33.2,
+            "attempted": 907,
+            "made": 301
+          },
+          "freeThrows": {
+            "pct": 72.8,
+            "attempted": 772,
+            "made": 562
+          },
+          "rebounds": {
+            "total": 1422,
+            "defensive": 1013,
+            "offensive": 409
+          },
+          "turnovers": {
+            "teamTotal": 12,
+            "total": 517
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 634
+          },
+          "points": {
+            "fastBreak": 357,
+            "offTurnovers": 471,
+            "inPaint": 1322,
+            "total": 2885
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.7,
+            "offensiveReboundPct": 28.8,
+            "turnoverRatio": 0.2,
+            "effectiveFieldGoalPct": 53.8
+          },
+          "assists": 586,
+          "blocks": 135,
+          "steals": 198,
+          "possessions": 2543,
+          "rating": 113.4,
+          "trueShooting": 57.7
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 40.1,
+            "attempted": 2340,
+            "made": 938
+          },
+          "twoPointFieldGoals": {
+            "pct": 46,
+            "attempted": 1425,
+            "made": 656
+          },
+          "threePointFieldGoals": {
+            "pct": 30.8,
+            "attempted": 915,
+            "made": 282
+          },
+          "freeThrows": {
+            "pct": 73.1,
+            "attempted": 665,
+            "made": 486
+          },
+          "rebounds": {
+            "total": 1262,
+            "defensive": 824,
+            "offensive": 438
+          },
+          "turnovers": {
+            "teamTotal": 23,
+            "total": 417
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 686
+          },
+          "points": {
+            "fastBreak": 297,
+            "offTurnovers": 561,
+            "inPaint": 1054,
+            "total": 2644
+          },
+          "fourFactors": {
+            "freeThrowRate": 28.4,
+            "offensiveReboundPct": 34.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 46.1
+          },
+          "assists": 421,
+          "blocks": 93,
+          "steals": 269,
+          "possessions": 2540,
+          "rating": 104.1,
+          "trueShooting": 50.2
+        }
+      },
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.754905",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820712,
+      "home_team": "Virginia Tech Hokies",
+      "away_team": "Duke Blue Devils",
+      "date": "2026-01-31 17:00:00+00:00",
+      "venue": "Cassell Coliseum",
+      "home_rank": 99,
+      "away_rank": 4,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.6,
+        "adj_def": 109.6
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.797648",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827654,
+      "home_team": "Houston Cougars",
+      "away_team": "Cincinnati Bearcats",
+      "date": "2026-01-31 17:00:00+00:00",
+      "venue": "Fertitta Center",
+      "home_rank": 10,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.0,
+        "adj_def": 109.0
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.840086",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827653,
+      "home_team": "UCF Knights",
+      "away_team": "Texas Tech Red Raiders",
+      "date": "2026-01-31 17:00:00+00:00",
+      "venue": "Addition Financial Arena",
+      "home_rank": 99,
+      "away_rank": 11,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.9,
+        "adj_def": 108.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.878801",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820707,
+      "home_team": "Clemson Tigers",
+      "away_team": "Pittsburgh Panthers",
+      "date": "2026-01-31 17:00:00+00:00",
+      "venue": "Littlejohn Coliseum",
+      "home_rank": 22,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.8,
+        "adj_def": 107.8
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.922679",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820705,
+      "home_team": "Boston College Eagles",
+      "away_team": "Virginia Cavaliers",
+      "date": "2026-01-31 18:30:00+00:00",
+      "venue": "Conte Forum",
+      "home_rank": 99,
+      "away_rank": 17,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.3,
+        "adj_def": 108.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:34.964277",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820710,
+      "home_team": "Louisville Cardinals",
+      "away_team": "SMU Mustangs",
+      "date": "2026-01-31 19:00:00+00:00",
+      "venue": "KFC Yum! Center",
+      "home_rank": 20,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.0,
+        "adj_def": 108.0
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.004445",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827652,
+      "home_team": "Arizona State Sun Devils",
+      "away_team": "Arizona Wildcats",
+      "date": "2026-01-31 19:00:00+00:00",
+      "venue": "Desert Financial Arena",
+      "home_rank": 99,
+      "away_rank": 1,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.9,
+        "adj_def": 109.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.049563",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820709,
+      "home_team": "Georgia Tech Yellow Jackets",
+      "away_team": "North Carolina Tar Heels",
+      "date": "2026-01-31 19:00:00+00:00",
+      "venue": "McCamish Pavilion",
+      "home_rank": 99,
+      "away_rank": 16,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.4,
+        "adj_def": 108.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.082280",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401814550,
+      "home_team": "Miami (OH) RedHawks",
+      "away_team": "Northern Illinois Huskies",
+      "date": "2026-01-31 20:30:00+00:00",
+      "venue": "Millett Hall",
+      "home_rank": 24,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.6,
+        "adj_def": 107.6
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.129455",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827655,
+      "home_team": "Kansas Jayhawks",
+      "away_team": "BYU Cougars",
+      "date": "2026-01-31 21:30:00+00:00",
+      "venue": "Allen Fieldhouse",
+      "home_rank": 14,
+      "away_rank": 13,
+      "home_eff": {
+        "adj_off": 108.6,
+        "adj_def": 108.6
+      },
+      "away_eff": {
+        "adj_off": 108.7,
+        "adj_def": 108.7
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.172042",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808207,
+      "home_team": "Arkansas Razorbacks",
+      "away_team": "Kentucky Wildcats",
+      "date": "2026-01-31 23:30:00+00:00",
+      "venue": "Bud Walton Arena",
+      "home_rank": 15,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.5,
+        "adj_def": 108.5
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.180303",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401822923,
+      "home_team": "Creighton Bluejays",
+      "away_team": "UConn Huskies",
+      "date": "2026-02-01 01:00:00+00:00",
+      "venue": "CHI Health Center Omaha",
+      "home_rank": 99,
+      "away_rank": 2,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.8,
+        "adj_def": 109.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.221090",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808210,
+      "home_team": "Ole Miss Rebels",
+      "away_team": "Vanderbilt Commodores",
+      "date": "2026-02-01 01:30:00+00:00",
+      "venue": "The Sandy and John Black Pavilion at Ole Miss",
+      "home_rank": 99,
+      "away_rank": 18,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.2,
+        "adj_def": 108.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.231096",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401829225,
+      "home_team": "Gonzaga Bulldogs",
+      "away_team": "Saint Mary's Gaels",
+      "date": "2026-02-01 03:30:00+00:00",
+      "venue": "McCarthey Athletic Center",
+      "home_rank": 6,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.4,
+        "adj_def": 109.4
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.272157",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825486,
+      "home_team": "Maryland Terrapins",
+      "away_team": "Purdue Boilermakers",
+      "date": "2026-02-01 18:00:00+00:00",
+      "venue": "XFINITY Center",
+      "home_rank": 99,
+      "away_rank": 12,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.8,
+        "adj_def": 108.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.319372",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808208,
+      "home_team": "Florida Gators",
+      "away_team": "Alabama Crimson Tide",
+      "date": "2026-02-01 18:00:00+00:00",
+      "venue": "Stephen C. O'Connell Center",
+      "home_rank": 19,
+      "away_rank": 23,
+      "home_eff": {
+        "adj_off": 108.1,
+        "adj_def": 108.1
+      },
+      "away_eff": {
+        "adj_off": 107.7,
+        "adj_def": 107.7
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.329458",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827659,
+      "home_team": "Kansas State Wildcats",
+      "away_team": "Iowa State Cyclones",
+      "date": "2026-02-01 19:00:00+00:00",
+      "venue": "Bramlage Coliseum",
+      "home_rank": 99,
+      "away_rank": 8,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.2,
+        "adj_def": 109.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.341676",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825487,
+      "home_team": "Nebraska Cornhuskers",
+      "away_team": "Illinois Fighting Illini",
+      "date": "2026-02-01 21:00:00+00:00",
+      "venue": "Pinnacle Bank Arena",
+      "home_rank": 5,
+      "away_rank": 9,
+      "home_eff": {
+        "adj_off": 109.5,
+        "adj_def": 109.5
+      },
+      "away_eff": {
+        "adj_off": 109.1,
+        "adj_def": 109.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.388040",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820714,
+      "home_team": "North Carolina Tar Heels",
+      "away_team": "Syracuse Orange",
+      "date": "2026-02-03 00:00:00+00:00",
+      "venue": "Dean E. Smith Center",
+      "home_rank": 16,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.4,
+        "adj_def": 108.4
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.415031",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820817,
+      "home_team": "Texas Tech Red Raiders",
+      "away_team": "Kansas Jayhawks",
+      "date": "2026-02-03 02:00:00+00:00",
+      "venue": "United Supermarkets Arena",
+      "home_rank": 11,
+      "away_rank": 14,
+      "home_eff": {
+        "adj_off": 108.9,
+        "adj_def": 108.9
+      },
+      "away_eff": {
+        "adj_off": 108.6,
+        "adj_def": 108.6
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.438381",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401814556,
+      "home_team": "Buffalo Bulls",
+      "away_team": "Miami (OH) RedHawks",
+      "date": "2026-02-03 23:30:00+00:00",
+      "venue": "Alumni Arena",
+      "home_rank": 99,
+      "away_rank": 25,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 107.5,
+        "adj_def": 107.5
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.483811",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401822927,
+      "home_team": "UConn Huskies",
+      "away_team": "Xavier Musketeers",
+      "date": "2026-02-04 00:00:00+00:00",
+      "venue": "PeoplesBank Arena",
+      "home_rank": 2,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.8,
+        "adj_def": 109.8
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.526615",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820715,
+      "home_team": "Duke Blue Devils",
+      "away_team": "Boston College Eagles",
+      "date": "2026-02-04 00:00:00+00:00",
+      "venue": "Cameron Indoor Stadium",
+      "home_rank": 5,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.5,
+        "adj_def": 109.5
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.553152",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820716,
+      "home_team": "Virginia Cavaliers",
+      "away_team": "Pittsburgh Panthers",
+      "date": "2026-02-04 02:00:00+00:00",
+      "venue": "John Paul Jones Arena",
+      "home_rank": 14,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.6,
+        "adj_def": 108.6
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.597770",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401828407,
+      "home_team": "Davidson Wildcats",
+      "away_team": "Saint Louis Billikens",
+      "date": "2026-02-04 02:00:00+00:00",
+      "venue": "John M. Belk Arena",
+      "home_rank": 99,
+      "away_rank": 24,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 110,
+        "adj_def": 108
+      },
+      "home_stats": null,
+      "away_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 252,
+        "team": "Saint Louis",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 19,
+        "losses": 15,
+        "totalMinutes": 1390,
+        "pace": 67.2,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 47.7,
+            "attempted": 1886,
+            "made": 899
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.1,
+            "attempted": 941,
+            "made": 566
+          },
+          "threePointFieldGoals": {
+            "pct": 35.2,
+            "attempted": 945,
+            "made": 333
+          },
+          "freeThrows": {
+            "pct": 68.6,
+            "attempted": 577,
+            "made": 396
+          },
+          "rebounds": {
+            "total": 1198,
+            "defensive": 940,
+            "offensive": 258
+          },
+          "turnovers": {
+            "teamTotal": 14,
+            "total": 431
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 499
+          },
+          "points": {
+            "fastBreak": 323,
+            "offTurnovers": 376,
+            "inPaint": 1058,
+            "total": 2527
+          },
+          "fourFactors": {
+            "freeThrowRate": 30.6,
+            "offensiveReboundPct": 21.5,
+            "turnoverRatio": 0.18,
+            "effectiveFieldGoalPct": 56.5
+          },
+          "assists": 509,
+          "blocks": 105,
+          "steals": 216,
+          "possessions": 2333,
+          "rating": 108.3,
+          "trueShooting": 59
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 2117,
+            "made": 893
+          },
+          "twoPointFieldGoals": {
+            "pct": 48.1,
+            "attempted": 1286,
+            "made": 618
+          },
+          "threePointFieldGoals": {
+            "pct": 33.1,
+            "attempted": 831,
+            "made": 275
+          },
+          "freeThrows": {
+            "pct": 70.3,
+            "attempted": 515,
+            "made": 362
+          },
+          "rebounds": {
+            "total": 1186,
+            "defensive": 828,
+            "offensive": 358
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 4,
+            "total": 533
+          },
+          "points": {
+            "fastBreak": 307,
+            "offTurnovers": 480,
+            "inPaint": 1040,
+            "total": 2423
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 30.2,
+            "turnoverRatio": 0.15,
+            "effectiveFieldGoalPct": 48.7
+          },
+          "assists": 428,
+          "blocks": 107,
+          "steals": 247,
+          "possessions": 2337,
+          "rating": 103.7,
+          "trueShooting": 51.7
+        }
+      },
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.637647",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820718,
+      "home_team": "Louisville Cardinals",
+      "away_team": "Notre Dame Fighting Irish",
+      "date": "2026-02-05 00:00:00+00:00",
+      "venue": "KFC Yum! Center",
+      "home_rank": 23,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 107.7,
+        "adj_def": 107.7
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.677493",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808215,
+      "home_team": "Alabama Crimson Tide",
+      "away_team": "Texas A&M Aggies",
+      "date": "2026-02-05 00:00:00+00:00",
+      "venue": "Coleman Coliseum",
+      "home_rank": 17,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.3,
+        "adj_def": 108.3
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.707209",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827661,
+      "home_team": "Houston Cougars",
+      "away_team": "UCF Knights",
+      "date": "2026-02-05 00:00:00+00:00",
+      "venue": "Fertitta Center",
+      "home_rank": 6,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.4,
+        "adj_def": 109.4
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.754939",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825493,
+      "home_team": "Minnesota Golden Gophers",
+      "away_team": "Michigan State Spartans",
+      "date": "2026-02-05 00:00:00+00:00",
+      "venue": "Williams Arena",
+      "home_rank": 99,
+      "away_rank": 10,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.0,
+        "adj_def": 109.0
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.784831",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825492,
+      "home_team": "Illinois Fighting Illini",
+      "away_team": "Northwestern Wildcats",
+      "date": "2026-02-05 02:00:00+00:00",
+      "venue": "State Farm Center",
+      "home_rank": 11,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.9,
+        "adj_def": 108.9
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.796276",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827662,
+      "home_team": "Oklahoma State Cowboys",
+      "away_team": "BYU Cougars",
+      "date": "2026-02-05 02:00:00+00:00",
+      "venue": "Gallagher-Iba Arena",
+      "home_rank": 99,
+      "away_rank": 13,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.7,
+        "adj_def": 108.7
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.842781",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401829227,
+      "home_team": "Portland Pilots",
+      "away_team": "Gonzaga Bulldogs",
+      "date": "2026-02-05 03:00:00+00:00",
+      "venue": "Chiles Center",
+      "home_rank": 99,
+      "away_rank": 8,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.2,
+        "adj_def": 109.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.885024",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820720,
+      "home_team": "Stanford Cardinal",
+      "away_team": "Clemson Tigers",
+      "date": "2026-02-05 03:00:00+00:00",
+      "venue": "Maples Pavilion",
+      "home_rank": 99,
+      "away_rank": 18,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.2,
+        "adj_def": 108.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.925731",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825496,
+      "home_team": "Michigan Wolverines",
+      "away_team": "Penn State Nittany Lions",
+      "date": "2026-02-05 23:30:00+00:00",
+      "venue": "Crisler Center",
+      "home_rank": 3,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 114,
+        "adj_def": 110.7
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 37,
+        "wins": 27,
+        "losses": 10,
+        "totalMinutes": 1510,
+        "pace": 67.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.8,
+            "attempted": 2160,
+            "made": 1011
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.7,
+            "attempted": 1253,
+            "made": 710
+          },
+          "threePointFieldGoals": {
+            "pct": 33.2,
+            "attempted": 907,
+            "made": 301
+          },
+          "freeThrows": {
+            "pct": 72.8,
+            "attempted": 772,
+            "made": 562
+          },
+          "rebounds": {
+            "total": 1422,
+            "defensive": 1013,
+            "offensive": 409
+          },
+          "turnovers": {
+            "teamTotal": 12,
+            "total": 517
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 634
+          },
+          "points": {
+            "fastBreak": 357,
+            "offTurnovers": 471,
+            "inPaint": 1322,
+            "total": 2885
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.7,
+            "offensiveReboundPct": 28.8,
+            "turnoverRatio": 0.2,
+            "effectiveFieldGoalPct": 53.8
+          },
+          "assists": 586,
+          "blocks": 135,
+          "steals": 198,
+          "possessions": 2543,
+          "rating": 113.4,
+          "trueShooting": 57.7
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 40.1,
+            "attempted": 2340,
+            "made": 938
+          },
+          "twoPointFieldGoals": {
+            "pct": 46,
+            "attempted": 1425,
+            "made": 656
+          },
+          "threePointFieldGoals": {
+            "pct": 30.8,
+            "attempted": 915,
+            "made": 282
+          },
+          "freeThrows": {
+            "pct": 73.1,
+            "attempted": 665,
+            "made": 486
+          },
+          "rebounds": {
+            "total": 1262,
+            "defensive": 824,
+            "offensive": 438
+          },
+          "turnovers": {
+            "teamTotal": 23,
+            "total": 417
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 686
+          },
+          "points": {
+            "fastBreak": 297,
+            "offTurnovers": 561,
+            "inPaint": 1054,
+            "total": 2644
+          },
+          "fourFactors": {
+            "freeThrowRate": 28.4,
+            "offensiveReboundPct": 34.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 46.1
+          },
+          "assists": 421,
+          "blocks": 93,
+          "steals": 269,
+          "possessions": 2540,
+          "rating": 104.1,
+          "trueShooting": 50.2
+        }
+      },
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:35.963525",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401822932,
+      "home_team": "St. John's Red Storm",
+      "away_team": "UConn Huskies",
+      "date": "2026-02-07 01:00:00+00:00",
+      "venue": "Madison Square Garden",
+      "home_rank": 99,
+      "away_rank": 2,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.8,
+        "adj_def": 109.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.001174",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820729,
+      "home_team": "Wake Forest Demon Deacons",
+      "away_team": "Louisville Cardinals",
+      "date": "2026-02-07 17:00:00+00:00",
+      "venue": "LJVM Coliseum",
+      "home_rank": 99,
+      "away_rank": 23,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 107.7,
+        "adj_def": 107.7
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.032011",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808222,
+      "home_team": "Mississippi State Bulldogs",
+      "away_team": "Arkansas Razorbacks",
+      "date": "2026-02-07 17:00:00+00:00",
+      "venue": "Humphrey Coliseum",
+      "home_rank": 99,
+      "away_rank": 20,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.0,
+        "adj_def": 108.0
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.074214",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825499,
+      "home_team": "Rutgers Scarlet Knights",
+      "away_team": "Nebraska Cornhuskers",
+      "date": "2026-02-07 17:00:00+00:00",
+      "venue": "Jersey Mike\u2019s Arena",
+      "home_rank": 99,
+      "away_rank": 7,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.3,
+        "adj_def": 109.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.099813",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820728,
+      "home_team": "Virginia Cavaliers",
+      "away_team": "Syracuse Orange",
+      "date": "2026-02-07 17:00:00+00:00",
+      "venue": "John Paul Jones Arena",
+      "home_rank": 14,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.6,
+        "adj_def": 108.6
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.140415",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825498,
+      "home_team": "Purdue Boilermakers",
+      "away_team": "Oregon Ducks",
+      "date": "2026-02-07 18:00:00+00:00",
+      "venue": "Mackey Arena",
+      "home_rank": 4,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.6,
+        "adj_def": 109.6
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.181728",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827668,
+      "home_team": "Iowa State Cyclones",
+      "away_team": "Baylor Bears",
+      "date": "2026-02-07 19:00:00+00:00",
+      "venue": "Hilton Coliseum",
+      "home_rank": 9,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.1,
+        "adj_def": 109.1
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.220587",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827669,
+      "home_team": "Kansas Jayhawks",
+      "away_team": "Utah Utes",
+      "date": "2026-02-07 19:30:00+00:00",
+      "venue": "Allen Fieldhouse",
+      "home_rank": 19,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.1,
+        "adj_def": 108.1
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.259688",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401828418,
+      "home_team": "Saint Louis Billikens",
+      "away_team": "La Salle Explorers",
+      "date": "2026-02-07 20:00:00+00:00",
+      "venue": "Chaifetz Arena",
+      "home_rank": 24,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 110,
+        "adj_def": 108
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 252,
+        "team": "Saint Louis",
+        "conference": "A-10",
+        "games": 34,
+        "wins": 19,
+        "losses": 15,
+        "totalMinutes": 1390,
+        "pace": 67.2,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 47.7,
+            "attempted": 1886,
+            "made": 899
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.1,
+            "attempted": 941,
+            "made": 566
+          },
+          "threePointFieldGoals": {
+            "pct": 35.2,
+            "attempted": 945,
+            "made": 333
+          },
+          "freeThrows": {
+            "pct": 68.6,
+            "attempted": 577,
+            "made": 396
+          },
+          "rebounds": {
+            "total": 1198,
+            "defensive": 940,
+            "offensive": 258
+          },
+          "turnovers": {
+            "teamTotal": 14,
+            "total": 431
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 499
+          },
+          "points": {
+            "fastBreak": 323,
+            "offTurnovers": 376,
+            "inPaint": 1058,
+            "total": 2527
+          },
+          "fourFactors": {
+            "freeThrowRate": 30.6,
+            "offensiveReboundPct": 21.5,
+            "turnoverRatio": 0.18,
+            "effectiveFieldGoalPct": 56.5
+          },
+          "assists": 509,
+          "blocks": 105,
+          "steals": 216,
+          "possessions": 2333,
+          "rating": 108.3,
+          "trueShooting": 59
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.2,
+            "attempted": 2117,
+            "made": 893
+          },
+          "twoPointFieldGoals": {
+            "pct": 48.1,
+            "attempted": 1286,
+            "made": 618
+          },
+          "threePointFieldGoals": {
+            "pct": 33.1,
+            "attempted": 831,
+            "made": 275
+          },
+          "freeThrows": {
+            "pct": 70.3,
+            "attempted": 515,
+            "made": 362
+          },
+          "rebounds": {
+            "total": 1186,
+            "defensive": 828,
+            "offensive": 358
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 352
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 4,
+            "total": 533
+          },
+          "points": {
+            "fastBreak": 307,
+            "offTurnovers": 480,
+            "inPaint": 1040,
+            "total": 2423
+          },
+          "fourFactors": {
+            "freeThrowRate": 24.3,
+            "offensiveReboundPct": 30.2,
+            "turnoverRatio": 0.15,
+            "effectiveFieldGoalPct": 48.7
+          },
+          "assists": 428,
+          "blocks": 107,
+          "steals": 247,
+          "possessions": 2337,
+          "rating": 103.7,
+          "trueShooting": 51.7
+        }
+      },
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.299630",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808225,
+      "home_team": "Vanderbilt Commodores",
+      "away_team": "Oklahoma Sooners",
+      "date": "2026-02-07 20:30:00+00:00",
+      "venue": "Memorial Gymnasium (TN)",
+      "home_rank": 15,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 108.5,
+        "adj_def": 108.5
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.343070",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401845843,
+      "home_team": "Marshall Thundering Herd",
+      "away_team": "Miami (OH) RedHawks",
+      "date": "2026-02-07 21:00:00+00:00",
+      "venue": "Cam Henderson Center",
+      "home_rank": 99,
+      "away_rank": 25,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 107.5,
+        "adj_def": 107.5
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.370486",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808219,
+      "home_team": "Auburn Tigers",
+      "away_team": "Alabama Crimson Tide",
+      "date": "2026-02-07 21:00:00+00:00",
+      "venue": "Neville Arena",
+      "home_rank": 99,
+      "away_rank": 17,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.3,
+        "adj_def": 108.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.378039",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827665,
+      "home_team": "Arizona Wildcats",
+      "away_team": "Oklahoma State Cowboys",
+      "date": "2026-02-07 21:00:00+00:00",
+      "venue": "McKale Memorial Center",
+      "home_rank": 1,
+      "away_rank": 99,
+      "home_eff": {
+        "adj_off": 109.9,
+        "adj_def": 109.9
+      },
+      "away_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.421562",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401829233,
+      "home_team": "Oregon State Beavers",
+      "away_team": "Gonzaga Bulldogs",
+      "date": "2026-02-07 23:00:00+00:00",
+      "venue": "Gill Coliseum",
+      "home_rank": 99,
+      "away_rank": 8,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 109.2,
+        "adj_def": 109.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.461600",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808221,
+      "home_team": "LSU Tigers",
+      "away_team": "Georgia Bulldogs",
+      "date": "2026-02-07 23:00:00+00:00",
+      "venue": "Pete Maravich Assembly Center",
+      "home_rank": 99,
+      "away_rank": 21,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 107.9,
+        "adj_def": 107.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.499794",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820724,
+      "home_team": "North Carolina Tar Heels",
+      "away_team": "Duke Blue Devils",
+      "date": "2026-02-07 23:30:00+00:00",
+      "venue": "Dean E. Smith Center",
+      "home_rank": 22,
+      "away_rank": 5,
+      "home_eff": {
+        "adj_off": 107.8,
+        "adj_def": 107.8
+      },
+      "away_eff": {
+        "adj_off": 109.5,
+        "adj_def": 109.5
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.515375",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401830778,
+      "home_team": "Michigan State Spartans",
+      "away_team": "Illinois Fighting Illini",
+      "date": "2026-02-08 01:00:00+00:00",
+      "venue": "Breslin Center",
+      "home_rank": 10,
+      "away_rank": 11,
+      "home_eff": {
+        "adj_off": 109.0,
+        "adj_def": 109.0
+      },
+      "away_eff": {
+        "adj_off": 108.9,
+        "adj_def": 108.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.542540",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401820722,
+      "home_team": "California Golden Bears",
+      "away_team": "Clemson Tigers",
+      "date": "2026-02-08 01:00:00+00:00",
+      "venue": "Haas Pavilion",
+      "home_rank": 99,
+      "away_rank": 18,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.2,
+        "adj_def": 108.2
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.584745",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401808224,
+      "home_team": "Texas A&M Aggies",
+      "away_team": "Florida Gators",
+      "date": "2026-02-08 01:30:00+00:00",
+      "venue": "Reed Arena",
+      "home_rank": 99,
+      "away_rank": 16,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.4,
+        "adj_def": 108.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.625052",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827666,
+      "home_team": "BYU Cougars",
+      "away_team": "Houston Cougars",
+      "date": "2026-02-08 03:30:00+00:00",
+      "venue": "Marriott Center",
+      "home_rank": 13,
+      "away_rank": 6,
+      "home_eff": {
+        "adj_off": 108.7,
+        "adj_def": 108.7
+      },
+      "away_eff": {
+        "adj_off": 109.4,
+        "adj_def": 109.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.666248",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401825503,
+      "home_team": "Ohio State Buckeyes",
+      "away_team": "Michigan Wolverines",
+      "date": "2026-02-08 18:00:00+00:00",
+      "venue": "Value City Arena",
+      "home_rank": 99,
+      "away_rank": 3,
+      "home_eff": {
+        "adj_off": 111,
+        "adj_def": 108
+      },
+      "away_eff": {
+        "adj_off": 114,
+        "adj_def": 110.7
+      },
+      "home_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 216,
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "games": 32,
+        "wins": 17,
+        "losses": 15,
+        "totalMinutes": 1350,
+        "pace": 65.4,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.6,
+            "attempted": 1884,
+            "made": 878
+          },
+          "twoPointFieldGoals": {
+            "pct": 52.6,
+            "attempted": 1173,
+            "made": 617
+          },
+          "threePointFieldGoals": {
+            "pct": 36.7,
+            "attempted": 711,
+            "made": 261
+          },
+          "freeThrows": {
+            "pct": 74.8,
+            "attempted": 675,
+            "made": 505
+          },
+          "rebounds": {
+            "total": 1078,
+            "defensive": 773,
+            "offensive": 305
+          },
+          "turnovers": {
+            "teamTotal": 20,
+            "total": 349
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 2,
+            "total": 626
+          },
+          "points": {
+            "fastBreak": 176,
+            "offTurnovers": 418,
+            "inPaint": 1062,
+            "total": 2522
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.8,
+            "offensiveReboundPct": 28.3,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 53.5
+          },
+          "assists": 421,
+          "blocks": 115,
+          "steals": 207,
+          "possessions": 2201,
+          "rating": 114.6,
+          "trueShooting": 57.8
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 42.8,
+            "attempted": 1851,
+            "made": 793
+          },
+          "twoPointFieldGoals": {
+            "pct": 50.3,
+            "attempted": 1155,
+            "made": 581
+          },
+          "threePointFieldGoals": {
+            "pct": 30.5,
+            "attempted": 696,
+            "made": 212
+          },
+          "freeThrows": {
+            "pct": 75.2,
+            "attempted": 738,
+            "made": 555
+          },
+          "rebounds": {
+            "total": 1089,
+            "defensive": 750,
+            "offensive": 339
+          },
+          "turnovers": {
+            "teamTotal": 15,
+            "total": 376
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 8,
+            "total": 604
+          },
+          "points": {
+            "fastBreak": 162,
+            "offTurnovers": 385,
+            "inPaint": 988,
+            "total": 2353
+          },
+          "fourFactors": {
+            "freeThrowRate": 39.9,
+            "offensiveReboundPct": 31.1,
+            "turnoverRatio": 0.17,
+            "effectiveFieldGoalPct": 48.6
+          },
+          "assists": 380,
+          "blocks": 107,
+          "steals": 135,
+          "possessions": 2211,
+          "rating": 106.4,
+          "trueShooting": 54.1
+        }
+      },
+      "away_stats": {
+        "season": 2025,
+        "seasonLabel": "20242025",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 37,
+        "wins": 27,
+        "losses": 10,
+        "totalMinutes": 1510,
+        "pace": 67.3,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.8,
+            "attempted": 2160,
+            "made": 1011
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.7,
+            "attempted": 1253,
+            "made": 710
+          },
+          "threePointFieldGoals": {
+            "pct": 33.2,
+            "attempted": 907,
+            "made": 301
+          },
+          "freeThrows": {
+            "pct": 72.8,
+            "attempted": 772,
+            "made": 562
+          },
+          "rebounds": {
+            "total": 1422,
+            "defensive": 1013,
+            "offensive": 409
+          },
+          "turnovers": {
+            "teamTotal": 12,
+            "total": 517
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 634
+          },
+          "points": {
+            "fastBreak": 357,
+            "offTurnovers": 471,
+            "inPaint": 1322,
+            "total": 2885
+          },
+          "fourFactors": {
+            "freeThrowRate": 35.7,
+            "offensiveReboundPct": 28.8,
+            "turnoverRatio": 0.2,
+            "effectiveFieldGoalPct": 53.8
+          },
+          "assists": 586,
+          "blocks": 135,
+          "steals": 198,
+          "possessions": 2543,
+          "rating": 113.4,
+          "trueShooting": 57.7
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 40.1,
+            "attempted": 2340,
+            "made": 938
+          },
+          "twoPointFieldGoals": {
+            "pct": 46,
+            "attempted": 1425,
+            "made": 656
+          },
+          "threePointFieldGoals": {
+            "pct": 30.8,
+            "attempted": 915,
+            "made": 282
+          },
+          "freeThrows": {
+            "pct": 73.1,
+            "attempted": 665,
+            "made": 486
+          },
+          "rebounds": {
+            "total": 1262,
+            "defensive": 824,
+            "offensive": 438
+          },
+          "turnovers": {
+            "teamTotal": 23,
+            "total": 417
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 3,
+            "total": 686
+          },
+          "points": {
+            "fastBreak": 297,
+            "offTurnovers": 561,
+            "inPaint": 1054,
+            "total": 2644
+          },
+          "fourFactors": {
+            "freeThrowRate": 28.4,
+            "offensiveReboundPct": 34.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 46.1
+          },
+          "assists": 421,
+          "blocks": 93,
+          "steals": 269,
+          "possessions": 2540,
+          "rating": 104.1,
+          "trueShooting": 50.2
+        }
+      },
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.677760",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401827672,
+      "home_team": "West Virginia Mountaineers",
+      "away_team": "Texas Tech Red Raiders",
+      "date": "2026-02-08 18:00:00+00:00",
+      "venue": "WVU Coliseum",
+      "home_rank": 99,
+      "away_rank": 12,
+      "home_eff": {
+        "adj_off": 100.1,
+        "adj_def": 100.1
+      },
+      "away_eff": {
+        "adj_off": 108.8,
+        "adj_def": 108.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "spread_prediction": -5.43292236328125,
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003
+    },
+    "generated_at": "2026-01-26T15:40:36.717820",
+    "season": 2025
+  }
+]

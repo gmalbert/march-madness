@@ -47,5 +47,5 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data_files/opening_lines.json data_files/opening_line_capture.log
+          git add data_files/opening_lines.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update opening lines [skip ci]" && git push)

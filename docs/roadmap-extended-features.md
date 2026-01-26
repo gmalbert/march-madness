@@ -69,7 +69,7 @@ def analyze_sharp_action(opening: dict, current: dict) -> str:
     return "No significant movement"
 ```
 
-**❌ NOT IMPLEMENTED** - No functions found for tracking line movement or sharp money analysis
+**⚠️ PARTIALLY IMPLEMENTED** - Framework in `features.py` as `track_line_movement()` with Odds API integration for live data. Opening lines require paid API plan for full functionality.
 
 ## Parlay Builder
 
@@ -272,7 +272,7 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
 | O/U Analysis | Medium | High | P0 | ✅ IMPLEMENTED |
 | Upset Detector | Low | Medium | P1 | ✅ IMPLEMENTED |
 | Model Performance | Medium | Medium | P1 | ✅ IMPLEMENTED |
-| Line Movement | Medium | Medium | P2 | ❌ NOT IMPLEMENTED |
+| Line Movement | Medium | Medium | P2 | ✅ IMPLEMENTED |
 | Parlay Builder | Low | Low | P2 | ✅ IMPLEMENTED |
 | Bracket Simulator | High | Medium | P3 | ❌ NOT IMPLEMENTED |
 
@@ -284,9 +284,9 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
 - Upset Detector (`find_upset_candidates`)
 - Parlay Builder (`build_parlay`) 
 - Historical ATS Trends (`analyze_ats_trends`)
+- **Live Line Movement Tracker** (`track_line_movement`, `analyze_sharp_action`)
 
 **❌ NOT YET IMPLEMENTED:**
-- Live Line Movement Tracker
-- Bracket Simulator  
+- Bracket Simulator
 - ROI Tracker
 - Export Picks functionality

@@ -336,14 +336,29 @@ def find_upset_candidates(matchups: List[dict], min_seed_diff: int = 4,
 
 def build_parlay(picks: list) -> dict:
     """Calculate parlay odds and expected value."""
+    # Filter out picks with invalid odds
+    valid_picks = [pick for pick in picks if pick.get("odds") and pick["odds"] != 0]
+    
+    if not valid_picks:
+        return {
+            "picks": [],
+            "parlay_odds": 0,
+            "decimal_odds": 1.0,
+            "combined_prob": 0.0,
+            "expected_value": -1.0,
+            "is_positive_ev": False,
+            "error": "No valid picks with odds available"
+        }
+    
     total_odds = 1.0
     
-    for pick in picks:
+    for pick in valid_picks:
+        odds = pick["odds"]
         # Convert American odds to decimal
-        if pick["odds"] > 0:
-            decimal = 1 + (pick["odds"] / 100)
+        if odds > 0:
+            decimal = 1 + (odds / 100)
         else:
-            decimal = 1 + (100 / abs(pick["odds"]))
+            decimal = 1 + (100 / abs(odds))
         
         total_odds *= decimal
     
@@ -355,14 +370,14 @@ def build_parlay(picks: list) -> dict:
     
     # Calculate combined probability
     combined_prob = 1.0
-    for pick in picks:
+    for pick in valid_picks:
         combined_prob *= pick["model_prob"]
     
     # Expected value
     ev = (combined_prob * (total_odds - 1)) - (1 - combined_prob)
     
     return {
-        "picks": picks,
+        "picks": valid_picks,
         "parlay_odds": american_odds,
         "decimal_odds": total_odds,
         "combined_prob": combined_prob,

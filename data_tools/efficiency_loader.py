@@ -71,6 +71,15 @@ class EfficiencyDataLoader:
     def load_barttorvik(self):
         """Load and clean BartTorvik ratings with canonical team names."""
         df = pd.read_csv(self.bart_path)
+        
+        # BartTorvik data uses team names as the first column
+        # The first column contains team names, not 'Team'
+        team_col = df.columns[0]  # This should be the team name column
+        
+        # Create a proper Team column
+        df = df.reset_index(drop=True)
+        df['Team'] = df[team_col]
+        
         mappings = pd.read_csv(self.bart_map_path)
         
         # Apply canonical team name mapping
@@ -80,7 +89,7 @@ class EfficiencyDataLoader:
         # Drop unmapped teams
         unmapped = df[df['canonical_team'].isna()]
         if len(unmapped) > 0:
-            print(f"Warning: Dropping {len(unmapped)} unmapped BartTorvik teams: {unmapped['Team'].tolist()}")
+            print(f"Warning: Dropping {len(unmapped)} unmapped BartTorvik teams: {unmapped['Team'].tolist()[:5]}...")
         df = df[df['canonical_team'].notna()].copy()
         
         # Clean numeric columns (BartTorvik data is already clean)

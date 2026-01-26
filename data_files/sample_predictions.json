@@ -1,0 +1,74 @@
+[
+  {
+    "home": "Duke",
+    "away": "North Carolina",
+    "predictions": {
+      "advanced_metrics_available": true,
+      "spread": {
+        "prediction": -4.281797760335892,
+        "range": "-5.3 to -3.5",
+        "models": [
+          "-5.3154244",
+          -3.5062245670995673,
+          -4.02374427161685
+        ]
+      },
+      "total": {
+        "prediction": 144.7637528370302,
+        "range": "144.1 to 145.3",
+        "models": [
+          "144.93237",
+          145.29166666666669,
+          144.06721879754892
+        ]
+      },
+      "moneyline": {
+        "home_win_prob": 0.6372556769671732,
+        "away_win_prob": 0.3627443230328268,
+        "prediction": "Home",
+        "confidence": "63.7%",
+        "models": [
+          "0.72120494",
+          0.5541666666666667,
+          0.636395427730489
+        ]
+      }
+    }
+  },
+  {
+    "home": "Kansas",
+    "away": "Kentucky",
+    "predictions": {
+      "advanced_metrics_available": true,
+      "spread": {
+        "prediction": -4.28179776033589,
+        "range": "-5.3 to -3.5",
+        "models": [
+          "-5.3154244",
+          -3.5062245670995673,
+          -4.023744271616843
+        ]
+      },
+      "total": {
+        "prediction": 144.7637528370302,
+        "range": "144.1 to 145.3",
+        "models": [
+          "144.93237",
+          145.29166666666669,
+          144.06721879754892
+        ]
+      },
+      "moneyline": {
+        "home_win_prob": 0.6372556769671732,
+        "away_win_prob": 0.3627443230328268,
+        "prediction": "Home",
+        "confidence": "63.7%",
+        "models": [
+          "0.72120494",
+          0.5541666666666667,
+          0.6363954277304888
+        ]
+      }
+    }
+  }
+]

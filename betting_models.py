@@ -252,12 +252,12 @@ def evaluate_betting_roi_from_df(df: pd.DataFrame, model_type: str = "moneyline"
         "spread": {
             "pred_col": "pred_spread",
             "actual_col": "ats_result",  # 1 if home covers, 0 if away covers
-            "odds_col": "home_spread_odds"
+            "odds_col": "betting_spread"
         },
         "total": {
             "pred_col": "pred_total",
             "actual_col": "over_result",  # 1 if over hits, 0 if under hits
-            "odds_col": "over_odds"
+            "odds_col": "betting_over_under"
         }
     }
 
@@ -295,6 +295,17 @@ def evaluate_betting_roi_from_df(df: pd.DataFrame, model_type: str = "moneyline"
             df_valid[config["alt_odds_col"]]
         )
 
+        # Remove bets where odds are missing or not finite
+        finite_mask = np.isfinite(odds)
+        if not finite_mask.any():
+            # No valid betting odds available for moneyline bets
+            return results
+
+        # Apply mask to consider only valid bets
+        odds = odds[finite_mask]
+        bet_on_home = bet_on_home.values[finite_mask]
+        actual_outcome = actual_outcome.values[finite_mask]
+
         # Predictions are correct if we bet on home and home won, or bet on away and away won
         predictions_correct = np.where(
             bet_on_home,
@@ -305,31 +316,61 @@ def evaluate_betting_roi_from_df(df: pd.DataFrame, model_type: str = "moneyline"
         # Probabilities for the side we bet on
         bet_probabilities = np.where(
             bet_on_home,
-            df_valid[config["pred_col"]],
-            1 - df_valid[config["pred_col"]]
+            df_valid.loc[finite_mask, config["pred_col"]].values,
+            1 - df_valid.loc[finite_mask, config["pred_col"]].values
         )
 
     else:
         # For spread and total, use direct predictions
-        predictions_correct = (df_valid[config["pred_col"]] > 0.5).astype(bool)
-        actual_outcome = df_valid[config["actual_col"]].astype(bool)
-        odds = df_valid[config["odds_col"]]
-        bet_probabilities = df_valid[config["pred_col"]]
+        if model_type == "spread":
+            # For spread betting, we predict if home team covers
+            # pred_spread should be the predicted margin, positive means home wins by more
+            predicted_home_margin = df_valid[config["pred_col"]]
+            # Home covers if predicted margin > betting_spread
+            # (if betting_spread is negative, home is favored, so they need to win by more than the spread)
+            predictions_correct = (predicted_home_margin > df_valid[config["odds_col"]]).astype(bool)
+            actual_outcome = df_valid[config["actual_col"]].astype(bool)
+            # For spread betting, odds are typically -110 on both sides
+            # We'll use the spread value as a proxy for difficulty
+            odds = np.full(len(df_valid), -110)  # Standard spread betting odds
+            bet_probabilities = np.where(
+                predictions_correct,
+                0.55,  # Slightly above 50% for predicted covers
+                0.45   # Slightly below 50% for predicted non-covers
+            )
+        elif model_type == "total":
+            # For total betting, we predict if over hits
+            predicted_total = df_valid[config["pred_col"]]
+            predictions_correct = (predicted_total > df_valid[config["odds_col"]]).astype(bool)
+            actual_outcome = df_valid[config["actual_col"]].astype(bool)
+            # For over/under betting, odds are typically -110 on both sides
+            odds = np.full(len(df_valid), -110)  # Standard over/under betting odds
+            bet_probabilities = np.where(
+                predictions_correct,
+                0.55,  # Slightly above 50% for predicted overs
+                0.45   # Slightly below 50% for predicted unders
+            )
+
+    # Prepare actual outcome array (handle ndarray or pandas Series)
+    if isinstance(actual_outcome, np.ndarray):
+        actual_arr = actual_outcome
+    else:
+        actual_arr = actual_outcome.values
 
     # Calculate ROI
     roi_results = evaluate_betting_roi(
         predictions_correct,
-        actual_outcome.values,
+        actual_arr,
         odds
     )
 
     # Calculate additional metrics
-    accuracy = accuracy_score(actual_outcome.values, predictions_correct)
-    brier_score = brier_score_loss(actual_outcome.values, bet_probabilities)
+    accuracy = accuracy_score(actual_arr, predictions_correct)
+    brier_score = brier_score_loss(actual_arr, bet_probabilities)
 
     # Calculate MAE and RMSE for regression-style predictions
-    mae = mean_absolute_error(actual_outcome.values.astype(int), bet_probabilities)
-    rmse = np.sqrt(mean_squared_error(actual_outcome.values.astype(int), bet_probabilities))
+    mae = mean_absolute_error(actual_arr.astype(int), bet_probabilities)
+    rmse = np.sqrt(mean_squared_error(actual_arr.astype(int), bet_probabilities))
 
     results.update({
         "overall_roi": roi_results["roi_pct"],

@@ -37,6 +37,8 @@ def find_upset_candidates(matchups: list, min_seed_diff: int = 4) -> list:
     return sorted(upsets, key=lambda x: -x["edge"])
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `find_upset_candidates()` with integration in `predictions.py`
+
 ## Live Line Movement Tracker
 
 ```python
@@ -66,6 +68,8 @@ def analyze_sharp_action(opening: dict, current: dict) -> str:
         return f"Sharp action on {direction}"
     return "No significant movement"
 ```
+
+**❌ NOT IMPLEMENTED** - No functions found for tracking line movement or sharp money analysis
 
 ## Parlay Builder
 
@@ -107,6 +111,8 @@ def build_parlay(picks: list) -> dict:
     }
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `build_parlay()` with integration in `predictions.py`
+
 ## Historical ATS Trends
 
 ```python
@@ -144,6 +150,8 @@ def analyze_ats_trends(team: str, years: int = 5) -> dict:
     
     return results
 ```
+
+**✅ IMPLEMENTED** - Available in `features.py` as `analyze_ats_trends()` with integration in `predictions.py`
 
 ## Bracket Simulator
 
@@ -190,6 +198,8 @@ def run_single_simulation(predictions: dict) -> dict:
     return bracket
 ```
 
+**❌ NOT IMPLEMENTED** - No bracket simulation functions found in the codebase
+
 ## ROI Tracker
 
 ```python
@@ -226,6 +236,8 @@ def track_betting_roi(bets: list, bankroll: float = 1000) -> dict:
     }
 ```
 
+**❌ NOT IMPLEMENTED** - No ROI tracking functions found in the codebase
+
 ## Export Picks
 
 ```python
@@ -248,20 +260,33 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
     return filename
 ```
 
+**❌ NOT IMPLEMENTED** - No export functions found in the codebase
+
 ## Feature Priority for Betting
 
-| Feature | Effort | Impact | Priority |
-|---------|--------|--------|----------|
-| Game Predictions | Medium | High | P0 |
-| Value Bet Finder | Low | High | P0 |
-| Spread Analysis | Medium | High | P0 |
-| O/U Analysis | Medium | High | P0 |
-| Upset Detector | Low | Medium | P1 |
-| Model Performance | Medium | Medium | P1 |
-| Line Movement | Medium | Medium | P2 |
-| Parlay Builder | Low | Low | P2 |
-| Bracket Simulator | High | Medium | P3 |
+| Feature | Effort | Impact | Priority | Status |
+|---------|--------|--------|----------|--------|
+| Game Predictions | Medium | High | P0 | ✅ IMPLEMENTED |
+| Value Bet Finder | Low | High | P0 | ✅ IMPLEMENTED |
+| Spread Analysis | Medium | High | P0 | ✅ IMPLEMENTED |
+| O/U Analysis | Medium | High | P0 | ✅ IMPLEMENTED |
+| Upset Detector | Low | Medium | P1 | ✅ IMPLEMENTED |
+| Model Performance | Medium | Medium | P1 | ✅ IMPLEMENTED |
+| Line Movement | Medium | Medium | P2 | ❌ NOT IMPLEMENTED |
+| Parlay Builder | Low | Low | P2 | ✅ IMPLEMENTED |
+| Bracket Simulator | High | Medium | P3 | ❌ NOT IMPLEMENTED |
 
 ## Next Steps
 - See `roadmap-betting-models.md` for model training
 - See `roadmap-ui.md` for UI implementation
+
+**✅ IMPLEMENTED FEATURES:**
+- Upset Detector (`find_upset_candidates`)
+- Parlay Builder (`build_parlay`) 
+- Historical ATS Trends (`analyze_ats_trends`)
+
+**❌ NOT YET IMPLEMENTED:**
+- Live Line Movement Tracker
+- Bracket Simulator  
+- ROI Tracker
+- Export Picks functionality

@@ -10,15 +10,19 @@ The most predictive feature for game outcomes.
 ```python
 def calculate_efficiency_differential(team1_eff: dict, team2_eff: dict) -> dict:
     """Calculate efficiency differentials between two teams."""
+    t1_off = _get_eff(team1_eff, 'adj_offense', 'off_rating', 'offensiveRating')
+    t1_def = _get_eff(team1_eff, 'adj_defense', 'def_rating', 'defensiveRating')
+    t2_off = _get_eff(team2_eff, 'adj_offense', 'off_rating', 'offensiveRating')
+    t2_def = _get_eff(team2_eff, 'adj_defense', 'def_rating', 'defensiveRating')
+
     return {
-        "off_eff_diff": team1_eff["adj_offense"] - team2_eff["adj_offense"],
-        "def_eff_diff": team1_eff["adj_defense"] - team2_eff["adj_defense"],
-        "net_eff_diff": (
-            (team1_eff["adj_offense"] - team1_eff["adj_defense"]) -
-            (team2_eff["adj_offense"] - team2_eff["adj_defense"])
-        )
+        "off_eff_diff": t1_off - t2_off,
+        "def_eff_diff": t1_def - t2_def,
+        "net_eff_diff": (t1_off - t1_def) - (t2_off - t2_def),
     }
 ```
+
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_efficiency_differential()`
 
 ### Tempo-Adjusted Projections
 For over/under predictions.
@@ -29,18 +33,26 @@ def project_game_total(team1_eff: dict, team2_eff: dict) -> float:
     
     Formula: (Team1_OE + Team2_OE) / 2 * Avg_Tempo / 100
     """
-    avg_tempo = (team1_eff["tempo"] + team2_eff["tempo"]) / 2
-    avg_off_eff = (team1_eff["adj_offense"] + team2_eff["adj_offense"]) / 2
-    avg_def_eff = (team1_eff["adj_defense"] + team2_eff["adj_defense"]) / 2
-    
-    # Expected points per 100 possessions
+    tempo1 = _get_eff(team1_eff, 'tempo', 'pace')
+    tempo2 = _get_eff(team2_eff, 'tempo', 'pace')
+    avg_tempo = (tempo1 + tempo2) / 2 or 70
+
+    t1_off = _get_eff(team1_eff, 'adj_offense', 'off_rating', 'offensiveRating')
+    t2_off = _get_eff(team2_eff, 'adj_offense', 'off_rating', 'offensiveRating')
+    t1_def = _get_eff(team1_eff, 'adj_defense', 'def_rating', 'defensiveRating')
+    t2_def = _get_eff(team2_eff, 'adj_defense', 'def_rating', 'defensiveRating')
+
+    avg_off_eff = (t1_off + t2_off) / 2
+    avg_def_eff = (t1_def + t2_def) / 2
+
     expected_eff = (avg_off_eff + avg_def_eff) / 2
-    
-    # Scale to game possessions
+
+    # Scale to game possessions (expected_eff is points per 100 possessions)
     projected_total = expected_eff * (avg_tempo / 100) * 2
-    
-    return projected_total
+    return float(projected_total)
 ```
+
+**✅ IMPLEMENTED** - Available in `features.py` as `project_game_total()`
 
 ## Spread Prediction Features
 
@@ -69,6 +81,8 @@ def calculate_spread_features(team1: dict, team2: dict) -> dict:
     }
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_spread_features()`
+
 ## Over/Under Features
 
 ```python
@@ -96,6 +110,8 @@ def calculate_total_features(team1: dict, team2: dict) -> dict:
     }
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_total_features()`
+
 ## Moneyline/Win Probability Features
 
 ```python
@@ -117,6 +133,8 @@ def calculate_win_probability_features(team1: dict, team2: dict) -> dict:
         "sos_adjusted_margin": team1["margin"] * team1["sos"] - team2["margin"] * team2["sos"],
     }
 ```
+
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_win_probability_features()`
 
 ## Value Bet Detection
 
@@ -148,6 +166,8 @@ def find_value_bets(predictions: list, lines: list, threshold: float = 0.05):
     return sorted(value_bets, key=lambda x: -x["edge"])
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_implied_probability()` and `find_value_bets()`
+
 ## ATS (Against the Spread) Features
 
 ```python
@@ -175,15 +195,20 @@ def calculate_ats_features(team1: dict, team2: dict, spread: float) -> dict:
     }
 ```
 
+**✅ IMPLEMENTED** - Available in `features.py` as `calculate_ats_features()`
+
 ## Feature Summary
 
-| Bet Type | Key Features | Target Variable |
-|----------|--------------|-----------------|
-| Moneyline | net_rating_diff, seed_diff | Win (0/1) |
-| Spread | margin_diff, efficiency_diff | Cover (0/1) |
-| Over/Under | tempo, combined_ppg, projected_total | Over (0/1) |
-| Value | model_prob - implied_prob | Edge % |
+| Bet Type | Key Features | Target Variable | Status |
+|----------|--------------|-----------------|---------|
+| Moneyline | net_rating_diff, seed_diff | Win (0/1) | ✅ IMPLEMENTED |
+| Spread | margin_diff, efficiency_diff | Cover (0/1) | ✅ IMPLEMENTED |
+| Over/Under | tempo, combined_ppg, projected_total | Over (0/1) | ✅ IMPLEMENTED |
+| Value | model_prob - implied_prob | Edge % | ✅ IMPLEMENTED |
+| ATS | predicted_margin, spread_diff, historical_ats | Cover (0/1) | ✅ IMPLEMENTED |
 
 ## Next Steps
 - See `roadmap-betting-models.md` for model training
 - See `roadmap-ui.md` for displaying predictions
+
+**✅ ALL MAJOR BETTING FEATURES IMPLEMENTED** - The feature engineering framework is complete and integrated into the prediction pipeline.

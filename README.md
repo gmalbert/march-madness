@@ -13,6 +13,7 @@ A comprehensive March Madness betting prediction system that combines historical
 - **Kelly Criterion Betting**: Optimal bet sizing recommendations
 - **Multi-API Integration**: CBBD + ESPN + KenPom + BartTorvik
 - **Streamlit UI**: Interactive web interface for predictions
+- **Betting Models Framework**: Complete implementation of roadmap-betting-models.md
 
 ## Recent Updates (v2.0)
 
@@ -33,6 +34,7 @@ A comprehensive March Madness betting prediction system that combines historical
 - **Canonical Team Names**: Standardized naming across all sources
 - **Data Validation**: Complete feature coverage for 15,961 games
 - **Model Retraining**: Optimized for extended feature space
+- **Betting Models**: Complete implementation with evaluation and ensemble methods
 
 ## API Information
 This project uses the [College Basketball Data API](https://api.collegebasketballdata.com/) to fetch data. The API key provides 1,000 calls per month.
@@ -296,6 +298,68 @@ python retrain_with_extended_features.py
 - Separate models for spread, total, and moneyline predictions
 - Feature scaling and preprocessing
 
+## Betting Models Framework
+
+### Implementation Overview
+Complete implementation of `docs/roadmap-betting-models.md` with comprehensive betting prediction capabilities.
+
+**Model Types by Bet:**
+| Bet Type | Model Type | Target | Key Metric |
+|----------|------------|--------|------------|
+| Moneyline | Classification | Win (0/1) | Brier Score |
+| Spread | Regression → Classification | Margin → Cover | ATS Accuracy |
+| Over/Under | Regression → Classification | Total → Over | O/U Accuracy |
+| Value | Probability Comparison | Edge | ROI |
+
+### Core Functions
+```python
+from betting_models import (
+    train_win_probability_model,  # Calibrated classifier for win probs
+    train_spread_model,           # XGBoost regression for margins
+    train_total_model,            # XGBoost regression for totals
+    predict_ats,                  # ATS outcome predictions
+    predict_over_under,           # O/U outcome predictions
+    evaluate_betting_roi,         # ROI calculation with American odds
+    create_betting_ensemble       # Voting ensemble models
+)
+
+# Train models
+moneyline_model = train_win_probability_model(X_train, y_win)
+spread_model = train_spread_model(X_train, y_margin)
+total_model = train_total_model(X_train, y_total)
+
+# Evaluate betting performance
+roi_results = evaluate_betting_roi(predictions, actuals, odds)
+print(f"ROI: {roi_results['roi_pct']:.1f}%")
+```
+
+### Advanced Features
+- **Time-based Cross Validation**: `tournament_cv()` for leave-one-tournament-out validation
+- **Ensemble Methods**: Voting classifiers/regressors combining multiple algorithms
+- **Probability Calibration**: Isotonic regression for well-calibrated win probabilities
+- **Comprehensive Evaluation**: Brier score, log loss, MAE, RMSE, and ROI metrics
+
+### Testing & Validation
+```bash
+# Run comprehensive test suite
+python test_betting_models.py
+```
+
+**Test Coverage:**
+- ✅ Model training (moneyline, spread, total)
+- ✅ Prediction functions (ATS, O/U)
+- ✅ Evaluation metrics (classification, regression, ROI)
+- ✅ Ensemble model creation
+- ✅ Cross validation
+- ✅ Dependency validation
+
+### Integration
+The betting models framework integrates seamlessly with the existing prediction system:
+- **Feature Engineering**: Compatible with `feature_engineering.py` output
+- **Streamlit UI**: Used in `predictions.py` for real-time betting predictions
+- **Model Persistence**: Models saved with joblib in `data_files/models/`
+- **Evaluation**: Performance tracking with comprehensive metrics
+
 ## Data Sources
 
 ### College Basketball Data API (CBBD)
@@ -314,6 +378,9 @@ python retrain_with_extended_features.py
 ```
 march-madness/
 ├── predictions.py                    # Streamlit UI and prediction logic
+├── betting_models.py                 # Betting models framework implementation
+├── test_betting_models.py            # Comprehensive test suite for betting models
+├── betting_models_README.md          # Detailed betting models documentation
 ├── data_collection.py               # CBBD API integration and data collection
 ├── fetch_espn_cbb_scores.py         # ESPN API scraper
 ├── model_training.py                # Original model training (3 features)

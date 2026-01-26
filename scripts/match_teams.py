@@ -88,8 +88,11 @@ def main():
     print(f'Found {len(espn_teams)} unique canonical ESPN teams')
 
     kenpom_teams = list(kenpom['Team'].astype(str).unique())
-    bart_teams = list(bart['Team'].astype(str).unique())
-
+    
+    # Handle BartTorvik data format (team names as first column values)
+    bart_team_col = bart.columns[0]  # First column contains team names
+    bart_teams = list(bart[bart_team_col].astype(str).unique())
+    
     print(f'KenPom teams: {len(kenpom_teams)}; BartTorvik teams: {len(bart_teams)}')
 
     # Attempt to match KenPom teams

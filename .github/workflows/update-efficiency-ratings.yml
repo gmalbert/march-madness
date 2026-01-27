@@ -21,6 +21,14 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: Lint GitHub workflow YAML
+      run: |
+        # Install yamllint and lint the workflow files to catch syntax issues early
+        python -m pip install --upgrade pip
+        pip install yamllint==1.26.3
+        echo "Linting .github/workflows/*.yml"
+        yamllint .github/workflows/*.yml
+
     - name: Cache pip dependencies
       uses: actions/cache@v3
       with:
@@ -46,6 +54,8 @@ jobs:
     - name: Check if efficiency update is needed
       id: check-update-needed
       run: |
+        # Use strict shell options; GitHub Actions controls whether this step runs via the 'if' condition
+        set -euo pipefail
         echo "Checking if efficiency data update is needed..."
         if python check_efficiency_update_needed.py; then
           echo "Update needed - proceeding"
@@ -53,15 +63,17 @@ jobs:
         else
           echo "Update not needed - skipping"
           echo "update_needed=false" >> $GITHUB_OUTPUT
+        fi
 
     - name: Add random delay to avoid detection
       if: steps.check-update-needed.outputs.update_needed == 'true'
       run: |
+        # Use strict shell options; GitHub Actions controls whether this step runs via the 'if' condition
+        set -euo pipefail
         # Add random delay between 0-60 minutes to vary timing
         delay_minutes=$((RANDOM % 60))
         echo "Adding random delay of ${delay_minutes} minutes to avoid detection patterns"
         sleep $((delay_minutes * 60))
-        fi
 
     - name: Download KenPom ratings
       if: steps.check-update-needed.outputs.update_needed == 'true'
@@ -72,6 +84,8 @@ jobs:
     - name: Brief pause between downloads
       if: steps.check-update-needed.outputs.update_needed == 'true'
       run: |
+        # Use strict shell options; GitHub Actions controls whether this step runs via the 'if' condition
+        set -euo pipefail
         # Add small random delay between downloads (10-30 seconds)
         delay_seconds=$((10 + RANDOM % 20))
         echo "Pausing ${delay_seconds} seconds between downloads"
@@ -93,6 +107,8 @@ jobs:
       if: steps.check-update-needed.outputs.update_needed == 'true'
       id: verify-changed-files
       run: |
+        # Use strict shell options; fail fast on errors
+        set -euo pipefail
         changed=false
 
         # Check KenPom files
@@ -132,6 +148,8 @@ jobs:
     - name: Commit and push changes
       if: steps.check-update-needed.outputs.update_needed == 'true' && steps.verify-changed-files.outputs.changed == 'true'
       run: |
+        # Use strict shell options; fail fast on errors during commit/push
+        set -euo pipefail
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data_files/kenpom_ratings.csv

@@ -68,12 +68,19 @@ jobs:
         
         if [ -f "data_files/upcoming_game_predictions.json" ]; then
           echo "Predictions file exists"
-          # Check if predictions have been modified
+          # Check if predictions have been modified AND file has content
           if git diff --quiet "data_files/upcoming_game_predictions.json"; then
             echo "No changes to predictions"
           else
-            echo "Predictions have been updated"
-            changed=true
+            # Check if file has actual content (not empty)
+            if [ $(wc -c < "data_files/upcoming_game_predictions.json") -gt 10 ]; then
+              echo "Predictions have been updated with content"
+              changed=true
+            else
+              echo "Predictions file is empty or nearly empty - skipping"
+              # Reset the file to avoid committing empty predictions
+              git checkout -- "data_files/upcoming_game_predictions.json"
+            fi
           fi
         else
           echo "Predictions file created"

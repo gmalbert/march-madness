@@ -1,6 +1,6 @@
 name: Update Efficiency Ratings
 
-on:
+'on':
   schedule:
     # Run daily at 2 AM ET (7 AM UTC)
     - cron: '0 7 * * *'
@@ -57,11 +57,11 @@ jobs:
     - name: Add random delay to avoid detection
       if: steps.check-update-needed.outputs.update_needed == 'true'
       run: |
+        set -euo pipefail
         # Add random delay between 0-60 minutes to vary timing
         delay_minutes=$((RANDOM % 60))
         echo "Adding random delay of ${delay_minutes} minutes to avoid detection patterns"
         sleep $((delay_minutes * 60))
-        fi
 
     - name: Download KenPom ratings
       if: steps.check-update-needed.outputs.update_needed == 'true'

@@ -1184,6 +1184,12 @@ def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List 
         if game.get('game_date'):
             try:
                 game_dt = pd.to_datetime(game['game_date'])
+                # Convert to Eastern Time
+                eastern = pytz.timezone('US/Eastern')
+                if game_dt.tz is None:
+                    game_dt = game_dt.tz_localize('UTC')
+                game_dt = game_dt.astimezone(eastern)
+                
                 # Check if time is midnight (00:00:00), which means time is TBD
                 if game_dt.hour == 0 and game_dt.minute == 0:
                     st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y')} (Time TBD)")
@@ -1564,6 +1570,12 @@ def main():
             if game.get('game_date'):
                 try:
                     game_dt = pd.to_datetime(game['game_date'])
+                    # Convert to Eastern Time
+                    eastern = pytz.timezone('US/Eastern')
+                    if game_dt.tz is None:
+                        game_dt = game_dt.tz_localize('UTC')
+                    game_dt = game_dt.astimezone(eastern)
+                    
                     if game_dt.hour == 0 and game_dt.minute == 0:
                         date_str = game_dt.strftime('%a, %b %d (Time TBD)')
                     else:
@@ -1722,6 +1734,12 @@ def main():
             if game.get('game_date'):
                 try:
                     game_dt = pd.to_datetime(game['game_date'])
+                    # Convert to Eastern Time
+                    eastern = pytz.timezone('US/Eastern')
+                    if game_dt.tz is None:
+                        game_dt = game_dt.tz_localize('UTC')
+                    game_dt = game_dt.astimezone(eastern)
+                    
                     if game_dt.hour == 0 and game_dt.minute == 0:
                         date_str = game_dt.strftime('%a, %b %d (Time TBD)')
                     else:

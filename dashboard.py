@@ -35,6 +35,44 @@ st.set_page_config(
 
 DATA_DIR = Path("data_files")
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def load_games_from_espn():
+    """Load games directly from ESPN CSV (more reliable than predictions JSON)."""
+    try:
+        espn_file = DATA_DIR / "espn_cbb_current_season.csv"
+        if espn_file.exists():
+            df = pd.read_csv(espn_file)
+            
+            # Convert date column to datetime
+            df['date_dt'] = pd.to_datetime(df['date'])
+            
+            # Filter for upcoming games only
+            upcoming = df[df['date_dt'] > pd.Timestamp.now(tz='UTC')].copy()
+            
+            # Convert to the format expected by dashboard
+            games = []
+            for _, row in upcoming.iterrows():
+                game = {
+                    'game_info': {
+                        'home_team': row['home_team'],
+                        'away_team': row['away_team'],
+                        'date': row['date'],
+                        'home_moneyline': None,  # Will be filled from predictions if available
+                        'away_moneyline': None,
+                        'home_spread': None,
+                        'away_spread': None,
+                        'total_line': None
+                    }
+                }
+                games.append(game)
+            
+            return games
+        else:
+            return []
+    except Exception as e:
+        st.error(f"Error loading games from ESPN: {e}")
+        return []
+
 # Custom CSS for better styling
 st.markdown("""
 <style>
@@ -102,46 +140,59 @@ def load_historical_performance():
 def load_todays_predictions():
     """Load upcoming game predictions (next 3 days in local time)."""
     try:
+        # First try to load from predictions JSON
         predictions_file = DATA_DIR / "upcoming_game_predictions.json"
         if predictions_file.exists():
             with open(predictions_file, 'r') as f:
                 data = json.load(f)
             
-            # Filter for games in the next 3 days (using local timezone)
-            from datetime import datetime, timedelta, timezone
-            
-            # Get current time in local timezone
-            now_local = datetime.now()
-            three_days_from_now = now_local + timedelta(days=3)
-            
-            upcoming_games = []
-            for game in data:
-                game_date_str = game.get('game_info', {}).get('date', '')
-                if game_date_str:
-                    try:
-                        # Parse UTC date and convert to local time
-                        if '+00:00' in game_date_str or 'Z' in game_date_str:
-                            # Parse as UTC
-                            game_date_utc = datetime.fromisoformat(game_date_str.replace('Z', '+00:00'))
-                            # Convert to local time
-                            game_date_local = game_date_utc.replace(tzinfo=timezone.utc).astimezone(tz=None)
-                        else:
-                            # Already local or no timezone info
-                            game_date_local = datetime.fromisoformat(game_date_str)
-                        
-                        # Include games from today through next 3 days (local time)
-                        if now_local.date() <= game_date_local.date() <= three_days_from_now.date():
-                            upcoming_games.append(game)
-                    except Exception as e:
-                        # If date parsing fails, include the game
-                        upcoming_games.append(game)
-            
-            return upcoming_games
-        else:
-            return []
+            if data:  # Only use JSON if it has data
+                return filter_games_by_date(data)
+        
+        # Fallback: load from ESPN CSV directly
+        st.info("⚠️ Using ESPN data directly (predictions not yet generated)")
+        games = load_games_from_espn()
+        return filter_games_by_date(games)
+        
     except Exception as e:
         st.error(f"Error loading predictions: {e}")
-        return []
+        # Final fallback: load from ESPN CSV
+        games = load_games_from_espn()
+        return filter_games_by_date(games)
+
+
+def filter_games_by_date(games):
+    """Filter games for the next 3 days in local time."""
+    # Filter for games in the next 3 days (using local timezone)
+    from datetime import datetime, timedelta, timezone
+    
+    # Get current time in local timezone
+    now_local = datetime.now()
+    three_days_from_now = now_local + timedelta(days=3)
+    
+    upcoming_games = []
+    for game in games:
+        game_date_str = game.get('game_info', {}).get('date', '')
+        if game_date_str:
+            try:
+                # Parse UTC date and convert to local time
+                if '+00:00' in game_date_str or 'Z' in game_date_str:
+                    # Parse as UTC
+                    game_date_utc = datetime.fromisoformat(game_date_str.replace('Z', '+00:00'))
+                    # Convert to local time
+                    game_date_local = game_date_utc.replace(tzinfo=timezone.utc).astimezone(tz=None)
+                else:
+                    # Already local or no timezone info
+                    game_date_local = datetime.fromisoformat(game_date_str)
+                
+                # Include games from today through next 3 days (local time)
+                if now_local.date() <= game_date_local.date() <= three_days_from_now.date():
+                    upcoming_games.append(game)
+            except Exception as e:
+                # If date parsing fails, include the game
+                upcoming_games.append(game)
+    
+    return upcoming_games
 
 
 def calculate_value_bets(games):
@@ -383,6 +434,15 @@ def render_game_card(game):
 def render_dashboard():
     """Main dashboard rendering."""
     st.title("🏀 March Madness Betting Dashboard")
+    
+    # Refresh button to clear cache
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.caption("💡 Data refreshes automatically, but you can force refresh if needed")
+    with col2:
+        if st.button("🔄 Refresh Data", help="Clear cache and reload latest predictions"):
+            st.cache_data.clear()
+            st.rerun()
     
     # Load data
     performance = load_historical_performance()

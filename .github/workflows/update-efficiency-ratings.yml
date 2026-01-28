@@ -46,6 +46,7 @@ jobs:
     - name: Check if efficiency update is needed
       id: check-update-needed
       run: |
+        set -euo pipefail
         echo "Checking if efficiency data update is needed..."
         if python check_efficiency_update_needed.py; then
           echo "Update needed - proceeding"
@@ -53,6 +54,7 @@ jobs:
         else
           echo "Update not needed - skipping"
           echo "update_needed=false" >> $GITHUB_OUTPUT
+        fi
 
     - name: Add random delay to avoid detection
       if: steps.check-update-needed.outputs.update_needed == 'true'

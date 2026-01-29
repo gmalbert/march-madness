@@ -17,6 +17,17 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+# Utility functions for upset detection
+def is_upset(winner_seed: int, loser_seed: int) -> bool:
+    """An upset occurs when the higher-seeded team loses."""
+    return winner_seed > loser_seed
+
+
+def upset_magnitude(winner_seed: int, loser_seed: int) -> int:
+    """How big is the upset? Larger = more surprising."""
+    return winner_seed - loser_seed if is_upset(winner_seed, loser_seed) else 0
+
+
 # Historical upset rates by seed matchup (from NCAA tournament data)
 HISTORICAL_UPSET_RATES = {
     (1, 16): 0.01,   # Almost never happens (UMBC was first)
@@ -202,6 +213,8 @@ class UpsetPredictor:
         efficiency = self._check_efficiency_mismatch(favorite, underdog)
         style = self._analyze_style_matchup(favorite, underdog)
         experience = self._analyze_experience_momentum(favorite, underdog)
+        location = self._analyze_location_advantage(favorite, underdog,
+                                                   game_context.get('location') if game_context else None)
 
         # Get historical rate
         seed_pair = (favorite.get('seed', 1), underdog.get('seed', 16))
@@ -213,9 +226,10 @@ class UpsetPredictor:
             'factors': {
                 'efficiency_mismatch': efficiency,
                 'style_matchup': style,
-                'experience_momentum': experience
+                'experience_momentum': experience,
+                'location_advantage': location
             },
-            'key_reasons': self._get_key_reasons(efficiency, style, experience),
+            'key_reasons': self._get_key_reasons(efficiency, style, experience, location),
             'historical_rate': historical_rate,
             'seed_pair': seed_pair
         }
@@ -318,8 +332,44 @@ class UpsetPredictor:
 
         return factors
 
+    def _analyze_location_advantage(self, favorite: dict, underdog: dict,
+                                    game_location: tuple = None) -> Dict[str, Any]:
+        """Analyze location and travel advantages."""
+        from math import sqrt
+
+        def distance(loc1: tuple, loc2: tuple) -> float:
+            """Simple Euclidean distance (would use haversine for real)."""
+            return sqrt((loc1[0] - loc2[0])**2 + (loc1[1] - loc2[1])**2)
+
+        factors = {
+            'travel_advantage': False,
+            'pseudo_home_game': False,
+            'upset_probability_boost': 0.0
+        }
+
+        if not game_location:
+            return factors
+
+        fav_loc = favorite.get('school_location', (0, 0))
+        und_loc = underdog.get('school_location', (0, 0))
+
+        fav_distance = distance(fav_loc, game_location)
+        und_distance = distance(und_loc, game_location)
+
+        # Significant travel advantage
+        if und_distance < fav_distance * 0.5:
+            factors['travel_advantage'] = True
+            factors['upset_probability_boost'] += 0.03
+
+        # Pseudo home game (< 100 miles)
+        if und_distance < 100 and fav_distance > 500:
+            factors['pseudo_home_game'] = True
+            factors['upset_probability_boost'] += 0.05
+
+        return factors
+
     def _get_key_reasons(self, efficiency: dict, style: dict,
-                         experience: dict) -> List[str]:
+                         experience: dict, location: dict = None) -> List[str]:
         """Get human-readable reasons for upset potential."""
 
         reasons = []
@@ -344,6 +394,12 @@ class UpsetPredictor:
 
         if experience['conference_tourney_winner']:
             reasons.append("Underdog won their conference tournament")
+
+        if location and location['travel_advantage']:
+            reasons.append("Underdog has significant travel advantage")
+
+        if location and location['pseudo_home_game']:
+            reasons.append("Underdog is playing pseudo home game")
 
         return reasons
 
@@ -479,3 +535,122 @@ if __name__ == "__main__":
     print(f"Key Reasons:")
     for reason in prediction['key_reasons'][:3]:
         print(f"  • {reason}")
+
+
+def generate_upset_watch_list(bracket_data: dict,
+                              predictor: UpsetPredictor) -> list:
+    """Generate list of games with high upset potential."""
+
+    watch_list = []
+
+    for game in bracket_data.get('first_round_games', []):
+        favorite = game['favorite']  # Higher seed
+        underdog = game['underdog']  # Lower seed
+
+        result = predictor.predict_upset_probability(favorite, underdog)
+
+        if result['upset_probability'] > 0.25:  # 25%+ upset chance
+            watch_list.append({
+                'matchup': f"({underdog['seed']}) {underdog['name']} vs ({favorite['seed']}) {favorite['name']}",
+                'upset_probability': result['upset_probability'],
+                'confidence': result['confidence'],
+                'key_reasons': result['key_reasons'],
+                'historical_rate': result['historical_rate'],
+                'round': game.get('round', 'Round of 64')
+            })
+
+    # Sort by upset probability
+    watch_list.sort(key=lambda x: x['upset_probability'], reverse=True)
+
+    return watch_list
+
+
+def display_upset_watch(watch_list: list):
+    """Display upset watch in a formatted way."""
+
+    print("=" * 60)
+    print("🚨 UPSET WATCH LIST")
+    print("=" * 60)
+
+    for i, game in enumerate(watch_list, 1):
+        print(f"\n{i}. {game['matchup']}")
+        print(f"   Upset Probability: {game['upset_probability']:.1%}")
+        print(f"   Historical Rate: {game['historical_rate']:.1%}")
+        print(f"   Confidence: {game['confidence']}")
+        print(f"   Key Factors:")
+        for reason in game['key_reasons'][:3]:
+            print(f"     • {reason}")
+
+
+def identify_cinderella_candidates(bracket_data: dict,
+                                   simulation_results: dict) -> list:
+    """
+    Identify potential Cinderella teams (low seeds with deep run potential).
+    Cinderella = 10+ seed that reaches Sweet 16 or further.
+    """
+
+    candidates = []
+
+    for team_id, probs in simulation_results['team_probabilities'].items():
+        seed = probs['seed']
+
+        # Only consider 10+ seeds
+        if seed < 10:
+            continue
+
+        sweet_16_prob = probs['sweet_16_prob']
+
+        # Need at least 10% chance to make Sweet 16
+        if sweet_16_prob < 0.10:
+            continue
+
+        # Get team stats
+        team_stats = bracket_data['teams'].get(team_id, {})
+
+        candidates.append({
+            'team': probs['name'],
+            'seed': seed,
+            'region': probs['region'],
+            'sweet_16_prob': sweet_16_prob,
+            'elite_8_prob': probs['elite_8_prob'],
+            'final_four_prob': probs['final_four_prob'],
+            'net_efficiency': team_stats.get('net_efficiency', 0),
+            'cinderella_score': calculate_cinderella_score(probs, team_stats)
+        })
+
+    # Sort by Cinderella score
+    candidates.sort(key=lambda x: x['cinderella_score'], reverse=True)
+
+    return candidates
+
+
+def calculate_cinderella_score(probs: dict, stats: dict) -> float:
+    """
+    Calculate a "Cinderella score" combining:
+    - Sweet 16 probability
+    - Seed (higher = more Cinderella)
+    - Efficiency rating
+    """
+
+    seed_bonus = (probs['seed'] - 9) * 0.1  # Bonus for higher seeds
+    sweet_16_weight = probs['sweet_16_prob'] * 2
+    elite_8_weight = probs['elite_8_prob'] * 3
+    efficiency_factor = (stats.get('net_efficiency', 0) + 20) / 40  # Normalize
+
+    return seed_bonus + sweet_16_weight + elite_8_weight + efficiency_factor
+
+
+def display_cinderella_candidates(candidates: list):
+    """Display potential Cinderella teams."""
+
+    print("=" * 60)
+    print("🎃 CINDERELLA CANDIDATES")
+    print("(10+ seeds with Sweet 16 potential)")
+    print("=" * 60)
+
+    for i, team in enumerate(candidates[:10], 1):
+        print(f"\n{i}. ({team['seed']}) {team['team']} - {team['region']}")
+        print(f"   Sweet 16: {team['sweet_16_prob']:.1%}")
+        print(f"   Elite 8:  {team['elite_8_prob']:.1%}")
+        print(f"   Final 4:  {team['final_four_prob']:.1%}")
+        print(f"   Cinderella Score: {team['cinderella_score']:.2f}")

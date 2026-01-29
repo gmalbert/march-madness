@@ -123,10 +123,41 @@ class UpsetPredictor:
         features.append(round_num)
         self.feature_names.append('round_number')
 
-        # Location advantage (if available)
-        if game_context and 'location_advantage' in game_context:
-            features.append(game_context['location_advantage'])
-            self.feature_names.append('location_advantage')
+        # Location/Travel features
+        # Calculate distance-based features if location data available
+        if game_context and 'location' in game_context:
+            from math import sqrt
+            
+            def distance(loc1: tuple, loc2: tuple) -> float:
+                return sqrt((loc1[0] - loc2[0])**2 + (loc1[1] - loc2[1])**2)
+            
+            game_loc = game_context['location']
+            fav_loc = favorite.get('school_location', (0, 0))
+            und_loc = underdog.get('school_location', (0, 0))
+            
+            fav_dist = distance(fav_loc, game_loc)
+            und_dist = distance(und_loc, game_loc)
+            
+            # Distance differential (negative = underdog closer)
+            dist_diff = und_dist - fav_dist
+            features.append(dist_diff)
+            self.feature_names.append('distance_diff')
+            
+            # Binary: underdog has significant travel advantage
+            features.append(1 if und_dist < fav_dist * 0.5 else 0)
+            self.feature_names.append('underdog_travel_advantage')
+            
+            # Binary: pseudo home game for underdog
+            features.append(1 if (und_dist < 100 and fav_dist > 500) else 0)
+            self.feature_names.append('underdog_pseudo_home')
+        else:
+            # No location data - use neutral values
+            features.append(0)
+            self.feature_names.append('distance_diff')
+            features.append(0)
+            self.feature_names.append('underdog_travel_advantage')
+            features.append(0)
+            self.feature_names.append('underdog_pseudo_home')
 
         return np.array(features)
 
@@ -421,6 +452,14 @@ def create_historical_training_data() -> Tuple[np.array, np.array]:
         fav_seed = np.random.choice([1, 2, 3, 4, 5, 6, 7, 8])
         und_seed = np.random.choice([9, 10, 11, 12, 13, 14, 15, 16])
 
+        # Random locations (simplified - using lat/lon-like coordinates)
+        # Tournament sites typically spread across US
+        game_location = (np.random.uniform(25, 48), np.random.uniform(-120, -70))
+        
+        # School locations
+        fav_school_location = (np.random.uniform(25, 48), np.random.uniform(-120, -70))
+        und_school_location = (np.random.uniform(25, 48), np.random.uniform(-120, -70))
+
         # Create team stats (simplified)
         favorite = {
             'seed': fav_seed,
@@ -430,7 +469,8 @@ def create_historical_training_data() -> Tuple[np.array, np.array]:
             'def_efficiency': np.random.normal(100, 5),
             'coach_ncaa_games': np.random.poisson(50),
             'last_10_wins': np.random.poisson(6),
-            'conf_strength': np.random.choice([1, 2, 3, 4, 5])
+            'conf_strength': np.random.choice([1, 2, 3, 4, 5]),
+            'school_location': fav_school_location
         }
 
         underdog = {
@@ -441,20 +481,41 @@ def create_historical_training_data() -> Tuple[np.array, np.array]:
             'def_efficiency': np.random.normal(98, 5),
             'coach_ncaa_games': np.random.poisson(30),
             'last_10_wins': np.random.poisson(7),
-            'conf_strength': np.random.choice([1, 2, 3, 4, 5])
+            'conf_strength': np.random.choice([1, 2, 3, 4, 5]),
+            'school_location': und_school_location
+        }
+        
+        # Game context with location
+        game_context = {
+            'round_number': np.random.choice([1, 2, 3, 4]),
+            'location': game_location
         }
 
         # Create features
         predictor = UpsetPredictor()
-        feature_vector = predictor.create_features(favorite, underdog)
+        feature_vector = predictor.create_features(favorite, underdog, game_context)
 
-        # Determine if upset occurred (based on historical rates + some noise)
+        # Determine if upset occurred (based on historical rates + factors)
         seed_pair = (fav_seed, und_seed)
         base_rate = HISTORICAL_UPSET_RATES.get(seed_pair, 0.3)
 
         # Adjust based on efficiency difference
         eff_diff = underdog['net_efficiency'] - favorite['net_efficiency']
         adjusted_rate = base_rate + (eff_diff * 0.01)  # 1% per efficiency point
+        
+        # Adjust for location advantage
+        from math import sqrt
+        def distance(loc1, loc2):
+            return sqrt((loc1[0] - loc2[0])**2 + (loc1[1] - loc2[1])**2)
+        
+        und_dist = distance(und_school_location, game_location)
+        fav_dist = distance(fav_school_location, game_location)
+        
+        # Closer team gets a small boost
+        if und_dist < fav_dist * 0.5:
+            adjusted_rate += 0.03  # 3% boost for travel advantage
+        if und_dist < 5 and fav_dist > 20:  # Pseudo home game (scaled for coordinates)
+            adjusted_rate += 0.05  # 5% boost for home crowd
 
         # Add some random noise
         upset_occurred = np.random.random() < min(max(adjusted_rate, 0.01), 0.99)

@@ -414,3 +414,155 @@ def create_predictor_from_models(models: Dict = None, efficiency_data: Dict = No
             return prob
 
     return predictor
+
+
+# ===== Simple Bracket Simulator API (Roadmap Implementation) =====
+
+def simulate_bracket(predictions: dict, num_sims: int = 10000) -> dict:
+    """
+    Monte Carlo simulation of bracket outcomes.
+    
+    This is a simplified API matching the roadmap specification.
+    For more advanced simulations, use BracketSimulator class directly.
+    
+    Args:
+        predictions: Dictionary containing:
+            - "teams": List of team dictionaries with name, seed, region, stats
+            - "first", "second", "sweet16", "elite8", "final4", "championship": 
+              Lists of matchup dictionaries with team1, team2, team1_prob
+        num_sims: Number of simulations to run (default: 10000)
+    
+    Returns:
+        Dictionary mapping team name to:
+            - final_four_pct: Probability of reaching Final Four
+            - championship_pct: Probability of reaching Championship
+            - winner_pct: Probability of winning tournament
+    
+    Example:
+        >>> predictions = {
+        ...     "teams": [
+        ...         {"name": "Duke", "seed": 1, "region": "East", "stats": {"net_efficiency": 25.0}},
+        ...         {"name": "UNC", "seed": 2, "region": "East", "stats": {"net_efficiency": 22.0}}
+        ...     ],
+        ...     "first": [
+        ...         {"team1": "Duke", "team2": "Norfolk State", "team1_prob": 0.98},
+        ...         {"team1": "UNC", "team2": "Vermont", "team1_prob": 0.95}
+        ...     ]
+        ... }
+        >>> results = simulate_bracket(predictions, num_sims=1000)
+        >>> print(f"Duke Final Four: {results['Duke']['final_four_pct']:.1%}")
+    """
+    # Initialize results
+    teams = predictions.get("teams", [])
+    results = {
+        team["name"]: {"final_four": 0, "championship": 0, "winner": 0} 
+        for team in teams
+    }
+    
+    # Run simulations
+    for _ in range(num_sims):
+        bracket = run_single_simulation(predictions)
+        
+        # Count Final Four teams
+        for team in bracket.get("final_four", []):
+            if team in results:
+                results[team]["final_four"] += 1
+        
+        # Count Championship teams
+        for team in bracket.get("championship", []):
+            if team in results:
+                results[team]["championship"] += 1
+        
+        # Count winner
+        winner = bracket.get("winner")
+        if winner and winner in results:
+            results[winner]["winner"] += 1
+    
+    # Convert to percentages
+    for team in results:
+        results[team]["final_four_pct"] = results[team]["final_four"] / num_sims
+        results[team]["championship_pct"] = results[team]["championship"] / num_sims
+        results[team]["winner_pct"] = results[team]["winner"] / num_sims
+    
+    return results
+
+
+def run_single_simulation(predictions: dict) -> dict:
+    """
+    Run a single bracket simulation using probabilities.
+    
+    Args:
+        predictions: Dictionary with matchup probabilities for each round
+    
+    Returns:
+        Dictionary with winners from each round and final results:
+            - first_winners, second_winners, sweet16_winners, etc.
+            - final_four: List of 4 teams
+            - championship: List of 2 teams
+            - winner: Single team name
+    
+    Example:
+        >>> predictions = {
+        ...     "first": [
+        ...         {"team1": "Duke", "team2": "Norfolk State", "team1_prob": 0.98}
+        ...     ],
+        ...     "second": [
+        ...         {"team1": "Duke", "team2": "Florida", "team1_prob": 0.75}
+        ...     ]
+        ... }
+        >>> bracket = run_single_simulation(predictions)
+        >>> print(bracket["first_winners"])  # ['Duke']
+    """
+    bracket = predictions.copy()
+    
+    # Process each round in order
+    round_names = ["first", "second", "sweet16", "elite8", "final4", "championship"]
+    
+    for round_name in round_names:
+        matchups = bracket.get(round_name, [])
+        if not matchups:
+            continue
+            
+        winners = []
+        
+        for matchup in matchups:
+            team1 = matchup.get("team1")
+            team2 = matchup.get("team2")
+            prob = matchup.get("team1_prob", 0.5)
+            
+            # Simulate game outcome
+            winner = team1 if random.random() < prob else team2
+            winners.append(winner)
+        
+        # Store winners
+        bracket[f"{round_name}_winners"] = winners
+    
+    # Extract special milestones
+    # Final Four = teams entering Final Four semifinals (Elite 8 winners OR final4 participants)
+    if "elite8_winners" in bracket:
+        bracket["final_four"] = bracket["elite8_winners"]
+    elif "final4" in bracket:
+        # If no elite 8, extract teams from final4 matchups
+        bracket["final_four"] = []
+        for matchup in bracket["final4"]:
+            bracket["final_four"].append(matchup["team1"])
+            bracket["final_four"].append(matchup["team2"])
+    else:
+        bracket["final_four"] = []
+    
+    # Championship = teams entering championship game (Final Four winners OR championship participants)
+    if "final4_winners" in bracket:
+        bracket["championship"] = bracket["final4_winners"]
+    elif "championship" in bracket:
+        # If no final4 simulation, extract teams from championship matchup
+        bracket["championship"] = []
+        for matchup in bracket["championship"]:
+            bracket["championship"].append(matchup["team1"])
+            bracket["championship"].append(matchup["team2"])
+    else:
+        bracket["championship"] = []
+    
+    # Winner = champion
+    bracket["winner"] = bracket.get("championship_winners", [None])[0]
+    
+    return bracket

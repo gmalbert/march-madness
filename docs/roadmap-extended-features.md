@@ -198,7 +198,7 @@ def run_single_simulation(predictions: dict) -> dict:
     return bracket
 ```
 
-**❌ NOT IMPLEMENTED** - No bracket simulation functions found in the codebase
+**✅ IMPLEMENTED** - Available in `bracket_simulation.py` as `simulate_bracket()` and `run_single_simulation()`. Includes advanced Monte Carlo simulation with 10,000+ iterations, Final Four/Championship probability tracking, and full integration with tournament prediction models.
 
 ## ROI Tracker
 
@@ -274,7 +274,7 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
 | Model Performance | Medium | Medium | P1 | ✅ IMPLEMENTED |
 | Line Movement | Medium | Medium | P2 | ✅ IMPLEMENTED |
 | Parlay Builder | Low | Low | P2 | ✅ IMPLEMENTED |
-| Bracket Simulator | High | Medium | P3 | ❌ NOT IMPLEMENTED |
+| Bracket Simulator | High | Medium | P3 | ✅ IMPLEMENTED |
 
 ## Next Steps
 - See `roadmap-betting-models.md` for model training
@@ -284,9 +284,9 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
 - Upset Detector (`find_upset_candidates`)
 - Parlay Builder (`build_parlay`) 
 - Historical ATS Trends (`analyze_ats_trends`)
-- **Live Line Movement Tracker** (`track_line_movement`, `analyze_sharp_action`)
+- Live Line Movement Tracker (`track_line_movement`, `analyze_sharp_action`)
+- **Bracket Simulator** (`simulate_bracket`, `run_single_simulation`)
 
 **❌ NOT YET IMPLEMENTED:**
-- Bracket Simulator
 - ROI Tracker
 - Export Picks functionality

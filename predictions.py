@@ -131,6 +131,43 @@ def load_live_odds():
         st.warning(f"Could not load live odds: {e}")
         return {}
 
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[Dict]:
+    """Load pre-computed predictions from JSON file."""
+    from datetime import datetime
+    
+    precomputed_dir = DATA_DIR / "precomputed_predictions"
+    
+    if not precomputed_dir.exists():
+        return None
+    
+    # Use target date or today's date
+    if target_date:
+        date_str = target_date
+    else:
+        date_str = datetime.now().strftime('%Y-%m-%d')
+    
+    # Try exact date first
+    filepath = precomputed_dir / f"predictions_{date_str}.json"
+    
+    if not filepath.exists():
+        # Fall back to most recent file
+        json_files = list(precomputed_dir.glob("predictions_*.json"))
+        if not json_files:
+            return None
+        filepath = max(json_files, key=lambda p: p.stat().st_mtime)
+    
+    try:
+        import json
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+        
+        st.info(f"📊 Using pre-computed predictions from {filepath.name} (computed at {data.get('computed_at', 'unknown')})")
+        return data
+    except Exception as e:
+        st.warning(f"Could not load pre-computed predictions: {e}")
+        return None
+
 def format_game_datetime(game) -> str:
     """Format game date/time in Eastern Time."""
     try:
@@ -632,6 +669,15 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
 def get_upcoming_games() -> List[Dict]:
     """Get games from ESPN data and enrich with CBBD stats for predictions."""
     try:
+        # Try loading pre-computed predictions first
+        precomputed = load_precomputed_predictions()
+        if precomputed and precomputed.get('games'):
+            st.success(f"✅ Loaded {precomputed['num_games']} pre-computed predictions (season {precomputed['season_used']})")
+            return precomputed['games']
+        
+        # Fall back to live computation
+        st.info("No pre-computed predictions found. Generating live predictions...")
+        
         # Load ESPN games
         espn_df = load_espn_games()
         
@@ -1548,24 +1594,29 @@ def main():
         # Create table data
         table_data = []
         for game in games:
-            # Enrich game with CBBD data
-            enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
-            if not enriched_game:
-                # Skip games we can't enrich
-                continue
+            # Check if game already has pre-computed enriched data
+            if 'home_eff' in game and 'away_eff' in game:
+                # Use pre-computed enriched data
+                enriched_game = game
+            else:
+                # Generate enriched data live
+                enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
+                if not enriched_game:
+                    # Skip games we can't enrich
+                    continue
             
             # Get advanced metrics for this game
             advanced_metrics = None
             if kenpom_df is not None or bart_df is not None:
-                home_team = normalize_team_name(game['home_team'])
-                away_team = normalize_team_name(game['away_team'])
+                home_team = normalize_team_name(enriched_game['home_team'])
+                away_team = normalize_team_name(enriched_game['away_team'])
                 advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
             
-            # Make predictions for this game
+            # Always generate predictions (even if using pre-computed enriched data)
             try:
                 predictions = make_predictions(enriched_game, models, advanced_metrics)
             except Exception as e:
-                st.warning(f"Could not generate predictions for {game['away_team']} @ {game['home_team']}: {e}")
+                st.warning(f"Could not generate predictions for {enriched_game['away_team']} @ {enriched_game['home_team']}: {e}")
                 predictions = {}
 
             # Format date

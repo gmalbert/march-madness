@@ -1,2 +1,2 @@
-# Pre-computed bracket simulation results stored here
-*.json
+# Pre-computed bracket simulation results are stored here and committed to git
+# This allows the GitHub Actions workflow to update them automatically

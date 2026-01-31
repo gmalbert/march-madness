@@ -117,6 +117,20 @@ viz_mode = st.sidebar.radio(
     help="Choose how to display the bracket"
 )
 
+# Team search functionality
+st.sidebar.divider()
+st.sidebar.subheader("🔍 Team Search")
+
+# This will be populated after sim_results are loaded
+selected_team_placeholder = st.sidebar.empty()
+
+# Round filter
+selected_round = st.sidebar.selectbox(
+    "Jump to round:",
+    ['All Rounds', 'Round of 32', 'Sweet 16', 'Elite 8', 'Final Four', 'Championship'],
+    help="Filter display by tournament round"
+)
+
 
 @st.cache_resource(ttl=3600)
 def load_precomputed_bracket(year: int):
@@ -195,6 +209,85 @@ def load_and_simulate_bracket_live(year: int, num_sims: int):
         return None, None, False, 0
 
 
+def show_team_path(sim_results: dict, team_name: str):
+    """Show a specific team's predicted tournament path."""
+    
+    # Find the team
+    team_stats = None
+    for tid, stats in sim_results.items():
+        if stats['team'].name == team_name:
+            team_stats = stats
+            break
+    
+    if not team_stats:
+        st.warning(f"Team '{team_name}' not found in bracket.")
+        return
+    
+    team = team_stats['team']
+    st.subheader(f"📍 {team.name}'s Predicted Path")
+    
+    # Display round-by-round probabilities
+    rounds = [
+        ('Round of 32', 'round_32_prob'),
+        ('Sweet 16', 'sweet_16_prob'),
+        ('Elite 8', 'elite_8_prob'),
+        ('Final Four', 'final_four_prob'),
+        ('Championship Game', 'championship_prob'),
+        ('Win Tournament', 'winner_prob')
+    ]
+    
+    for round_name, prob_key in rounds:
+        prob = team_stats.get(prob_key, 0.0)
+        
+        if prob > 0.5:
+            st.success(f"✅ **{round_name}**: {prob:.1%} chance to advance")
+        elif prob > 0.25:
+            st.info(f"⚠️ **{round_name}**: {prob:.1%} chance to advance")
+        elif prob > 0.05:
+            st.warning(f"⚡ **{round_name}**: {prob:.1%} chance to advance (underdog)")
+        else:
+            st.error(f"❌ **{round_name}**: {prob:.1%} chance to advance")
+            break  # Very low probability, likely eliminated
+
+
+def show_probability_table(sim_results: dict):
+    """Show sortable table of all team probabilities."""
+    
+    st.subheader("📊 Full Probability Table")
+    
+    # Create DataFrame
+    rows = []
+    for team_id, stats in sim_results.items():
+        team = stats['team']
+        rows.append({
+            'Team': team.name,
+            'Seed': team.seed,
+            'Region': team.region,
+            'R32': f"{stats.get('round_32_prob', 0):.1%}",
+            'S16': f"{stats.get('sweet_16_prob', 0):.1%}",
+            'E8': f"{stats.get('elite_8_prob', 0):.1%}",
+            'FF': f"{stats.get('final_four_prob', 0):.1%}",
+            'Finals': f"{stats.get('championship_prob', 0):.1%}",
+            'Champ': f"{stats.get('winner_prob', 0):.1%}"
+        })
+    
+    df = pd.DataFrame(rows)
+    
+    # Sort options
+    sort_by = st.selectbox(
+        "Sort by:",
+        ['Champ', 'FF', 'E8', 'S16', 'Seed'],
+        key='prob_table_sort'
+    )
+    
+    # Display table
+    st.dataframe(
+        df.sort_values(sort_by, ascending=(sort_by == 'Seed')),
+        hide_index=True,
+        use_container_width=True
+    )
+
+
 # Load data
 with st.spinner(f"Loading {tournament_year} tournament bracket..."):
     bracket_data, sim_results, success, actual_num_sims = load_precomputed_bracket(tournament_year)
@@ -209,6 +302,24 @@ else:
     else:
         st.info(f"Running live simulation ({actual_num_sims:,} simulations)")
     # Continue with whatever data we have
+
+# Add team search now that sim_results are loaded
+if sim_results:
+    # Get all team names
+    all_teams = sorted([stats['team'].name for stats in sim_results.values()])
+    
+    # Team search in sidebar
+    selected_team = selected_team_placeholder.selectbox(
+        "Find a team:",
+        [""] + all_teams,
+        key="team_search"
+    )
+    
+    # Show team path if selected
+    if selected_team:
+        st.divider()
+        show_team_path(sim_results, selected_team)
+        st.divider()
 
 
 def render_half_bracket(sim_results: dict, region1: str, region2: str):
@@ -1109,39 +1220,7 @@ if sim_results:
     
     # Detailed probability table
     with st.expander("📊 View Detailed Probability Table"):
-        st.subheader("All Teams - Round-by-Round Probabilities")
-        
-        # Create DataFrame
-        rows = []
-        for team_id, stats in sim_results.items():
-            team = stats['team']
-            rows.append({
-                'Seed': team.seed,
-                'Team': team.name,
-                'Region': team.region,
-                'Round of 32': f"{stats.get('round_32_prob', 0):.1%}",
-                'Sweet 16': f"{stats.get('sweet_16_prob', 0):.1%}",
-                'Elite 8': f"{stats.get('elite_8_prob', 0):.1%}",
-                'Final Four': f"{stats.get('final_four_prob', 0):.1%}",
-                'Championship': f"{stats.get('championship_prob', 0):.1%}",
-                'Winner': f"{stats.get('winner_prob', 0):.1%}"
-            })
-        
-        df = pd.DataFrame(rows)
-        
-        # Sort options
-        sort_col = st.selectbox(
-            "Sort by:",
-            ['Winner', 'Championship', 'Final Four', 'Elite 8', 'Sweet 16', 'Seed'],
-            index=0
-        )
-        
-        # Display
-        st.dataframe(
-            df.sort_values(sort_col, ascending=(sort_col == 'Seed')),
-            hide_index=True,
-            use_container_width=True
-        )
+        show_probability_table(sim_results)
 
 else:
     st.error("Unable to load bracket data. Please check the configuration.")

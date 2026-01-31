@@ -430,6 +430,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         # Round 2: Round of 32 (8 games)
         round2_x = x_start + (x_round_spacing * direction)
         round2_positions = []
+        round2_winners = []  # Track winners for next round
         for i in range(8):
             y1 = round1_positions[i*2]
             y2 = round1_positions[i*2 + 1]
@@ -443,6 +444,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             # Winner marker (team with higher Sweet 16 prob)
             teams_in_matchup = [teams[i*2], teams[i*2 + 1]]
             winner = max(teams_in_matchup, key=lambda t: t[2].get('sweet_16_prob', 0))
+            round2_winners.append(winner)  # Store winner
             prob = winner[2].get('sweet_16_prob', 0)
             
             marker_x = round2_x
@@ -470,6 +472,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         # Round 3: Sweet 16 (4 games)
         round3_x = x_start + (2 * x_round_spacing * direction)
         round3_positions = []
+        round3_winners = []  # Track winners for next round
         for i in range(4):
             y1 = round2_positions[i*2]
             y2 = round2_positions[i*2 + 1]
@@ -478,36 +481,37 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             
             draw_matchup_bracket(round2_x, y1, y2, round3_x, y_mid)
             
-            # Get top teams for Elite 8
-            elite8_candidates = sorted(teams, key=lambda t: t[2].get('elite_8_prob', 0), reverse=True)
-            if i < len(elite8_candidates):
-                winner = elite8_candidates[i]
-                prob = winner[2].get('elite_8_prob', 0)
-                
-                fig.add_trace(go.Scatter(
-                    x=[round3_x],
-                    y=[y_mid],
-                    mode='markers',
-                    marker=dict(size=cfg.get('marker_sizes', {}).get('r3', 15), color=get_color(prob), line=dict(width=1.5, color='white')),
-                    showlegend=False,
-                    hovertemplate=f"<b>{winner[1]}</b><br>E8: {prob:.1%}<extra></extra>"
-                ))
-                
-                # Add winner name above the line
-                text_anchor = 'left' if direction == 1 else 'right'
-                label_x = round3_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
-                fig.add_annotation(
-                    x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
-                    text=winner[1][:12],
-                    showarrow=False,
-                    font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
-                    xanchor=text_anchor,
-                    yanchor='bottom'
-                )
+            # Winner from actual Round 2 matchup
+            teams_in_matchup = [round2_winners[i*2], round2_winners[i*2 + 1]]
+            winner = max(teams_in_matchup, key=lambda t: t[2].get('elite_8_prob', 0))
+            round3_winners.append(winner)  # Store winner
+            prob = winner[2].get('elite_8_prob', 0)
+            
+            fig.add_trace(go.Scatter(
+                x=[round3_x],
+                y=[y_mid],
+                mode='markers',
+                marker=dict(size=cfg.get('marker_sizes', {}).get('r3', 15), color=get_color(prob), line=dict(width=1.5, color='white')),
+                showlegend=False,
+                hovertemplate=f"<b>{winner[1]}</b><br>E8: {prob:.1%}<extra></extra>"
+            ))
+            
+            # Add winner name above the line
+            text_anchor = 'left' if direction == 1 else 'right'
+            label_x = round3_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
+            fig.add_annotation(
+                x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
+                text=winner[1][:12],
+                showarrow=False,
+                font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
+                xanchor=text_anchor,
+                yanchor='bottom'
+            )
         
         # Round 4: Elite 8 (2 games)
         round4_x = x_start + (3 * x_round_spacing * direction)
         round4_positions = []
+        round4_winners = []  # Track winners for next round
         for i in range(2):
             y1 = round3_positions[i*2]
             y2 = round3_positions[i*2 + 1]
@@ -516,32 +520,32 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             
             draw_matchup_bracket(round3_x, y1, y2, round4_x, y_mid)
             
-            # Final Four candidates
-            ff_candidates = sorted(teams, key=lambda t: t[2].get('final_four_prob', 0), reverse=True)
-            if i < len(ff_candidates):
-                winner = ff_candidates[i]
-                prob = winner[2].get('final_four_prob', 0)
-                
-                fig.add_trace(go.Scatter(
-                    x=[round4_x],
-                    y=[y_mid],
-                    mode='markers',
-                    marker=dict(size=cfg.get('marker_sizes', {}).get('r4', 14), color=get_color(prob), line=dict(width=1.5, color='white')),
-                    showlegend=False,
-                    hovertemplate=f"<b>{winner[1]}</b><br>FF: {prob:.1%}<extra></extra>"
-                ))
-                
-                # Add winner name above the line
-                text_anchor = 'left' if direction == 1 else 'right'
-                label_x = round4_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
-                fig.add_annotation(
-                    x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
-                    text=winner[1][:12],
-                    showarrow=False,
-                    font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
-                    xanchor=text_anchor,
-                    yanchor='bottom'
-                )
+            # Winner from actual Round 3 matchup
+            teams_in_matchup = [round3_winners[i*2], round3_winners[i*2 + 1]]
+            winner = max(teams_in_matchup, key=lambda t: t[2].get('final_four_prob', 0))
+            round4_winners.append(winner)  # Store winner
+            prob = winner[2].get('final_four_prob', 0)
+            
+            fig.add_trace(go.Scatter(
+                x=[round4_x],
+                y=[y_mid],
+                mode='markers',
+                marker=dict(size=cfg.get('marker_sizes', {}).get('r4', 14), color=get_color(prob), line=dict(width=1.5, color='white')),
+                showlegend=False,
+                hovertemplate=f"<b>{winner[1]}</b><br>FF: {prob:.1%}<extra></extra>"
+            ))
+            
+            # Add winner name above the line
+            text_anchor = 'left' if direction == 1 else 'right'
+            label_x = round4_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
+            fig.add_annotation(
+                x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
+                text=winner[1][:12],
+                showarrow=False,
+                font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
+                xanchor=text_anchor,
+                yanchor='bottom'
+            )
         
         # Round 5: Final Four
         round5_x = x_start + (4 * x_round_spacing * direction)
@@ -551,8 +555,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         
         draw_matchup_bracket(round4_x, y1, y2, round5_x, y_final)
         
-        # Region champion (to Final Four)
-        region_champ = sorted(teams, key=lambda t: t[2].get('final_four_prob', 0), reverse=True)[0]
+        # Region champion (winner from actual Round 4 matchup)
+        teams_in_matchup = [round4_winners[0], round4_winners[1]]
+        region_champ = max(teams_in_matchup, key=lambda t: t[2].get('final_four_prob', 0))
         prob = region_champ[2].get('final_four_prob', 0)
         
         fig.add_trace(go.Scatter(
@@ -974,7 +979,7 @@ if sim_results:
     
     # Show visual bracket
     if viz_mode in ["Visual Bracket", "All Views"]:
-        st.header("🏀 Visual Tournament Bracket")
+        # st.header("🏀 Visual Tournament Bracket")
         
         bracket_fig = create_visual_bracket(sim_results)
         st.plotly_chart(bracket_fig, use_container_width=True)

@@ -13,6 +13,35 @@ from copy import deepcopy
 import json
 from pathlib import Path
 
+
+def normalize_team_name(name: str) -> str:
+    """Normalize team name for matching."""
+    # Common mappings
+    mappings = {
+        'N.C. State': 'NC State',
+        'Illinois Chicago': 'UIC',
+        'Tennessee Martin': 'UT Martin',
+        'Nebraska Omaha': 'Omaha',
+        'Southeastern Louisiana': 'SE Louisiana',
+        'USC Upstate': 'USC Upstate',
+        'IU Indy': 'IUPUI',
+        'Loyola MD': 'Loyola (MD)',
+        'Louisiana Monroe': 'ULM',
+        'Appalachian St.': 'Appalachian State',
+    }
+    
+    # Apply direct mappings
+    if name in mappings:
+        return mappings[name]
+    
+    # Remove common suffixes/prefixes for fuzzy matching
+    normalized = name
+    normalized = normalized.replace(' St.', ' State')
+    normalized = normalized.replace(' St ', ' State ')
+    
+    return normalized
+
+
 @dataclass
 class Team:
     """Tournament team."""
@@ -255,35 +284,65 @@ def load_real_tournament_bracket(year: int = 2025) -> Dict:
 
         # Load efficiency data
         efficiency_loader = EfficiencyDataLoader()
-        kenpom_df, bart_df = efficiency_loader.load_data()
+        kenpom_df = efficiency_loader.load_kenpom()
+        bart_df = efficiency_loader.load_barttorvik()
 
         # Extract unique teams from games
         teams = {}
         for game in games:
-            for team_key in ['home_team', 'away_team']:
-                if team_key in game:
-                    team_info = game[team_key]
-                    team_id = str(team_info.get('id', team_info.get('name', '')))
-                    if team_id not in teams:
-                        # Get efficiency data
-                        team_stats = {}
-                        if kenpom_df is not None:
-                            kenpom_data = kenpom_df[kenpom_df['TeamName'].str.contains(team_info.get('name', ''), case=False, na=False)]
-                            if not kenpom_data.empty:
-                                team_stats.update({
-                                    'net_efficiency': kenpom_data.iloc[0].get('NetRtg', 0),
-                                    'off_efficiency': kenpom_data.iloc[0].get('ORtg', 0),
-                                    'def_efficiency': kenpom_data.iloc[0].get('DRtg', 0),
-                                    'tempo': kenpom_data.iloc[0].get('AdjT', 70),
-                                })
+            # Games have homeTeam/awayTeam as strings, homeTeamId/awayTeamId, homeSeed/awaySeed
+            home_id = str(game.get('homeTeamId', ''))
+            away_id = str(game.get('awayTeamId', ''))
+            
+            for team_id, team_name, seed, region_key in [
+                (home_id, game.get('homeTeam', ''), game.get('homeSeed', 16), 'homeRegion'),
+                (away_id, game.get('awayTeam', ''), game.get('awaySeed', 16), 'awayRegion')
+            ]:
+                if team_id and team_id not in teams:
+                    # Get efficiency data
+                    team_stats = {}
+                    normalized_name = normalize_team_name(team_name)
+                    
+                    if kenpom_df is not None and len(kenpom_df) > 0:
+                        # Determine correct column name
+                        team_col = 'TeamName' if 'TeamName' in kenpom_df.columns else 'Team'
+                        
+                        # Try exact match first
+                        kenpom_data = kenpom_df[kenpom_df[team_col] == team_name]
+                        
+                        # Try normalized match
+                        if kenpom_data.empty:
+                            kenpom_data = kenpom_df[kenpom_df[team_col] == normalized_name]
+                        
+                        # Try fuzzy contains match
+                        if kenpom_data.empty:
+                            import re
+                            escaped_name = re.escape(team_name)
+                            kenpom_data = kenpom_df[kenpom_df[team_col].str.contains(escaped_name, case=False, na=False, regex=True)]
+                        
+                        if not kenpom_data.empty:
+                            team_stats.update({
+                                'net_efficiency': kenpom_data.iloc[0].get('NetRtg', 0),
+                                'off_efficiency': kenpom_data.iloc[0].get('ORtg', 0),
+                                'def_efficiency': kenpom_data.iloc[0].get('DRtg', 0),
+                                'tempo': kenpom_data.iloc[0].get('AdjT', 70),
+                            })
 
-                        teams[team_id] = {
-                            'id': team_id,
-                            'name': team_info.get('name', ''),
-                            'seed': team_info.get('seed', 16),  # Will need to be set properly
-                            'region': team_info.get('region', 'TBD'),  # Will need to be set properly
-                            'stats': team_stats
-                        }
+                    # Infer region from game notes if available
+                    region = 'TBD'
+                    game_notes = game.get('gameNotes', '')
+                    for reg in ['East', 'West', 'South', 'Midwest']:
+                        if reg in game_notes:
+                            region = reg
+                            break
+
+                    teams[team_id] = {
+                        'id': team_id,
+                        'name': team_name,
+                        'seed': seed,
+                        'region': region,
+                        'stats': team_stats
+                    }
 
         return {
             'year': year,

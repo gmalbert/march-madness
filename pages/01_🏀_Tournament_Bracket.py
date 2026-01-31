@@ -91,16 +91,6 @@ st.markdown("*Monte Carlo simulation of full tournament outcomes*")
 # Sidebar controls
 st.sidebar.header("Bracket Controls")
 
-# Simulation settings
-num_simulations = st.sidebar.slider(
-    "Number of Simulations",
-    min_value=100,
-    max_value=10000,
-    value=1000,
-    step=100,
-    help="More simulations = more accurate probabilities (but slower)"
-)
-
 tournament_year = st.sidebar.selectbox(
     "Tournament Year",
     [2025, 2024, 2023],
@@ -128,9 +118,57 @@ viz_mode = st.sidebar.radio(
 )
 
 
-@st.cache_data(ttl=3600)
-def load_and_simulate_bracket(year: int, num_sims: int):
-    """Load bracket data and run Monte Carlo simulation."""
+@st.cache_resource(ttl=3600)
+def load_precomputed_bracket(year: int):
+    """Load pre-computed bracket simulation results."""
+    import json
+    from pathlib import Path
+    from collections import namedtuple
+    
+    try:
+        # Try loading pre-computed results first
+        precomputed_file = Path(f'data_files/precomputed_brackets/bracket_{year}.json')
+        
+        if precomputed_file.exists():
+            with open(precomputed_file, 'r') as f:
+                data = json.load(f)
+            
+            # Reconstruct simulation results with Team objects
+            Team = namedtuple('Team', ['name', 'seed', 'region'])
+            simulation_results = {}
+            
+            for team_id, stats in data['simulation_results'].items():
+                team_data = stats['team']
+                simulation_results[team_id] = {
+                    'team': Team(
+                        name=team_data['name'],
+                        seed=team_data['seed'],
+                        region=team_data['region']
+                    ),
+                    'round_32_prob': stats.get('round_32_prob', 0.0),
+                    'sweet_16_prob': stats.get('sweet_16_prob', 0.0),
+                    'elite_8_prob': stats.get('elite_8_prob', 0.0),
+                    'final_four_prob': stats.get('final_four_prob', 0.0),
+                    'championship_prob': stats.get('championship_prob', 0.0),
+                    'winner_prob': stats.get('winner_prob', 0.0)
+                }
+            
+            return data['bracket_data'], simulation_results, True, data['num_simulations']
+        
+        # Fallback to live simulation if no pre-computed data
+        return load_and_simulate_bracket_live(year, 1000)
+        
+    except Exception as e:
+        st.error(f"Error loading pre-computed bracket: {e}")
+        # Try live simulation as fallback
+        try:
+            return load_and_simulate_bracket_live(year, 1000)
+        except:
+            return None, None, False, 0
+
+
+def load_and_simulate_bracket_live(year: int, num_sims: int):
+    """Run live Monte Carlo simulation (fallback when pre-computed data unavailable)."""
     try:
         # Load tournament bracket
         bracket_data = load_real_tournament_bracket(year)
@@ -150,20 +188,26 @@ def load_and_simulate_bracket(year: int, num_sims: int):
         # Run simulations
         simulation_results = simulator.simulate_bracket(bracket_state, num_simulations=num_sims)
         
-        return bracket_data, simulation_results, True
+        return bracket_data, simulation_results, True, num_sims
         
     except Exception as e:
         st.error(f"Error loading bracket: {e}")
-        return None, None, False
+        return None, None, False, 0
 
 
 # Load data
-with st.spinner(f"Loading {tournament_year} tournament bracket and running {num_simulations:,} simulations..."):
-    bracket_data, sim_results, success = load_and_simulate_bracket(tournament_year, num_simulations)
+with st.spinner(f"Loading {tournament_year} tournament bracket..."):
+    bracket_data, sim_results, success, actual_num_sims = load_precomputed_bracket(tournament_year)
 
 if not success or not sim_results:
     st.warning("⚠️ Could not load real tournament data. Showing sample bracket for demonstration.")
     st.info("This is using synthetic data for development purposes. Real tournament data will be available during March Madness.")
+else:
+    # Show info about data source
+    if actual_num_sims >= 5000:
+        st.success(f"✓ Loaded pre-computed results ({actual_num_sims:,} simulations)")
+    else:
+        st.info(f"Running live simulation ({actual_num_sims:,} simulations)")
     # Continue with whatever data we have
 
 
@@ -314,7 +358,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     regions = {'East': [], 'West': [], 'South': [], 'Midwest': []}
     for team_id, stats in sim_results.items():
         team = stats['team']
-        regions[team.region].append((team.seed, team.name, stats))
+        # Skip teams with TBD region (not yet determined)
+        if team.region in regions:
+            regions[team.region].append((team.seed, team.name, stats))
     
     # Sort by seed within each region
     for region in regions:
@@ -962,7 +1008,7 @@ def render_final_four(sim_results: dict):
         # Find high seeds with decent probabilities
         cinderellas = [
             (tid, stats) for tid, stats in sim_results.items()
-            if stats['team'].seed >= 8 and stats.get('final_four_prob', 0) > 0.10
+            if stats['team'].seed is not None and stats['team'].seed >= 8 and stats.get('final_four_prob', 0) > 0.10
         ]
         cinderellas.sort(key=lambda x: x[1].get('final_four_prob', 0), reverse=True)
         
@@ -1105,7 +1151,7 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("Simulations Run", f"{num_simulations:,}")
+    st.metric("Simulations Run", f"{actual_num_sims:,}")
 
 with col2:
     if sim_results:

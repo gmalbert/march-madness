@@ -1,4 +1,4 @@
-streamlit
+streamlit>=1.51.0
 cbbd
 pydantic==1.10.26
 python-dotenv
@@ -12,4 +12,6 @@ joblib
 requests
 selenium==4.40.0
 webdriver-manager==4.0.2
+plotly
+kaleido
 

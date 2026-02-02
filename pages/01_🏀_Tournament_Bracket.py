@@ -284,7 +284,7 @@ def show_probability_table(sim_results: dict):
     st.dataframe(
         df.sort_values(sort_by, ascending=(sort_by == 'Seed')),
         hide_index=True,
-        use_container_width=True
+        width='stretch'
     )
 
 
@@ -1139,7 +1139,7 @@ if sim_results:
         # st.header("🏀 Visual Tournament Bracket")
         
         bracket_fig = create_visual_bracket(sim_results)
-        st.plotly_chart(bracket_fig, use_container_width=True)
+        st.plotly_chart(bracket_fig, width='stretch')
 
         # Export / download controls (generate PNG and SVG via Plotly/Kaleido)
         try:
@@ -1191,7 +1191,7 @@ if sim_results:
         )
         
         heatmap_fig = create_probability_heatmap(sim_results, top_n)
-        st.plotly_chart(heatmap_fig, use_container_width=True)
+        st.plotly_chart(heatmap_fig, width='stretch')
         
         st.caption("💡 **How to read**: Each row is a team, each column is a tournament round. Green = high probability, Red = low probability.")
         

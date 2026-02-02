@@ -657,7 +657,7 @@ with st.sidebar:
     
     st.divider()
     
-    if st.button("🔄 Refresh Data", use_container_width=True):
+    if st.button("🔄 Refresh Data", width='stretch'):
         st.cache_data.clear()
         st.rerun()
     

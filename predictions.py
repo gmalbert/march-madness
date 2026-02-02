@@ -2128,7 +2128,7 @@ def main():
 
                             if model_comparison:
                                 comparison_df = pd.DataFrame(model_comparison)
-                                st.dataframe(comparison_df, use_container_width=True)
+                                st.dataframe(comparison_df, width='stretch')
 
                             # Ensemble model evaluation
                             st.subheader("🎯 Ensemble Model Performance")
@@ -2171,7 +2171,7 @@ def main():
                                         })
 
                                         ensemble_df = pd.DataFrame(ensemble_comparison)
-                                        st.dataframe(ensemble_df, use_container_width=True)
+                                        st.dataframe(ensemble_df, width='stretch')
 
                                         # Highlight best performing model
                                         best_roi = max([float(row['ROI'].rstrip('%')) for row in ensemble_comparison])

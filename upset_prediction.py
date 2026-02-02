@@ -70,17 +70,22 @@ class UpsetPredictor:
             Feature vector as numpy array
         """
 
+        def safe_get(d, key, default=0):
+            """Safely get value from dict, handling None values."""
+            val = d.get(key, default)
+            return val if val is not None else default
+
         features = []
         self.feature_names = []
 
         # Seed differential (smaller = more likely upset)
-        seed_diff = underdog.get('seed', 8) - favorite.get('seed', 1)
+        seed_diff = safe_get(underdog, 'seed', 8) - safe_get(favorite, 'seed', 1)
         features.append(seed_diff)
         self.feature_names.append('seed_diff')
 
         # Efficiency metrics
-        net_eff_diff = (underdog.get('net_efficiency', 0) -
-                       favorite.get('net_efficiency', 0))
+        net_eff_diff = (safe_get(underdog, 'net_efficiency', 0) -
+                       safe_get(favorite, 'net_efficiency', 0))
         features.append(net_eff_diff)
         self.feature_names.append('net_eff_diff')
 
@@ -89,33 +94,33 @@ class UpsetPredictor:
         self.feature_names.append('underdog_better_eff')
 
         # Style factors
-        tempo_diff = abs(favorite.get('tempo', 70) - underdog.get('tempo', 70))
+        tempo_diff = abs(safe_get(favorite, 'tempo', 70) - safe_get(underdog, 'tempo', 70))
         features.append(tempo_diff)
         self.feature_names.append('tempo_diff')
 
         # Three-point shooting
-        features.append(underdog.get('three_rate', 0.35))
+        features.append(safe_get(underdog, 'three_rate', 0.35))
         self.feature_names.append('underdog_three_rate')
 
         # Defensive efficiency (lower is better)
-        features.append(underdog.get('def_efficiency', 100))
+        features.append(safe_get(underdog, 'def_efficiency', 100))
         self.feature_names.append('underdog_def_eff')
 
         # Experience factors
-        coach_exp_diff = (underdog.get('coach_ncaa_games', 0) -
-                         favorite.get('coach_ncaa_games', 0))
+        coach_exp_diff = (safe_get(underdog, 'coach_ncaa_games', 0) -
+                         safe_get(favorite, 'coach_ncaa_games', 0))
         features.append(coach_exp_diff)
         self.feature_names.append('coach_exp_diff')
 
         # Momentum (last 10 games)
-        features.append(underdog.get('last_10_wins', 5))
+        features.append(safe_get(underdog, 'last_10_wins', 5))
         self.feature_names.append('underdog_last_10')
 
-        features.append(favorite.get('last_10_wins', 5))
+        features.append(safe_get(favorite, 'last_10_wins', 5))
         self.feature_names.append('favorite_last_10')
 
         # Conference strength (proxy for schedule strength)
-        features.append(underdog.get('conf_strength', 5))
+        features.append(safe_get(underdog, 'conf_strength', 5))
         self.feature_names.append('underdog_conf_strength')
 
         # Round number (upsets less common in later rounds)
@@ -268,6 +273,11 @@ class UpsetPredictor:
     def _check_efficiency_mismatch(self, favorite: dict, underdog: dict) -> Dict[str, Any]:
         """Check if lower seed is actually better by efficiency metrics."""
 
+        def safe_get(d, key, default=0):
+            """Safely get value from dict, handling None values."""
+            val = d.get(key, default)
+            return val if val is not None else default
+
         result = {
             'net_eff_favors_underdog': False,
             'off_eff_favors_underdog': False,
@@ -276,19 +286,19 @@ class UpsetPredictor:
         }
 
         # Net efficiency comparison
-        net_diff = underdog.get('net_efficiency', 0) - favorite.get('net_efficiency', 0)
+        net_diff = safe_get(underdog, 'net_efficiency', 0) - safe_get(favorite, 'net_efficiency', 0)
         if net_diff > 0:
             result['net_eff_favors_underdog'] = True
             result['upset_indicator_strength'] += 0.4
 
         # Offensive efficiency
-        off_diff = underdog.get('off_efficiency', 0) - favorite.get('off_efficiency', 0)
+        off_diff = safe_get(underdog, 'off_efficiency', 0) - safe_get(favorite, 'off_efficiency', 0)
         if off_diff > 2:
             result['off_eff_favors_underdog'] = True
             result['upset_indicator_strength'] += 0.2
 
         # Defensive efficiency (lower is better)
-        def_diff = favorite.get('def_efficiency', 100) - underdog.get('def_efficiency', 100)
+        def_diff = safe_get(favorite, 'def_efficiency', 100) - safe_get(underdog, 'def_efficiency', 100)
         if def_diff > 2:
             result['def_eff_favors_underdog'] = True
             result['upset_indicator_strength'] += 0.2
@@ -297,6 +307,11 @@ class UpsetPredictor:
 
     def _analyze_style_matchup(self, favorite: dict, underdog: dict) -> Dict[str, Any]:
         """Analyze if the underdog's style matches up well against the favorite."""
+
+        def safe_get(d, key, default=0):
+            """Safely get value from dict, handling None values."""
+            val = d.get(key, default)
+            return val if val is not None else default
 
         factors = {
             'tempo_advantage': False,
@@ -307,19 +322,19 @@ class UpsetPredictor:
 
         # Tempo mismatch - if underdog wants to slow down a fast team
         # or speed up a slow team, they can disrupt
-        tempo_diff = abs(favorite.get('tempo', 70) - underdog.get('tempo', 70))
+        tempo_diff = abs(safe_get(favorite, 'tempo', 70) - safe_get(underdog, 'tempo', 70))
         if tempo_diff > 5:
             factors['tempo_advantage'] = True
             factors['upset_probability_boost'] += 0.05
 
         # Three-point shooting variance
         # Teams that live by the three can upset (or lose badly)
-        if underdog.get('three_rate', 0.35) > 0.40:
+        if safe_get(underdog, 'three_rate', 0.35) > 0.40:
             factors['three_point_variance'] = True
             factors['upset_probability_boost'] += 0.03
 
         # Strong defensive team can limit favorite's efficiency
-        if underdog.get('def_efficiency', 100) < 98:
+        if safe_get(underdog, 'def_efficiency', 100) < 98:
             factors['defensive_disruption'] = True
             factors['upset_probability_boost'] += 0.05
 
@@ -327,6 +342,11 @@ class UpsetPredictor:
 
     def _analyze_experience_momentum(self, favorite: dict, underdog: dict) -> Dict[str, Any]:
         """Experience and recent form matter in tournament."""
+
+        def safe_get(d, key, default=0):
+            """Safely get value from dict, handling None values."""
+            val = d.get(key, default)
+            return val if val is not None else default
 
         factors = {
             'coach_advantage': False,
@@ -337,21 +357,21 @@ class UpsetPredictor:
         }
 
         # Coach tournament experience
-        fav_coach_exp = favorite.get('coach_ncaa_games', 0)
-        und_coach_exp = underdog.get('coach_ncaa_games', 0)
+        fav_coach_exp = safe_get(favorite, 'coach_ncaa_games', 0)
+        und_coach_exp = safe_get(underdog, 'coach_ncaa_games', 0)
 
         if und_coach_exp > fav_coach_exp:
             factors['coach_advantage'] = True
             factors['upset_probability_boost'] += 0.03
 
         # Conference tournament momentum
-        if underdog.get('conf_tourney_champion', False):
+        if safe_get(underdog, 'conf_tourney_champion', False):
             factors['conference_tourney_winner'] = True
             factors['upset_probability_boost'] += 0.05
 
         # Recent form (last 10 games)
-        und_last_10 = underdog.get('last_10_wins', 5)
-        fav_last_10 = favorite.get('last_10_wins', 5)
+        und_last_10 = safe_get(underdog, 'last_10_wins', 5)
+        fav_last_10 = safe_get(favorite, 'last_10_wins', 5)
 
         if und_last_10 >= 8:
             factors['hot_streak'] = True
@@ -650,16 +670,21 @@ def identify_cinderella_candidates(bracket_data: dict,
     Cinderella = 10+ seed that reaches Sweet 16 or further.
     """
 
+    def safe_get(d, key, default=0):
+        """Safely get value from dict, handling None values."""
+        val = d.get(key, default)
+        return val if val is not None else default
+
     candidates = []
 
     for team_id, probs in simulation_results['team_probabilities'].items():
-        seed = probs['seed']
+        seed = safe_get(probs, 'seed', 16)
 
         # Only consider 10+ seeds
         if seed < 10:
             continue
 
-        sweet_16_prob = probs['sweet_16_prob']
+        sweet_16_prob = safe_get(probs, 'sweet_16_prob', 0)
 
         # Need at least 10% chance to make Sweet 16
         if sweet_16_prob < 0.10:
@@ -669,13 +694,13 @@ def identify_cinderella_candidates(bracket_data: dict,
         team_stats = bracket_data['teams'].get(team_id, {})
 
         candidates.append({
-            'team': probs['name'],
+            'team': safe_get(probs, 'name', 'Unknown'),
             'seed': seed,
-            'region': probs['region'],
+            'region': safe_get(probs, 'region', 'Unknown'),
             'sweet_16_prob': sweet_16_prob,
-            'elite_8_prob': probs['elite_8_prob'],
-            'final_four_prob': probs['final_four_prob'],
-            'net_efficiency': team_stats.get('net_efficiency', 0),
+            'elite_8_prob': safe_get(probs, 'elite_8_prob', 0),
+            'final_four_prob': safe_get(probs, 'final_four_prob', 0),
+            'net_efficiency': safe_get(team_stats, 'net_efficiency', 0),
             'cinderella_score': calculate_cinderella_score(probs, team_stats)
         })
 
@@ -693,10 +718,15 @@ def calculate_cinderella_score(probs: dict, stats: dict) -> float:
     - Efficiency rating
     """
 
-    seed_bonus = (probs['seed'] - 9) * 0.1  # Bonus for higher seeds
-    sweet_16_weight = probs['sweet_16_prob'] * 2
-    elite_8_weight = probs['elite_8_prob'] * 3
-    efficiency_factor = (stats.get('net_efficiency', 0) + 20) / 40  # Normalize
+    def safe_get(d, key, default=0):
+        """Safely get value from dict, handling None values."""
+        val = d.get(key, default)
+        return val if val is not None else default
+
+    seed_bonus = (safe_get(probs, 'seed', 10) - 9) * 0.1  # Bonus for higher seeds
+    sweet_16_weight = safe_get(probs, 'sweet_16_prob', 0) * 2
+    elite_8_weight = safe_get(probs, 'elite_8_prob', 0) * 3
+    efficiency_factor = (safe_get(stats, 'net_efficiency', 0) + 20) / 40  # Normalize
 
     return seed_bonus + sweet_16_weight + elite_8_weight + efficiency_factor
 

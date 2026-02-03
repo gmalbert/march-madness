@@ -102,6 +102,14 @@ jobs:
         - Generated AI predictions for upcoming games
         - Includes moneyline, spread, and total predictions
         - Scheduled run: $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "No changes to commit"
+        
+        # Pull with rebase to handle any remote changes
+        git pull --rebase origin main || {
+          echo "Rebase failed, trying merge strategy..."
+          git rebase --abort
+          git pull --no-rebase origin main
+        }
+        
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,16 +2,15 @@ name: Capture Opening Lines
 
 on:
   schedule:
-    # Run every 150 minutes (2.5 hours)
-    # GitHub Actions uses cron syntax, so we'll run multiple times per day
-    # to approximate 150-minute intervals
-    - cron: '0 0,3,6,9,12,15,18,21 * * *'  # Every 3 hours
+    # Run every 4 hours at off-peak times (1 AM, 5 AM, 9 AM, etc.)
+    - cron: '0 1,5,9,13,17,21 * * *'  # Every 4 hours starting at 1 AM UTC
   
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
   capture-lines:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Add timeout to prevent hanging
     
     steps:
       - name: Checkout repository

@@ -131,11 +131,65 @@ def load_live_odds():
         st.warning(f"Could not load live odds: {e}")
         return {}
 
-@st.cache_data(ttl=3600)  # Cache for 1 hour
+@st.cache_data(ttl=60)  # Cache for 1 minute (development mode)
 def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[Dict]:
     """Load pre-computed predictions from JSON file."""
     from datetime import datetime
     
+    # First, check for upcoming_game_predictions.json (has betting lines from fetch_live_odds.py)
+    upcoming_file = DATA_DIR / "upcoming_game_predictions.json"
+    if upcoming_file.exists():
+        try:
+            import json
+            with open(upcoming_file, 'r') as f:
+                games_list = json.load(f)
+            
+            # Check if this file has betting data
+            has_betting = any(
+                g.get('game_info', {}).get('home_spread') is not None 
+                for g in games_list[:10]  # Check first 10 games
+            )
+            
+            if has_betting and games_list:
+                # Flatten the nested structure: merge game_info and predictions into single dict
+                flattened_games = []
+                for game in games_list:
+                    game_info = game.get('game_info', {})
+                    predictions = game.get('predictions', {})
+                    
+                    # Merge and rename prediction fields to match what the app expects
+                    flat_game = {**game_info}
+                    
+                    # Rename prediction fields
+                    if 'spread_prediction' in predictions:
+                        flat_game['predicted_margin'] = predictions['spread_prediction']
+                    if 'total_prediction' in predictions:
+                        flat_game['predicted_total'] = predictions['total_prediction']
+                    if 'moneyline_home_win_prob' in predictions:
+                        flat_game['win_probability'] = predictions['moneyline_home_win_prob']
+                        flat_game['home_win_prob'] = predictions['moneyline_home_win_prob']
+                    if 'moneyline_away_win_prob' in predictions:
+                        flat_game['away_win_prob'] = predictions['moneyline_away_win_prob']
+                    
+                    # Rename betting fields to match what Spread/OverUnder pages expect
+                    if 'home_spread' in flat_game:
+                        flat_game['betting_spread'] = flat_game['home_spread']
+                    if 'total_line' in flat_game:
+                        flat_game['betting_over_under'] = flat_game['total_line']
+                    
+                    flattened_games.append(flat_game)
+                
+                st.info(f"📊 Using predictions with live betting lines from {upcoming_file.name}")
+                return {
+                    'games': flattened_games,
+                    'num_games': len(flattened_games),
+                    'season_used': games_list[0].get('game_info', {}).get('season_used', '2025'),
+                    'computed_at': datetime.fromtimestamp(upcoming_file.stat().st_mtime).isoformat()
+                }
+        except Exception as e:
+            st.warning(f"Could not load upcoming predictions: {e}")
+    
+    # Fall back to precomputed predictions directory
     precomputed_dir = DATA_DIR / "precomputed_predictions"
     
     if not precomputed_dir.exists():
@@ -1217,8 +1271,8 @@ def make_predictions(game_data: Dict, models: Dict, advanced_metrics: Dict = Non
 def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List = None, stats_list: List = None, models: Dict = None):
     """Render a game prediction card."""
     # Show game header with rankings if available
-    home_rank_str = f" (#{int(game['home_rank'])})" if game.get('home_rank') else ""
-    away_rank_str = f" (#{int(game['away_rank'])})" if game.get('away_rank') else ""
+    home_rank_str = f" (#{int(game['home_rank'])})" if game.get('home_rank') and game['home_rank'] != 99 else ""
+    away_rank_str = f" (#{int(game['away_rank'])})" if game.get('away_rank') and game['away_rank'] != 99 else ""
     
     st.subheader(f"🏀 {game['away_team']}{away_rank_str} @ {game['home_team']}{home_rank_str}")
     
@@ -1594,35 +1648,60 @@ def main():
         # Create table data
         table_data = []
         for game in games:
-            # Check if game already has pre-computed enriched data
-            if 'home_eff' in game and 'away_eff' in game:
-                # Use pre-computed enriched data
+            # Check if predictions already exist (from precomputed file)
+            has_predictions = (
+                'predicted_margin' in game or 
+                'predicted_total' in game or
+                'win_probability' in game
+            )
+            
+            if has_predictions:
+                # Use existing predictions from precomputed file
                 enriched_game = game
+                home_win_prob = game.get('win_probability', game.get('home_win_prob', 0.5))
+                away_win_prob = game.get('away_win_prob', 1 - home_win_prob)
+                predicted_prob = max(home_win_prob, away_win_prob)
+                
+                predictions = {
+                    'moneyline': {
+                        'home_win_prob': home_win_prob,
+                        'away_win_prob': away_win_prob,
+                        'prediction': 'Home' if home_win_prob > 0.5 else 'Away',
+                        'confidence': f"{predicted_prob:.1%}"
+                    },
+                    'spread': {
+                        'prediction': game.get('predicted_margin', 0)
+                    },
+                    'total': {
+                        'prediction': game.get('predicted_total', 0)
+                    }
+                }
             else:
-                # Generate enriched data live
+                # Need to generate predictions - enrich the game first
                 enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
                 if not enriched_game:
                     # Skip games we can't enrich
                     continue
-            
-            # Get advanced metrics for this game
-            advanced_metrics = None
-            if kenpom_df is not None or bart_df is not None:
-                home_team = normalize_team_name(enriched_game['home_team'])
-                away_team = normalize_team_name(enriched_game['away_team'])
-                advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
-            
-            # Always generate predictions (even if using pre-computed enriched data)
-            try:
-                predictions = make_predictions(enriched_game, models, advanced_metrics)
-            except Exception as e:
-                st.warning(f"Could not generate predictions for {enriched_game['away_team']} @ {enriched_game['home_team']}: {e}")
-                predictions = {}
-
-            # Format date
-            if game.get('game_date'):
+                
+                # Get advanced metrics for this game
+                advanced_metrics = None
+                if kenpom_df is not None or bart_df is not None:
+                    home_team = normalize_team_name(enriched_game['home_team'])
+                    away_team = normalize_team_name(enriched_game['away_team'])
+                    advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
+                
+                # Generate predictions from models
                 try:
-                    game_dt = pd.to_datetime(game['game_date'])
+                    predictions = make_predictions(enriched_game, models, advanced_metrics)
+                except Exception as e:
+                    st.warning(f"Could not generate predictions for {enriched_game['away_team']} @ {enriched_game['home_team']}: {e}")
+                    continue
+
+            # Format date - try multiple field names
+            date_value = game.get('game_date') or game.get('date') or game.get('start_date')
+            if date_value:
+                try:
+                    game_dt = pd.to_datetime(date_value)
                     # Convert to Eastern Time
                     eastern = pytz.timezone('US/Eastern')
                     if game_dt.tz is None:
@@ -1638,9 +1717,9 @@ def main():
             else:
                 date_str = "Date TBD"
 
-            # Format rankings
-            away_rank = f"(#{int(game['away_rank'])})" if game.get('away_rank') else ""
-            home_rank = f"(#{int(game['home_rank'])})" if game.get('home_rank') else ""
+            # Format rankings (suppress rank 99 as it means unranked)
+            away_rank = f"(#{int(game['away_rank'])})" if game.get('away_rank') and game['away_rank'] != 99 else ""
+            home_rank = f"(#{int(game['home_rank'])})" if game.get('home_rank') and game['home_rank'] != 99 else ""
 
             # Format predictions
             moneyline_pred = predictions.get('moneyline', {})
@@ -1716,19 +1795,19 @@ def main():
             # Check for upset potential
             upset_alert = ""
             if game.get('home_rank') and game.get('away_rank') and home_ml and away_ml:
-                home_rank = game.get('home_rank', 99)
-                away_rank = game.get('away_rank', 99)
+                home_rank_num = game.get('home_rank', 99)
+                away_rank_num = game.get('away_rank', 99)
                 
-                if home_rank and away_rank and home_rank != away_rank:
+                if home_rank_num and away_rank_num and home_rank_num != away_rank_num:
                     # Lower rank number = better team
-                    favorite_rank = min(home_rank, away_rank)
-                    underdog_rank = max(home_rank, away_rank)
+                    favorite_rank = min(home_rank_num, away_rank_num)
+                    underdog_rank = max(home_rank_num, away_rank_num)
                     rank_diff = underdog_rank - favorite_rank
                     
                     # Check for significant rank differences
                     if rank_diff >= 10:  # Equivalent to about 3-4 seed difference
-                        favorite_team = game['home_team'] if home_rank == favorite_rank else game['away_team']
-                        underdog_team = game['away_team'] if home_rank == favorite_rank else game['home_team']
+                        favorite_team = game['home_team'] if home_rank_num == favorite_rank else game['away_team']
+                        underdog_team = game['away_team'] if home_rank_num == favorite_rank else game['home_team']
                         
                         # Get moneyline for underdog
                         underdog_ml = game.get('away_moneyline') if underdog_team == game['away_team'] else game.get('home_moneyline')
@@ -1811,21 +1890,50 @@ def main():
 
         selected_game = games[selected_game_idx]
 
-        # Enrich selected game with CBBD data
-        enriched_game = enrich_espn_game_with_cbbd_data(selected_game, efficiency_list, stats_list, season_used)
-        if not enriched_game:
-            st.error("Unable to load data for this game. Please try another game.")
-            return
+        # Check if game already has predictions (from precomputed file)
+        has_predictions = (
+            'predicted_margin' in selected_game or 
+            'predicted_total' in selected_game or
+            'win_probability' in selected_game
+        )
+        
+        if has_predictions:
+            # Use existing predictions from precomputed file
+            enriched_game = selected_game
+            home_win_prob = enriched_game.get('win_probability', enriched_game.get('home_win_prob', 0.5))
+            away_win_prob = enriched_game.get('away_win_prob', 1 - home_win_prob)
+            predicted_prob = max(home_win_prob, away_win_prob)
+            
+            predictions = {
+                'moneyline': {
+                    'home_win_prob': home_win_prob,
+                    'away_win_prob': away_win_prob,
+                    'prediction': 'Home' if home_win_prob > 0.5 else 'Away',
+                    'confidence': f"{predicted_prob:.1%}"
+                },
+                'spread': {
+                    'prediction': enriched_game.get('predicted_margin', 0)
+                },
+                'total': {
+                    'prediction': enriched_game.get('predicted_total', 0)
+                }
+            }
+        else:
+            # Need to generate predictions - enrich the game first
+            enriched_game = enrich_espn_game_with_cbbd_data(selected_game, efficiency_list, stats_list, season_used)
+            if not enriched_game:
+                st.error("Unable to load data for this game. Please try another game.")
+                return
 
-        # Get advanced metrics for selected game
-        advanced_metrics = None
-        if kenpom_df is not None or bart_df is not None:
-            home_team = normalize_team_name(selected_game['home_team'])
-            away_team = normalize_team_name(selected_game['away_team'])
-            advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
+            # Get advanced metrics for selected game
+            advanced_metrics = None
+            if kenpom_df is not None or bart_df is not None:
+                home_team = normalize_team_name(selected_game['home_team'])
+                away_team = normalize_team_name(selected_game['away_team'])
+                advanced_metrics = enrich_with_advanced_metrics(home_team, away_team, kenpom_df, bart_df)
 
-        # Make predictions for selected game
-        predictions = make_predictions(enriched_game, models, advanced_metrics)
+            # Make predictions for selected game
+            predictions = make_predictions(enriched_game, models, advanced_metrics)
 
         # Display the prediction
         render_game_prediction(enriched_game, predictions, efficiency_list, stats_list, models)
@@ -1866,13 +1974,45 @@ def main():
         # Get available games with predictions
         parlay_games = []
         for game in games[:10]:  # Limit to first 10 games for UI simplicity
-            enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
-            if enriched_game:
+            # Check if predictions already exist (from precomputed file)
+            has_predictions = (
+                'predicted_margin' in game or 
+                'predicted_total' in game or
+                'win_probability' in game
+            )
+            
+            if has_predictions:
+                # Use existing predictions from precomputed file
+                enriched_game = game
+                home_win_prob = game.get('win_probability', game.get('home_win_prob', 0.5))
+                away_win_prob = game.get('away_win_prob', 1 - home_win_prob)
+                predicted_prob = max(home_win_prob, away_win_prob)
+                
+                predictions = {
+                    'moneyline': {
+                        'home_win_prob': home_win_prob,
+                        'away_win_prob': away_win_prob,
+                        'prediction': 'Home' if home_win_prob > 0.5 else 'Away',
+                        'confidence': f"{predicted_prob:.1%}"
+                    },
+                    'spread': {
+                        'prediction': game.get('predicted_margin', 0)
+                    },
+                    'total': {
+                        'prediction': game.get('predicted_total', 0)
+                    }
+                }
+            else:
+                # Need to generate predictions - enrich the game first
+                enriched_game = enrich_espn_game_with_cbbd_data(game, efficiency_list, stats_list, season_used)
+                if not enriched_game:
+                    continue
                 predictions = make_predictions(enriched_game, models, None)
-                if 'moneyline' in predictions and predictions['moneyline']:
-                    parlay_games.append({
-                        'game': game,
-                        'enriched': enriched_game,
+            
+            if 'moneyline' in predictions and predictions['moneyline']:
+                parlay_games.append({
+                    'game': game,
+                    'enriched': enriched_game,
                         'predictions': predictions
                     })
         

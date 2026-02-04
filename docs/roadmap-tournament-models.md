@@ -2,6 +2,16 @@
 
 *Model architecture for predicting tournament game outcomes.*
 
+## Status Summary
+
+**✅ MOSTLY IMPLEMENTED** - Tournament model architecture is complete, but not integrated into main prediction pipeline.
+
+- ✅ **Tournament Model Functions**: All core functions implemented in `scripts/tournament_models.py`
+- ✅ **Upset Detection**: Implemented in `upset_prediction.py` and `tournament_models.py`
+- ✅ **Bracket Simulation**: Monte Carlo simulation implemented in `bracket_simulation.py`
+- ✅ **Tournament CV**: Cross-validation implemented in `advanced_model_training.py`
+- ❌ **Integration**: Tournament models are NOT used in main prediction pipeline (`generate_predictions.py` uses only regular season models)
+
 ## Model Strategy
 
 ### Why Tournament Models Differ from Regular Season
@@ -55,7 +65,7 @@ def train_tournament_model(X_regular, y_regular, X_tournament, y_tournament):
     """
     Train a model that combines regular season and tournament data.
     Tournament data is weighted more heavily.
-    """
+    """ - ✅ IMPLEMENTED in scripts/tournament_models.py
     from sklearn.utils.class_weight import compute_sample_weight
     
     # Combine datasets with tournament games weighted 3x
@@ -86,7 +96,7 @@ def train_tournament_model(X_regular, y_regular, X_tournament, y_tournament):
 
 
 def create_tournament_features(team1: dict, team2: dict, game_context: dict) -> np.array:
-    """Create feature vector for tournament game prediction."""
+    """Create feature vector for tournament game prediction.""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     
     features = []
     
@@ -126,7 +136,7 @@ def train_upset_model(X, y_upset):
     """
     Specialized model for predicting upsets.
     y_upset = 1 if lower seed wins, 0 otherwise.
-    """
+    """ - ✅ IMPLEMENTED in scripts/tournament_models.py
     from sklearn.ensemble import GradientBoostingClassifier
     
     # Class weights to handle imbalanced data (upsets are minority)
@@ -143,7 +153,7 @@ def train_upset_model(X, y_upset):
 
 
 def calculate_upset_features(higher_seed_team: dict, lower_seed_team: dict) -> np.array:
-    """Features specifically designed to detect upset potential."""
+    """Features specifically designed to detect upset potential.""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     
     features = []
     
@@ -181,7 +191,7 @@ def adjust_for_round(base_probability: float, round_number: int,
     """
     Adjust win probability based on tournament round.
     Later rounds have more chalk (favorites win more).
-    """
+    """ - ✅ IMPLEMENTED in scripts/tournament_models.py
     
     # Round adjustments based on historical data
     round_chalk_factor = {
@@ -210,7 +220,7 @@ def apply_seed_prior(model_probability: float, seed1: int, seed2: int,
                      prior_weight: float = 0.2) -> float:
     """
     Blend model probability with historical seed performance.
-    """
+    """ - ✅ IMPLEMENTED in scripts/tournament_models.py
     # Historical win rates for seed matchups
     historical_rates = get_historical_matchup_rates()
     
@@ -227,7 +237,7 @@ def apply_seed_prior(model_probability: float, seed1: int, seed2: int,
     return blended
 
 def get_historical_matchup_rates() -> dict:
-    """Historical win rates for seed matchups (higher seed perspective)."""
+    """Historical win rates for seed matchups (higher seed perspective).""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     return {
         (1, 16): 0.99,
         (2, 15): 0.94,
@@ -250,7 +260,7 @@ def get_historical_matchup_rates() -> dict:
 
 ```python
 class TournamentPredictor:
-    """Ensemble model for tournament predictions."""
+    """Ensemble model for tournament predictions.""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     
     def __init__(self):
         self.base_models = load_base_models()
@@ -337,7 +347,7 @@ class TournamentPredictor:
 
 ```python
 def evaluate_tournament_model(predictions: list, actuals: list) -> dict:
-    """Evaluate tournament prediction accuracy."""
+    """Evaluate tournament prediction accuracy.""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     from sklearn.metrics import accuracy_score, brier_score_loss, log_loss
     
     # Extract predictions and probabilities
@@ -373,7 +383,7 @@ def evaluate_tournament_model(predictions: list, actuals: list) -> dict:
     }
 
 def calculate_bracket_score(predictions: list, actuals: list) -> int:
-    """Calculate ESPN-style bracket score."""
+    """Calculate ESPN-style bracket score.""" - ✅ IMPLEMENTED in scripts/tournament_models.py
     ROUND_POINTS = {1: 10, 2: 20, 3: 40, 4: 80, 5: 160, 6: 320}
     
     score = 0
@@ -387,7 +397,8 @@ def calculate_bracket_score(predictions: list, actuals: list) -> int:
 
 ## Next Steps
 
-1. Collect historical tournament data for training
-2. Train tournament-specific models
-3. See `roadmap-bracket-simulation.md` for Monte Carlo simulation
-4. See `roadmap-upset-detection.md` for upset analysis
+1. Collect historical tournament data for training - ✅ PARTIALLY IMPLEMENTED (tournament CV exists in advanced_model_training.py)
+2. Train tournament-specific models - ❌ NOT IMPLEMENTED (tournament models exist but are not trained or used)
+3. Integrate tournament models into main prediction pipeline - ❌ NOT IMPLEMENTED (generate_predictions.py only uses regular season models)
+4. See `roadmap-bracket-simulation.md` for Monte Carlo simulation - ✅ IMPLEMENTED (bracket_simulation.py)
+5. See `roadmap-upset-detection.md` for upset analysis - ✅ IMPLEMENTED (upset_prediction.py and tournament_models.py)

@@ -313,25 +313,27 @@ def fetch_game_data(game, efficiency_lookup, stats_lookup, lines_data=None, live
         if not home_eff:
             home_rank = game.get('home_rank', 50)
             home_eff = {
-                'adj_off': 110 - (home_rank / 10),  # Better teams have higher offensive rating
-                'adj_def': 110 - (home_rank / 10)   # Better teams have better defense
+                'offensiveRating': 110 - (home_rank / 10),  # Better teams have higher offensive rating
+                'defensiveRating': 110 - (home_rank / 10)   # Better teams have better defense
             }
         else:
+            # Keep original efficiency data structure
             home_eff = {
-                'adj_off': home_eff.get('offensiveRating', 100),
-                'adj_def': home_eff.get('defensiveRating', 100)
+                'offensiveRating': home_eff.get('offensiveRating', 100),
+                'defensiveRating': home_eff.get('defensiveRating', 100)
             }
 
         if not away_eff:
             away_rank = game.get('away_rank', 50)
             away_eff = {
-                'adj_off': 110 - (away_rank / 10),
-                'adj_def': 110 - (away_rank / 10)
+                'offensiveRating': 110 - (away_rank / 10),
+                'defensiveRating': 110 - (away_rank / 10)
             }
         else:
+            # Keep original efficiency data structure
             away_eff = {
-                'adj_off': away_eff.get('offensiveRating', 100),
-                'adj_def': away_eff.get('defensiveRating', 100)
+                'offensiveRating': away_eff.get('offensiveRating', 100),
+                'defensiveRating': away_eff.get('defensiveRating', 100)
             }
 
         game_data = {

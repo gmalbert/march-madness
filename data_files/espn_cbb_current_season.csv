@@ -1,8 +1,8 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-02-03 23:30:00+00:00,Buffalo Bulls,Miami (OH) RedHawks,2084,193,0,0,99,23,Alumni Arena,False,True,14,14,STATUS_SCHEDULED,401814556,Miami (OH) RedHawks at Buffalo Bulls
-2026,Regular,2026-02-04 00:00:00+00:00,UConn Huskies,Xavier Musketeers,41,2752,0,0,3,99,PeoplesBank Arena,False,True,4,4,STATUS_SCHEDULED,401822927,Xavier Musketeers at UConn Huskies
-2026,Regular,2026-02-04 00:00:00+00:00,Duke Blue Devils,Boston College Eagles,150,103,0,0,4,99,Cameron Indoor Stadium,False,True,2,2,STATUS_SCHEDULED,401820715,Boston College Eagles at Duke Blue Devils
-2026,Regular,2026-02-04 00:00:00+00:00,Tennessee Volunteers,Ole Miss Rebels,2633,145,0,0,25,99,Food City Center,False,True,23,23,STATUS_SCHEDULED,401808218,Ole Miss Rebels at Tennessee Volunteers
+2026,Regular,2026-02-03 23:30:00+00:00,Buffalo Bulls,Miami (OH) RedHawks,2084,193,35,38,99,23,Alumni Arena,False,True,14,14,STATUS_HALFTIME,401814556,Miami (OH) RedHawks at Buffalo Bulls
+2026,Regular,2026-02-04 00:00:00+00:00,UConn Huskies,Xavier Musketeers,41,2752,22,8,3,99,PeoplesBank Arena,False,True,4,4,STATUS_IN_PROGRESS,401822927,Xavier Musketeers at UConn Huskies
+2026,Regular,2026-02-04 00:00:00+00:00,Duke Blue Devils,Boston College Eagles,150,103,29,13,4,99,Cameron Indoor Stadium,False,True,2,2,STATUS_IN_PROGRESS,401820715,Boston College Eagles at Duke Blue Devils
+2026,Regular,2026-02-04 00:00:00+00:00,Tennessee Volunteers,Ole Miss Rebels,2633,145,18,11,25,99,Food City Center,False,True,23,23,STATUS_IN_PROGRESS,401808218,Ole Miss Rebels at Tennessee Volunteers
 2026,Regular,2026-02-04 01:00:00+00:00,DePaul Blue Demons,St. John's Red Storm,305,2599,0,0,99,22,Wintrust Arena,False,True,4,4,STATUS_SCHEDULED,401822928,St. John's Red Storm at DePaul Blue Demons
 2026,Regular,2026-02-04 02:00:00+00:00,Virginia Cavaliers,Pittsburgh Panthers,258,221,0,0,18,99,John Paul Jones Arena,False,True,2,2,STATUS_SCHEDULED,401820716,Pittsburgh Panthers at Virginia Cavaliers
 2026,Regular,2026-02-04 02:00:00+00:00,Davidson Wildcats,Saint Louis Billikens,2166,139,0,0,99,19,John M. Belk Arena,False,True,3,3,STATUS_SCHEDULED,401828407,Saint Louis Billikens at Davidson Wildcats

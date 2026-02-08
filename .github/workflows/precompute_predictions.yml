@@ -2,8 +2,8 @@ name: Pre-compute Predictions
 
 on:
   schedule:
-    # Run daily at 6 AM UTC (1 AM EST / 2 AM EDT)
-    - cron: '0 6 * * *'
+    # Run daily at 6:30 AM UTC (1:30 AM EST / 2:30 AM EDT)
+    - cron: '30 6 * * *'
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
@@ -30,6 +30,9 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
           python scripts/precompute_predictions.py
+      
+      - name: Pull latest changes
+        run: git pull --rebase origin main
       
       - name: Commit and push results
         run: |

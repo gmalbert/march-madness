@@ -2,6 +2,14 @@
 """
 Generate predictions for upcoming college basketball games.
 This script loads upcoming games, fetches team data, and generates predictions.
+
+Tournament detection: if a game's season_type contains 'postseason' / 'tournament'
+(case-insensitive) the tournament-specific models (tournament_*_xgboost.joblib)
+are used instead of the regular-season advanced models.  Those models were trained
+with tournament games weighted 3× and use the full enriched feature set.
+
+Confidence intervals are estimated as ±1σ of the ensemble spread across all
+model variants.  For classification, confidence is the max class probability.
 """
 
 import pandas as pd
@@ -36,10 +44,10 @@ MODEL_DIR = DATA_DIR / "models"
 # Remove the local normalize_team_name function since we're importing it
 
 def load_models():
-    """Load trained prediction models."""
+    """Load trained prediction models (regular-season + tournament-specific)."""
     models = {}
 
-    # Load advanced models first (these are the primary models)
+    # Load advanced models first (these are the primary regular-season models)
     advanced_models = ['moneyline_advanced', 'spread_advanced', 'total_advanced']
     for model_name in advanced_models:
         model_file = MODEL_DIR / f"{model_name}.joblib"
@@ -50,6 +58,32 @@ def load_models():
                 print(f"Loaded advanced {model_key} model")
             except Exception as e:
                 print(f"Error loading advanced {model_name}: {e}")
+
+    # ------------------------------------------------------------------ #
+    # Tournament-specific models (trained with 3× tournament weighting)   #
+    # ------------------------------------------------------------------ #
+    TOURNEY_VARIANTS = {
+        'moneyline': ['xgboost', 'logistic_regression', 'gradient_boosting'],
+        'spread':    ['xgboost', 'ridge', 'random_forest'],
+        'total':     ['xgboost', 'ridge', 'random_forest'],
+    }
+    for model_type, variants in TOURNEY_VARIANTS.items():
+        models[f'tournament_{model_type}'] = {}
+        models[f'tournament_{model_type}_scalers'] = {}
+        for variant in variants:
+            mf = MODEL_DIR / f"tournament_{model_type}_{variant}.joblib"
+            if mf.exists():
+                try:
+                    models[f'tournament_{model_type}'][variant] = joblib.load(mf)
+                    print(f"Loaded tournament {model_type} {variant}")
+                except Exception as e:
+                    print(f"Error loading tournament {model_type} {variant}: {e}")
+            sf = MODEL_DIR / f"tournament_{model_type}_{variant}_scaler.joblib"
+            if sf.exists():
+                try:
+                    models[f'tournament_{model_type}_scalers'][variant] = joblib.load(sf)
+                except Exception as e:
+                    pass
 
     # Load basic models as fallback (suppress warnings for old versions)
     import warnings
@@ -152,8 +186,57 @@ def calculate_features(home_stats, away_stats, home_eff, away_eff):
         'moneyline': {**minimal, **win_feats}
     }
 
-def make_predictions(game_data, models):
-    """Make predictions for a game using trained models."""
+def _build_tournament_feature_vector(features: dict, model) -> np.ndarray:
+    """Build a feature vector aligned to the tournament model's expected columns.
+
+    Tournament models were trained on spread_* / total_* columns plus kenpom_*/bart_*
+    enriched features.  When enriched data is unavailable at inference, those columns
+    are filled with 0 (neutral – no edge from that feature).
+    """
+    try:
+        expected_cols = list(model.feature_names_in_)
+    except AttributeError:
+        try:
+            n = model.n_features_in_
+            expected_cols = [f"f{i}" for i in range(n)]
+        except AttributeError:
+            return None
+
+    row = {}
+    # Populate from available features (spread / total / moneyline dicts)
+    all_feat = {}
+    for v in features.values():
+        if isinstance(v, dict):
+            all_feat.update(v)
+
+    for col in expected_cols:
+        # Strip 'spread_' or 'total_' prefix to look up in feature dict
+        stripped = col.replace("spread_", "").replace("total_", "")
+        row[col] = float(all_feat.get(col, all_feat.get(stripped, 0)) or 0)
+
+    return np.array([[row[c] for c in expected_cols]])
+
+
+def make_predictions(game_data: dict, models: dict,
+                     is_tournament: bool = False) -> dict:
+    """Make predictions for a game using trained models.
+
+    Parameters
+    ----------
+    game_data : dict
+        Game info including home/away team efficiency and stats.
+    models : dict
+        Loaded model dictionary from load_models().
+    is_tournament : bool
+        If True, use tournament-specific models and widen confidence intervals
+        to reflect higher variance in tournament games.
+
+    Returns
+    -------
+    dict
+        Prediction results including spread, total, win probabilities, and
+        confidence-interval estimates.
+    """
     features = calculate_features(
         game_data.get('home_stats'), game_data.get('away_stats'),
         game_data.get('home_eff'), game_data.get('away_eff')
@@ -161,100 +244,211 @@ def make_predictions(game_data, models):
 
     predictions = {}
 
-    # Define feature names that match training data
+    # ── baseline 3-feature vector (all models understand this) ──────────
     feature_names = ['off_eff_diff', 'def_eff_diff', 'net_eff_diff']
+    base_feature_df = pd.DataFrame([features['spread']], columns=feature_names)
 
-    # Use advanced models if available (prioritize these)
-    feature_df = pd.DataFrame([features['spread']], columns=feature_names)
+    # ── helper: run multiple variants and collect predictions ────────────
+    def _run_variants(model_dict: dict, scaler_dict: dict,
+                      feature_df: pd.DataFrame, kind: str) -> list:
+        preds = []
+        for name, m in model_dict.items():
+            try:
+                sc = scaler_dict.get(name)
+                X = sc.transform(feature_df) if sc else feature_df.values
+                if kind == "clf":
+                    p = m.predict_proba(X)[0][1]
+                else:
+                    p = float(m.predict(X)[0])
+                preds.append(p)
+            except Exception:
+                pass
+        return preds
 
-    # Advanced spread model
+    # ── TOURNAMENT MODELS ────────────────────────────────────────────────
+    if is_tournament:
+        t_spread = models.get('tournament_spread', {})
+        t_total  = models.get('tournament_total', {})
+        t_ml     = models.get('tournament_moneyline', {})
+        t_spread_sc = models.get('tournament_spread_scalers', {})
+        t_total_sc  = models.get('tournament_total_scalers', {})
+        t_ml_sc     = models.get('tournament_moneyline_scalers', {})
+
+        # Build enriched feature vectors for tournament models
+        if t_spread:
+            best = t_spread.get('xgboost') or next(iter(t_spread.values()), None)
+            if best:
+                vec = _build_tournament_feature_vector(features, best)
+                if vec is not None:
+                    preds_s: list = []
+                    for name, m in t_spread.items():
+                        try:
+                            sc = t_spread_sc.get(name)
+                            X = sc.transform(
+                                pd.DataFrame(vec, columns=list(best.feature_names_in_))) \
+                                if sc else vec
+                            preds_s.append(float(m.predict(X)[0]))
+                        except Exception:
+                            pass
+                    if preds_s:
+                        predictions['spread_prediction'] = float(np.mean(preds_s))
+                        predictions['spread_confidence_interval'] = [
+                            round(float(np.mean(preds_s) - np.std(preds_s)), 2),
+                            round(float(np.mean(preds_s) + np.std(preds_s)), 2),
+                        ]
+                        predictions['model_source'] = 'tournament'
+
+        if t_total:
+            best = t_total.get('xgboost') or next(iter(t_total.values()), None)
+            if best:
+                vec = _build_tournament_feature_vector(features, best)
+                if vec is not None:
+                    preds_t: list = []
+                    for name, m in t_total.items():
+                        try:
+                            sc = t_total_sc.get(name)
+                            X = sc.transform(
+                                pd.DataFrame(vec, columns=list(best.feature_names_in_))) \
+                                if sc else vec
+                            preds_t.append(float(m.predict(X)[0]))
+                        except Exception:
+                            pass
+                    if preds_t:
+                        predictions['total_prediction'] = float(np.mean(preds_t))
+                        predictions['total_confidence_interval'] = [
+                            round(float(np.mean(preds_t) - np.std(preds_t)), 2),
+                            round(float(np.mean(preds_t) + np.std(preds_t)), 2),
+                        ]
+
+        if t_ml:
+            best = t_ml.get('xgboost') or next(iter(t_ml.values()), None)
+            if best:
+                vec = _build_tournament_feature_vector(features, best)
+                if vec is not None:
+                    preds_m: list = []
+                    for name, m in t_ml.items():
+                        try:
+                            sc = t_ml_sc.get(name)
+                            X = sc.transform(
+                                pd.DataFrame(vec, columns=list(best.feature_names_in_))) \
+                                if sc else vec
+                            preds_m.append(float(m.predict_proba(X)[0][1]))
+                        except Exception:
+                            pass
+                    if preds_m:
+                        avg = float(np.mean(preds_m))
+                        std = float(np.std(preds_m)) if len(preds_m) > 1 else 0.05
+                        predictions['moneyline_home_win_prob'] = avg
+                        predictions['moneyline_away_win_prob'] = 1.0 - avg
+                        predictions['moneyline_confidence_interval'] = [
+                            round(max(0.0, avg - std), 4),
+                            round(min(1.0, avg + std), 4),
+                        ]
+
+        # If all tournament model predictions succeeded, return early
+        if ('spread_prediction' in predictions and
+                'total_prediction' in predictions and
+                'moneyline_home_win_prob' in predictions):
+            return predictions
+
+    # ── ADVANCED MODELS (regular-season, 3-feature) ──────────────────────
+    adv_preds_spread: list = []
+    adv_preds_total:  list = []
+    adv_preds_ml:     list = []
+
     if models.get('spread_advanced'):
         try:
-            pred = models['spread_advanced'].predict(feature_df)[0]
-            predictions['spread_prediction'] = float(pred)
+            p = float(models['spread_advanced'].predict(base_feature_df)[0])
+            predictions.setdefault('spread_prediction', p)
+            adv_preds_spread.append(p)
         except Exception as e:
             print(f"Error with advanced spread model: {e}")
 
-    # Advanced total model
     if models.get('total_advanced'):
         try:
-            pred = models['total_advanced'].predict(feature_df)[0]
-            predictions['total_prediction'] = float(pred)
+            p = float(models['total_advanced'].predict(base_feature_df)[0])
+            predictions.setdefault('total_prediction', p)
+            adv_preds_total.append(p)
         except Exception as e:
             print(f"Error with advanced total model: {e}")
 
-    # Advanced moneyline model
     if models.get('moneyline_advanced'):
         try:
-            pred_proba = models['moneyline_advanced'].predict_proba(feature_df)[0]
-            home_win_prob = pred_proba[1]
-            away_win_prob = pred_proba[0]
-            predictions['moneyline_home_win_prob'] = float(home_win_prob)
-            predictions['moneyline_away_win_prob'] = float(away_win_prob)
+            proba = models['moneyline_advanced'].predict_proba(base_feature_df)[0]
+            predictions.setdefault('moneyline_home_win_prob', float(proba[1]))
+            predictions.setdefault('moneyline_away_win_prob', float(proba[0]))
+            adv_preds_ml.append(float(proba[1]))
         except Exception as e:
             print(f"Error with advanced moneyline model: {e}")
 
-    # Fallback to basic models only if advanced models not available
+    # ── FALLBACK: ensemble of basic models ────────────────────────────────
     if not models.get('spread_advanced') and models.get('spread'):
-        spread_preds = []
-        spread_df = pd.DataFrame([features['spread']], columns=feature_names)
-        scalers = models.get('spread_scalers', {})
-
-        for model_name, model in models['spread'].items():
-            try:
-                if model_name in scalers:
-                    scaled_df = scalers[model_name].transform(spread_df)
-                    pred = model.predict(scaled_df)[0]
-                else:
-                    pred = model.predict(spread_df)[0]
-                spread_preds.append(pred)
-            except Exception as e:
-                print(f"Error predicting spread with {model_name}: {e}")
-
-        if spread_preds:
-            predictions['spread_prediction'] = float(np.mean(spread_preds))
+        preds = _run_variants(models['spread'], models.get('spread_scalers', {}),
+                              base_feature_df, 'reg')
+        if preds:
+            predictions['spread_prediction'] = float(np.mean(preds))
+            adv_preds_spread.extend(preds)
 
     if not models.get('total_advanced') and models.get('total'):
-        total_preds = []
-        total_df = pd.DataFrame([features['total']], columns=feature_names)
-        scalers = models.get('total_scalers', {})
-
-        for model_name, model in models['total'].items():
-            try:
-                if model_name in scalers:
-                    scaled_df = scalers[model_name].transform(total_df)
-                    pred = model.predict(scaled_df)[0]
-                else:
-                    pred = model.predict(total_df)[0]
-                total_preds.append(pred)
-            except Exception as e:
-                print(f"Error predicting total with {model_name}: {e}")
-
-        if total_preds:
-            predictions['total_prediction'] = float(np.mean(total_preds))
+        preds = _run_variants(models['total'], models.get('total_scalers', {}),
+                              base_feature_df, 'reg')
+        if preds:
+            predictions['total_prediction'] = float(np.mean(preds))
+            adv_preds_total.extend(preds)
 
     if not models.get('moneyline_advanced') and models.get('moneyline'):
-        moneyline_preds = []
-        moneyline_df = pd.DataFrame([features['moneyline']], columns=feature_names)
-        scalers = models.get('moneyline_scalers', {})
+        preds = _run_variants(models['moneyline'], models.get('moneyline_scalers', {}),
+                              base_feature_df, 'clf')
+        if preds:
+            avg = float(np.mean(preds))
+            predictions['moneyline_home_win_prob'] = avg
+            predictions['moneyline_away_win_prob'] = 1.0 - avg
+            adv_preds_ml.extend(preds)
 
-        for model_name, model in models['moneyline'].items():
-            try:
-                if model_name in scalers:
-                    scaled_df = scalers[model_name].transform(moneyline_df)
-                    pred_proba = model.predict_proba(scaled_df)[0]
-                else:
-                    pred_proba = model.predict_proba(moneyline_df)[0]
-                home_win_prob = pred_proba[1]
-                moneyline_preds.append(home_win_prob)
-            except Exception as e:
-                print(f"Error predicting moneyline with {model_name}: {e}")
+    # ── CONFIDENCE INTERVALS ─────────────────────────────────────────────
+    # Also include the basic-model variants in ensemble spread for CI
+    if models.get('spread'):
+        preds = _run_variants(models['spread'], models.get('spread_scalers', {}),
+                              base_feature_df, 'reg')
+        adv_preds_spread.extend(preds)
+    if models.get('total'):
+        preds = _run_variants(models['total'], models.get('total_scalers', {}),
+                              base_feature_df, 'reg')
+        adv_preds_total.extend(preds)
+    if models.get('moneyline'):
+        preds = _run_variants(models['moneyline'], models.get('moneyline_scalers', {}),
+                              base_feature_df, 'clf')
+        adv_preds_ml.extend(preds)
 
-        if moneyline_preds:
-            avg_prob = np.mean(moneyline_preds)
-            predictions['moneyline_home_win_prob'] = float(avg_prob)
-            predictions['moneyline_away_win_prob'] = float(1 - avg_prob)
+    if 'spread_prediction' in predictions and not predictions.get('spread_confidence_interval'):
+        if len(adv_preds_spread) > 1:
+            mu, sigma = np.mean(adv_preds_spread), np.std(adv_preds_spread)
+        else:
+            mu = predictions['spread_prediction']
+            sigma = abs(mu) * 0.15 if mu != 0 else 3.0
+        predictions['spread_confidence_interval'] = [
+            round(float(mu - sigma), 2), round(float(mu + sigma), 2)]
 
+    if 'total_prediction' in predictions and not predictions.get('total_confidence_interval'):
+        if len(adv_preds_total) > 1:
+            mu, sigma = np.mean(adv_preds_total), np.std(adv_preds_total)
+        else:
+            mu = predictions['total_prediction']
+            sigma = abs(mu) * 0.05 if mu != 0 else 5.0
+        predictions['total_confidence_interval'] = [
+            round(float(mu - sigma), 2), round(float(mu + sigma), 2)]
+
+    if 'moneyline_home_win_prob' in predictions and not predictions.get('moneyline_confidence_interval'):
+        if len(adv_preds_ml) > 1:
+            mu, sigma = np.mean(adv_preds_ml), np.std(adv_preds_ml)
+        else:
+            mu = predictions['moneyline_home_win_prob']
+            sigma = 0.05
+        predictions['moneyline_confidence_interval'] = [
+            round(max(0.0, float(mu - sigma)), 4),
+            round(min(1.0, float(mu + sigma)), 4)]
+
+    predictions.setdefault('model_source', 'regular')
     return predictions
 
 def load_team_data_once():
@@ -537,24 +731,32 @@ def generate_predictions():
             print(f"  Could not fetch data for this game")
             continue
 
-        # Make predictions
-        predictions = make_predictions(game_data, models)
+        # Detect tournament game
+        season_type = str(game.get('season_type', '')).lower()
+        is_tournament = any(kw in season_type for kw in ('postseason', 'tournament', 'ncaa'))
+
+        # Make predictions (tournament-aware)
+        predictions = make_predictions(game_data, models, is_tournament=is_tournament)
         if not predictions:
             print(f"  Could not generate predictions for this game")
             continue
+
+        model_source = predictions.get('model_source', 'regular')
+        ci_spread = predictions.get('spread_confidence_interval', [])
+        print(f"  Generated predictions  [model={model_source}]"
+              + (f"  spread CI={ci_spread}" if ci_spread else ""))
 
         # Combine game data with predictions
         game_result = {
             'game_info': game_data,
             'predictions': predictions,
+            'is_tournament': is_tournament,
             'generated_at': datetime.now().isoformat(),
             'season': 2025
         }
 
         all_predictions.append(game_result)
         successful_predictions += 1
-
-        print(f"  Generated predictions")
 
     # Save predictions
     output_file = DATA_DIR / "upcoming_game_predictions.json"

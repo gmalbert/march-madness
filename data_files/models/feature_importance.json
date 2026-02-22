@@ -1,0 +1,347 @@
+{
+  "spread": {
+    "gain_importance_pct": {
+      "spread_margin_diff": 59.501,
+      "kenpom_netrtg_diff": 9.922,
+      "kenpom_sos_diff": 5.613,
+      "spread_to_rate_diff": 3.792,
+      "bart_de_diff": 2.574,
+      "kenpom_drtg_diff": 2.551,
+      "spread_def_rating_diff": 2.167,
+      "spread_net_rating_diff": 1.83,
+      "bart_oe_diff": 1.654,
+      "kenpom_luck_diff": 1.461,
+      "kenpom_ortg_diff": 1.408,
+      "spread_off_rating_diff": 1.402,
+      "spread_orb_diff": 1.092,
+      "spread_ft_rate_diff": 1.082,
+      "spread_efg_diff": 1.06,
+      "spread_ppg_diff": 0.971,
+      "spread_opp_ppg_diff": 0.962,
+      "kenpom_adjt_diff": 0.96
+    },
+    "permutation_importance": [
+      {
+        "feature": "spread_margin_diff",
+        "importance_mean": 3.1334833672620563,
+        "importance_std": 0.07070683733345981
+      },
+      {
+        "feature": "kenpom_sos_diff",
+        "importance_mean": 0.30544575794950823,
+        "importance_std": 0.02102928884807741
+      },
+      {
+        "feature": "kenpom_netrtg_diff",
+        "importance_mean": 0.2900429865440429,
+        "importance_std": 0.012666544217011673
+      },
+      {
+        "feature": "spread_to_rate_diff",
+        "importance_mean": 0.1346256735809339,
+        "importance_std": 0.018399534596104838
+      },
+      {
+        "feature": "spread_def_rating_diff",
+        "importance_mean": 0.08146800214485594,
+        "importance_std": 0.008979266833918092
+      },
+      {
+        "feature": "spread_net_rating_diff",
+        "importance_mean": 0.07221003516647251,
+        "importance_std": 0.007574130628093767
+      },
+      {
+        "feature": "spread_efg_diff",
+        "importance_mean": 0.06467713941581313,
+        "importance_std": 0.0034059137108296534
+      },
+      {
+        "feature": "kenpom_drtg_diff",
+        "importance_mean": 0.05422151499024164,
+        "importance_std": 0.005964280262782266
+      },
+      {
+        "feature": "spread_off_rating_diff",
+        "importance_mean": 0.04770298673474649,
+        "importance_std": 0.005765599685850122
+      },
+      {
+        "feature": "spread_ppg_diff",
+        "importance_mean": 0.04342963519475962,
+        "importance_std": 0.003428966493235565
+      },
+      {
+        "feature": "spread_ft_rate_diff",
+        "importance_mean": 0.035134619676808934,
+        "importance_std": 0.003320154284464123
+      },
+      {
+        "feature": "bart_oe_diff",
+        "importance_mean": 0.03134710103571425,
+        "importance_std": 0.0052568608674087155
+      },
+      {
+        "feature": "spread_orb_diff",
+        "importance_mean": 0.02885101386784541,
+        "importance_std": 0.0059579182999843616
+      },
+      {
+        "feature": "kenpom_luck_diff",
+        "importance_mean": 0.02687121776039376,
+        "importance_std": 0.006674058605937916
+      },
+      {
+        "feature": "bart_de_diff",
+        "importance_mean": 0.026127656867137895,
+        "importance_std": 0.006242615654391766
+      },
+      {
+        "feature": "kenpom_adjt_diff",
+        "importance_mean": 0.02593998799192576,
+        "importance_std": 0.004486500582131714
+      },
+      {
+        "feature": "kenpom_ortg_diff",
+        "importance_mean": 0.022184160256289154,
+        "importance_std": 0.002596501454298499
+      },
+      {
+        "feature": "spread_opp_ppg_diff",
+        "importance_mean": 0.019254026045103602,
+        "importance_std": 0.006076233165686035
+      }
+    ]
+  },
+  "total": {
+    "gain_importance_pct": {
+      "total_combined_ppg": 43.614,
+      "total_combined_opp_ppg": 26.685,
+      "total_projected_total": 2.654,
+      "total_combined_fg_pct": 2.458,
+      "total_combined_tempo": 2.404,
+      "kenpom_adjt_diff": 2.344,
+      "kenpom_luck_diff": 2.236,
+      "kenpom_sos_diff": 2.202,
+      "kenpom_ortg_diff": 2.081,
+      "kenpom_drtg_diff": 2.076,
+      "bart_oe_diff": 2.074,
+      "total_combined_3pt_pct": 1.97,
+      "bart_de_diff": 1.905,
+      "total_combined_off_eff": 1.895,
+      "total_combined_def_eff": 1.724,
+      "kenpom_netrtg_diff": 1.675
+    },
+    "permutation_importance": [
+      {
+        "feature": "total_combined_ppg",
+        "importance_mean": 2.235717845160424,
+        "importance_std": 0.05632610432460691
+      },
+      {
+        "feature": "total_combined_opp_ppg",
+        "importance_mean": 1.7971880168862167,
+        "importance_std": 0.07325443942866611
+      },
+      {
+        "feature": "total_combined_fg_pct",
+        "importance_mean": 0.06405625018163778,
+        "importance_std": 0.009234338508613184
+      },
+      {
+        "feature": "kenpom_adjt_diff",
+        "importance_mean": 0.05271718224813746,
+        "importance_std": 0.009768275764483863
+      },
+      {
+        "feature": "total_combined_3pt_pct",
+        "importance_mean": 0.041993792319231636,
+        "importance_std": 0.0023235751691982067
+      },
+      {
+        "feature": "total_combined_off_eff",
+        "importance_mean": 0.04142007297730856,
+        "importance_std": 0.00919790655726601
+      },
+      {
+        "feature": "kenpom_sos_diff",
+        "importance_mean": 0.036505812756602474,
+        "importance_std": 0.002989054406019423
+      },
+      {
+        "feature": "kenpom_netrtg_diff",
+        "importance_mean": 0.03643921659271836,
+        "importance_std": 0.00437212245321914
+      },
+      {
+        "feature": "bart_de_diff",
+        "importance_mean": 0.03309751036226309,
+        "importance_std": 0.006188992693264113
+      },
+      {
+        "feature": "bart_oe_diff",
+        "importance_mean": 0.03080102306301278,
+        "importance_std": 0.005896203685850529
+      },
+      {
+        "feature": "kenpom_luck_diff",
+        "importance_mean": 0.02962224582165387,
+        "importance_std": 0.006859857371797329
+      },
+      {
+        "feature": "kenpom_ortg_diff",
+        "importance_mean": 0.028956180733397296,
+        "importance_std": 0.0047768145864348615
+      },
+      {
+        "feature": "kenpom_drtg_diff",
+        "importance_mean": 0.028565108254522187,
+        "importance_std": 0.006243855424380711
+      },
+      {
+        "feature": "total_combined_def_eff",
+        "importance_mean": 0.027785719291497202,
+        "importance_std": 0.003295360294470015
+      },
+      {
+        "feature": "total_combined_tempo",
+        "importance_mean": 0.025899511780097483,
+        "importance_std": 0.005284298492702408
+      },
+      {
+        "feature": "total_projected_total",
+        "importance_mean": 0.012546179639479859,
+        "importance_std": 0.003729659129417988
+      },
+      {
+        "feature": "total_avg_off_eff",
+        "importance_mean": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "feature": "total_avg_def_eff",
+        "importance_mean": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "feature": "total_avg_tempo",
+        "importance_mean": 0.0,
+        "importance_std": 0.0
+      }
+    ]
+  },
+  "moneyline": {
+    "gain_importance_pct": {
+      "spread_margin_diff": 43.415,
+      "kenpom_netrtg_diff": 8.628,
+      "kenpom_sos_diff": 5.655,
+      "spread_to_rate_diff": 4.219,
+      "kenpom_drtg_diff": 3.801,
+      "spread_def_rating_diff": 3.341,
+      "kenpom_ortg_diff": 3.332,
+      "bart_de_diff": 3.074,
+      "spread_off_rating_diff": 2.948,
+      "kenpom_luck_diff": 2.817,
+      "spread_net_rating_diff": 2.625,
+      "kenpom_adjt_diff": 2.559,
+      "spread_efg_diff": 2.458,
+      "spread_ft_rate_diff": 2.414,
+      "bart_oe_diff": 2.341,
+      "spread_ppg_diff": 2.326,
+      "spread_opp_ppg_diff": 2.188,
+      "spread_orb_diff": 1.857
+    },
+    "permutation_importance": [
+      {
+        "feature": "spread_margin_diff",
+        "importance_mean": 0.11046511627906978,
+        "importance_std": 0.005281865700929218
+      },
+      {
+        "feature": "kenpom_sos_diff",
+        "importance_mean": 0.010484824595979537,
+        "importance_std": 0.0014260979515274377
+      },
+      {
+        "feature": "kenpom_netrtg_diff",
+        "importance_mean": 0.008789909341742275,
+        "importance_std": 0.0009979494600845299
+      },
+      {
+        "feature": "spread_to_rate_diff",
+        "importance_mean": 0.0061292865589279155,
+        "importance_std": 0.0020087986611410672
+      },
+      {
+        "feature": "spread_ft_rate_diff",
+        "importance_mean": 0.005675995270003997,
+        "importance_std": 0.0010233153319469611
+      },
+      {
+        "feature": "spread_off_rating_diff",
+        "importance_mean": 0.004670871107607444,
+        "importance_std": 0.0012590205954816258
+      },
+      {
+        "feature": "spread_def_rating_diff",
+        "importance_mean": 0.004099329917225103,
+        "importance_std": 0.0018919984233346542
+      },
+      {
+        "feature": "kenpom_luck_diff",
+        "importance_mean": 0.003803705163579063,
+        "importance_std": 0.000981664123406578
+      },
+      {
+        "feature": "kenpom_drtg_diff",
+        "importance_mean": 0.003350413874655156,
+        "importance_std": 0.001351134134883917
+      },
+      {
+        "feature": "spread_opp_ppg_diff",
+        "importance_mean": 0.003330705557745428,
+        "importance_std": 0.0010257795569312725
+      },
+      {
+        "feature": "spread_efg_diff",
+        "importance_mean": 0.0031927473393772664,
+        "importance_std": 0.0013874431144499724
+      },
+      {
+        "feature": "spread_orb_diff",
+        "importance_mean": 0.0024438312968072863,
+        "importance_std": 0.0005990809678191101
+      },
+      {
+        "feature": "bart_oe_diff",
+        "importance_mean": 0.0020496649586125735,
+        "importance_std": 0.0006306661411115494
+      },
+      {
+        "feature": "spread_ppg_diff",
+        "importance_mean": 0.001675206937327589,
+        "importance_std": 0.0007993417339642647
+      },
+      {
+        "feature": "bart_de_diff",
+        "importance_mean": 0.0013598738667718214,
+        "importance_std": 0.0008745253343450487
+      },
+      {
+        "feature": "kenpom_adjt_diff",
+        "importance_mean": 0.0013401655498620824,
+        "importance_std": 0.0005629821386316806
+      },
+      {
+        "feature": "kenpom_ortg_diff",
+        "importance_mean": 0.0013007489160426044,
+        "importance_std": 0.00043358297201419137
+      },
+      {
+        "feature": "spread_net_rating_diff",
+        "importance_mean": 0.0012613322822231376,
+        "importance_std": 0.000808761707870844
+      }
+    ]
+  }
+}

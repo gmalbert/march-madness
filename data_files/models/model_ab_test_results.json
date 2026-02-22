@@ -1,0 +1,62 @@
+{
+  "spread": {
+    "hold_out_years": [
+      2024,
+      2025
+    ],
+    "model_A_no_weighting": {
+      "mae": 10.093,
+      "rmse": 12.475,
+      "n_games": 243
+    },
+    "model_B_tournament_weighted": {
+      "mae": 10.142,
+      "rmse": 12.652,
+      "n_games": 243
+    },
+    "model_C_saved_tournament": {
+      "mae": 7.525,
+      "rmse": 9.609,
+      "n_games": 243
+    }
+  },
+  "total": {
+    "hold_out_years": [
+      2024,
+      2025
+    ],
+    "model_A_no_weighting": {
+      "mae": 12.758,
+      "rmse": 16.863,
+      "n_games": 243
+    },
+    "model_B_tournament_weighted": {
+      "mae": 12.792,
+      "rmse": 16.953,
+      "n_games": 243
+    },
+    "model_C_saved_tournament": {
+      "mae": 9.678,
+      "rmse": 12.826,
+      "n_games": 243
+    }
+  },
+  "moneyline": {
+    "hold_out_years": [
+      2024,
+      2025
+    ],
+    "model_A_no_weighting": {
+      "accuracy": 0.6543,
+      "n_games": 243
+    },
+    "model_B_tournament_weighted": {
+      "accuracy": 0.6255,
+      "n_games": 243
+    },
+    "model_C_saved_tournament": {
+      "accuracy": 0.7984,
+      "n_games": 243
+    }
+  }
+}

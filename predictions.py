@@ -216,7 +216,7 @@ def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[
         with open(filepath, 'r') as f:
             data = json.load(f)
         
-        st.info(f"📊 Using pre-computed predictions from {filepath.name} (computed at {data.get('computed_at', 'unknown')})")
+        # info about using pre-computed predictions suppressed
         return data
     except Exception as e:
         st.warning(f"Could not load pre-computed predictions: {e}")
@@ -726,11 +726,11 @@ def get_upcoming_games() -> List[Dict]:
         # Try loading pre-computed predictions first
         precomputed = load_precomputed_predictions()
         if precomputed and precomputed.get('games'):
-            st.success(f"✅ Loaded {precomputed['num_games']} pre-computed predictions (season {precomputed['season_used']})")
+            # precomputed predictions loaded (message suppressed)
             return precomputed['games']
         
         # Fall back to live computation
-        st.info("No pre-computed predictions found. Generating live predictions...")
+        # (suppressed info message about generating live predictions)
         
         # Load ESPN games
         espn_df = load_espn_games()
@@ -1567,15 +1567,17 @@ def main():
     
     # Load advanced efficiency metrics
     kenpom_df, bart_df = get_kenpom_barttorvik_data()
-    if kenpom_df is not None:
-        st.sidebar.success(f"✓ KenPom data loaded ({len(kenpom_df)} teams)")
-    if bart_df is not None:
-        st.sidebar.success(f"✓ BartTorvik data loaded ({len(bart_df)} teams)")
+    # suppress sidebar success messages for kenpom/barttorvik data loading
+    # if kenpom_df is not None:
+    #     st.sidebar.success(f"✓ KenPom data loaded ({len(kenpom_df)} teams)")
+    # if bart_df is not None:
+    #     st.sidebar.success(f"✓ BartTorvik data loaded ({len(bart_df)} teams)")
     
     # Fetch team data for predictions
     efficiency_list, stats_list, season_used = get_team_data()
     if efficiency_list and stats_list:
-        st.sidebar.success(f"✓ Team data loaded (season {season_used})")
+        # team data loaded (sidebar message suppressed)
+        pass
     else:
         st.sidebar.error("❌ Could not load team data for predictions")
         st.error("Unable to load team statistics. Predictions cannot be generated.")
@@ -1625,8 +1627,8 @@ def main():
     if moneyline_metrics.get('accuracy_range'):
         st.sidebar.caption(f"Moneyline range: {moneyline_metrics['accuracy_range']}")
 
-    st.sidebar.header("Data Source")
-    st.sidebar.info("Using 2025 season statistics. Predictions based on team performance patterns from historical data.")
+    # st.sidebar.header("Data Source")
+    # sidebar.info("Using 2025 season statistics. Predictions based on team performance patterns from historical data.")
 
     # Get upcoming games
     games = get_upcoming_games()

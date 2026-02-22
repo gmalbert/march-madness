@@ -1,0 +1,61 @@
+{
+  "starting_bankroll": 1000.0,
+  "bets": [
+    {
+      "id": 1,
+      "date": "2026-03-01",
+      "game": "Duke vs North Carolina",
+      "bet_type": "moneyline",
+      "predicted_side": "Duke",
+      "actual_result": "Duke",
+      "american_odds": -180,
+      "stake": 100,
+      "won": true,
+      "pnl": 55.56,
+      "notes": "",
+      "model_confidence": 0.72
+    },
+    {
+      "id": 2,
+      "date": "2026-03-02",
+      "game": "Kansas vs Kentucky",
+      "bet_type": "spread",
+      "predicted_side": "Kansas -3.5",
+      "actual_result": "Kansas -3.5",
+      "american_odds": -110,
+      "stake": 100,
+      "won": true,
+      "pnl": 90.91,
+      "notes": "",
+      "model_confidence": 0.61
+    },
+    {
+      "id": 3,
+      "date": "2026-03-05",
+      "game": "Gonzaga vs Arizona",
+      "bet_type": "moneyline",
+      "predicted_side": "Gonzaga",
+      "actual_result": "Arizona",
+      "american_odds": -140,
+      "stake": 100,
+      "won": false,
+      "pnl": -100,
+      "notes": "",
+      "model_confidence": 0.58
+    },
+    {
+      "id": 4,
+      "date": "2026-03-07",
+      "game": "Auburn vs Tennessee",
+      "bet_type": "total",
+      "predicted_side": "Over 147.5",
+      "actual_result": "Over 147.5",
+      "american_odds": -110,
+      "stake": 50,
+      "won": true,
+      "pnl": 45.45,
+      "notes": "",
+      "model_confidence": 0.65
+    }
+  ]
+}

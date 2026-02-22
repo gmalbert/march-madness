@@ -1,0 +1,257 @@
+{
+  "spread": {
+    "training": {
+      "ridge": {
+        "mae": 9.229170394833295,
+        "rmse": 11.717356925166971
+      },
+      "xgboost": {
+        "mae": 9.198824744123922,
+        "rmse": 11.687159679889822
+      },
+      "random_forest": {
+        "mae": 9.220946516681074,
+        "rmse": 11.717604787051384
+      }
+    },
+    "lovo_cv": [
+      {
+        "year": 2016,
+        "n_games": 146,
+        "mae": 8.93,
+        "rmse": 11.18
+      },
+      {
+        "year": 2017,
+        "n_games": 125,
+        "mae": 10.053,
+        "rmse": 12.574
+      },
+      {
+        "year": 2018,
+        "n_games": 132,
+        "mae": 9.9,
+        "rmse": 12.869
+      },
+      {
+        "year": 2019,
+        "n_games": 139,
+        "mae": 9.25,
+        "rmse": 11.542
+      },
+      {
+        "year": 2021,
+        "n_games": 88,
+        "mae": 10.559,
+        "rmse": 13.28
+      },
+      {
+        "year": 2022,
+        "n_games": 130,
+        "mae": 10.193,
+        "rmse": 12.71
+      },
+      {
+        "year": 2023,
+        "n_games": 113,
+        "mae": 9.374,
+        "rmse": 11.722
+      },
+      {
+        "year": 2024,
+        "n_games": 120,
+        "mae": 9.215,
+        "rmse": 11.721
+      },
+      {
+        "year": 2025,
+        "n_games": 123,
+        "mae": 9.415,
+        "rmse": 11.657
+      }
+    ],
+    "comparison": {
+      "tournament_ridge": {
+        "mae": 9.613,
+        "rmse": 12.03,
+        "n_games": 1116
+      },
+      "tournament_xgboost": {
+        "mae": 7.633,
+        "rmse": 9.694,
+        "n_games": 1116
+      },
+      "tournament_random_forest": {
+        "mae": 8.764,
+        "rmse": 10.938,
+        "n_games": 1116
+      }
+    }
+  },
+  "total": {
+    "training": {
+      "ridge": {
+        "mae": 12.5132614576402,
+        "rmse": 15.914923578166679
+      },
+      "xgboost": {
+        "mae": 12.644523967942902,
+        "rmse": 16.078652905150708
+      },
+      "random_forest": {
+        "mae": 12.557814361548205,
+        "rmse": 16.00010954910239
+      }
+    },
+    "lovo_cv": [
+      {
+        "year": 2016,
+        "n_games": 146,
+        "mae": 12.335,
+        "rmse": 16.189
+      },
+      {
+        "year": 2017,
+        "n_games": 125,
+        "mae": 11.808,
+        "rmse": 15.075
+      },
+      {
+        "year": 2018,
+        "n_games": 132,
+        "mae": 14.19,
+        "rmse": 17.523
+      },
+      {
+        "year": 2019,
+        "n_games": 139,
+        "mae": 13.853,
+        "rmse": 17.275
+      },
+      {
+        "year": 2021,
+        "n_games": 88,
+        "mae": 12.814,
+        "rmse": 16.282
+      },
+      {
+        "year": 2022,
+        "n_games": 130,
+        "mae": 14.273,
+        "rmse": 17.42
+      },
+      {
+        "year": 2023,
+        "n_games": 113,
+        "mae": 11.908,
+        "rmse": 15.932
+      },
+      {
+        "year": 2024,
+        "n_games": 120,
+        "mae": 12.788,
+        "rmse": 16.981
+      },
+      {
+        "year": 2025,
+        "n_games": 123,
+        "mae": 11.79,
+        "rmse": 15.545
+      }
+    ],
+    "comparison": {
+      "tournament_ridge": {
+        "mae": 12.748,
+        "rmse": 16.272,
+        "n_games": 1116
+      },
+      "tournament_xgboost": {
+        "mae": 10.055,
+        "rmse": 12.927,
+        "n_games": 1116
+      },
+      "tournament_random_forest": {
+        "mae": 11.454,
+        "rmse": 14.464,
+        "n_games": 1116
+      }
+    }
+  },
+  "moneyline": {
+    "training": {
+      "logistic_regression": {
+        "accuracy": 0.757390618841151,
+        "brier": 0.1644753011953995
+      },
+      "xgboost": {
+        "accuracy": 0.7516752069373276,
+        "brier": 0.16604728996753693
+      },
+      "gradient_boosting": {
+        "accuracy": 0.7528577059519117,
+        "brier": 0.16543336135527026
+      }
+    },
+    "lovo_cv": [
+      {
+        "year": 2016,
+        "n_games": 146,
+        "accuracy": 0.7123
+      },
+      {
+        "year": 2017,
+        "n_games": 125,
+        "accuracy": 0.64
+      },
+      {
+        "year": 2018,
+        "n_games": 132,
+        "accuracy": 0.6591
+      },
+      {
+        "year": 2019,
+        "n_games": 139,
+        "accuracy": 0.6547
+      },
+      {
+        "year": 2021,
+        "n_games": 88,
+        "accuracy": 0.5795
+      },
+      {
+        "year": 2022,
+        "n_games": 130,
+        "accuracy": 0.6231
+      },
+      {
+        "year": 2023,
+        "n_games": 113,
+        "accuracy": 0.6637
+      },
+      {
+        "year": 2024,
+        "n_games": 120,
+        "accuracy": 0.6583
+      },
+      {
+        "year": 2025,
+        "n_games": 123,
+        "accuracy": 0.6829
+      }
+    ],
+    "comparison": {
+      "tournament_logistic_regression": {
+        "accuracy": 0.6667,
+        "n_games": 1116
+      },
+      "tournament_xgboost": {
+        "accuracy": 0.8082,
+        "n_games": 1116
+      },
+      "tournament_gradient_boosting": {
+        "accuracy": 0.7392,
+        "n_games": 1116
+      }
+    }
+  }
+}

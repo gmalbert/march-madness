@@ -449,28 +449,81 @@ def create_predictor_from_models(models: Dict = None, efficiency_data: Dict = No
     Returns:
         Function that predicts P(team1 beats team2)
     """
+    # ------------------------------------------------------------------
+    # Build upset predictor (trained on real + synthetic historical data)
+    # ------------------------------------------------------------------
+    _upset_predictor = None
+    try:
+        from upset_prediction import UpsetPredictor, create_training_data_from_csv, create_historical_training_data
+        _upset_predictor = UpsetPredictor()
+        X_real, y_real = create_training_data_from_csv()
+        X_syn, y_syn = create_historical_training_data()
+        if X_real is not None and len(X_real) >= 50:
+            n_aug = min(200, len(X_syn))
+            X = np.vstack([X_real, X_syn[:n_aug]])
+            y = np.concatenate([y_real, y_syn[:n_aug]])
+        else:
+            X, y = X_syn, y_syn
+        _upset_predictor.train(X, y)
+    except Exception:
+        _upset_predictor = None
+
     def predictor(team1: Team, team2: Team) -> float:
         """Predict probability that team1 beats team2."""
         try:
-            # Use efficiency difference as primary predictor
+            # ── Efficiency-based probability ──────────────────────────
             eff1 = team1.stats.get('net_efficiency', 10)
             eff2 = team2.stats.get('net_efficiency', 10)
             eff_diff = eff1 - eff2
+            # Each efficiency point ≈ 2% win probability
+            efficiency_prob = 0.5 + (eff_diff * 0.02)
+            efficiency_prob = max(0.05, min(0.95, efficiency_prob))
 
-            # Convert efficiency difference to probability
-            # Each efficiency point is worth about 2% in win probability
-            prob = 0.5 + (eff_diff * 0.02)
+            if _upset_predictor is None or not _upset_predictor.is_trained:
+                return efficiency_prob
 
-            # Bound between 0.05 and 0.95
-            prob = max(0.05, min(0.95, prob))
+            # ── Upset-model blending ──────────────────────────────────
+            # Determine favorite vs underdog by seed
+            if team1.seed <= team2.seed:
+                favorite, underdog = team1, team2
+                fav_is_team1 = True
+            else:
+                favorite, underdog = team2, team1
+                fav_is_team1 = False
 
-            return prob
+            fav_dict = {
+                'seed': favorite.seed,
+                'net_efficiency': favorite.stats.get('net_efficiency', 10),
+                'tempo': favorite.stats.get('tempo', 70),
+                'three_rate': favorite.stats.get('three_rate', 0.35),
+                'def_efficiency': favorite.stats.get('def_efficiency', 100),
+            }
+            und_dict = {
+                'seed': underdog.seed,
+                'net_efficiency': underdog.stats.get('net_efficiency', 5),
+                'tempo': underdog.stats.get('tempo', 68),
+                'three_rate': underdog.stats.get('three_rate', 0.38),
+                'def_efficiency': underdog.stats.get('def_efficiency', 100),
+            }
+
+            result = _upset_predictor.predict_upset_probability(fav_dict, und_dict)
+            upset_prob = result.get('upset_probability', 0.3)
+
+            # Blend 70% efficiency + 30% upset model
+            # `upset_prob` = P(underdog/team2-perspective wins)
+            if fav_is_team1:
+                # team1 is favorite  → team1 win = 1 − upset_prob from upset model
+                blended = 0.70 * efficiency_prob + 0.30 * (1.0 - upset_prob)
+            else:
+                # team1 is underdog → team1 win = upset_prob from upset model
+                blended = 0.70 * efficiency_prob + 0.30 * upset_prob
+
+            return max(0.05, min(0.95, blended))
 
         except Exception:
-            # Fallback to seed-based prediction
+            # Fallback: seed-based logistic
             seed_diff = team2.seed - team1.seed
-            prob = 1 / (1 + np.exp(-seed_diff * 0.5))
-            return prob
+            return max(0.05, min(0.95, 1 / (1 + np.exp(-seed_diff * 0.5))))
 
     return predictor
 

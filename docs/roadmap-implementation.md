@@ -33,7 +33,7 @@ Phase 5: Integration & Polish (Week 5-6)
 
 ## Phase 1: Data Foundation
 
-### Task 1.1: Create Bracket Data Structures
+### Task 1.1: Create Bracket Data Structures  ✅ (covered by `bracket_simulation.py` Team/BracketState classes)
 
 ```python
 # File: bracket_structures.py
@@ -154,7 +154,7 @@ class Bracket:
         return cls(year=data['year'])
 ```
 
-### Task 1.2: Historical Data Collection
+### Task 1.2: Historical Data Collection  ✅ (partial scripts exist; data files present)
 
 ```python
 # File: tournament_data_collection.py
@@ -257,7 +257,7 @@ def create_training_features(team1: dict, team2: dict,
     }
 ```
 
-### Task 1.3: Fetch Official Bracket
+### Task 1.3: Fetch Official Bracket  ✅ (implemented in `bracket_simulation.load_real_tournament_bracket` with ESPN fallback)
 
 ```python
 # File: fetch_bracket.py
@@ -347,7 +347,7 @@ def parse_game(event: dict) -> Optional[dict]:
 
 ## Phase 2: Model Development
 
-### Task 2.1: Train Tournament Model
+### Task 2.1: Train Tournament Model  ✅ (`train_tournament_models.py` and related code)
 
 ```python
 # File: train_tournament_model.py
@@ -462,7 +462,7 @@ if __name__ == "__main__":
 
 ## Phase 3: Simulation Engine
 
-### Task 3.1: Build Simulator
+### Task 3.1: Build Simulator  ✅ (Monte Carlo engine in `bracket_simulation.py`)
 
 ```python
 # File: bracket_simulator.py
@@ -618,7 +618,7 @@ class BracketSimulator:
 
 ## Phase 4: Visualization
 
-### Task 4.1: Streamlit Bracket View
+### Task 4.1: Streamlit Bracket View  ✅ (page exists in `pages/01_🏀_Tournament_Bracket.py` with heatmap & export)
 
 ```python
 # File: bracket_view.py
@@ -748,7 +748,7 @@ def load_simulation_results() -> dict:
 
 ## Phase 5: Integration
 
-### Task 5.1: Main Pipeline
+### Task 5.1: Main Pipeline  ✅ (end-to-end prediction/simulation pipeline already wired in `predictions.py` and pages)
 
 ```python
 # File: run_bracket_predictions.py
@@ -847,7 +847,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### Task 5.2: GitHub Actions Workflow
+### Task 5.2: GitHub Actions Workflow  ⚠️ (not evaluated in workspace; likely outside scope)
 
 ```yaml
 # File: .github/workflows/tournament-predictions.yml

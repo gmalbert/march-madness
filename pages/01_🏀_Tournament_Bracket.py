@@ -5,6 +5,7 @@ Interactive full bracket display with Monte Carlo simulation results.
 """
 
 import streamlit as st
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
@@ -14,6 +15,13 @@ from bracket_simulation import (
     create_predictor_from_models,
     simulate_bracket,
     run_single_simulation
+)
+from upset_prediction import (
+    generate_upset_watch_list,
+    UpsetPredictor,
+    create_training_data_from_csv,
+    create_historical_training_data,
+    HISTORICAL_UPSET_RATES,
 )
 from data_tools.efficiency_loader import EfficiencyDataLoader
 import plotly.io as pio
@@ -1215,9 +1223,171 @@ if sim_results:
     
     # Final Four and Championship (always show)
     render_final_four(sim_results)
-    
+
     st.divider()
-    
+
+    # ── Upset Watch ──────────────────────────────────────────────────────────
+    with st.expander("🚨 Upset Watch & Cinderella Candidates", expanded=False):
+        st.markdown(
+            "Teams with meaningful upset potential based on efficiency metrics, "
+            "seed matchups, and historical upset rates."
+        )
+
+        # Build a lightweight upset predictor (cached in session_state)
+        if 'upset_predictor' not in st.session_state:
+            with st.spinner("Training upset model…"):
+                try:
+                    _pred = UpsetPredictor()
+                    _X_real, _y_real = create_training_data_from_csv()
+                    _X_syn, _y_syn = create_historical_training_data()
+                    if _X_real is not None and len(_X_real) >= 50:
+                        _n = min(200, len(_X_syn))
+                        _X = np.vstack([_X_real, _X_syn[:_n]])
+                        _y = np.concatenate([_y_real, _y_syn[:_n]])
+                    else:
+                        _X, _y = _X_syn, _y_syn
+                    _pred.train(_X, _y)
+                    st.session_state['upset_predictor'] = _pred
+                except Exception as _e:
+                    st.session_state['upset_predictor'] = None
+
+        upset_pred = st.session_state.get('upset_predictor')
+
+        # Build bracket_data structure expected by generate_upset_watch_list
+        bracket_data = []
+        for team_id, stats in sim_results.items():
+            team_obj = stats.get('team')
+            if team_obj is None or not hasattr(team_obj, 'stats'):
+                continue
+            seed = team_obj.seed or 8
+            region = team_obj.region or 'Unknown'
+            # Pair low seeds (underdogs) with their first-round opponent
+            # (approximate: opponent seed = 17 - seed for standard bracket)
+            opp_seed = max(1, 17 - seed)
+            # Find opponent in sim_results by region + seed
+            opp_stats = next(
+                (s for _, s in sim_results.items()
+                 if s.get('team') and hasattr(s['team'], 'stats')
+                 and s['team'].region == region
+                 and s['team'].seed == opp_seed),
+                None
+            )
+            if opp_stats is None or not hasattr(opp_stats['team'], 'stats'):
+                continue
+            opp_team = opp_stats['team']
+
+            # helper to safely get stat values
+            t_stats = getattr(team_obj, 'stats', {}) or {}
+            o_stats = getattr(opp_team, 'stats', {}) or {}
+
+            favorite_dict = {
+                'seed': min(seed, opp_seed),
+                'net_efficiency': (t_stats.get('net_efficiency', 10)
+                                   if seed < opp_seed
+                                   else o_stats.get('net_efficiency', 10)),
+                'tempo': (t_stats.get('tempo', 70)
+                          if seed < opp_seed
+                          else o_stats.get('tempo', 70)),
+                'three_rate': 0.35,
+                'def_efficiency': 100,
+            }
+            underdog_dict = {
+                'name': team_obj.name if seed > opp_seed else opp_team.name,
+                'seed': max(seed, opp_seed),
+                'net_efficiency': (t_stats.get('net_efficiency', 5)
+                                   if seed > opp_seed
+                                   else o_stats.get('net_efficiency', 5)),
+                'tempo': (t_stats.get('tempo', 68)
+                          if seed > opp_seed
+                          else o_stats.get('tempo', 68)),
+                'three_rate': 0.38,
+                'def_efficiency': 100,
+                'favorite_seed': min(seed, opp_seed),
+                'favorite_name': (opp_team.name if seed > opp_seed else team_obj.name),
+                'round': 1,
+            }
+            bracket_data.append({'favorite': favorite_dict, 'underdog': underdog_dict})
+
+        if upset_pred and bracket_data:
+            # Deduplicate matchups (each pair appears twice)
+            seen = set()
+            unique_matchups = []
+            for m in bracket_data:
+                key = tuple(sorted([m['underdog']['name'], m['underdog']['favorite_name']]))
+                if key not in seen:
+                    seen.add(key)
+                    unique_matchups.append(m)
+
+            # generate_upset_watch_list expects {'first_round_games': [...]}
+            # each game: {'favorite': {..., 'seed', 'name'}, 'underdog': {..., 'seed', 'name'}, 'round': ...}
+            fmt_games = []
+            for m in unique_matchups:
+                fav = dict(m['favorite'])
+                fav['name'] = m['underdog']['favorite_name']
+                und = dict(m['underdog'])
+                und['name'] = m['underdog']['name']
+                fmt_games.append({'favorite': fav, 'underdog': und, 'round': 'Round of 64'})
+
+            watch_list = generate_upset_watch_list({'first_round_games': fmt_games}, upset_pred)
+
+            if watch_list:
+                rows = []
+                for entry in watch_list:
+                    # Parse 'matchup': "(seed) name vs (seed) name"
+                    matchup = entry.get('matchup', '')
+                    rows.append({
+                        'Matchup': matchup,
+                        'Upset Prob': f"{entry.get('upset_probability', 0):.1%}",
+                        'Historical Rate': f"{entry.get('historical_rate', 0):.1%}",
+                        'Confidence': entry.get('confidence', 'unknown').title(),
+                        'Key Factors': '; '.join(entry.get('key_reasons', [])[:2]) or '—',
+                    })
+                upset_df = pd.DataFrame(rows)
+                st.dataframe(upset_df, use_container_width=True, hide_index=True)
+            else:
+                st.info("No high-probability upsets detected for the first round.")
+        elif not upset_pred:
+            st.warning("Upset model could not be loaded.")
+        else:
+            st.info("No matchup data available.")
+
+        # ── Cinderella candidates from simulation results ─────────────────
+        st.markdown("#### 🦋 Cinderella Candidates")
+        st.caption("Seeds 10–16 with notable deep-run probability")
+
+        cinderellas = [
+            (tid, s) for tid, s in sim_results.items()
+            if s.get('team') and s['team'].seed is not None
+            and s['team'].seed >= 10
+            and s.get('sweet_sixteen_prob', s.get('round_32_prob', 0)) > 0.08
+        ]
+        cinderellas.sort(
+            key=lambda x: x[1].get('sweet_sixteen_prob', x[1].get('round_32_prob', 0)),
+            reverse=True
+        )
+
+        if cinderellas:
+            c_rows = []
+            for _, cs in cinderellas[:10]:
+                t = cs['team']
+                fav_seed = 17 - t.seed
+                seed_pair = (fav_seed, t.seed)
+                hist_rate = HISTORICAL_UPSET_RATES.get(seed_pair, 0.0)
+                c_rows.append({
+                    'Team': t.name,
+                    'Seed': t.seed,
+                    'Region': t.region,
+                    'R32 Prob': f"{cs.get('round_32_prob', 0):.1%}",
+                    'S16 Prob': f"{cs.get('sweet_sixteen_prob', 0):.1%}",
+                    'E8 Prob': f"{cs.get('elite_eight_prob', 0):.1%}",
+                    'Hist. Upset Rate': f"{hist_rate:.0%}",
+                })
+            st.dataframe(pd.DataFrame(c_rows), use_container_width=True, hide_index=True)
+        else:
+            st.info("No notable Cinderella candidates detected.")
+
+    st.divider()
+
     # Detailed probability table
     with st.expander("📊 View Detailed Probability Table"):
         show_probability_table(sim_results)

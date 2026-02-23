@@ -6,6 +6,7 @@ Specialized model for predicting tournament upsets in March Madness.
 Trains on historical tournament data to identify games with high upset potential.
 """
 
+import os
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
@@ -455,11 +456,125 @@ class UpsetPredictor:
         return reasons
 
 
-def create_historical_training_data() -> Tuple[np.array, np.array]:
-    """Create training data from historical tournament results.
+def create_training_data_from_csv(csv_path: str = None) -> Tuple[Optional[np.array], Optional[np.array]]:
+    """Load real historical tournament data and convert to feature/target arrays.
 
-    This is a placeholder - in practice, you'd load real historical data.
-    For now, we'll create synthetic data based on historical patterns.
+    The CSV requires at least: actual_spread, home_score, away_score, net_eff_diff.
+    Additional columns (kenpom_adjt_diff, def_eff_diff, etc.) improve features when present.
+
+    Upset label: underdog wins — home team wins despite negative spread, or away wins
+    despite positive spread.
+
+    Returns:
+        (X, y) numpy arrays aligned with UpsetPredictor.create_features() output,
+        or (None, None) if data cannot be loaded.
+    """
+    # Candidate paths (relative to cwd)
+    candidates = [
+        csv_path,
+        'data_files/training_data_complete_features.csv',
+        'data_files/training_data_tournament.csv',
+    ]
+    found_path = None
+    for p in candidates:
+        if p and os.path.exists(p):
+            found_path = p
+            break
+    if found_path is None:
+        return None, None
+
+    try:
+        df = pd.read_csv(found_path)
+    except Exception:
+        return None, None
+
+    # Keep only postseason rows if the column is present
+    if 'season_type' in df.columns:
+        df = df[df['season_type'].str.lower().str.contains('post', na=False)].copy()
+
+    # Need at minimum scores and net efficiency to derive upset label & features
+    required = {'home_score', 'away_score', 'net_eff_diff'}
+    if not required.issubset(df.columns):
+        return None, None
+
+    df = df.dropna(subset=list(required)).reset_index(drop=True)
+    if len(df) < 10:
+        return None, None
+
+    # ── Upset label ───────────────────────────────────────────────────────────
+    # actual_spread = away_score − home_score  (negative when home wins)
+    # We define "favorite" as the team with better net efficiency.
+    # Upset = statistically weaker team wins.
+    net_eff = df['net_eff_diff'] if 'net_eff_diff' in df.columns else pd.Series(np.zeros(len(df)))
+    home_wins  = (df['home_score'] > df['away_score']).astype(int)  # 1 if home wins
+    home_better = (net_eff.fillna(0) > 0).astype(int)               # 1 if home has better stats
+
+    # Upset when home is LESS efficient but wins, OR home is MORE efficient but loses
+    is_upset = ((home_better == 1) & (home_wins == 0) |
+                (home_better == 0) & (home_wins == 1)).astype(int)
+
+    # ── Feature engineering ──────────────────────────────────────────────────
+    # For upset model, we want the diff from the *underdog's* perspective:
+    # underdog = team with worse efficiency
+    # When home is the favorite (net_eff_diff > 0), the away team is the underdog
+    #   → underdog net eff diff = −net_eff_diff  (flip sign)
+    # When home is the underdog (net_eff_diff <= 0), use as-is
+    underdog_net_eff = np.where(home_better == 1,
+                                -net_eff.fillna(0).values,
+                                net_eff.fillna(0).values)
+
+    # Seed-diff proxy: use net efficiency gap (≈2.5 pts per seed)
+    # actual_spread is the game margin, NOT the betting line —  use eff gap instead
+    eff_gap = net_eff.abs().fillna(0)
+    seed_diff_proxy = (eff_gap / 2.5).clip(upper=15)
+
+    # Tempo difference – use KenPom adj-tempo diff when available
+    if 'kenpom_adjt_diff' in df.columns:
+        tempo_diff = df['kenpom_adjt_diff'].abs().fillna(0)
+    else:
+        tempo_diff = pd.Series(np.zeros(len(df)))
+
+    # Underdog defensive efficiency proxy
+    if 'def_eff_diff' in df.columns:
+        # def_eff_diff = home_def_eff − away_def_eff  (lower = better defense)
+        und_def_eff = np.where(home_better == 1,
+                               100 - df['def_eff_diff'].fillna(0),   # away (underdog) def eff
+                               100 + df['def_eff_diff'].fillna(0))   # home (underdog) def eff
+    else:
+        und_def_eff = np.full(len(df), 100.0)
+
+    # Conference strength proxy from KenPom SOS when available
+    if 'kenpom_sos_diff' in df.columns:
+        und_conf = (3 + df['kenpom_sos_diff'].fillna(0) * (-1)).clip(1, 5)
+    else:
+        und_conf = np.full(len(df), 3.0)
+
+    # ── Assemble feature matrix (14 cols matching create_features output) ─────
+    X = np.column_stack([
+        seed_diff_proxy.values,          # 1  seed_diff
+        underdog_net_eff,                # 2  net_eff_diff
+        (underdog_net_eff > 0).astype(int),  # 3 underdog_better_eff
+        tempo_diff.values,               # 4  tempo_diff
+        np.full(len(df), 0.37),          # 5  underdog_three_rate (neutral default)
+        und_def_eff,                     # 6  underdog_def_eff
+        np.zeros(len(df)),               # 7  coach_exp_diff (unknown)
+        np.full(len(df), 5.0),           # 8  underdog_last_10
+        np.full(len(df), 6.0),           # 9  favorite_last_10
+        und_conf.values if hasattr(und_conf, 'values') else und_conf,  # 10 underdog_conf_strength
+        np.ones(len(df)),                # 11 round_number (first round default)
+        np.zeros(len(df)),               # 12 distance_diff
+        np.zeros(len(df)),               # 13 underdog_travel_advantage
+        np.zeros(len(df)),               # 14 underdog_pseudo_home
+    ])
+
+    y = is_upset.values
+    return X, y
+
+
+def create_historical_training_data() -> Tuple[np.array, np.array]:
+    """Create synthetic training data based on historical upset patterns.
+
+    Used as a fallback when real CSV data is unavailable.
     """
 
     # Generate synthetic training data based on historical patterns
@@ -546,18 +661,35 @@ def create_historical_training_data() -> Tuple[np.array, np.array]:
     return np.array(features), np.array(targets)
 
 
-def train_upset_model() -> Tuple[UpsetPredictor, Dict[str, Any]]:
-    """Train the upset prediction model and return results."""
+def train_upset_model() -> Tuple['UpsetPredictor', Dict[str, Any]]:
+    """Train the upset prediction model and return (predictor, metrics).
 
-    print("Creating historical training data...")
-    X, y = create_historical_training_data()
+    Workflow:
+    1. Try to load real historical data from CSV.
+    2. Augment with a small batch of synthetic samples for robustness.
+    3. Fall back to fully synthetic data only when the CSV is missing/unusable.
+    """
 
-    print(f"Training data shape: {X.shape}")
-    print(f"Upset rate in training data: {y.mean():.1%}")
+    X_real, y_real = create_training_data_from_csv()
+    X_syn, y_syn = create_historical_training_data()
 
-    print("\nTraining upset prediction model...")
+    if X_real is not None and len(X_real) >= 50:
+        # Blend real data with a small synthetic augmentation
+        n_aug = min(200, len(X_syn))
+        X = np.vstack([X_real, X_syn[:n_aug]])
+        y = np.concatenate([y_real, y_syn[:n_aug]])
+        data_source = f"real CSV ({len(X_real)} games) + {n_aug} synthetic"
+    else:
+        print("Real CSV data not available — falling back to synthetic data.")
+        X, y = X_syn, y_syn
+        data_source = "synthetic"
+
+    print(f"Training upset model on {len(X)} samples ({data_source})")
+    print(f"Upset rate: {y.mean():.1%}")
+
     predictor = UpsetPredictor()
     results = predictor.train(X, y)
+    results['data_source'] = data_source
 
     print("\nTraining Results:")
     print(f"  Train Accuracy: {results['train_accuracy']:.3f}")
@@ -568,7 +700,7 @@ def train_upset_model() -> Tuple[UpsetPredictor, Dict[str, Any]]:
 
     print("\nTop 5 Most Important Features:")
     sorted_features = sorted(results['feature_importance'].items(),
-                           key=lambda x: x[1], reverse=True)
+                             key=lambda x: x[1], reverse=True)
     for feature, importance in sorted_features[:5]:
         print(f"  {feature}: {importance:.3f}")
 

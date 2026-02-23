@@ -260,7 +260,7 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
     return filename
 ```
 
-**❌ NOT IMPLEMENTED** - No export functions found in the codebase
+**✅ IMPLEMENTED** - see `export_picks.py` for CSV/JSON/HTML/PDF helpers (separate from the bracket image export)
 
 ## Feature Priority for Betting
 
@@ -288,5 +288,4 @@ def export_picks_to_json(picks: list, filename: str = "picks.json"):
 - **Bracket Simulator** (`simulate_bracket`, `run_single_simulation`)
 
 **❌ NOT YET IMPLEMENTED:**
-- ROI Tracker
-- Export Picks functionality
+- ROI Tracker  (bankroll history / time series; current ROI metrics live in predictions but not full tracker)

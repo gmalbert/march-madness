@@ -30,15 +30,30 @@ This document aggregates all of the outstanding work items mentioned across the 
 
 ## 4. Upset Detection & Simulation
 
-* Collect historical upset data and train dedicated upset prediction model. (`roadmap-upset-detection.md`)
-* Integrate upset model into bracket simulator / prediction pipeline. (`roadmap-upset-detection.md`)
-* Tie simulations to ESPN bracket state instead of manual input. (`roadmap-bracket-simulation.md`)
+* ✅ Collected historical upset data and trained dedicated upset prediction model. (`roadmap-upset-detection.md`)
+* ✅ Integrated upset model into bracket simulator / prediction pipeline. (`roadmap-upset-detection.md`)
+* ✅ Simulations now load actual ESPN bracket state automatically. (`roadmap-bracket-simulation.md`)
 
 ## 5. Visualization / UI Enhancements
 
-* Implement Streamlit bracket view (minimum viable product). (`roadmap-bracket-visualization.md`) — *existing page at `pages/01_🏀_Tournament_Bracket.py`*
-* Add Plotly heatmap of advancement probabilities. (`roadmap-bracket-visualization.md`) — *still pending*
-* Create an SVG/printable bracket template. (`roadmap-bracket-visualization.md`) — *still pending*
+* ✅ Streamlit bracket view implemented (see `pages/01_🏀_Tournament_Bracket.py`).
+* ✅ Plotly heatmap of advancement probabilities added to the UI.
+* ✅ SVG/PNG/PDF export (printable bracket template) available via download buttons.
+
+### Remaining to‑do items from this section
+
+* (none — all the above features are live)
+
+***
+
+### Other outstanding tasks
+
+* Live tournament bracket updates (Selection‑Sunday automation)
+* ROI tracker backlog/history (exists in part but not full feature)
+* Any additional UI surfacing of confidence intervals on predictions
+* Player‑level statistics for props betting
+
+<!-- end of pending list -->
 
 ## 6. Feature Engineering & Efficiency Integration
 

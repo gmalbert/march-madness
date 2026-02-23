@@ -336,7 +336,7 @@ display_df['Confidence'] = display_df['confidence']
 
 st.dataframe(
     display_df[['Matchup', 'Line', 'Projected', 'Edge', 'Pick', 'Avg Tempo', 'Confidence']],
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
@@ -378,7 +378,7 @@ fig.update_layout(
     hovermode='closest'
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 # Tempo analysis
 st.header("🏃 Tempo Analysis")
@@ -406,7 +406,7 @@ fig2.update_layout(
     yaxis_title="Projected Total Points"
 )
 
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, width="stretch")
 
 # Edge distribution
 st.header("📊 Edge Distribution")
@@ -435,7 +435,7 @@ fig3.update_layout(
     height=400
 )
 
-st.plotly_chart(fig3, use_container_width=True)
+st.plotly_chart(fig3, width="stretch")
 
 # Footer
 st.markdown("---")

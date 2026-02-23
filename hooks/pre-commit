@@ -1,0 +1,13 @@
+#!/bin/sh
+# Pre-commit hook to block commits that introduce deprecated Streamlit parameter
+# Usage: set git config core.hooksPath hooks (run once per repo)
+
+# Search staged diffs for the deprecated option name. Only consider additions (not removals).
+# search for additions containing the deprecated string, excluding any diffs inside the hooks folder
+if git diff --cached --unified=0 -- ':!hooks/*' | grep -E '^\+.*use_container_width' >/dev/null; then
+    echo "\n⚠️  Commit blocked: 'use_container_width' detected in staged changes."
+    echo "    Please replace any occurrences with width=\"stretch\" before committing.\n"
+    exit 1
+fi
+
+exit 0

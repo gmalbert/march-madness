@@ -1343,7 +1343,7 @@ if sim_results:
                         'Key Factors': '; '.join(entry.get('key_reasons', [])[:2]) or '—',
                     })
                 upset_df = pd.DataFrame(rows)
-                st.dataframe(upset_df, use_container_width=True, hide_index=True)
+                st.dataframe(upset_df, width="stretch", hide_index=True)
             else:
                 st.info("No high-probability upsets detected for the first round.")
         elif not upset_pred:
@@ -1382,7 +1382,7 @@ if sim_results:
                     'E8 Prob': f"{cs.get('elite_eight_prob', 0):.1%}",
                     'Hist. Upset Rate': f"{hist_rate:.0%}",
                 })
-            st.dataframe(pd.DataFrame(c_rows), use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(c_rows), width="stretch", hide_index=True)
         else:
             st.info("No notable Cinderella candidates detected.")
 

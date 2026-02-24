@@ -2,8 +2,11 @@ name: Capture Opening Lines
 
 on:
   schedule:
-    # Run every 4 hours at off-peak times (1 AM, 5 AM, 9 AM, etc.)
-    - cron: '0 1,5,9,13,17,21 * * *'  # Every 4 hours starting at 1 AM UTC
+    # Run every 4 hours, first job at 5 AM Eastern (≈10 UTC; cron uses UTC timezone)
+    # Subsequent runs then fall at 14, 18, 22 UTC, plus an extra 02 UTC slot
+    # to hit 9 PM ET; this still finishes before midnight ET.
+    # NOTE: cron uses UTC; adjust manually if you need to account for DST.
+    - cron: '0 10,14,18,22,2 * * *'  # Five runs per day, ending at 02 UTC (≈9 PM ET)
   
   workflow_dispatch:  # Allow manual trigger
 
@@ -23,11 +26,15 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-      
-      - name: Install dependencies
+      - name: Add random jitter
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          delay=$((RANDOM % 600))
+          echo "Jitter delay of ${delay}s"
+          sleep $delay
+      - name: Print current UTC/ET times
+        run: |
+          echo "UTC now: $(date -u)"
+          echo "ET now: $(TZ=America/New_York date)"
       
       - name: Run opening line capture
         env:
@@ -47,4 +54,20 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data_files/opening_lines.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update opening lines [skip ci]" && git push)
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update opening lines [skip ci]"
+            # sync with remote before pushing
+            git pull --rebase origin main || {
+              echo "rebase failed, trying merge"
+              git rebase --abort
+              git pull --no-rebase origin main
+            }
+            # push with retry/backoff
+            for attempt in 1 2 3; do
+              git push && break
+              echo "push failed (attempt $attempt), retrying in $((attempt*10))s"
+              sleep $((attempt * 10))
+            done
+          fi

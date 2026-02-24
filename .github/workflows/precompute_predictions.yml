@@ -2,8 +2,9 @@ name: Pre-compute Predictions
 
 on:
   schedule:
-    # Run daily at 6:30 AM UTC (1:30 AM EST / 2:30 AM EDT)
-    - cron: '30 6 * * *'
+    # Run daily at 6 AM UTC (1 AM ET, one hour after brackets)
+    # NOTE: cron uses UTC; adjust manually if you need to account for DST.
+    - cron: '0 6 * * *'
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
@@ -13,6 +14,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Add random jitter
+        run: |
+          delay=$((RANDOM % 600))
+          echo "Jitter sleep for ${delay}s"
+          sleep $delay
+      - name: Print current UTC/ET times
+        run: |
+          echo "UTC now: $(date -u)"
+          echo "ET now: $(TZ=America/New_York date)"
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -40,4 +50,9 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add data_files/precomputed_predictions/*.json
           git diff --staged --quiet || git commit -m "Update pre-computed predictions [skip ci]"
-          git push
+          # push with retry/backoff
+          for attempt in 1 2 3; do
+            git push && break
+            echo "push failed (attempt $attempt), retrying in $((attempt*10))s"
+            sleep $((attempt * 10))
+          done

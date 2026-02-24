@@ -2,8 +2,9 @@ name: Fetch and Predict Games
 
 on:
   schedule:
-    # Run nightly at 2 AM ET (6 AM UTC)
-    - cron: '0 6 * * *'
+    # Run nightly at 8 AM UTC (3 AM ET, one hour after efficiency)
+    # NOTE: cron uses UTC; adjust manually if you need to account for DST.
+    - cron: '0 8 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
@@ -16,6 +17,15 @@ jobs:
       with:
         # Use a personal access token for pushing changes
         token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Add random jitter
+      run: |
+        delay=$((RANDOM % 600))
+        echo "Jitter for ${delay}s"
+        sleep $delay
+    - name: Print current UTC/ET times
+      run: |
+        echo "UTC now: $(date -u)"
+        echo "ET now: $(TZ=America/New_York date)"
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -110,6 +120,11 @@ jobs:
           git pull --no-rebase origin main
         }
         
-        git push
+        # push with retry/backoff
+        for attempt in 1 2 3; do
+          git push && break
+          echo "push failed (attempt $attempt), retrying in $((attempt*10))s"
+          sleep $((attempt * 10))
+        done
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

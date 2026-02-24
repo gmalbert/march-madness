@@ -1,9 +1,10 @@
 name: Pre-compute Tournament Brackets
 
 on:
-  # Run daily at 6 AM UTC
+  # Run daily at 5 AM UTC (midnight ET)
+  # NOTE: cron uses UTC; adjust manually if you need to account for DST.
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 5 * * *'
   # Allow manual trigger
   workflow_dispatch:
     inputs:
@@ -20,6 +21,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        # need full history so we can pull/merge and avoid push conflicts
+        fetch-depth: 0
+    - name: Add random jitter
+      run: |
+        delay=$((RANDOM % 600))  # up to 10 minutes
+        echo "Adding jitter delay of ${delay}s"
+        sleep $delay
+    - name: Print current UTC/ET times
+      run: |
+        echo "UTC now: $(date -u)"
+        echo "ET now: $(TZ=America/New_York date)"
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -41,9 +54,21 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add data_files/precomputed_brackets/*.json
         git diff --quiet && git diff --staged --quiet || git commit -m "Update pre-computed bracket simulations [skip ci]"
+
+    # make sure we have the very latest main before pushing; this avoids
+    # "atomic push failed" errors when another run already pushed.
+    - name: Sync with remote main
+      run: |
+        git fetch origin main
+        git pull --ff-only origin main
     
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+    - name: Push changes with retries
+      run: |
+        # push with exponential backoff; force as previously required
+        for attempt in 1 2 3; do
+          git push origin main --force && break
+          echo "push failed (attempt $attempt), retrying in $((attempt * 10))s..."
+          sleep $((attempt * 10))
+        done
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

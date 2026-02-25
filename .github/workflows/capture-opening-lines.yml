@@ -2,11 +2,16 @@ name: Capture Opening Lines
 
 on:
   schedule:
-    # Run every 4 hours, first job at 5 AM Eastern (≈10 UTC; cron uses UTC timezone)
-    # Subsequent runs then fall at 14, 18, 22 UTC, plus an extra 02 UTC slot
-    # to hit 9 PM ET; this still finishes before midnight ET.
-    # NOTE: cron uses UTC; adjust manually if you need to account for DST.
-    - cron: '0 10,14,18,22,2 * * *'  # Five runs per day, ending at 02 UTC (≈9 PM ET)
+    # Run three times per day at 11 PM, 7 AM, and 12 PM Eastern.
+    # Cron syntax always uses UTC; the values below target EST (UTC−5).
+    # During DST the times will shift by one hour (use the comment above
+    # to help you pick new UTC values if you need exact ET alignment).
+    #
+    # ET time → UTC conversion (EST):
+    #   11 PM ET → 04 UTC  
+    #    7 AM ET → 12 UTC  
+    #   12 PM ET → 17 UTC
+    - cron: '0 4,12,17 * * *'  # 11 PM/7 AM/12 PM ET (EST utc-5)
   
   workflow_dispatch:  # Allow manual trigger
 

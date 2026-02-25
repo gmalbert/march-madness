@@ -47,7 +47,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-ODDS_API_KEY = os.environ.get('ODDS_API_KEY')
+ODDS_API_KEY = (os.environ.get('ODDS_API_KEY') or '').strip()
 ODDS_API_BASE_URL = "https://api.the-odds-api.com/v4"
 SPORT = "basketball_ncaab"
 REGIONS = "us"

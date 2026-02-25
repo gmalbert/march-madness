@@ -25,6 +25,11 @@ try:
     from data_tools.efficiency_loader import EfficiencyDataLoader
     from fetch_live_odds import fetch_live_odds
     from features import find_upset_candidates, predict_win_probability
+    # line movement helpers (reads from opening_lines.json or uses API)
+    try:
+        from odds_api_integration import track_line_movement
+    except ImportError:
+        track_line_movement = None
     from upset_prediction import UpsetPredictor, generate_upset_watch_list, display_upset_watch, identify_cinderella_candidates, display_cinderella_candidates
     from bracket_simulation import load_real_tournament_bracket, create_bracket_from_data, create_predictor_from_models
 except ImportError as e:
@@ -1742,6 +1747,20 @@ def main():
                 
             total_str = f"{total_pred.get('prediction', 'N/A'):.1f}" if total_pred else "N/A"
 
+            # compute line movement/trending if possible (cache or API)
+            spread_move_str = ""
+            total_move_str = ""
+            if track_line_movement:
+                try:
+                    movement = track_line_movement((game['away_team'], game['home_team']))
+                    lm = movement.get('line_movement', {})
+                    if 'spread_movement' in lm:
+                        spread_move_str = f"{lm['spread_movement']:+.1f}"
+                    if 'total_movement' in lm:
+                        total_move_str = f"{lm['total_movement']:+.1f}"
+                except Exception:
+                    pass
+
             # Model probability, market implied probability (if available), and edge
             pred_model_str = "N/A"
             market_prob_str = "N/A"
@@ -1847,7 +1866,9 @@ def main():
                 'Edge': edge_str,
                 'Upset Alert': upset_alert,
                 'Spread': spread_str,
-                'Total': total_str
+                'Total': total_str,
+                'Spread Move': spread_move_str,
+                'Total Move': total_move_str
             })
 
         # Display table
@@ -1941,6 +1962,20 @@ def main():
         render_game_prediction(enriched_game, predictions, efficiency_list, stats_list, models)
 
         st.info("💡 **Note:** Predictions show what the model would have forecasted before the game.")
+
+        # show line movement / opening vs current lines if available
+        if track_line_movement:
+            try:
+                movement = track_line_movement((selected_game['away_team'], selected_game['home_team']))
+                if movement and movement.get('line_movement'):
+                    lm = movement['line_movement']
+                    st.markdown("### 📉 Line Movement")
+                    st.write(f"Spread change: {lm.get('spread_movement', 0):+}")
+                    st.write(f"Total change: {lm.get('total_movement', 0):+}")
+                    if lm.get('sharp_money_indicator'):
+                        st.info(f"Sharp money: {lm['sharp_money_indicator']}")
+            except Exception:
+                pass
 
         # Model details
         with st.expander("🤖 Model Details"):

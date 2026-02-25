@@ -13,7 +13,7 @@ on:
 jobs:
   capture-lines:
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # Add timeout to prevent hanging
+    timeout-minutes: 30  # 10 was too short for heavy dep installs (pyarrow, scipy, etc.)
     
     steps:
       - name: Checkout repository
@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements-capture.txt
       
       - name: Run opening line capture
         env:

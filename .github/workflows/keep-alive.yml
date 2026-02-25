@@ -121,10 +121,12 @@ jobs:
 
       - name: Run headless browser to open the app
         if: ${{ !startsWith(steps.ping.outputs.response, '2') }}
+        continue-on-error: true            # don't fail workflow if ping-not-2xx and Playwright hiccups
         env:
           STREAMLIT_APP_URL: ${{ env.STREAMLIT_APP_URL }}
         run: |
-          node -e "const {chromium}=require('playwright');(async()=>{let browser; try{browser=await chromium.launch({args:['--no-sandbox','--disable-setuid-sandbox']}); const page=await browser.newPage(); console.log('Playwright: navigating to', process.env.STREAMLIT_APP_URL); await page.goto(process.env.STREAMLIT_APP_URL,{waitUntil:'domcontentloaded',timeout:120000}); await page.waitForSelector('section[data-testid=\"stApp\"]',{timeout:120000}); await page.waitForTimeout(5000); console.log('Playwright: visit complete');}catch(e){console.log('Playwright error:',e && e.message ? e.message : e);}finally{if(browser){try{await browser.close();}catch(_){}}}})();"
+          # call Playwright but swallow any errors so job stays green
+          node -e "const {chromium}=require('playwright');(async()=>{let browser; try{browser=await chromium.launch({args:['--no-sandbox','--disable-setuid-sandbox']}); const page=await browser.newPage(); console.log('Playwright: navigating to', process.env.STREAMLIT_APP_URL); try{ await page.goto(process.env.STREAMLIT_APP_URL,{waitUntil:'domcontentloaded',timeout:120000}); }catch(e){ console.log('::warning title=Playwright goto failed::'+(e.message||e)); } try{ await page.waitForSelector('section[data-testid=\"stApp\"]',{timeout:120000}); }catch(e){ console.log('::warning title=Playwright selector failed::'+(e.message||e)); } await page.waitForTimeout(5000); console.log('Playwright: visit complete'); }catch(e){console.log('::warning title=Playwright error::'+(e && e.message ? e.message : e));}finally{if(browser){try{await browser.close();}catch(_){}}}})().catch(err=>{console.log('::warning title=Playwright unhandled error::'+err);});" || true
 
       - name: Log completion
         if: always()

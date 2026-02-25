@@ -100,14 +100,26 @@ def cache_odds_snapshot() -> str:
 
 
 def load_cached_odds() -> List[Dict]:
-    """Load most recent cached odds."""
+    """Load most recent cached odds.
+
+    Prefers ``latest_odds.json`` (written by the capture workflow on every run)
+    so the freshest data is always used for line-movement comparisons.
+    Falls back to the newest timestamped snapshot if the latest file doesn't
+    exist yet.
+    """
+    # Prefer the canonical "latest" file written by the capture job
+    latest_path = ODDS_CACHE_DIR / "latest_odds.json"
+    if latest_path.exists():
+        with open(latest_path, 'r') as f:
+            cached_data = json.load(f)
+        return cached_data.get("data", [])
+
+    # Fallback: pick the most recently modified timestamped snapshot
     cache_files = list(ODDS_CACHE_DIR.glob("odds_snapshot_*.json"))
     if not cache_files:
         return []
 
-    # Get most recent file
     latest_file = max(cache_files, key=lambda f: f.stat().st_mtime)
-
     with open(latest_file, 'r') as f:
         cached_data = json.load(f)
 

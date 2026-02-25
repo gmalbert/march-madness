@@ -58,7 +58,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data_files/opening_lines.json
+          git add data_files/opening_lines.json data_files/odds_cache/latest_odds.json
           if git diff --quiet && git diff --staged --quiet; then
             echo "No changes to commit"
           else

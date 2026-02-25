@@ -15,6 +15,7 @@ The script will:
 4. Log all activity for monitoring
 """
 
+import json
 import os
 import sys
 import time
@@ -186,7 +187,14 @@ class OpeningLineCapture:
         if not games:
             logger.warning("WARNING: No games data received from API")
             return
-        
+
+        # Always persist the latest snapshot so the UI can compute line movement
+        latest_path = Path('data_files/odds_cache/latest_odds.json')
+        latest_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(latest_path, 'w') as _f:
+            json.dump({'timestamp': datetime.now().isoformat(), 'data': games}, _f)
+        logger.info(f"   Saved latest odds snapshot ({len(games)} games) → {latest_path}")
+
         new_lines_captured = 0
         existing_lines_skipped = 0
         errors = 0

@@ -58,7 +58,11 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data_files/opening_lines.json data_files/odds_cache/latest_odds.json
+          git add data_files/opening_lines.json
+          # only stage latest_odds.json if the capture script actually wrote it
+          if [ -f data_files/odds_cache/latest_odds.json ]; then
+            git add data_files/odds_cache/latest_odds.json
+          fi
           if git diff --quiet && git diff --staged --quiet; then
             echo "No changes to commit"
           else

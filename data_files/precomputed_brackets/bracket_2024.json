@@ -1,7 +1,7 @@
 {
   "year": 2024,
   "num_simulations": 10000,
-  "computed_at": "2026-02-27T05:37:19.279915",
+  "computed_at": "2026-02-28T05:20:59.017928",
   "bracket_data": {
     "year": 2024,
     "teams": [
@@ -718,12 +718,12 @@
         "seed": 1,
         "region": "East"
       },
-      "round_32_prob": 0.8641,
-      "sweet_16_prob": 0.683,
-      "elite_8_prob": 0.4933,
-      "final_four_prob": 0.308,
-      "championship_prob": 0.1847,
-      "winner_prob": 0.1082
+      "round_32_prob": 0.9184,
+      "sweet_16_prob": 0.777,
+      "elite_8_prob": 0.59,
+      "final_four_prob": 0.373,
+      "championship_prob": 0.2125,
+      "winner_prob": 0.116
     },
     "16": {
       "team": {
@@ -731,12 +731,12 @@
         "seed": 16,
         "region": "East"
       },
-      "round_32_prob": 0.1359,
-      "sweet_16_prob": 0.03,
-      "elite_8_prob": 0.006,
-      "final_four_prob": 0.0013,
-      "championship_prob": 0.0003,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.0816,
+      "sweet_16_prob": 0.0091,
+      "elite_8_prob": 0.0012,
+      "final_four_prob": 0.0002,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "8": {
       "team": {
@@ -744,12 +744,12 @@
         "seed": 8,
         "region": "East"
       },
-      "round_32_prob": 0.6294,
-      "sweet_16_prob": 0.211,
-      "elite_8_prob": 0.0675,
-      "final_four_prob": 0.0246,
-      "championship_prob": 0.0084,
-      "winner_prob": 0.0021
+      "round_32_prob": 0.6233,
+      "sweet_16_prob": 0.1797,
+      "elite_8_prob": 0.0509,
+      "final_four_prob": 0.0176,
+      "championship_prob": 0.004,
+      "winner_prob": 0.0014
     },
     "9": {
       "team": {
@@ -757,12 +757,12 @@
         "seed": 9,
         "region": "East"
       },
-      "round_32_prob": 0.3706,
-      "sweet_16_prob": 0.1124,
-      "elite_8_prob": 0.0326,
-      "final_four_prob": 0.0112,
-      "championship_prob": 0.003,
-      "winner_prob": 0.0009
+      "round_32_prob": 0.3767,
+      "sweet_16_prob": 0.0922,
+      "elite_8_prob": 0.0206,
+      "final_four_prob": 0.0049,
+      "championship_prob": 0.0008,
+      "winner_prob": 0.0002
     },
     "4": {
       "team": {
@@ -770,12 +770,12 @@
         "seed": 4,
         "region": "East"
       },
-      "round_32_prob": 0.7696,
-      "sweet_16_prob": 0.4984,
-      "elite_8_prob": 0.2449,
-      "final_four_prob": 0.1091,
-      "championship_prob": 0.0532,
-      "winner_prob": 0.0241
+      "round_32_prob": 0.798,
+      "sweet_16_prob": 0.5127,
+      "elite_8_prob": 0.2291,
+      "final_four_prob": 0.099,
+      "championship_prob": 0.0416,
+      "winner_prob": 0.0182
     },
     "13": {
       "team": {
@@ -783,11 +783,11 @@
         "seed": 13,
         "region": "East"
       },
-      "round_32_prob": 0.2304,
-      "sweet_16_prob": 0.0528,
-      "elite_8_prob": 0.0119,
-      "final_four_prob": 0.0037,
-      "championship_prob": 0.0012,
+      "round_32_prob": 0.202,
+      "sweet_16_prob": 0.0278,
+      "elite_8_prob": 0.0042,
+      "final_four_prob": 0.001,
+      "championship_prob": 0.0002,
       "winner_prob": 0.0
     },
     "5": {
@@ -796,12 +796,12 @@
         "seed": 5,
         "region": "East"
       },
-      "round_32_prob": 0.6943,
-      "sweet_16_prob": 0.3539,
-      "elite_8_prob": 0.1441,
-      "final_four_prob": 0.059,
-      "championship_prob": 0.0264,
-      "winner_prob": 0.0093
+      "round_32_prob": 0.7434,
+      "sweet_16_prob": 0.3772,
+      "elite_8_prob": 0.1358,
+      "final_four_prob": 0.0529,
+      "championship_prob": 0.0203,
+      "winner_prob": 0.0073
     },
     "12": {
       "team": {
@@ -809,12 +809,12 @@
         "seed": 12,
         "region": "East"
       },
-      "round_32_prob": 0.3057,
-      "sweet_16_prob": 0.0759,
-      "elite_8_prob": 0.0188,
-      "final_four_prob": 0.0069,
-      "championship_prob": 0.0023,
-      "winner_prob": 0.0009
+      "round_32_prob": 0.2566,
+      "sweet_16_prob": 0.0485,
+      "elite_8_prob": 0.01,
+      "final_four_prob": 0.0023,
+      "championship_prob": 0.0007,
+      "winner_prob": 0.0001
     },
     "2": {
       "team": {
@@ -822,12 +822,12 @@
         "seed": 2,
         "region": "East"
       },
-      "round_32_prob": 0.8043,
-      "sweet_16_prob": 0.5883,
-      "elite_8_prob": 0.3741,
-      "final_four_prob": 0.2094,
-      "championship_prob": 0.1179,
-      "winner_prob": 0.0642
+      "round_32_prob": 0.8783,
+      "sweet_16_prob": 0.6787,
+      "elite_8_prob": 0.4314,
+      "final_four_prob": 0.2272,
+      "championship_prob": 0.1174,
+      "winner_prob": 0.0614
     },
     "15": {
       "team": {
@@ -835,12 +835,12 @@
         "seed": 15,
         "region": "East"
       },
-      "round_32_prob": 0.1957,
-      "sweet_16_prob": 0.0345,
-      "elite_8_prob": 0.0094,
-      "final_four_prob": 0.0032,
-      "championship_prob": 0.0006,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.1217,
+      "sweet_16_prob": 0.0122,
+      "elite_8_prob": 0.0023,
+      "final_four_prob": 0.0003,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "7": {
       "team": {
@@ -848,12 +848,12 @@
         "seed": 7,
         "region": "East"
       },
-      "round_32_prob": 0.6494,
-      "sweet_16_prob": 0.2546,
-      "elite_8_prob": 0.0885,
-      "final_four_prob": 0.0323,
-      "championship_prob": 0.0111,
-      "winner_prob": 0.004
+      "round_32_prob": 0.6966,
+      "sweet_16_prob": 0.2354,
+      "elite_8_prob": 0.069,
+      "final_four_prob": 0.0226,
+      "championship_prob": 0.0071,
+      "winner_prob": 0.0021
     },
     "10": {
       "team": {
@@ -861,12 +861,12 @@
         "seed": 10,
         "region": "East"
       },
-      "round_32_prob": 0.3506,
-      "sweet_16_prob": 0.1013,
-      "elite_8_prob": 0.0259,
-      "final_four_prob": 0.0076,
-      "championship_prob": 0.0013,
-      "winner_prob": 0.0002
+      "round_32_prob": 0.3034,
+      "sweet_16_prob": 0.0702,
+      "elite_8_prob": 0.013,
+      "final_four_prob": 0.0038,
+      "championship_prob": 0.0009,
+      "winner_prob": 0.0001
     },
     "3": {
       "team": {
@@ -874,12 +874,12 @@
         "seed": 3,
         "region": "East"
       },
-      "round_32_prob": 0.8035,
-      "sweet_16_prob": 0.5719,
-      "elite_8_prob": 0.3385,
-      "final_four_prob": 0.1726,
-      "championship_prob": 0.0905,
-      "winner_prob": 0.0471
+      "round_32_prob": 0.853,
+      "sweet_16_prob": 0.6187,
+      "elite_8_prob": 0.3286,
+      "final_four_prob": 0.1544,
+      "championship_prob": 0.074,
+      "winner_prob": 0.0326
     },
     "14": {
       "team": {
@@ -887,12 +887,12 @@
         "seed": 14,
         "region": "East"
       },
-      "round_32_prob": 0.1965,
-      "sweet_16_prob": 0.0396,
-      "elite_8_prob": 0.0084,
-      "final_four_prob": 0.0035,
-      "championship_prob": 0.0009,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.147,
+      "sweet_16_prob": 0.0175,
+      "elite_8_prob": 0.0038,
+      "final_four_prob": 0.0009,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "6": {
       "team": {
@@ -900,12 +900,12 @@
         "seed": 6,
         "region": "East"
       },
-      "round_32_prob": 0.7079,
-      "sweet_16_prob": 0.3204,
-      "elite_8_prob": 0.1193,
-      "final_four_prob": 0.0431,
-      "championship_prob": 0.0172,
-      "winner_prob": 0.0064
+      "round_32_prob": 0.7452,
+      "sweet_16_prob": 0.2953,
+      "elite_8_prob": 0.1017,
+      "final_four_prob": 0.0375,
+      "championship_prob": 0.0138,
+      "winner_prob": 0.0047
     },
     "11": {
       "team": {
@@ -913,12 +913,12 @@
         "seed": 11,
         "region": "East"
       },
-      "round_32_prob": 0.2921,
-      "sweet_16_prob": 0.072,
-      "elite_8_prob": 0.0168,
-      "final_four_prob": 0.0045,
-      "championship_prob": 0.0004,
-      "winner_prob": 0.0003
+      "round_32_prob": 0.2548,
+      "sweet_16_prob": 0.0478,
+      "elite_8_prob": 0.0084,
+      "final_four_prob": 0.0024,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0001
     },
     "17": {
       "team": {
@@ -926,12 +926,12 @@
         "seed": 1,
         "region": "West"
       },
-      "round_32_prob": 0.8011,
-      "sweet_16_prob": 0.6189,
-      "elite_8_prob": 0.4373,
-      "final_four_prob": 0.2672,
-      "championship_prob": 0.152,
-      "winner_prob": 0.0861
+      "round_32_prob": 0.9226,
+      "sweet_16_prob": 0.7797,
+      "elite_8_prob": 0.5799,
+      "final_four_prob": 0.3627,
+      "championship_prob": 0.2192,
+      "winner_prob": 0.119
     },
     "32": {
       "team": {
@@ -939,12 +939,12 @@
         "seed": 16,
         "region": "West"
       },
-      "round_32_prob": 0.1989,
-      "sweet_16_prob": 0.0424,
-      "elite_8_prob": 0.0093,
-      "final_four_prob": 0.0032,
-      "championship_prob": 0.0007,
-      "winner_prob": 0.0003
+      "round_32_prob": 0.0774,
+      "sweet_16_prob": 0.0085,
+      "elite_8_prob": 0.0013,
+      "final_four_prob": 0.0004,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "24": {
       "team": {
@@ -952,12 +952,12 @@
         "seed": 8,
         "region": "West"
       },
-      "round_32_prob": 0.5635,
-      "sweet_16_prob": 0.2052,
-      "elite_8_prob": 0.0728,
-      "final_four_prob": 0.0285,
-      "championship_prob": 0.0094,
-      "winner_prob": 0.002
+      "round_32_prob": 0.5826,
+      "sweet_16_prob": 0.1667,
+      "elite_8_prob": 0.0456,
+      "final_four_prob": 0.0145,
+      "championship_prob": 0.0042,
+      "winner_prob": 0.0017
     },
     "25": {
       "team": {
@@ -965,12 +965,12 @@
         "seed": 9,
         "region": "West"
       },
-      "round_32_prob": 0.4365,
-      "sweet_16_prob": 0.1504,
-      "elite_8_prob": 0.0456,
-      "final_four_prob": 0.0167,
-      "championship_prob": 0.0058,
-      "winner_prob": 0.0015
+      "round_32_prob": 0.4174,
+      "sweet_16_prob": 0.1108,
+      "elite_8_prob": 0.0261,
+      "final_four_prob": 0.0085,
+      "championship_prob": 0.0013,
+      "winner_prob": 0.0003
     },
     "20": {
       "team": {
@@ -978,12 +978,12 @@
         "seed": 4,
         "region": "West"
       },
-      "round_32_prob": 0.7315,
-      "sweet_16_prob": 0.463,
-      "elite_8_prob": 0.2266,
-      "final_four_prob": 0.1029,
-      "championship_prob": 0.0411,
-      "winner_prob": 0.0176
+      "round_32_prob": 0.7892,
+      "sweet_16_prob": 0.4915,
+      "elite_8_prob": 0.2146,
+      "final_four_prob": 0.0876,
+      "championship_prob": 0.0359,
+      "winner_prob": 0.0132
     },
     "29": {
       "team": {
@@ -991,12 +991,12 @@
         "seed": 13,
         "region": "West"
       },
-      "round_32_prob": 0.2685,
-      "sweet_16_prob": 0.0608,
-      "elite_8_prob": 0.0141,
-      "final_four_prob": 0.0045,
-      "championship_prob": 0.0012,
-      "winner_prob": 0.0002
+      "round_32_prob": 0.2108,
+      "sweet_16_prob": 0.0292,
+      "elite_8_prob": 0.0054,
+      "final_four_prob": 0.0017,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "21": {
       "team": {
@@ -1004,12 +1004,12 @@
         "seed": 5,
         "region": "West"
       },
-      "round_32_prob": 0.701,
-      "sweet_16_prob": 0.3804,
-      "elite_8_prob": 0.1724,
-      "final_four_prob": 0.0745,
-      "championship_prob": 0.0306,
-      "winner_prob": 0.0109
+      "round_32_prob": 0.743,
+      "sweet_16_prob": 0.3626,
+      "elite_8_prob": 0.1369,
+      "final_four_prob": 0.0511,
+      "championship_prob": 0.0177,
+      "winner_prob": 0.0062
     },
     "28": {
       "team": {
@@ -1017,12 +1017,12 @@
         "seed": 12,
         "region": "West"
       },
-      "round_32_prob": 0.299,
-      "sweet_16_prob": 0.0747,
-      "elite_8_prob": 0.0203,
-      "final_four_prob": 0.0063,
-      "championship_prob": 0.002,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.257,
+      "sweet_16_prob": 0.047,
+      "elite_8_prob": 0.0084,
+      "final_four_prob": 0.0019,
+      "championship_prob": 0.0005,
+      "winner_prob": 0.0
     },
     "18": {
       "team": {
@@ -1030,12 +1030,12 @@
         "seed": 2,
         "region": "West"
       },
-      "round_32_prob": 0.7618,
-      "sweet_16_prob": 0.5654,
-      "elite_8_prob": 0.3729,
-      "final_four_prob": 0.2143,
-      "championship_prob": 0.1187,
-      "winner_prob": 0.0675
+      "round_32_prob": 0.8753,
+      "sweet_16_prob": 0.6806,
+      "elite_8_prob": 0.4444,
+      "final_four_prob": 0.2435,
+      "championship_prob": 0.134,
+      "winner_prob": 0.0683
     },
     "31": {
       "team": {
@@ -1043,12 +1043,12 @@
         "seed": 15,
         "region": "West"
       },
-      "round_32_prob": 0.2382,
-      "sweet_16_prob": 0.053,
-      "elite_8_prob": 0.0126,
-      "final_four_prob": 0.0036,
-      "championship_prob": 0.0009,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.1247,
+      "sweet_16_prob": 0.0119,
+      "elite_8_prob": 0.0015,
+      "final_four_prob": 0.0003,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "23": {
       "team": {
@@ -1056,12 +1056,12 @@
         "seed": 7,
         "region": "West"
       },
-      "round_32_prob": 0.6393,
-      "sweet_16_prob": 0.2515,
-      "elite_8_prob": 0.092,
-      "final_four_prob": 0.0356,
-      "championship_prob": 0.0117,
-      "winner_prob": 0.0038
+      "round_32_prob": 0.6869,
+      "sweet_16_prob": 0.2438,
+      "elite_8_prob": 0.0746,
+      "final_four_prob": 0.0269,
+      "championship_prob": 0.0093,
+      "winner_prob": 0.0027
     },
     "26": {
       "team": {
@@ -1069,12 +1069,12 @@
         "seed": 10,
         "region": "West"
       },
-      "round_32_prob": 0.3607,
-      "sweet_16_prob": 0.1107,
-      "elite_8_prob": 0.0317,
-      "final_four_prob": 0.01,
-      "championship_prob": 0.0032,
-      "winner_prob": 0.0009
+      "round_32_prob": 0.3131,
+      "sweet_16_prob": 0.071,
+      "elite_8_prob": 0.0127,
+      "final_four_prob": 0.0036,
+      "championship_prob": 0.0007,
+      "winner_prob": 0.0
     },
     "19": {
       "team": {
@@ -1082,12 +1082,12 @@
         "seed": 3,
         "region": "West"
       },
-      "round_32_prob": 0.7967,
-      "sweet_16_prob": 0.5616,
-      "elite_8_prob": 0.3276,
-      "final_four_prob": 0.1698,
-      "championship_prob": 0.0805,
-      "winner_prob": 0.0391
+      "round_32_prob": 0.839,
+      "sweet_16_prob": 0.6088,
+      "elite_8_prob": 0.3291,
+      "final_four_prob": 0.1544,
+      "championship_prob": 0.0694,
+      "winner_prob": 0.0314
     },
     "30": {
       "team": {
@@ -1095,12 +1095,12 @@
         "seed": 14,
         "region": "West"
       },
-      "round_32_prob": 0.2033,
-      "sweet_16_prob": 0.0482,
-      "elite_8_prob": 0.0105,
-      "final_four_prob": 0.003,
-      "championship_prob": 0.0005,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.161,
+      "sweet_16_prob": 0.0207,
+      "elite_8_prob": 0.0033,
+      "final_four_prob": 0.0015,
+      "championship_prob": 0.0003,
+      "winner_prob": 0.0
     },
     "22": {
       "team": {
@@ -1108,12 +1108,12 @@
         "seed": 6,
         "region": "West"
       },
-      "round_32_prob": 0.6957,
-      "sweet_16_prob": 0.3393,
-      "elite_8_prob": 0.1367,
-      "final_four_prob": 0.0545,
-      "championship_prob": 0.0208,
-      "winner_prob": 0.0075
+      "round_32_prob": 0.7487,
+      "sweet_16_prob": 0.3198,
+      "elite_8_prob": 0.1075,
+      "final_four_prob": 0.0391,
+      "championship_prob": 0.0126,
+      "winner_prob": 0.0037
     },
     "27": {
       "team": {
@@ -1121,12 +1121,12 @@
         "seed": 11,
         "region": "West"
       },
-      "round_32_prob": 0.3043,
-      "sweet_16_prob": 0.0745,
-      "elite_8_prob": 0.0176,
-      "final_four_prob": 0.0054,
-      "championship_prob": 0.0015,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.2513,
+      "sweet_16_prob": 0.0474,
+      "elite_8_prob": 0.0087,
+      "final_four_prob": 0.0023,
+      "championship_prob": 0.0005,
+      "winner_prob": 0.0001
     },
     "33": {
       "team": {
@@ -1134,12 +1134,12 @@
         "seed": 1,
         "region": "Midwest"
       },
-      "round_32_prob": 0.8198,
-      "sweet_16_prob": 0.6424,
-      "elite_8_prob": 0.4505,
-      "final_four_prob": 0.2739,
-      "championship_prob": 0.1608,
-      "winner_prob": 0.0976
+      "round_32_prob": 0.9165,
+      "sweet_16_prob": 0.7657,
+      "elite_8_prob": 0.5693,
+      "final_four_prob": 0.3622,
+      "championship_prob": 0.1959,
+      "winner_prob": 0.1187
     },
     "48": {
       "team": {
@@ -1147,12 +1147,12 @@
         "seed": 16,
         "region": "Midwest"
       },
-      "round_32_prob": 0.1802,
-      "sweet_16_prob": 0.0415,
-      "elite_8_prob": 0.0103,
-      "final_four_prob": 0.0033,
-      "championship_prob": 0.0009,
-      "winner_prob": 0.0003
+      "round_32_prob": 0.0835,
+      "sweet_16_prob": 0.0093,
+      "elite_8_prob": 0.0013,
+      "final_four_prob": 0.0002,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "40": {
       "team": {
@@ -1160,12 +1160,12 @@
         "seed": 8,
         "region": "Midwest"
       },
-      "round_32_prob": 0.5665,
-      "sweet_16_prob": 0.2084,
-      "elite_8_prob": 0.0704,
-      "final_four_prob": 0.0289,
-      "championship_prob": 0.0104,
-      "winner_prob": 0.0028
+      "round_32_prob": 0.5818,
+      "sweet_16_prob": 0.1703,
+      "elite_8_prob": 0.0455,
+      "final_four_prob": 0.0152,
+      "championship_prob": 0.005,
+      "winner_prob": 0.0014
     },
     "41": {
       "team": {
@@ -1173,12 +1173,12 @@
         "seed": 9,
         "region": "Midwest"
       },
-      "round_32_prob": 0.4335,
-      "sweet_16_prob": 0.1549,
-      "elite_8_prob": 0.0515,
-      "final_four_prob": 0.0183,
-      "championship_prob": 0.0065,
-      "winner_prob": 0.0015
+      "round_32_prob": 0.4182,
+      "sweet_16_prob": 0.1071,
+      "elite_8_prob": 0.0245,
+      "final_four_prob": 0.0083,
+      "championship_prob": 0.0015,
+      "winner_prob": 0.0004
     },
     "36": {
       "team": {
@@ -1186,12 +1186,12 @@
         "seed": 4,
         "region": "Midwest"
       },
-      "round_32_prob": 0.7309,
-      "sweet_16_prob": 0.4638,
-      "elite_8_prob": 0.2198,
-      "final_four_prob": 0.0978,
-      "championship_prob": 0.0426,
-      "winner_prob": 0.0187
+      "round_32_prob": 0.7899,
+      "sweet_16_prob": 0.4936,
+      "elite_8_prob": 0.2148,
+      "final_four_prob": 0.0844,
+      "championship_prob": 0.0343,
+      "winner_prob": 0.0123
     },
     "45": {
       "team": {
@@ -1199,12 +1199,12 @@
         "seed": 13,
         "region": "Midwest"
       },
-      "round_32_prob": 0.2691,
-      "sweet_16_prob": 0.0623,
-      "elite_8_prob": 0.0141,
-      "final_four_prob": 0.0042,
-      "championship_prob": 0.0013,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.2101,
+      "sweet_16_prob": 0.0302,
+      "elite_8_prob": 0.0061,
+      "final_four_prob": 0.0017,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
     },
     "37": {
       "team": {
@@ -1212,12 +1212,12 @@
         "seed": 5,
         "region": "Midwest"
       },
-      "round_32_prob": 0.673,
-      "sweet_16_prob": 0.3617,
-      "elite_8_prob": 0.157,
-      "final_four_prob": 0.065,
-      "championship_prob": 0.0295,
-      "winner_prob": 0.0122
+      "round_32_prob": 0.7574,
+      "sweet_16_prob": 0.3822,
+      "elite_8_prob": 0.1422,
+      "final_four_prob": 0.0518,
+      "championship_prob": 0.018,
+      "winner_prob": 0.0064
     },
     "44": {
       "team": {
@@ -1225,12 +1225,12 @@
         "seed": 12,
         "region": "Midwest"
       },
-      "round_32_prob": 0.327,
-      "sweet_16_prob": 0.078,
-      "elite_8_prob": 0.0195,
-      "final_four_prob": 0.006,
-      "championship_prob": 0.0014,
-      "winner_prob": 0.0004
+      "round_32_prob": 0.2426,
+      "sweet_16_prob": 0.0422,
+      "elite_8_prob": 0.0074,
+      "final_four_prob": 0.0022,
+      "championship_prob": 0.0008,
+      "winner_prob": 0.0003
     },
     "34": {
       "team": {
@@ -1238,12 +1238,12 @@
         "seed": 2,
         "region": "Midwest"
       },
-      "round_32_prob": 0.7619,
-      "sweet_16_prob": 0.5617,
-      "elite_8_prob": 0.3685,
-      "final_four_prob": 0.2117,
-      "championship_prob": 0.1171,
-      "winner_prob": 0.0641
+      "round_32_prob": 0.8874,
+      "sweet_16_prob": 0.6908,
+      "elite_8_prob": 0.4463,
+      "final_four_prob": 0.2457,
+      "championship_prob": 0.1239,
+      "winner_prob": 0.0614
     },
     "47": {
       "team": {
@@ -1251,12 +1251,12 @@
         "seed": 15,
         "region": "Midwest"
       },
-      "round_32_prob": 0.2381,
-      "sweet_16_prob": 0.0495,
-      "elite_8_prob": 0.0112,
-      "final_four_prob": 0.0038,
-      "championship_prob": 0.0009,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.1126,
+      "sweet_16_prob": 0.0121,
+      "elite_8_prob": 0.0024,
+      "final_four_prob": 0.0007,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
     },
     "39": {
       "team": {
@@ -1264,12 +1264,12 @@
         "seed": 7,
         "region": "Midwest"
       },
-      "round_32_prob": 0.6324,
-      "sweet_16_prob": 0.2537,
-      "elite_8_prob": 0.0968,
-      "final_four_prob": 0.0374,
-      "championship_prob": 0.0124,
-      "winner_prob": 0.0047
+      "round_32_prob": 0.6459,
+      "sweet_16_prob": 0.2263,
+      "elite_8_prob": 0.0714,
+      "final_four_prob": 0.0251,
+      "championship_prob": 0.0075,
+      "winner_prob": 0.0016
     },
     "42": {
       "team": {
@@ -1277,12 +1277,12 @@
         "seed": 10,
         "region": "Midwest"
       },
-      "round_32_prob": 0.3676,
-      "sweet_16_prob": 0.1109,
-      "elite_8_prob": 0.0329,
-      "final_four_prob": 0.0114,
-      "championship_prob": 0.0032,
-      "winner_prob": 0.001
+      "round_32_prob": 0.3541,
+      "sweet_16_prob": 0.0792,
+      "elite_8_prob": 0.0181,
+      "final_four_prob": 0.0044,
+      "championship_prob": 0.0009,
+      "winner_prob": 0.0001
     },
     "35": {
       "team": {
@@ -1290,12 +1290,12 @@
         "seed": 3,
         "region": "Midwest"
       },
-      "round_32_prob": 0.7927,
-      "sweet_16_prob": 0.5502,
-      "elite_8_prob": 0.3251,
-      "final_four_prob": 0.1693,
-      "championship_prob": 0.0851,
-      "winner_prob": 0.0401
+      "round_32_prob": 0.8453,
+      "sweet_16_prob": 0.6081,
+      "elite_8_prob": 0.3288,
+      "final_four_prob": 0.1563,
+      "championship_prob": 0.072,
+      "winner_prob": 0.0325
     },
     "46": {
       "team": {
@@ -1303,12 +1303,12 @@
         "seed": 14,
         "region": "Midwest"
       },
-      "round_32_prob": 0.2073,
-      "sweet_16_prob": 0.0469,
-      "elite_8_prob": 0.0139,
-      "final_four_prob": 0.004,
-      "championship_prob": 0.0005,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.1547,
+      "sweet_16_prob": 0.0216,
+      "elite_8_prob": 0.0029,
+      "final_four_prob": 0.0005,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "38": {
       "team": {
@@ -1316,12 +1316,12 @@
         "seed": 6,
         "region": "Midwest"
       },
-      "round_32_prob": 0.6925,
-      "sweet_16_prob": 0.3272,
-      "elite_8_prob": 0.1345,
-      "final_four_prob": 0.0577,
-      "championship_prob": 0.023,
-      "winner_prob": 0.0085
+      "round_32_prob": 0.7231,
+      "sweet_16_prob": 0.3041,
+      "elite_8_prob": 0.1076,
+      "final_four_prob": 0.0386,
+      "championship_prob": 0.0136,
+      "winner_prob": 0.0041
     },
     "43": {
       "team": {
@@ -1329,12 +1329,12 @@
         "seed": 11,
         "region": "Midwest"
       },
-      "round_32_prob": 0.3075,
-      "sweet_16_prob": 0.0869,
-      "elite_8_prob": 0.024,
-      "final_four_prob": 0.0073,
-      "championship_prob": 0.003,
-      "winner_prob": 0.0008
+      "round_32_prob": 0.2769,
+      "sweet_16_prob": 0.0572,
+      "elite_8_prob": 0.0114,
+      "final_four_prob": 0.0027,
+      "championship_prob": 0.0004,
+      "winner_prob": 0.0001
     },
     "49": {
       "team": {
@@ -1342,12 +1342,12 @@
         "seed": 1,
         "region": "South"
       },
-      "round_32_prob": 0.8145,
-      "sweet_16_prob": 0.6373,
-      "elite_8_prob": 0.4525,
-      "final_four_prob": 0.2714,
-      "championship_prob": 0.1691,
-      "winner_prob": 0.0949
+      "round_32_prob": 0.9172,
+      "sweet_16_prob": 0.7792,
+      "elite_8_prob": 0.5777,
+      "final_four_prob": 0.3662,
+      "championship_prob": 0.2304,
+      "winner_prob": 0.1363
     },
     "64": {
       "team": {
@@ -1355,12 +1355,12 @@
         "seed": 16,
         "region": "South"
       },
-      "round_32_prob": 0.1855,
-      "sweet_16_prob": 0.0442,
-      "elite_8_prob": 0.0121,
-      "final_four_prob": 0.004,
-      "championship_prob": 0.0011,
-      "winner_prob": 0.0004
+      "round_32_prob": 0.0828,
+      "sweet_16_prob": 0.0098,
+      "elite_8_prob": 0.0016,
+      "final_four_prob": 0.0005,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "56": {
       "team": {
@@ -1368,12 +1368,12 @@
         "seed": 8,
         "region": "South"
       },
-      "round_32_prob": 0.5669,
-      "sweet_16_prob": 0.2068,
-      "elite_8_prob": 0.073,
-      "final_four_prob": 0.0268,
-      "championship_prob": 0.0093,
-      "winner_prob": 0.0032
+      "round_32_prob": 0.5895,
+      "sweet_16_prob": 0.1719,
+      "elite_8_prob": 0.0449,
+      "final_four_prob": 0.0145,
+      "championship_prob": 0.0046,
+      "winner_prob": 0.0016
     },
     "57": {
       "team": {
@@ -1381,12 +1381,12 @@
         "seed": 9,
         "region": "South"
       },
-      "round_32_prob": 0.4331,
-      "sweet_16_prob": 0.1495,
-      "elite_8_prob": 0.0482,
-      "final_four_prob": 0.015,
-      "championship_prob": 0.0047,
-      "winner_prob": 0.0012
+      "round_32_prob": 0.4105,
+      "sweet_16_prob": 0.111,
+      "elite_8_prob": 0.0288,
+      "final_four_prob": 0.0091,
+      "championship_prob": 0.0024,
+      "winner_prob": 0.0006
     },
     "52": {
       "team": {
@@ -1394,12 +1394,12 @@
         "seed": 4,
         "region": "South"
       },
-      "round_32_prob": 0.7245,
-      "sweet_16_prob": 0.464,
-      "elite_8_prob": 0.2138,
-      "final_four_prob": 0.1024,
-      "championship_prob": 0.0448,
-      "winner_prob": 0.0181
+      "round_32_prob": 0.7852,
+      "sweet_16_prob": 0.4898,
+      "elite_8_prob": 0.2055,
+      "final_four_prob": 0.0854,
+      "championship_prob": 0.0357,
+      "winner_prob": 0.0138
     },
     "61": {
       "team": {
@@ -1407,12 +1407,12 @@
         "seed": 13,
         "region": "South"
       },
-      "round_32_prob": 0.2755,
-      "sweet_16_prob": 0.0611,
-      "elite_8_prob": 0.0133,
-      "final_four_prob": 0.0038,
-      "championship_prob": 0.0007,
-      "winner_prob": 0.0002
+      "round_32_prob": 0.2148,
+      "sweet_16_prob": 0.0321,
+      "elite_8_prob": 0.0044,
+      "final_four_prob": 0.0011,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "53": {
       "team": {
@@ -1420,12 +1420,12 @@
         "seed": 5,
         "region": "South"
       },
-      "round_32_prob": 0.6668,
-      "sweet_16_prob": 0.364,
-      "elite_8_prob": 0.1602,
-      "final_four_prob": 0.0704,
-      "championship_prob": 0.0286,
-      "winner_prob": 0.0109
+      "round_32_prob": 0.7563,
+      "sweet_16_prob": 0.3721,
+      "elite_8_prob": 0.1403,
+      "final_four_prob": 0.0561,
+      "championship_prob": 0.0208,
+      "winner_prob": 0.0083
     },
     "60": {
       "team": {
@@ -1433,12 +1433,12 @@
         "seed": 12,
         "region": "South"
       },
-      "round_32_prob": 0.3332,
-      "sweet_16_prob": 0.0787,
-      "elite_8_prob": 0.0194,
-      "final_four_prob": 0.0067,
-      "championship_prob": 0.0021,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.2437,
+      "sweet_16_prob": 0.04,
+      "elite_8_prob": 0.0078,
+      "final_four_prob": 0.0019,
+      "championship_prob": 0.0005,
+      "winner_prob": 0.0
     },
     "50": {
       "team": {
@@ -1446,12 +1446,12 @@
         "seed": 2,
         "region": "South"
       },
-      "round_32_prob": 0.7539,
-      "sweet_16_prob": 0.5522,
-      "elite_8_prob": 0.3644,
-      "final_four_prob": 0.2125,
-      "championship_prob": 0.1152,
-      "winner_prob": 0.0612
+      "round_32_prob": 0.885,
+      "sweet_16_prob": 0.6797,
+      "elite_8_prob": 0.4368,
+      "final_four_prob": 0.2375,
+      "championship_prob": 0.1354,
+      "winner_prob": 0.0697
     },
     "63": {
       "team": {
@@ -1459,12 +1459,12 @@
         "seed": 15,
         "region": "South"
       },
-      "round_32_prob": 0.2461,
-      "sweet_16_prob": 0.0539,
-      "elite_8_prob": 0.0127,
-      "final_four_prob": 0.0046,
-      "championship_prob": 0.0016,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.115,
+      "sweet_16_prob": 0.0118,
+      "elite_8_prob": 0.0015,
+      "final_four_prob": 0.0001,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
     "55": {
       "team": {
@@ -1472,12 +1472,12 @@
         "seed": 7,
         "region": "South"
       },
-      "round_32_prob": 0.6413,
-      "sweet_16_prob": 0.2543,
-      "elite_8_prob": 0.0973,
-      "final_four_prob": 0.0391,
-      "championship_prob": 0.0166,
-      "winner_prob": 0.0058
+      "round_32_prob": 0.6473,
+      "sweet_16_prob": 0.2278,
+      "elite_8_prob": 0.0726,
+      "final_four_prob": 0.0236,
+      "championship_prob": 0.0077,
+      "winner_prob": 0.0035
     },
     "58": {
       "team": {
@@ -1485,12 +1485,12 @@
         "seed": 10,
         "region": "South"
       },
-      "round_32_prob": 0.3587,
-      "sweet_16_prob": 0.1121,
-      "elite_8_prob": 0.0315,
-      "final_four_prob": 0.0116,
-      "championship_prob": 0.0029,
-      "winner_prob": 0.0009
+      "round_32_prob": 0.3527,
+      "sweet_16_prob": 0.0819,
+      "elite_8_prob": 0.0208,
+      "final_four_prob": 0.0057,
+      "championship_prob": 0.0009,
+      "winner_prob": 0.0003
     },
     "51": {
       "team": {
@@ -1498,12 +1498,12 @@
         "seed": 3,
         "region": "South"
       },
-      "round_32_prob": 0.7931,
-      "sweet_16_prob": 0.5542,
-      "elite_8_prob": 0.326,
-      "final_four_prob": 0.165,
-      "championship_prob": 0.0831,
-      "winner_prob": 0.0347
+      "round_32_prob": 0.8412,
+      "sweet_16_prob": 0.6074,
+      "elite_8_prob": 0.337,
+      "final_four_prob": 0.1554,
+      "championship_prob": 0.0747,
+      "winner_prob": 0.0311
     },
     "62": {
       "team": {
@@ -1511,12 +1511,12 @@
         "seed": 14,
         "region": "South"
       },
-      "round_32_prob": 0.2069,
-      "sweet_16_prob": 0.0475,
-      "elite_8_prob": 0.0138,
-      "final_four_prob": 0.004,
-      "championship_prob": 0.0007,
-      "winner_prob": 0.0002
+      "round_32_prob": 0.1588,
+      "sweet_16_prob": 0.0195,
+      "elite_8_prob": 0.0023,
+      "final_four_prob": 0.0007,
+      "championship_prob": 0.0001,
+      "winner_prob": 0.0
     },
     "54": {
       "team": {
@@ -1524,12 +1524,12 @@
         "seed": 6,
         "region": "South"
       },
-      "round_32_prob": 0.6828,
-      "sweet_16_prob": 0.3341,
-      "elite_8_prob": 0.1356,
-      "final_four_prob": 0.054,
-      "championship_prob": 0.0186,
-      "winner_prob": 0.0065
+      "round_32_prob": 0.7256,
+      "sweet_16_prob": 0.3151,
+      "elite_8_prob": 0.1082,
+      "final_four_prob": 0.0389,
+      "championship_prob": 0.0119,
+      "winner_prob": 0.0046
     },
     "59": {
       "team": {
@@ -1537,12 +1537,12 @@
         "seed": 11,
         "region": "South"
       },
-      "round_32_prob": 0.3172,
-      "sweet_16_prob": 0.0861,
-      "elite_8_prob": 0.0262,
-      "final_four_prob": 0.0087,
-      "championship_prob": 0.0023,
-      "winner_prob": 0.0008
+      "round_32_prob": 0.2744,
+      "sweet_16_prob": 0.0509,
+      "elite_8_prob": 0.0098,
+      "final_four_prob": 0.0033,
+      "championship_prob": 0.0007,
+      "winner_prob": 0.0001
     }
   }
 }

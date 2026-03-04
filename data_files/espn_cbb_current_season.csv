@@ -1,18 +1,6 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-03 23:00:00+00:00,South Carolina Gamecocks,Tennessee Volunteers,2579,2633,0,0,99,23,Colonial Life Arena,False,True,23,23,STATUS_SCHEDULED,401808278,Tennessee Volunteers at South Carolina Gamecocks
-2026,Regular,2026-03-03 23:30:00+00:00,Georgia Bulldogs,Alabama Crimson Tide,61,333,0,0,99,16,Stegeman Coliseum,False,True,23,23,STATUS_SCHEDULED,401808277,Alabama Crimson Tide at Georgia Bulldogs
-2026,Regular,2026-03-04 00:00:00+00:00,Texas Tech Red Raiders,TCU Horned Frogs,2641,2628,0,0,10,99,United Supermarkets Arena,False,True,8,8,STATUS_SCHEDULED,401827719,TCU Horned Frogs at Texas Tech Red Raiders
-2026,Regular,2026-03-04 00:00:00+00:00,Virginia Cavaliers,Wake Forest Demon Deacons,258,154,0,0,13,99,John Paul Jones Arena,False,True,2,2,STATUS_SCHEDULED,401820785,Wake Forest Demon Deacons at Virginia Cavaliers
-2026,Regular,2026-03-04 00:00:00+00:00,North Carolina Tar Heels,Clemson Tigers,153,228,0,0,17,99,Dean E. Smith Center,False,True,2,2,STATUS_SCHEDULED,401820779,Clemson Tigers at North Carolina Tar Heels
-2026,Regular,2026-03-04 00:00:00+00:00,St. John's Red Storm,Georgetown Hoyas,2599,46,0,0,18,99,Madison Square Garden,False,True,4,4,STATUS_SCHEDULED,401822967,Georgetown Hoyas at St. John's Red Storm
-2026,Regular,2026-03-04 00:00:00+00:00,Miami (OH) RedHawks,Toledo Rockets,193,2649,0,0,19,99,Millett Hall,False,True,14,14,STATUS_SCHEDULED,401814597,Toledo Rockets at Miami (OH) RedHawks
-2026,Regular,2026-03-04 01:00:00+00:00,Florida Gators,Mississippi State Bulldogs,57,344,0,0,5,99,Stephen C. O'Connell Center,False,True,23,23,STATUS_SCHEDULED,401808274,Mississippi State Bulldogs at Florida Gators
-2026,Regular,2026-03-04 02:00:00+00:00,Illinois Fighting Illini,Oregon Ducks,356,2483,0,0,11,99,State Farm Center,False,True,7,7,STATUS_SCHEDULED,401825553,Oregon Ducks at Illinois Fighting Illini
-2026,Regular,2026-03-04 02:00:00+00:00,Arizona State Sun Devils,Kansas Jayhawks,9,2305,0,0,99,14,Desert Financial Arena,False,True,8,8,STATUS_SCHEDULED,401827715,Kansas Jayhawks at Arizona State Sun Devils
-2026,Regular,2026-03-04 02:00:00+00:00,Ole Miss Rebels,Vanderbilt Commodores,145,238,0,0,99,24,The Sandy and John Black Pavilion at Ole Miss,False,True,23,23,STATUS_SCHEDULED,401808279,Vanderbilt Commodores at Ole Miss Rebels
-2026,Regular,2026-03-04 04:00:00+00:00,UCLA Bruins,Nebraska Cornhuskers,26,158,0,0,99,9,Pauley Pavilion,False,True,7,7,STATUS_SCHEDULED,401825554,Nebraska Cornhuskers at UCLA Bruins
-2026,Regular,2026-03-05 00:00:00+00:00,SMU Mustangs,Miami Hurricanes,2567,2390,0,0,99,22,Moody Coliseum (Dallas),False,True,2,2,STATUS_SCHEDULED,401820784,Miami Hurricanes at SMU Mustangs
 2026,Regular,2026-03-05 00:00:00+00:00,Arkansas Razorbacks,Texas Longhorns,8,251,0,0,20,99,Bud Walton Arena,False,True,23,23,STATUS_SCHEDULED,401808273,Texas Longhorns at Arkansas Razorbacks
+2026,Regular,2026-03-05 00:00:00+00:00,SMU Mustangs,Miami Hurricanes,2567,2390,0,0,99,22,Moody Coliseum (Dallas),False,True,2,2,STATUS_SCHEDULED,401820784,Miami Hurricanes at SMU Mustangs
 2026,Regular,2026-03-05 01:00:00+00:00,Saint Louis Billikens,Loyola Chicago Ramblers,139,2350,0,0,25,99,Chaifetz Arena,False,True,3,3,STATUS_SCHEDULED,401828461,Loyola Chicago Ramblers at Saint Louis Billikens
 2026,Regular,2026-03-05 01:30:00+00:00,Northwestern Wildcats,Purdue Boilermakers,77,2509,0,0,99,15,Welsh-Ryan Arena,False,True,7,7,STATUS_SCHEDULED,401825556,Purdue Boilermakers at Northwestern Wildcats
 2026,Regular,2026-03-05 02:00:00+00:00,Houston Cougars,Baylor Bears,248,239,0,0,7,99,Fertitta Center,False,True,8,8,STATUS_SCHEDULED,401827721,Baylor Bears at Houston Cougars
@@ -20,14 +8,14 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-06 01:00:00+00:00,Michigan State Spartans,Rutgers Scarlet Knights,127,164,0,0,8,99,Breslin Center,False,True,7,7,STATUS_SCHEDULED,401825561,Rutgers Scarlet Knights at Michigan State Spartans
 2026,Regular,2026-03-07 02:00:00+00:00,Seton Hall Pirates,St. John's Red Storm,2550,2599,0,0,99,18,Prudential Center,False,True,4,4,STATUS_SCHEDULED,401822972,St. John's Red Storm at Seton Hall Pirates
 2026,Regular,2026-03-07 02:00:00+00:00,Ohio Bobcats,Miami (OH) RedHawks,195,193,0,0,99,19,Convocation Center (OH),False,True,14,14,STATUS_SCHEDULED,401814601,Miami (OH) RedHawks at Ohio Bobcats
-2026,Regular,2026-03-07 17:00:00+00:00,Oklahoma State Cowboys,Houston Cougars,197,248,0,0,99,7,Gallagher-Iba Arena,False,True,8,8,STATUS_SCHEDULED,401827728,Houston Cougars at Oklahoma State Cowboys
 2026,Regular,2026-03-07 17:00:00+00:00,Virginia Cavaliers,Virginia Tech Hokies,258,259,0,0,13,99,John Paul Jones Arena,False,True,2,2,STATUS_SCHEDULED,401820794,Virginia Tech Hokies at Virginia Cavaliers
 2026,Regular,2026-03-07 17:00:00+00:00,Missouri Tigers,Arkansas Razorbacks,142,8,0,0,99,20,Mizzou Arena,False,True,23,23,STATUS_SCHEDULED,401808285,Arkansas Razorbacks at Missouri Tigers
+2026,Regular,2026-03-07 17:00:00+00:00,Oklahoma State Cowboys,Houston Cougars,197,248,0,0,99,7,Gallagher-Iba Arena,False,True,8,8,STATUS_SCHEDULED,401827728,Houston Cougars at Oklahoma State Cowboys
 2026,Regular,2026-03-07 17:30:00+00:00,Marquette Golden Eagles,UConn Huskies,269,41,0,0,99,4,Fiserv Forum,False,True,4,4,STATUS_SCHEDULED,401822973,UConn Huskies at Marquette Golden Eagles
-2026,Regular,2026-03-07 19:00:00+00:00,Tennessee Volunteers,Vanderbilt Commodores,2633,238,0,0,23,24,Food City Center,False,True,23,23,STATUS_SCHEDULED,401808286,Vanderbilt Commodores at Tennessee Volunteers
-2026,Regular,2026-03-07 19:00:00+00:00,Miami Hurricanes,Louisville Cardinals,2390,97,0,0,22,99,Watsco Center,False,True,2,2,STATUS_SCHEDULED,401820790,Louisville Cardinals at Miami Hurricanes
-2026,Regular,2026-03-07 19:00:00+00:00,Kansas Jayhawks,Kansas State Wildcats,2305,2306,0,0,14,99,Allen Fieldhouse,False,True,8,8,STATUS_SCHEDULED,401827727,Kansas State Wildcats at Kansas Jayhawks
 2026,Regular,2026-03-07 19:00:00+00:00,Iowa State Cyclones,Arizona State Sun Devils,66,9,0,0,6,99,Hilton Coliseum,False,True,8,8,STATUS_SCHEDULED,401827726,Arizona State Sun Devils at Iowa State Cyclones
+2026,Regular,2026-03-07 19:00:00+00:00,Kansas Jayhawks,Kansas State Wildcats,2305,2306,0,0,14,99,Allen Fieldhouse,False,True,8,8,STATUS_SCHEDULED,401827727,Kansas State Wildcats at Kansas Jayhawks
+2026,Regular,2026-03-07 19:00:00+00:00,Miami Hurricanes,Louisville Cardinals,2390,97,0,0,22,99,Watsco Center,False,True,2,2,STATUS_SCHEDULED,401820790,Louisville Cardinals at Miami Hurricanes
+2026,Regular,2026-03-07 19:00:00+00:00,Tennessee Volunteers,Vanderbilt Commodores,2633,238,0,0,23,24,Food City Center,False,True,23,23,STATUS_SCHEDULED,401808286,Vanderbilt Commodores at Tennessee Volunteers
 2026,Regular,2026-03-07 21:00:00+00:00,Kentucky Wildcats,Florida Gators,96,57,0,0,99,5,Rupp Arena,False,True,23,23,STATUS_SCHEDULED,401808281,Florida Gators at Kentucky Wildcats
 2026,Regular,2026-03-07 21:00:00+00:00,Purdue Boilermakers,Wisconsin Badgers,2509,275,0,0,15,99,Mackey Arena,False,True,7,7,STATUS_SCHEDULED,401825565,Wisconsin Badgers at Purdue Boilermakers
 2026,Regular,2026-03-07 21:00:00+00:00,George Mason Patriots,Saint Louis Billikens,2244,139,0,0,99,25,EagleBank Arena,False,True,3,3,STATUS_SCHEDULED,401828466,Saint Louis Billikens at George Mason Patriots
@@ -36,8 +24,8 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-08 03:30:00+00:00,BYU Cougars,Texas Tech Red Raiders,252,2641,0,0,99,10,Marriott Center,False,True,8,8,STATUS_SCHEDULED,401827724,Texas Tech Red Raiders at BYU Cougars
 2026,Regular,2026-03-08 04:00:00+00:00,Colorado Buffaloes,Arizona Wildcats,38,12,0,0,99,2,CU Events Center,False,True,8,8,STATUS_SCHEDULED,401827725,Arizona Wildcats at Colorado Buffaloes
 2026,Regular,2026-03-08 19:00:00+00:00,Maryland Terrapins,Illinois Fighting Illini,120,356,0,0,99,11,XFINITY Center,False,True,7,7,STATUS_SCHEDULED,401825567,Illinois Fighting Illini at Maryland Terrapins
+2026,Regular,2026-03-08 20:30:00+00:00,Michigan Wolverines,Michigan State Spartans,130,127,0,0,3,8,Crisler Center,False,True,7,7,STATUS_SCHEDULED,401825568,Michigan State Spartans at Michigan Wolverines
 2026,Regular,2026-03-08 21:00:00+00:00,Nebraska Cornhuskers,Iowa Hawkeyes,158,2294,0,0,9,99,Pinnacle Bank Arena,False,True,7,7,STATUS_SCHEDULED,401825569,Iowa Hawkeyes at Nebraska Cornhuskers
-2026,Regular,2026-03-08 21:30:00+00:00,Michigan Wolverines,Michigan State Spartans,130,127,0,0,3,8,Crisler Center,False,True,7,7,STATUS_SCHEDULED,401825568,Michigan State Spartans at Michigan Wolverines
 2026,Regular,2026-03-10 01:00:00+00:00,Gonzaga Bulldogs,TBD,2250,-2,0,0,12,99,Orleans Arena,True,False,29,,STATUS_SCHEDULED,401851759,TBD at Gonzaga Bulldogs
 2026,Regular,2026-03-10 03:30:00+00:00,Saint Mary's Gaels,TBD,2608,-2,0,0,21,99,Orleans Arena,True,False,29,,STATUS_SCHEDULED,401851760,TBD at Saint Mary's Gaels
 2026,Regular,2026-03-10 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,False,True,,,STATUS_SCHEDULED,401851204,TBD at TBD
@@ -49,18 +37,18 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-10 20:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851171,TBD at TBD
 2026,Regular,2026-03-10 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851362,TBD at TBD
 2026,Regular,2026-03-10 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851405,TBD at TBD
-2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851172,TBD at TBD
-2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851285,TBD at TBD
-2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Corteva Coliseum,True,True,,,STATUS_SCHEDULED,401851434,TBD at TBD
-2026,Regular,2026-03-10 23:00:00+00:00,Stephen F. Austin Lumberjacks,TBD,2617,-2,0,0,99,99,Townsley Law Arena,True,False,25,,STATUS_SCHEDULED,401851611,TBD at Stephen F. Austin Lumberjacks
 2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,CareFirst Arena,True,True,,,STATUS_SCHEDULED,401856433,TBD at TBD
+2026,Regular,2026-03-10 23:00:00+00:00,Stephen F. Austin Lumberjacks,TBD,2617,-2,0,0,99,99,Townsley Law Arena,True,False,25,,STATUS_SCHEDULED,401851611,TBD at Stephen F. Austin Lumberjacks
 2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,False,True,,,STATUS_SCHEDULED,401851521,TBD at TBD
+2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Corteva Coliseum,True,True,,,STATUS_SCHEDULED,401851434,TBD at TBD
+2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851285,TBD at TBD
+2026,Regular,2026-03-10 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851172,TBD at TBD
 2026,Regular,2026-03-10 23:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851363,TBD at TBD
 2026,Regular,2026-03-11 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851717,TBD at TBD
+2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Idaho Central Arena,True,True,,,STATUS_SCHEDULED,401851334,TBD at TBD
+2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851406,TBD at TBD
 2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851762,TBD at TBD
 2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Jim Whelan Boardwalk Hall,True,True,,,STATUS_SCHEDULED,401851467,TBD at TBD
-2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851406,TBD at TBD
-2026,Regular,2026-03-11 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Idaho Central Arena,True,True,,,STATUS_SCHEDULED,401851334,TBD at TBD
 2026,Regular,2026-03-11 01:30:00+00:00,McNeese Cowboys,TBD,2377,-2,0,0,99,99,Townsley Law Arena,True,False,25,,STATUS_SCHEDULED,401851612,TBD at McNeese Cowboys
 2026,Regular,2026-03-11 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851287,TBD at TBD
 2026,Regular,2026-03-11 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Idaho Central Arena,True,True,,,STATUS_SCHEDULED,401851335,TBD at TBD
@@ -71,50 +59,50 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-11 16:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851289,TBD at TBD
 2026,Regular,2026-03-11 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851718,TBD at TBD
 2026,Regular,2026-03-11 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851260,TBD at TBD
-2026,Regular,2026-03-11 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851367,TBD at TBD
 2026,Regular,2026-03-11 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851174,TBD at TBD
+2026,Regular,2026-03-11 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851367,TBD at TBD
+2026,Regular,2026-03-11 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851558,TBD at TBD
 2026,Regular,2026-03-11 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851495,TBD at TBD
 2026,Regular,2026-03-11 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851291,TBD at TBD
-2026,Regular,2026-03-11 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851558,TBD at TBD
 2026,Regular,2026-03-11 20:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851308,TBD at TBD
 2026,Regular,2026-03-11 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Townsley Law Arena,True,True,,,STATUS_SCHEDULED,401851614,TBD at TBD
 2026,Regular,2026-03-11 21:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851496,TBD at TBD
 2026,Regular,2026-03-11 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851472,TBD at TBD
-2026,Regular,2026-03-11 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851407,TBD at TBD
 2026,Regular,2026-03-11 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851369,TBD at TBD
 2026,Regular,2026-03-11 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851309,TBD at TBD
+2026,Regular,2026-03-11 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851407,TBD at TBD
+2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851175,TBD at TBD
+2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851221,TBD at TBD
 2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851559,TBD at TBD
 2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,False,True,,,STATUS_SCHEDULED,401851549,TBD at TBD
 2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851293,TBD at TBD
-2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851221,TBD at TBD
-2026,Regular,2026-03-11 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851175,TBD at TBD
-2026,Regular,2026-03-12 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851721,TBD at TBD
 2026,Regular,2026-03-12 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851733,TBD at TBD
+2026,Regular,2026-03-12 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851721,TBD at TBD
 2026,Regular,2026-03-12 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851497,TBD at TBD
 2026,Regular,2026-03-12 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851408,TBD at TBD
 2026,Regular,2026-03-12 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851391,TBD at TBD
 2026,Regular,2026-03-12 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851370,TBD at TBD
 2026,Regular,2026-03-12 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851310,TBD at TBD
-2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851560,TBD at TBD
-2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851294,TBD at TBD
-2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851222,TBD at TBD
 2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851176,TBD at TBD
-2026,Regular,2026-03-12 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851392,TBD at TBD
+2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851222,TBD at TBD
+2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851294,TBD at TBD
+2026,Regular,2026-03-12 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851560,TBD at TBD
 2026,Regular,2026-03-12 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851498,TBD at TBD
+2026,Regular,2026-03-12 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851392,TBD at TBD
 2026,Regular,2026-03-12 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Idaho Central Arena,True,True,,,STATUS_SCHEDULED,401851336,TBD at TBD
 2026,Regular,2026-03-12 15:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858186,TBD at TBD
 2026,Regular,2026-03-12 15:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851263,TBD at TBD
-2026,Regular,2026-03-12 16:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851375,TBD at TBD
 2026,Regular,2026-03-12 16:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851311,TBD at TBD
+2026,Regular,2026-03-12 16:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851375,TBD at TBD
 2026,Regular,2026-03-12 16:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851177,TBD at TBD
 2026,Regular,2026-03-12 16:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851561,TBD at TBD
 2026,Regular,2026-03-12 16:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851296,TBD at TBD
 2026,Regular,2026-03-12 17:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858187,TBD at TBD
 2026,Regular,2026-03-12 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851719,TBD at TBD
 2026,Regular,2026-03-12 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851264,TBD at TBD
+2026,Regular,2026-03-12 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851376,TBD at TBD
 2026,Regular,2026-03-12 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851312,TBD at TBD
 2026,Regular,2026-03-12 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851178,TBD at TBD
-2026,Regular,2026-03-12 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851376,TBD at TBD
 2026,Regular,2026-03-12 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851562,TBD at TBD
 2026,Regular,2026-03-12 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851499,TBD at TBD
 2026,Regular,2026-03-12 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851299,TBD at TBD
@@ -122,27 +110,27 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-12 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851266,TBD at TBD
 2026,Regular,2026-03-12 21:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851500,TBD at TBD
 2026,Regular,2026-03-12 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851473,TBD at TBD
+2026,Regular,2026-03-12 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851377,TBD at TBD
 2026,Regular,2026-03-12 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858189,TBD at TBD
 2026,Regular,2026-03-12 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851410,TBD at TBD
-2026,Regular,2026-03-12 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851377,TBD at TBD
-2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851179,TBD at TBD
-2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851300,TBD at TBD
-2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851223,TBD at TBD
 2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851563,TBD at TBD
 2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851313,TBD at TBD
+2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851300,TBD at TBD
+2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851223,TBD at TBD
+2026,Regular,2026-03-12 23:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851179,TBD at TBD
 2026,Regular,2026-03-12 23:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851268,TBD at TBD
 2026,Regular,2026-03-13 00:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851474,TBD at TBD
 2026,Regular,2026-03-13 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851720,TBD at TBD
+2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851378,TBD at TBD
+2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851393,TBD at TBD
 2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851734,TBD at TBD
 2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851501,TBD at TBD
 2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851411,TBD at TBD
-2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851393,TBD at TBD
-2026,Regular,2026-03-13 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851378,TBD at TBD
-2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851302,TBD at TBD
-2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851180,TBD at TBD
-2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851224,TBD at TBD
-2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851314,TBD at TBD
 2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851564,TBD at TBD
+2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851314,TBD at TBD
+2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851302,TBD at TBD
+2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851224,TBD at TBD
+2026,Regular,2026-03-13 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851180,TBD at TBD
 2026,Regular,2026-03-13 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851735,TBD at TBD
 2026,Regular,2026-03-13 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851502,TBD at TBD
 2026,Regular,2026-03-13 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851394,TBD at TBD
@@ -151,14 +139,14 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-13 16:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851413,TBD at TBD
 2026,Regular,2026-03-13 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851565,TBD at TBD
 2026,Regular,2026-03-13 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851225,TBD at TBD
-2026,Regular,2026-03-13 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851272,TBD at TBD
 2026,Regular,2026-03-13 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851722,TBD at TBD
+2026,Regular,2026-03-13 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851272,TBD at TBD
 2026,Regular,2026-03-13 18:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851381,TBD at TBD
 2026,Regular,2026-03-13 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Propst Arena,True,True,,,STATUS_SCHEDULED,401851414,TBD at TBD
 2026,Regular,2026-03-13 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851566,TBD at TBD
 2026,Regular,2026-03-13 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851226,TBD at TBD
-2026,Regular,2026-03-13 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858190,TBD at TBD
 2026,Regular,2026-03-13 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851273,TBD at TBD
+2026,Regular,2026-03-13 21:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858190,TBD at TBD
 2026,Regular,2026-03-13 21:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851315,TBD at TBD
 2026,Regular,2026-03-13 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851475,TBD at TBD
 2026,Regular,2026-03-13 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851382,TBD at TBD
@@ -170,30 +158,30 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-14 00:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851316,TBD at TBD
 2026,Regular,2026-03-14 00:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851476,TBD at TBD
 2026,Regular,2026-03-14 00:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851723,TBD at TBD
+2026,Regular,2026-03-14 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851383,TBD at TBD
 2026,Regular,2026-03-14 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851736,TBD at TBD
 2026,Regular,2026-03-14 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851395,TBD at TBD
-2026,Regular,2026-03-14 01:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851383,TBD at TBD
 2026,Regular,2026-03-14 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851568,TBD at TBD
 2026,Regular,2026-03-14 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851503,TBD at TBD
 2026,Regular,2026-03-14 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851305,TBD at TBD
 2026,Regular,2026-03-14 01:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Spectrum Center,True,True,,,STATUS_SCHEDULED,401851182,TBD at TBD
-2026,Regular,2026-03-14 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851738,TBD at TBD
 2026,Regular,2026-03-14 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lee's Family Forum,True,True,,,STATUS_SCHEDULED,401851397,TBD at TBD
+2026,Regular,2026-03-14 03:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Orleans Arena,True,True,,,STATUS_SCHEDULED,401851738,TBD at TBD
 2026,Regular,2026-03-14 03:59:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851504,TBD at TBD
 2026,Regular,2026-03-14 15:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,False,True,,,STATUS_SCHEDULED,401851206,TBD at TBD
 2026,Regular,2026-03-14 15:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Newman Arena,True,True,,,STATUS_SCHEDULED,401851435,TBD at TBD
+2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851275,TBD at TBD
+2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851384,TBD at TBD
 2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851569,TBD at TBD
 2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851477,TBD at TBD
-2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851384,TBD at TBD
-2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851275,TBD at TBD
 2026,Regular,2026-03-14 18:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Newman Arena,True,True,,,STATUS_SCHEDULED,401851436,TBD at TBD
 2026,Regular,2026-03-14 19:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851227,TBD at TBD
 2026,Regular,2026-03-14 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851570,TBD at TBD
 2026,Regular,2026-03-14 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851386,TBD at TBD
 2026,Regular,2026-03-14 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851276,TBD at TBD
 2026,Regular,2026-03-14 21:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851228,TBD at TBD
-2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851306,TBD at TBD
 2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851505,TBD at TBD
+2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851306,TBD at TBD
 2026,Regular,2026-03-14 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851317,TBD at TBD
 2026,Regular,2026-03-14 23:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851726,TBD at TBD
 2026,Regular,2026-03-15 00:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858192,TBD at TBD
@@ -206,3 +194,5 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-15 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851277,TBD at TBD
 2026,Regular,2026-03-15 19:15:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851229,TBD at TBD
 2026,Regular,2026-03-15 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851388,TBD at TBD
+2026,Regular,2026-03-17 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856435,TBD at TBD
+2026,Regular,2026-03-17 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856434,TBD at TBD

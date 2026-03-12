@@ -1,68 +1,6 @@
 [
   {
     "game_info": {
-      "game_id": 401851289,
-      "home_team": "Iowa State Cyclones",
-      "away_team": "Arizona State Sun Devils",
-      "date": "2026-03-11 16:30:00+00:00",
-      "venue": "T-Mobile Center",
-      "home_rank": 7,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 109.3,
-        "defensiveRating": 109.3
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.535455",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401851174,
-      "home_team": "Louisville Cardinals",
-      "away_team": "SMU Mustangs",
-      "date": "2026-03-11 18:30:00+00:00",
-      "venue": "Spectrum Center",
-      "home_rank": 24,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.6,
-        "defensiveRating": 107.6
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.537486",
-    "season": 2025
-  },
-  {
-    "game_info": {
       "game_id": 401858186,
       "home_team": "Miami (OH) RedHawks",
       "away_team": "Massachusetts Minutemen",
@@ -89,14 +27,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.539521",
+    "generated_at": "2026-03-12T08:25:29.536631",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851177,
       "home_team": "Virginia Cavaliers",
-      "away_team": "TBD",
+      "away_team": "NC State Wolfpack",
       "date": "2026-03-12 16:00:00+00:00",
       "venue": "Spectrum Center",
       "home_rank": 10,
@@ -120,14 +58,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.541577",
+    "generated_at": "2026-03-12T08:25:29.538736",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851311,
       "home_team": "St. John's Red Storm",
-      "away_team": "TBD",
+      "away_team": "Providence Friars",
       "date": "2026-03-12 16:00:00+00:00",
       "venue": "Madison Square Garden",
       "home_rank": 13,
@@ -151,25 +89,25 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.543680",
+    "generated_at": "2026-03-12T08:25:29.540830",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851296,
       "home_team": "Texas Tech Red Raiders",
-      "away_team": "TBD",
+      "away_team": "Iowa State Cyclones",
       "date": "2026-03-12 16:30:00+00:00",
       "venue": "T-Mobile Center",
       "home_rank": 16,
-      "away_rank": 99,
+      "away_rank": 7,
       "home_eff": {
         "offensiveRating": 108.4,
         "defensiveRating": 108.4
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.3,
+        "defensiveRating": 109.3
       },
       "home_stats": null,
       "away_stats": null,
@@ -182,14 +120,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.544760",
+    "generated_at": "2026-03-12T08:25:29.541844",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851376,
       "home_team": "Wisconsin Badgers",
-      "away_team": "TBD",
+      "away_team": "Washington Huskies",
       "date": "2026-03-12 18:30:00+00:00",
       "venue": "United Center",
       "home_rank": 23,
@@ -213,14 +151,45 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.545818",
+    "generated_at": "2026-03-12T08:25:29.542866",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401851178,
+      "home_team": "Miami Hurricanes",
+      "away_team": "Louisville Cardinals",
+      "date": "2026-03-12 18:30:00+00:00",
+      "venue": "Spectrum Center",
+      "home_rank": 99,
+      "away_rank": 24,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 107.6,
+        "defensiveRating": 107.6
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null
+    },
+    "predictions": {
+      "model_source": "regular"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-03-12T08:25:29.544890",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851299,
       "home_team": "Arizona Wildcats",
-      "away_team": "TBD",
+      "away_team": "UCF Knights",
       "date": "2026-03-12 19:00:00+00:00",
       "venue": "T-Mobile Center",
       "home_rank": 2,
@@ -244,14 +213,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.547861",
+    "generated_at": "2026-03-12T08:25:29.547087",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851562,
       "home_team": "Tennessee Volunteers",
-      "away_team": "TBD",
+      "away_team": "Auburn Tigers",
       "date": "2026-03-12 19:00:00+00:00",
       "venue": "Bridgestone Arena",
       "home_rank": 25,
@@ -275,14 +244,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.549889",
+    "generated_at": "2026-03-12T08:25:29.549165",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851377,
       "home_team": "Purdue Boilermakers",
-      "away_team": "TBD",
+      "away_team": "Northwestern Wildcats",
       "date": "2026-03-12 22:30:00+00:00",
       "venue": "United Center",
       "home_rank": 18,
@@ -306,14 +275,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.551873",
+    "generated_at": "2026-03-12T08:25:29.551186",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851313,
       "home_team": "UConn Huskies",
-      "away_team": "TBD",
+      "away_team": "Xavier Musketeers",
       "date": "2026-03-12 23:00:00+00:00",
       "venue": "Madison Square Garden",
       "home_rank": 6,
@@ -337,14 +306,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.553865",
+    "generated_at": "2026-03-12T08:25:29.553270",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851300,
       "home_team": "Houston Cougars",
-      "away_team": "TBD",
+      "away_team": "BYU Cougars",
       "date": "2026-03-12 23:00:00+00:00",
       "venue": "T-Mobile Center",
       "home_rank": 5,
@@ -359,23 +328,23 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -250,
+      "away_moneyline": 210,
+      "home_ml": -250,
+      "away_ml": 210
     },
     "predictions": {
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.555896",
+    "generated_at": "2026-03-12T08:25:29.553795",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851179,
       "home_team": "Duke Blue Devils",
-      "away_team": "TBD",
+      "away_team": "Florida State Seminoles",
       "date": "2026-03-12 23:00:00+00:00",
       "venue": "Spectrum Center",
       "home_rank": 1,
@@ -399,14 +368,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.557052",
+    "generated_at": "2026-03-12T08:25:29.554955",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851302,
       "home_team": "Kansas Jayhawks",
-      "away_team": "TBD",
+      "away_team": "TCU Horned Frogs",
       "date": "2026-03-13 01:30:00+00:00",
       "venue": "T-Mobile Center",
       "home_rank": 14,
@@ -430,14 +399,14 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.559030",
+    "generated_at": "2026-03-12T08:25:29.556927",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401851180,
       "home_team": "North Carolina Tar Heels",
-      "away_team": "TBD",
+      "away_team": "Clemson Tigers",
       "date": "2026-03-13 01:30:00+00:00",
       "venue": "Spectrum Center",
       "home_rank": 19,
@@ -461,7 +430,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.560095",
+    "generated_at": "2026-03-12T08:25:29.558002",
     "season": 2025
   },
   {
@@ -611,7 +580,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.562060",
+    "generated_at": "2026-03-12T08:25:29.559961",
     "season": 2025
   },
   {
@@ -642,7 +611,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.564091",
+    "generated_at": "2026-03-12T08:25:29.561968",
     "season": 2025
   },
   {
@@ -673,7 +642,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.565376",
+    "generated_at": "2026-03-12T08:25:29.563226",
     "season": 2025
   },
   {
@@ -704,7 +673,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.567303",
+    "generated_at": "2026-03-12T08:25:29.565147",
     "season": 2025
   },
   {
@@ -735,7 +704,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.569317",
+    "generated_at": "2026-03-12T08:25:29.567177",
     "season": 2025
   },
   {
@@ -766,7 +735,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.570585",
+    "generated_at": "2026-03-12T08:25:29.568416",
     "season": 2025
   },
   {
@@ -797,7 +766,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.571594",
+    "generated_at": "2026-03-12T08:25:29.569422",
     "season": 2025
   },
   {
@@ -828,7 +797,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.573532",
+    "generated_at": "2026-03-12T08:25:29.571379",
     "season": 2025
   },
   {
@@ -859,7 +828,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.575607",
+    "generated_at": "2026-03-12T08:25:29.573430",
     "season": 2025
   },
   {
@@ -890,7 +859,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.577602",
+    "generated_at": "2026-03-12T08:25:29.575431",
     "season": 2025
   },
   {
@@ -921,7 +890,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.579457",
+    "generated_at": "2026-03-12T08:25:29.577322",
     "season": 2025
   },
   {
@@ -952,7 +921,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.581316",
+    "generated_at": "2026-03-12T08:25:29.579200",
     "season": 2025
   },
   {
@@ -983,7 +952,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.583136",
+    "generated_at": "2026-03-12T08:25:29.581037",
     "season": 2025
   },
   {
@@ -1014,7 +983,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.584970",
+    "generated_at": "2026-03-12T08:25:29.582852",
     "season": 2025
   },
   {
@@ -1045,7 +1014,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.587006",
+    "generated_at": "2026-03-12T08:25:29.584894",
     "season": 2025
   },
   {
@@ -1076,7 +1045,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.589014",
+    "generated_at": "2026-03-12T08:25:29.586875",
     "season": 2025
   },
   {
@@ -1107,7 +1076,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.590837",
+    "generated_at": "2026-03-12T08:25:29.588717",
     "season": 2025
   },
   {
@@ -1138,7 +1107,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.592670",
+    "generated_at": "2026-03-12T08:25:29.590528",
     "season": 2025
   },
   {
@@ -1169,7 +1138,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.594480",
+    "generated_at": "2026-03-12T08:25:29.592354",
     "season": 2025
   },
   {
@@ -1200,7 +1169,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.596534",
+    "generated_at": "2026-03-12T08:25:29.594405",
     "season": 2025
   },
   {
@@ -1231,7 +1200,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.598338",
+    "generated_at": "2026-03-12T08:25:29.596234",
     "season": 2025
   },
   {
@@ -1262,7 +1231,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.600173",
+    "generated_at": "2026-03-12T08:25:29.598060",
     "season": 2025
   },
   {
@@ -1293,7 +1262,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.602006",
+    "generated_at": "2026-03-12T08:25:29.599884",
     "season": 2025
   },
   {
@@ -1324,7 +1293,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.603840",
+    "generated_at": "2026-03-12T08:25:29.601705",
     "season": 2025
   },
   {
@@ -1355,7 +1324,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.605662",
+    "generated_at": "2026-03-12T08:25:29.603530",
     "season": 2025
   },
   {
@@ -1386,7 +1355,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.607488",
+    "generated_at": "2026-03-12T08:25:29.605352",
     "season": 2025
   },
   {
@@ -1417,7 +1386,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.609302",
+    "generated_at": "2026-03-12T08:25:29.607176",
     "season": 2025
   },
   {
@@ -1448,7 +1417,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.611121",
+    "generated_at": "2026-03-12T08:25:29.609004",
     "season": 2025
   },
   {
@@ -1479,7 +1448,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.612934",
+    "generated_at": "2026-03-12T08:25:29.610830",
     "season": 2025
   },
   {
@@ -1510,7 +1479,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.614806",
+    "generated_at": "2026-03-12T08:25:29.612691",
     "season": 2025
   },
   {
@@ -1541,7 +1510,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.616621",
+    "generated_at": "2026-03-12T08:25:29.614511",
     "season": 2025
   },
   {
@@ -1572,7 +1541,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.618448",
+    "generated_at": "2026-03-12T08:25:29.616337",
     "season": 2025
   },
   {
@@ -1603,7 +1572,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.620272",
+    "generated_at": "2026-03-12T08:25:29.618164",
     "season": 2025
   },
   {
@@ -1634,7 +1603,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.622171",
+    "generated_at": "2026-03-12T08:25:29.620014",
     "season": 2025
   },
   {
@@ -1665,7 +1634,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.624030",
+    "generated_at": "2026-03-12T08:25:29.621894",
     "season": 2025
   },
   {
@@ -1696,7 +1665,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.625862",
+    "generated_at": "2026-03-12T08:25:29.623772",
     "season": 2025
   },
   {
@@ -1727,7 +1696,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.627680",
+    "generated_at": "2026-03-12T08:25:29.625591",
     "season": 2025
   },
   {
@@ -1758,7 +1727,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.629554",
+    "generated_at": "2026-03-12T08:25:29.627507",
     "season": 2025
   },
   {
@@ -1789,7 +1758,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.631354",
+    "generated_at": "2026-03-12T08:25:29.629338",
     "season": 2025
   },
   {
@@ -1820,7 +1789,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.633166",
+    "generated_at": "2026-03-12T08:25:29.631160",
     "season": 2025
   },
   {
@@ -1851,7 +1820,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.634982",
+    "generated_at": "2026-03-12T08:25:29.632984",
     "season": 2025
   },
   {
@@ -1882,7 +1851,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.636798",
+    "generated_at": "2026-03-12T08:25:29.634823",
     "season": 2025
   },
   {
@@ -1913,7 +1882,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.638631",
+    "generated_at": "2026-03-12T08:25:29.636653",
     "season": 2025
   },
   {
@@ -1944,7 +1913,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.640462",
+    "generated_at": "2026-03-12T08:25:29.638455",
     "season": 2025
   },
   {
@@ -1975,7 +1944,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.642278",
+    "generated_at": "2026-03-12T08:25:29.640332",
     "season": 2025
   },
   {
@@ -2006,7 +1975,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.644102",
+    "generated_at": "2026-03-12T08:25:29.642151",
     "season": 2025
   },
   {
@@ -2037,7 +2006,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.645916",
+    "generated_at": "2026-03-12T08:25:29.643972",
     "season": 2025
   },
   {
@@ -2068,7 +2037,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.647735",
+    "generated_at": "2026-03-12T08:25:29.645785",
     "season": 2025
   },
   {
@@ -2099,7 +2068,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.649570",
+    "generated_at": "2026-03-12T08:25:29.647595",
     "season": 2025
   },
   {
@@ -2130,7 +2099,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.651381",
+    "generated_at": "2026-03-12T08:25:29.649428",
     "season": 2025
   },
   {
@@ -2161,7 +2130,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.653197",
+    "generated_at": "2026-03-12T08:25:29.651276",
     "season": 2025
   },
   {
@@ -2192,7 +2161,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.655027",
+    "generated_at": "2026-03-12T08:25:29.653185",
     "season": 2025
   },
   {
@@ -2223,7 +2192,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.656933",
+    "generated_at": "2026-03-12T08:25:29.655044",
     "season": 2025
   },
   {
@@ -2254,7 +2223,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.658776",
+    "generated_at": "2026-03-12T08:25:29.656854",
     "season": 2025
   },
   {
@@ -2285,7 +2254,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.660599",
+    "generated_at": "2026-03-12T08:25:29.658675",
     "season": 2025
   },
   {
@@ -2316,7 +2285,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.662455",
+    "generated_at": "2026-03-12T08:25:29.660472",
     "season": 2025
   },
   {
@@ -2347,7 +2316,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.664341",
+    "generated_at": "2026-03-12T08:25:29.662281",
     "season": 2025
   },
   {
@@ -2378,7 +2347,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.666223",
+    "generated_at": "2026-03-12T08:25:29.664139",
     "season": 2025
   },
   {
@@ -2409,7 +2378,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.668160",
+    "generated_at": "2026-03-12T08:25:29.666011",
     "season": 2025
   },
   {
@@ -2440,7 +2409,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.670002",
+    "generated_at": "2026-03-12T08:25:29.667845",
     "season": 2025
   },
   {
@@ -2471,7 +2440,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.671812",
+    "generated_at": "2026-03-12T08:25:29.669690",
     "season": 2025
   },
   {
@@ -2502,7 +2471,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.673639",
+    "generated_at": "2026-03-12T08:25:29.671518",
     "season": 2025
   },
   {
@@ -2533,7 +2502,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.675455",
+    "generated_at": "2026-03-12T08:25:29.673332",
     "season": 2025
   },
   {
@@ -2564,7 +2533,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.677294",
+    "generated_at": "2026-03-12T08:25:29.675142",
     "season": 2025
   },
   {
@@ -2595,7 +2564,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.679135",
+    "generated_at": "2026-03-12T08:25:29.676968",
     "season": 2025
   },
   {
@@ -2626,7 +2595,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.680964",
+    "generated_at": "2026-03-12T08:25:29.678781",
     "season": 2025
   },
   {
@@ -2657,7 +2626,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.682773",
+    "generated_at": "2026-03-12T08:25:29.680607",
     "season": 2025
   },
   {
@@ -2688,7 +2657,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.684605",
+    "generated_at": "2026-03-12T08:25:29.682414",
     "season": 2025
   },
   {
@@ -2719,7 +2688,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.686431",
+    "generated_at": "2026-03-12T08:25:29.684236",
     "season": 2025
   },
   {
@@ -2750,7 +2719,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.688297",
+    "generated_at": "2026-03-12T08:25:29.686052",
     "season": 2025
   },
   {
@@ -2781,7 +2750,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.690119",
+    "generated_at": "2026-03-12T08:25:29.687863",
     "season": 2025
   },
   {
@@ -2812,7 +2781,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.691950",
+    "generated_at": "2026-03-12T08:25:29.689695",
     "season": 2025
   },
   {
@@ -2843,7 +2812,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.693806",
+    "generated_at": "2026-03-12T08:25:29.691510",
     "season": 2025
   },
   {
@@ -2874,7 +2843,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.695639",
+    "generated_at": "2026-03-12T08:25:29.693319",
     "season": 2025
   },
   {
@@ -2905,7 +2874,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.697449",
+    "generated_at": "2026-03-12T08:25:29.695151",
     "season": 2025
   },
   {
@@ -2936,7 +2905,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.699328",
+    "generated_at": "2026-03-12T08:25:29.697063",
     "season": 2025
   },
   {
@@ -2967,7 +2936,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.701228",
+    "generated_at": "2026-03-12T08:25:29.700466",
     "season": 2025
   },
   {
@@ -2998,7 +2967,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.703278",
+    "generated_at": "2026-03-12T08:25:29.703960",
     "season": 2025
   },
   {
@@ -3029,7 +2998,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.705148",
+    "generated_at": "2026-03-12T08:25:29.707429",
     "season": 2025
   },
   {
@@ -3060,7 +3029,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.707032",
+    "generated_at": "2026-03-12T08:25:29.709741",
     "season": 2025
   },
   {
@@ -3091,7 +3060,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.708867",
+    "generated_at": "2026-03-12T08:25:29.711552",
     "season": 2025
   },
   {
@@ -3122,7 +3091,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.710698",
+    "generated_at": "2026-03-12T08:25:29.713363",
     "season": 2025
   },
   {
@@ -3153,7 +3122,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.712545",
+    "generated_at": "2026-03-12T08:25:29.715205",
     "season": 2025
   },
   {
@@ -3184,7 +3153,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.714419",
+    "generated_at": "2026-03-12T08:25:29.717011",
     "season": 2025
   },
   {
@@ -3215,7 +3184,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.716272",
+    "generated_at": "2026-03-12T08:25:29.718907",
     "season": 2025
   },
   {
@@ -3246,7 +3215,7 @@
       "model_source": "regular"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-11T08:22:43.718246",
+    "generated_at": "2026-03-12T08:25:29.720879",
     "season": 2025
   }
 ]

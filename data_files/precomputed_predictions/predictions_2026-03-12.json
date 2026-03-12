@@ -1,0 +1,99 @@
+{
+  "computed_at": "2026-03-12T06:31:21.581711",
+  "season_used": 2025,
+  "num_games": 2,
+  "games": [
+    {
+      "home_team": "Miami (OH) RedHawks",
+      "away_team": "Massachusetts Minutemen",
+      "home_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "away_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "home_stats": {
+        "ppg": 70.0,
+        "pace": 67.3,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 69.0,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-03-12 15:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Rocket Arena",
+      "neutral_site": true,
+      "home_rank": 20,
+      "away_rank": null,
+      "season_used": 2025,
+      "predictions": {}
+    },
+    {
+      "home_team": "UMBC Retrievers",
+      "away_team": "Vermont Catamounts",
+      "home_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "away_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "home_stats": {
+        "ppg": 70.0,
+        "pace": 66.9,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 64.0,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-03-14 15:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Chesapeake Employers Insurance Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2025,
+      "predictions": {}
+    }
+  ]
+}

@@ -1,28 +1,20 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-12 15:00:00+00:00,Miami (OH) RedHawks,Massachusetts Minutemen,193,113,0,0,20,99,Rocket Arena,True,True,14,14,STATUS_SCHEDULED,401858186,Massachusetts Minutemen at Miami (OH) RedHawks
-2026,Regular,2026-03-12 16:00:00+00:00,Virginia Cavaliers,NC State Wolfpack,258,152,0,0,10,99,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851177,NC State Wolfpack at Virginia Cavaliers
-2026,Regular,2026-03-12 16:00:00+00:00,St. John's Red Storm,Providence Friars,2599,2507,0,0,13,99,Madison Square Garden,True,True,4,4,STATUS_SCHEDULED,401851311,Providence Friars at St. John's Red Storm
-2026,Regular,2026-03-12 16:30:00+00:00,Texas Tech Red Raiders,Iowa State Cyclones,2641,66,0,0,16,7,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851296,Iowa State Cyclones at Texas Tech Red Raiders
-2026,Regular,2026-03-12 18:30:00+00:00,Wisconsin Badgers,Washington Huskies,275,264,0,0,23,99,United Center,True,True,7,7,STATUS_SCHEDULED,401851376,Washington Huskies at Wisconsin Badgers
-2026,Regular,2026-03-12 18:30:00+00:00,Miami Hurricanes,Louisville Cardinals,2390,97,0,0,99,24,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851178,Louisville Cardinals at Miami Hurricanes
-2026,Regular,2026-03-12 19:00:00+00:00,Arizona Wildcats,UCF Knights,12,2116,0,0,2,99,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851299,UCF Knights at Arizona Wildcats
-2026,Regular,2026-03-12 19:00:00+00:00,Tennessee Volunteers,Auburn Tigers,2633,2,0,0,25,99,Bridgestone Arena,True,True,23,23,STATUS_SCHEDULED,401851562,Auburn Tigers at Tennessee Volunteers
-2026,Regular,2026-03-12 22:30:00+00:00,Purdue Boilermakers,Northwestern Wildcats,2509,77,0,0,18,99,United Center,True,True,7,7,STATUS_SCHEDULED,401851377,Northwestern Wildcats at Purdue Boilermakers
-2026,Regular,2026-03-12 23:00:00+00:00,UConn Huskies,Xavier Musketeers,41,2752,0,0,6,99,Madison Square Garden,True,True,4,4,STATUS_SCHEDULED,401851313,Xavier Musketeers at UConn Huskies
-2026,Regular,2026-03-12 23:00:00+00:00,Houston Cougars,BYU Cougars,248,252,0,0,5,99,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851300,BYU Cougars at Houston Cougars
-2026,Regular,2026-03-12 23:00:00+00:00,Duke Blue Devils,Florida State Seminoles,150,52,0,0,1,99,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851179,Florida State Seminoles at Duke Blue Devils
-2026,Regular,2026-03-13 01:30:00+00:00,Kansas Jayhawks,TCU Horned Frogs,2305,2628,0,0,14,99,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851302,TCU Horned Frogs at Kansas Jayhawks
-2026,Regular,2026-03-13 01:30:00+00:00,North Carolina Tar Heels,Clemson Tigers,153,228,0,0,19,99,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851180,Clemson Tigers at North Carolina Tar Heels
-2026,Regular,2026-03-13 16:00:00+00:00,Michigan Wolverines,TBD,130,-2,0,0,3,99,United Center,True,False,7,,STATUS_SCHEDULED,401851380,TBD at Michigan Wolverines
-2026,Regular,2026-03-13 17:00:00+00:00,Florida Gators,TBD,57,-2,0,0,4,99,Bridgestone Arena,True,False,23,,STATUS_SCHEDULED,401851565,TBD at Florida Gators
-2026,Regular,2026-03-13 18:30:00+00:00,Illinois Fighting Illini,TBD,356,-2,0,0,9,99,United Center,True,False,7,,STATUS_SCHEDULED,401851381,TBD at Illinois Fighting Illini
-2026,Regular,2026-03-13 19:30:00+00:00,Vanderbilt Commodores,TBD,238,-2,0,0,22,99,Bridgestone Arena,True,False,23,,STATUS_SCHEDULED,401851566,TBD at Vanderbilt Commodores
-2026,Regular,2026-03-13 22:30:00+00:00,Nebraska Cornhuskers,TBD,158,-2,0,0,11,99,United Center,True,False,7,,STATUS_SCHEDULED,401851382,TBD at Nebraska Cornhuskers
-2026,Regular,2026-03-13 23:00:00+00:00,Alabama Crimson Tide,TBD,333,-2,0,0,15,99,Bridgestone Arena,True,False,23,,STATUS_SCHEDULED,401851567,TBD at Alabama Crimson Tide
-2026,Regular,2026-03-14 01:00:00+00:00,Michigan State Spartans,TBD,127,-2,0,0,8,99,United Center,True,False,7,,STATUS_SCHEDULED,401851383,TBD at Michigan State Spartans
-2026,Regular,2026-03-14 01:30:00+00:00,Arkansas Razorbacks,TBD,8,-2,0,0,17,99,Bridgestone Arena,True,False,23,,STATUS_SCHEDULED,401851568,TBD at Arkansas Razorbacks
-2026,Regular,2026-03-14 15:00:00+00:00,UMBC Retrievers,Vermont Catamounts,2378,261,0,0,99,99,Chesapeake Employers Insurance Arena,False,True,1,1,STATUS_SCHEDULED,401851206,Vermont Catamounts at UMBC Retrievers
+2026,Regular,2026-03-13 16:00:00+00:00,Michigan Wolverines,Ohio State Buckeyes,130,194,0,0,3,99,United Center,True,True,7,7,STATUS_SCHEDULED,401851380,Ohio State Buckeyes at Michigan Wolverines
+2026,Regular,2026-03-13 17:00:00+00:00,Florida Gators,Kentucky Wildcats,57,96,0,0,4,99,Bridgestone Arena,True,True,23,23,STATUS_SCHEDULED,401851565,Kentucky Wildcats at Florida Gators
+2026,Regular,2026-03-13 18:30:00+00:00,Illinois Fighting Illini,Wisconsin Badgers,356,275,0,0,9,23,United Center,True,True,7,7,STATUS_SCHEDULED,401851381,Wisconsin Badgers at Illinois Fighting Illini
+2026,Regular,2026-03-13 19:30:00+00:00,Vanderbilt Commodores,Tennessee Volunteers,238,2633,0,0,22,25,Bridgestone Arena,True,True,23,23,STATUS_SCHEDULED,401851566,Tennessee Volunteers at Vanderbilt Commodores
+2026,Regular,2026-03-13 21:30:00+00:00,St. John's Red Storm,Seton Hall Pirates,2599,2550,0,0,13,99,Madison Square Garden,False,True,4,4,STATUS_SCHEDULED,401851315,Seton Hall Pirates at St. John's Red Storm
+2026,Regular,2026-03-13 22:30:00+00:00,Nebraska Cornhuskers,Purdue Boilermakers,158,2509,0,0,11,18,United Center,True,True,7,7,STATUS_SCHEDULED,401851382,Purdue Boilermakers at Nebraska Cornhuskers
+2026,Regular,2026-03-13 23:00:00+00:00,Arizona Wildcats,Iowa State Cyclones,12,66,0,0,2,7,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851304,Iowa State Cyclones at Arizona Wildcats
+2026,Regular,2026-03-13 23:00:00+00:00,Virginia Cavaliers,Miami Hurricanes,258,2390,0,0,10,99,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851181,Miami Hurricanes at Virginia Cavaliers
+2026,Regular,2026-03-13 23:00:00+00:00,Alabama Crimson Tide,Ole Miss Rebels,333,145,0,0,15,99,Bridgestone Arena,True,True,23,23,STATUS_SCHEDULED,401851567,Ole Miss Rebels at Alabama Crimson Tide
+2026,Regular,2026-03-14 00:00:00+00:00,UConn Huskies,Georgetown Hoyas,41,46,0,0,6,99,Madison Square Garden,True,True,4,4,STATUS_SCHEDULED,401851316,Georgetown Hoyas at UConn Huskies
+2026,Regular,2026-03-14 01:00:00+00:00,Michigan State Spartans,UCLA Bruins,127,26,0,0,8,99,United Center,True,True,7,7,STATUS_SCHEDULED,401851383,UCLA Bruins at Michigan State Spartans
+2026,Regular,2026-03-14 01:30:00+00:00,Arkansas Razorbacks,Oklahoma Sooners,8,201,0,0,17,99,Bridgestone Arena,True,True,23,23,STATUS_SCHEDULED,401851568,Oklahoma Sooners at Arkansas Razorbacks
+2026,Regular,2026-03-14 01:30:00+00:00,Houston Cougars,Kansas Jayhawks,248,2305,0,0,5,14,T-Mobile Center,True,True,8,8,STATUS_SCHEDULED,401851305,Kansas Jayhawks at Houston Cougars
+2026,Regular,2026-03-14 01:30:00+00:00,Duke Blue Devils,Clemson Tigers,150,228,0,0,1,99,Spectrum Center,True,True,2,2,STATUS_SCHEDULED,401851182,Clemson Tigers at Duke Blue Devils
 2026,Regular,2026-03-14 15:00:00+00:00,Yale Bulldogs,Cornell Big Red,43,172,0,0,99,99,Newman Arena,True,True,12,12,STATUS_SCHEDULED,401851435,Cornell Big Red at Yale Bulldogs
+2026,Regular,2026-03-14 15:00:00+00:00,UMBC Retrievers,Vermont Catamounts,2378,261,0,0,99,99,Chesapeake Employers Insurance Arena,False,True,1,1,STATUS_SCHEDULED,401851206,Vermont Catamounts at UMBC Retrievers
 2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bridgestone Arena,True,True,,,STATUS_SCHEDULED,401851569,TBD at TBD
 2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Norfolk Scope Arena,True,True,,,STATUS_SCHEDULED,401851477,TBD at TBD
 2026,Regular,2026-03-14 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851384,TBD at TBD
@@ -33,8 +25,8 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-14 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851386,TBD at TBD
 2026,Regular,2026-03-14 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851276,TBD at TBD
 2026,Regular,2026-03-14 21:30:00+00:00,Wichita State Shockers,TBD,2724,-2,0,0,99,99,Legacy Arena at BJCC,True,False,62,,STATUS_SCHEDULED,401851228,TBD at Wichita State Shockers
-2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851306,TBD at TBD
 2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Thomas & Mack Center,True,True,,,STATUS_SCHEDULED,401851505,TBD at TBD
+2026,Regular,2026-03-14 22:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,T-Mobile Center,True,True,,,STATUS_SCHEDULED,401851306,TBD at TBD
 2026,Regular,2026-03-14 22:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Madison Square Garden,True,True,,,STATUS_SCHEDULED,401851317,TBD at TBD
 2026,Regular,2026-03-14 23:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Gateway Center,True,True,,,STATUS_SCHEDULED,401851726,TBD at TBD
 2026,Regular,2026-03-15 00:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Rocket Arena,True,True,,,STATUS_SCHEDULED,401858192,TBD at TBD
@@ -47,55 +39,59 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-15 17:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,PPG Paints Arena,True,True,,,STATUS_SCHEDULED,401851277,TBD at TBD
 2026,Regular,2026-03-15 19:15:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Legacy Arena at BJCC,True,True,,,STATUS_SCHEDULED,401851229,TBD at TBD
 2026,Regular,2026-03-15 19:30:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,True,,,STATUS_SCHEDULED,401851388,TBD at TBD
-2026,Regular,2026-03-17 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856434,TBD at TBD
 2026,Regular,2026-03-17 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856435,TBD at TBD
+2026,Regular,2026-03-17 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856434,TBD at TBD
 2026,Regular,2026-03-18 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856437,TBD at TBD
 2026,Regular,2026-03-18 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,UD Arena,True,False,,,STATUS_SCHEDULED,401856436,TBD at TBD
-2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856483,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856478,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856479,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856480,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856481,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856482,TBD at TBD
+2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856483,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856484,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856485,TBD at TBD
-2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856486,TBD at TBD
+2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856490,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856487,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856488,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856489,TBD at TBD
-2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856490,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856491,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856492,TBD at TBD
 2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856493,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856519,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856518,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856497,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856523,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856495,TBD at TBD
+2026,Regular,2026-03-19 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856486,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856494,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856496,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856497,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856518,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856519,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856520,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856526,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856522,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856521,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856495,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856523,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856524,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856525,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856526,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856527,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856528,TBD at TBD
 2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856529,TBD at TBD
-2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856521,TBD at TBD
+2026,Regular,2026-03-20 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856522,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856530,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856531,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856532,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856533,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856536,TBD at TBD
+2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856532,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856535,TBD at TBD
+2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856536,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856537,TBD at TBD
 2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856534,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856565,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856561,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856560,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856559,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856565,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856558,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856569,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856568,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,,True,False,,,STATUS_SCHEDULED,401856566,TBD at TBD

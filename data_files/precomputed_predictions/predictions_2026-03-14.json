@@ -1,0 +1,53 @@
+{
+  "computed_at": "2026-03-14T06:34:33.980411",
+  "season_used": 2025,
+  "num_games": 1,
+  "games": [
+    {
+      "home_team": "UMBC Retrievers",
+      "away_team": "Vermont Catamounts",
+      "home_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "away_eff": {
+        "offensiveRating": 100.0,
+        "defensiveRating": 100.0,
+        "netRating": 0.0
+      },
+      "home_stats": {
+        "ppg": 70.0,
+        "pace": 66.9,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 64.0,
+        "efg_pct": 0.5,
+        "to_rate": 0.15,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35,
+        "opp_ppg": 70.0
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-03-14 15:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Chesapeake Employers Insurance Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2025,
+      "predictions": {}
+    }
+  ]
+}

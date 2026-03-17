@@ -91,8 +91,8 @@ def main():
         '--years',
         nargs='+',
         type=int,
-        default=[2025, 2024, 2023],
-        help='Tournament years to pre-compute (default: 2025 2024 2023)'
+        default=[2026, 2025, 2024, 2023],
+        help='Tournament years to pre-compute (default: 2026 2025 2024 2023)'
     )
     
     args = parser.parse_args()

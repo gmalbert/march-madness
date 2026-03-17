@@ -46,9 +46,9 @@ MODEL_DIR = DATA_DIR / "models"
 MODEL_DIR.mkdir(exist_ok=True)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Data loading
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 def load_data(feature_set: str = "weighted") -> pd.DataFrame:
     candidates = {
@@ -109,9 +109,9 @@ def prepare_xy(df: pd.DataFrame, model_type: str) -> Tuple[pd.DataFrame, pd.Seri
     return X, y, weights
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Training helpers
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 def _tournament_weights(df_valid: pd.DataFrame, base_weight: pd.Series,
                          tourney_mult: float = 3.0) -> np.ndarray:
@@ -259,18 +259,18 @@ def train_moneyline_tournament(X_all: pd.DataFrame, y_all: pd.Series,
     return models
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Leave-one-year-out evaluation on tournament games
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 def lovo_cv_tournament(df: pd.DataFrame, model_type: str) -> pd.DataFrame:
     """Leave-one-year-out cross-validation on tournament games.
 
     Returns a DataFrame with per-year results.
     """
-    print(f"\n{'─'*60}")
+    print(f"\n{'-'*60}")
     print(f"  Leave-one-year-out CV  |  model: {model_type}")
-    print(f"{'─'*60}")
+    print(f"{'-'*60}")
 
     df_tourney = df[df["game_type"] == "tournament"].copy()
     years = sorted(df_tourney["season"].unique())
@@ -333,9 +333,9 @@ def lovo_cv_tournament(df: pd.DataFrame, model_type: str) -> pd.DataFrame:
     return pd.DataFrame(records)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Save and report
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 def save_tournament_models(models: Dict, model_type: str):
     saved = []
@@ -346,7 +346,7 @@ def save_tournament_models(models: Dict, model_type: str):
         if data.get("scaler") is not None:
             sp = MODEL_DIR / f"tournament_{model_type}_{name}_scaler.joblib"
             joblib.dump(data["scaler"], sp)
-    print(f"  Saved {len(saved)} {model_type} models → {MODEL_DIR}")
+    print(f"  Saved {len(saved)} {model_type} models -> {MODEL_DIR}")
     return saved
 
 
@@ -419,9 +419,9 @@ def compare_with_baseline(df: pd.DataFrame, tournament_models: Dict,
     return comparison
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Main
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 def main(feature_set: str = "enriched"):
     print("\n" + "=" * 65)
@@ -493,8 +493,8 @@ def main(feature_set: str = "enriched"):
     with open(report_path, "w") as fh:
         json.dump(all_results, fh, indent=2, default=str)
     print(f"\n{'='*65}")
-    print(f"  Results saved → {report_path}")
-    print(f"  Tournament models saved → {MODEL_DIR}/tournament_*.joblib")
+    print(f"  Results saved -> {report_path}")
+    print(f"  Tournament models saved -> {MODEL_DIR}/tournament_*.joblib")
     print(f"{'='*65}")
 
     return all_results
@@ -507,3 +507,4 @@ if __name__ == "__main__":
                         help="Which training dataset to use")
     args = parser.parse_args()
     main(feature_set=args.feature_set)
+

@@ -1,0 +1,102 @@
+
+=================================================================
+   TOURNAMENT MODEL TRAINING  (train_tournament_models.py)
+=================================================================
+Loading data from data_files\training_data_enriched.csv
+  Rows: 26230  |  Cols: 48
+  Game types: {'regular': 25111, 'tournament': 1119}
+
+=================================================================
+  MODEL TYPE: SPREAD
+=================================================================
+  Training on 25368 samples (1116 tournament × 3× weight)
+
+  Training results (spread):
+    ridge                    : mae=9.229  rmse=11.717
+    xgboost                  : mae=9.199  rmse=11.687
+    random_forest            : mae=9.221  rmse=11.718
+  Saved 3 spread models -> data_files\models
+
+------------------------------------------------------------
+  Leave-one-year-out CV  |  model: spread
+------------------------------------------------------------
+  2016: {'year': np.int64(2016), 'n_games': 146, 'mae': 8.93, 'rmse': 11.18}
+  2017: {'year': np.int64(2017), 'n_games': 125, 'mae': 10.053, 'rmse': 12.574}
+  2018: {'year': np.int64(2018), 'n_games': 132, 'mae': 9.9, 'rmse': 12.869}
+  2019: {'year': np.int64(2019), 'n_games': 139, 'mae': 9.25, 'rmse': 11.542}
+  2021: {'year': np.int64(2021), 'n_games': 88, 'mae': 10.559, 'rmse': 13.28}
+  2022: {'year': np.int64(2022), 'n_games': 130, 'mae': 10.193, 'rmse': 12.71}
+  2023: {'year': np.int64(2023), 'n_games': 113, 'mae': 9.374, 'rmse': 11.722}
+  2024: {'year': np.int64(2024), 'n_games': 120, 'mae': 9.215, 'rmse': 11.721}
+  2025: {'year': np.int64(2025), 'n_games': 123, 'mae': 9.415, 'rmse': 11.657}
+
+  Comparison on all tournament games (spread):
+  Could not load baseline model data_files\models\spread_xgboost.joblib: Feature shape mismatch, expected: 11, got 18
+    tournament_ridge              : mae=9.613  rmse=12.03  n_games=1116
+    tournament_xgboost            : mae=7.633  rmse=9.694  n_games=1116
+    tournament_random_forest      : mae=8.764  rmse=10.938  n_games=1116
+
+=================================================================
+  MODEL TYPE: TOTAL
+=================================================================
+  Training on 25368 samples (1116 tournament × 3× weight)
+
+  Training results (total):
+    ridge                    : mae=12.513  rmse=15.915
+    xgboost                  : mae=12.645  rmse=16.079
+    random_forest            : mae=12.558  rmse=16.000
+  Saved 3 total models -> data_files\models
+
+------------------------------------------------------------
+  Leave-one-year-out CV  |  model: total
+------------------------------------------------------------
+  2016: {'year': np.int64(2016), 'n_games': 146, 'mae': 12.335, 'rmse': 16.189}
+  2017: {'year': np.int64(2017), 'n_games': 125, 'mae': 11.808, 'rmse': 15.075}
+  2018: {'year': np.int64(2018), 'n_games': 132, 'mae': 14.19, 'rmse': 17.523}
+  2019: {'year': np.int64(2019), 'n_games': 139, 'mae': 13.853, 'rmse': 17.275}
+  2021: {'year': np.int64(2021), 'n_games': 88, 'mae': 12.814, 'rmse': 16.282}
+  2022: {'year': np.int64(2022), 'n_games': 130, 'mae': 14.273, 'rmse': 17.42}
+  2023: {'year': np.int64(2023), 'n_games': 113, 'mae': 11.908, 'rmse': 15.932}
+  2024: {'year': np.int64(2024), 'n_games': 120, 'mae': 12.788, 'rmse': 16.981}
+  2025: {'year': np.int64(2025), 'n_games': 123, 'mae': 11.79, 'rmse': 15.545}
+
+  Comparison on all tournament games (total):
+  Could not load baseline model data_files\models\total_xgboost.joblib: Feature shape mismatch, expected: 11, got 19
+    tournament_ridge              : mae=12.748  rmse=16.272  n_games=1116
+    tournament_xgboost            : mae=10.055  rmse=12.927  n_games=1116
+    tournament_random_forest      : mae=11.454  rmse=14.464  n_games=1116
+
+=================================================================
+  MODEL TYPE: MONEYLINE
+=================================================================
+  Training on 25368 samples (1116 tournament × 3× weight)
+
+  Training results (moneyline):
+    logistic_regression      : acc=0.7574  brier=0.1645
+    xgboost                  : acc=0.7517  brier=0.1660
+    gradient_boosting        : acc=0.7529  brier=0.1654
+  Saved 3 moneyline models -> data_files\models
+
+------------------------------------------------------------
+  Leave-one-year-out CV  |  model: moneyline
+------------------------------------------------------------
+  2016: {'year': np.int64(2016), 'n_games': 146, 'accuracy': 0.7123}
+  2017: {'year': np.int64(2017), 'n_games': 125, 'accuracy': 0.64}
+  2018: {'year': np.int64(2018), 'n_games': 132, 'accuracy': 0.6591}
+  2019: {'year': np.int64(2019), 'n_games': 139, 'accuracy': 0.6547}
+  2021: {'year': np.int64(2021), 'n_games': 88, 'accuracy': 0.5795}
+  2022: {'year': np.int64(2022), 'n_games': 130, 'accuracy': 0.6231}
+  2023: {'year': np.int64(2023), 'n_games': 113, 'accuracy': 0.6637}
+  2024: {'year': np.int64(2024), 'n_games': 120, 'accuracy': 0.6583}
+  2025: {'year': np.int64(2025), 'n_games': 123, 'accuracy': 0.6829}
+
+  Comparison on all tournament games (moneyline):
+  Could not load baseline model data_files\models\moneyline_xgboost.joblib: Feature shape mismatch, expected: 11, got 18
+    tournament_logistic_regression: accuracy=0.6667  n_games=1116
+    tournament_xgboost            : accuracy=0.8082  n_games=1116
+    tournament_gradient_boosting  : accuracy=0.7392  n_games=1116
+
+=================================================================
+  Results saved -> data_files\models\tournament_model_results.json
+  Tournament models saved -> data_files\models/tournament_*.joblib
+=================================================================

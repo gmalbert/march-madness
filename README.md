@@ -8,7 +8,7 @@ A comprehensive March Madness betting prediction system that combines historical
 - **Comprehensive Data Collection**: 10 years of historical tournament data (2016-2025)
 - **Advanced Efficiency Metrics**: KenPom and BartTorvik ratings integration (364 teams)
 - **Enhanced ML Models**: 11-feature models with 8.4% spread accuracy improvement
-- **Real-time Predictions**: Live game schedules with betting predictions
+- **Real-time Predictions**: Live game schedules with betting predictions (includes live Vegas spreads/OUs via Odds API)
 - **Underdog Value Bets**: Automatic detection of profitable underdog opportunities
 - **Kelly Criterion Betting**: Optimal bet sizing recommendations
 - **Multi-API Integration**: CBBD + ESPN + KenPom + BartTorvik
@@ -37,7 +37,13 @@ A comprehensive March Madness betting prediction system that combines historical
 - **Betting Models**: Complete implementation with evaluation and ensemble methods
 
 ## API Information
-This project uses the [College Basketball Data API](https://api.collegebasketballdata.com/) to fetch data. The API key provides 1,000 calls per month.
+This project uses:
+- [College Basketball Data API](https://api.collegebasketballdata.com/) (CBBD) for game schedules and stats.
+- [The Odds API](https://the-odds-api.com) for live Vegas spreads / totals.
+
+### Environment variables
+- `CBBD_API_KEY` - College Basketball Data API key
+- `ODDS_API_KEY` - Odds API key (used by `fetch_live_odds.py`)
 
 ## Setup
 

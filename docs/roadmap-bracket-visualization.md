@@ -2,6 +2,14 @@
 
 *Interactive bracket display for March Madness predictions.*
 
+## Status (what's implemented)
+- [x] Streamlit bracket view + team path filter
+- [x] Probability table / heatmap view (Streamlit)
+- [x] Bracket slot ordering fixes / NCAA bracket mapping
+- [x] Live Vegas odds displayed for R64
+- [x] Matchup analysis tab (round-by-round probabilities + spreads)
+- [x] Interactive Grid bracket (Approach 2) — scatter-based, hover-enabled, color-coded by title probability
+
 ## Visualization Goals
 
 1. **Display full 64-team bracket** with predictions
@@ -21,6 +29,7 @@
 | **HTML/CSS/JS** | Simple, portable | Manual layout | Static bracket |
 
 ## Approach 1: Streamlit Bracket (MVP)
+- [x] Implemented in `pages/01_🏀_Tournament_Bracket.py`
 
 ```python
 import streamlit as st
@@ -143,6 +152,7 @@ def render_final_four(data: dict):
 ```
 
 ## Approach 2: Plotly Bracket Visualization
+- [x] Implemented as `create_bracket_figure()` in `pages/01_🏀_Tournament_Bracket.py`; available as "Interactive Grid" viz mode
 
 ```python
 import plotly.graph_objects as go
@@ -293,6 +303,7 @@ def create_probability_heatmap(simulation_results: dict) -> go.Figure:
 ```
 
 ## Approach 3: SVG Bracket Template
+- [ ] Drafted, but not implemented in the current app
 
 ```python
 def generate_svg_bracket(bracket_data: dict) -> str:
@@ -404,6 +415,7 @@ def get_games_for_round(bracket_data: dict, round_num: int) -> list:
 ```
 
 ## Interactive Features
+- [x] Implemented in Streamlit (team search, round filter, probability threshold, upset toggle)
 
 ```python
 def add_bracket_interactivity(bracket_data: dict):
@@ -502,6 +514,8 @@ def show_probability_table(simulation_results: dict):
 ```
 
 ## Export Options
+- [x] Export as PNG/SVG/PDF via Plotly (requires `kaleido` installed)
+- [ ] Shareable link/embed (needs backend support)
 
 ```python
 def export_bracket_image(bracket_svg: str, filename: str = 'bracket.png'):

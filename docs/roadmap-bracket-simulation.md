@@ -2,6 +2,22 @@
 
 *Monte Carlo simulation for predicting full tournament outcomes.*
 
+## Status
+- [x] Core Monte Carlo bracket simulation implemented (10k sims precomputed)
+- [x] Full round-by-round matchups with dynamic probability prediction
+- [x] Results aggregation (Final Four, champion distribution)
+- [x] Most-likely bracket output implemented
+- [x] Live odds integration and ATS guidance (R64 only)
+- [ ] Optional: vectorized 100k+ simulation performance path
+
+## Implemented Core Functions
+- [x] `simulate_game` (per-game probabilistic outcome)
+- [x] `simulate_round` (play all games in a round)
+- [x] `simulate_tournament` (full bracket simulation, round-by-round)
+- [x] `run_simulations` (aggregate Monte Carlo results into probabilities)
+- [x] `generate_most_likely_bracket` (deterministic favorite bracket)
+- [x] `parallel_simulation` + aggregation helpers (optional speedup)
+
 ## Why Simulation?
 
 Single-game predictions don't capture the **compounding uncertainty** of a tournament. A team's path to the Final Four depends on:

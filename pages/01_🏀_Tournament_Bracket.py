@@ -4,6 +4,7 @@ Tournament Bracket Visualization Page
 Interactive full bracket display with Monte Carlo simulation results.
 """
 
+import math
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -101,7 +102,7 @@ st.sidebar.header("Bracket Controls")
 
 tournament_year = st.sidebar.selectbox(
     "Tournament Year",
-    [2025, 2024, 2023],
+    [2026, 2025, 2024, 2023],
     index=0
 )
 
@@ -120,7 +121,7 @@ show_upsets_only = st.sidebar.checkbox(
 # Visualization mode
 viz_mode = st.sidebar.radio(
     "Visualization Mode",
-    ["Visual Bracket", "Probability Heatmap", "Text Bracket", "All Views"],
+    ["Visual Bracket", "Interactive Grid", "Matchup Analysis", "Probability Heatmap", "Text Bracket", "All Views"],
     index=0,
     help="Choose how to display the bracket"
 )
@@ -408,6 +409,85 @@ def render_region_teams(teams: dict, prob_key: str = None, min_prob: float = 0.0
             st.markdown(f"**{team.seed}** {team.name}")
 
 
+# ---------------------------------------------------------------------------
+# Module-level short-name helper (used by bracket visual AND matchup analysis)
+# ---------------------------------------------------------------------------
+_SHORT_NAME_MAP = {
+    'Duke Blue Devils': 'Duke',
+    'UConn Huskies': 'UConn',
+    'Michigan State Spartans': 'Michigan St.',
+    'Kansas Jayhawks': 'Kansas',
+    "St. John's Red Storm": "St. John's",
+    'Louisville Cardinals': 'Louisville',
+    'UCLA Bruins': 'UCLA',
+    'Ohio State Buckeyes': 'Ohio State',
+    'TCU Horned Frogs': 'TCU',
+    'UCF Knights': 'UCF',
+    'South Florida Bulls': 'South Florida',
+    'Northern Iowa Panthers': 'Northern Iowa',
+    'California Baptist Lancers': 'Cal Baptist',
+    'North Dakota State Bison': 'NDSU',
+    'Furman Paladins': 'Furman',
+    'Siena Saints': 'Siena',
+    'Arizona Wildcats': 'Arizona',
+    'Purdue Boilermakers': 'Purdue',
+    'Gonzaga Bulldogs': 'Gonzaga',
+    'Arkansas Razorbacks': 'Arkansas',
+    'Wisconsin Badgers': 'Wisconsin',
+    'BYU Cougars': 'BYU',
+    'Miami Hurricanes': 'Miami',
+    'Villanova Wildcats': 'Villanova',
+    'Utah State Aggies': 'Utah State',
+    'Missouri Tigers': 'Missouri',
+    'Texas Longhorns': 'Texas',
+    'High Point Panthers': 'High Point',
+    "Hawai'i Rainbow Warriors": "Hawai'i",
+    'Kennesaw State Owls': 'Kennesaw St.',
+    'Queens University Royals': 'Queens',
+    'Long Island University Sharks': 'LIU',
+    'Michigan Wolverines': 'Michigan',
+    'Iowa State Cyclones': 'Iowa State',
+    'Virginia Cavaliers': 'Virginia',
+    'Alabama Crimson Tide': 'Alabama',
+    'Texas Tech Red Raiders': 'Texas Tech',
+    'Tennessee Volunteers': 'Tennessee',
+    'Kentucky Wildcats': 'Kentucky',
+    'Georgia Bulldogs': 'Georgia',
+    'Saint Louis Billikens': 'Saint Louis',
+    'Santa Clara Broncos': 'Santa Clara',
+    'SMU Mustangs': 'SMU',
+    'Akron Zips': 'Akron',
+    'Hofstra Pride': 'Hofstra',
+    'Wright State Raiders': 'Wright State',
+    'Tennessee State Tigers': 'Tennessee St.',
+    'Howard Bison': 'Howard',
+    'UMBC Retrievers': 'UMBC',
+    'Florida Gators': 'Florida',
+    'Houston Cougars': 'Houston',
+    'Illinois Fighting Illini': 'Illinois',
+    'Nebraska Cornhuskers': 'Nebraska',
+    'Vanderbilt Commodores': 'Vanderbilt',
+    'North Carolina Tar Heels': 'North Carolina',
+    "Saint Mary's Gaels": "Saint Mary's",
+    'Clemson Tigers': 'Clemson',
+    'Iowa Hawkeyes': 'Iowa',
+    'Texas A&M Aggies': 'Texas A&M',
+    'VCU Rams': 'VCU',
+    'McNeese Cowboys': 'McNeese',
+    'Troy Trojans': 'Troy',
+    'Pennsylvania Quakers': 'Penn',
+    'Idaho Vandals': 'Idaho',
+    'Prairie View A&M Panthers': 'Prairie View A&M',
+    'NC State Wolfpack': 'NC State',
+    'Lehigh Mountain Hawks': 'Lehigh',
+}
+
+
+def _sn(full_name: str) -> str:
+    """Return school name only (no mascot)."""
+    return _SHORT_NAME_MAP.get(full_name, full_name.split()[0])
+
+
 def create_probability_heatmap(sim_results: dict, top_n: int = 32) -> go.Figure:
     """Create heatmap showing advancement probabilities for all teams."""
     
@@ -468,6 +548,265 @@ def create_probability_heatmap(sim_results: dict, top_n: int = 32) -> go.Figure:
     return fig
 
 
+def create_bracket_figure(sim_results: dict) -> go.Figure:
+    """
+    Approach 2: Plotly scatter-based interactive bracket grid.
+
+    Layout (11 x columns):
+      col:  0    1    2    3    4   4.8  5.2   6    7    8    9    10
+           R64  R32  S16   E8   FF  [L] [R]   FF   E8  S16  R32  R64
+           ←── East + South (left) ────→   ←── West + Midwest (right) ──→
+
+    Each blob = predicted winner of that bracket slot, coloured by
+    overall championship win probability (green = favourite).
+    Hover shows full round-by-round breakdown.
+    """
+    NCAA_SLOT_ORDER = [1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15]
+
+    # Probability key used to determine who wins each round transition
+    ROUND_ADV_KEYS = [
+        'round_32_prob',    # R64 → R32
+        'sweet_16_prob',    # R32 → S16
+        'elite_8_prob',     # S16 → E8
+        'final_four_prob',  # E8  → FF (regional champ)
+        'championship_prob',# FF  → Finalist
+    ]
+
+    def region_slots(region_name):
+        """Return [(team_id, stats)] in NCAA slot order for one region (16 slots)."""
+        by_seed = {
+            stats['team'].seed: (tid, stats)
+            for tid, stats in sim_results.items()
+            if stats['team'].region == region_name
+        }
+        return [by_seed.get(s) for s in NCAA_SLOT_ORDER]
+
+    # ── y positions ──────────────────────────────────────────────────────────
+    # 16 slots per region, 3-unit spacing, 6-unit gap between the two regions
+    # on each side.  Both sides share identical y coords.
+    SLOT_SPACING = 3
+    REGION_GAP   = 6
+    TOP_YS    = [i * SLOT_SPACING for i in range(16)]              # 0..45
+    BOTTOM_YS = [TOP_YS[-1] + REGION_GAP + SLOT_SPACING + i * SLOT_SPACING
+                 for i in range(16)]                                # 54..99
+
+    def build_side(top_region, bottom_region):
+        """Build initial [(entry, y)] list for 32 teams on one side."""
+        top    = [(e, y) for e, y in zip(region_slots(top_region),    TOP_YS)]
+        bottom = [(e, y) for e, y in zip(region_slots(bottom_region), BOTTOM_YS)]
+        return top + bottom
+
+    left_r64  = build_side('East',  'South')
+    right_r64 = build_side('West',  'Midwest')
+
+    def advance(prev_round, adv_key):
+        """Pair adjacent entries; advance likely winner (higher adv_key); y = midpoint."""
+        result = []
+        for i in range(0, len(prev_round), 2):
+            ea, ya = prev_round[i]
+            eb, yb = prev_round[i + 1] if i + 1 < len(prev_round) else (None, ya)
+            y_mid  = (ya + yb) / 2
+            if ea is None and eb is None:
+                result.append((None, y_mid))
+            elif ea is None:
+                result.append((eb, y_mid))
+            elif eb is None:
+                result.append((ea, y_mid))
+            else:
+                pa = ea[1].get(adv_key, 0)
+                pb = eb[1].get(adv_key, 0)
+                result.append((ea if pa >= pb else eb, y_mid))
+        return result
+
+    left_sched  = [left_r64]
+    right_sched = [right_r64]
+    for key in ROUND_ADV_KEYS:
+        left_sched.append(advance(left_sched[-1],  key))
+        right_sched.append(advance(right_sched[-1], key))
+
+    # left_sched[5]  = [(left_finalist,  y)]   — 1 entry
+    # right_sched[5] = [(right_finalist, y)]   — 1 entry
+
+    # x positions: left side 0→4 then finalist at 4.2; right side 10→6 then 5.8
+    # Finalists spread wider so champion at x=5, y above headers doesn't overlap
+    LEFT_X  = [0, 1, 2, 3, 4, 4.2]
+    RIGHT_X = [10, 9, 8, 7, 6, 5.8]
+
+    fig = go.Figure()
+
+    def _color(winner_prob: float) -> str:
+        """Green gradient: grey at 0% → bright green at ≥5% championship prob."""
+        t = min(1.0, winner_prob / 0.05)
+        r = int(190 * (1 - t) + 30  * t)
+        g = int(190 * (1 - t) + 200 * t)
+        b = int(190 * (1 - t) + 60  * t)
+        return f'rgb({r},{g},{b})'
+
+    def _hover(name, team, stats):
+        cp = stats.get('winner_prob', 0)
+        return (
+            f"<b>({team.seed}) {name}</b><br>"
+            f"Region: {team.region}<br>"
+            f"─────────────────<br>"
+            f"Reach R32:  {stats.get('round_32_prob',    0):.1%}<br>"
+            f"Reach S16:  {stats.get('sweet_16_prob',    0):.1%}<br>"
+            f"Reach E8:   {stats.get('elite_8_prob',     0):.1%}<br>"
+            f"Reach FF:   {stats.get('final_four_prob',  0):.1%}<br>"
+            f"Reach Finals:{stats.get('championship_prob',0):.1%}<br>"
+            f"<b>Win title: {cp:.1%}</b>"
+        )
+
+    for side_label, sched, x_list, text_side in [
+        ('left',  left_sched,  LEFT_X,  'middle right'),
+        ('right', right_sched, RIGHT_X, 'middle left'),
+    ]:
+        for round_idx, (entries, x) in enumerate(zip(sched, x_list)):
+            marker_size = 12 + round_idx * 3       # markers grow each round
+            text_size   = max(13, 13 + round_idx)
+
+            xs, ys, lbls, colors, hovers = [], [], [], [], []
+            for entry, y in entries:
+                if entry is None:
+                    continue
+                tid, stats = entry
+                t = stats['team']
+                cp = stats.get('winner_prob', 0)
+                xs.append(x);  ys.append(y)
+                lbls.append(f"({t.seed}) {_sn(t.name)}")
+                colors.append(_color(cp))
+                hovers.append(_hover(_sn(t.name), t, stats))
+
+            if not xs:
+                continue
+            fig.add_trace(go.Scatter(
+                x=xs, y=ys,
+                mode='markers+text',
+                marker=dict(
+                    size=marker_size,
+                    color=colors,
+                    symbol='square',
+                    line=dict(width=1, color='#888'),
+                ),
+                text=lbls,
+                textposition=text_side,
+                textfont=dict(size=text_size, color='#222'),
+                hovertext=hovers,
+                hoverinfo='text',
+                showlegend=False,
+            ))
+
+    # ── Championship special treatment ───────────────────────────────────────
+    # Pick the predicted champion from the two finalists
+    left_fin_entry,  left_fin_y  = left_sched[5][0]  if left_sched[5]  else (None, 48)
+    right_fin_entry, right_fin_y = right_sched[5][0] if right_sched[5] else (None, 48)
+
+    # Champion is shown as a dedicated row ABOVE the column headers (y=110)
+    # so it never overlaps with the finalist squares below
+    CHAMP_Y = 110
+
+    champion_stats = None
+    if left_fin_entry and right_fin_entry:
+        lp = left_fin_entry[1].get('winner_prob', 0)
+        rp = right_fin_entry[1].get('winner_prob', 0)
+        champion_entry = left_fin_entry if lp >= rp else right_fin_entry
+        _, champion_stats = champion_entry
+    elif left_fin_entry:
+        _, champion_stats = left_fin_entry
+    elif right_fin_entry:
+        _, champion_stats = right_fin_entry
+
+    if champion_stats:
+        ct = champion_stats['team']
+        cp = champion_stats.get('winner_prob', 0)
+        # Background highlight box
+        fig.add_shape(
+            type='rect', x0=3.8, y0=106.5, x1=6.2, y1=114.5,
+            fillcolor='#fffde7', line=dict(color='gold', width=2), layer='below'
+        )
+        fig.add_trace(go.Scatter(
+            x=[5], y=[CHAMP_Y],
+            mode='markers+text',
+            marker=dict(
+                size=36, color=_color(cp), symbol='star',
+                line=dict(width=2, color='gold'),
+            ),
+            text=[f"🏆 ({ct.seed}) {_sn(ct.name)}  {cp:.1%}"],
+            textposition='middle right',
+            textfont=dict(size=14, color='#7d6000', family='Arial Black'),
+            hovertext=[_hover(_sn(ct.name), ct, champion_stats)],
+            hoverinfo='text',
+            showlegend=False,
+        ))
+        # Lines from finalists to champion box
+        for fin_entry, fin_x in [(left_fin_entry, 4.2), (right_fin_entry, 5.8)]:
+            if fin_entry:
+                _, fin_stats = fin_entry
+                champ_y_local = (left_fin_y + right_fin_y) / 2 if left_fin_entry and right_fin_entry else CHAMP_Y
+                # find actual y for this finalist
+                fin_y_actual = None
+                for e, y in (left_sched[5] if fin_x < 5 else right_sched[5]):
+                    if e == fin_entry:
+                        fin_y_actual = y
+                        break
+                if fin_y_actual is not None:
+                    fig.add_trace(go.Scatter(
+                        x=[fin_x, 5], y=[fin_y_actual, CHAMP_Y],
+                        mode='lines',
+                        line=dict(color='#c8b400', width=1.5, dash='dot'),
+                        showlegend=False, hoverinfo='skip'
+                    ))
+
+    # ── Round column headers ─────────────────────────────────────────────────
+    header_cfg = [
+        (0, 'R64'), (1, 'R32'), (2, 'S16'), (3, 'E8'), (4, 'Final Four'), (5, '🏆 Champ'),
+        (6, 'Final Four'), (7, 'E8'), (8, 'S16'), (9, 'R32'), (10, 'R64'),
+    ]
+    for hx, hlabel in header_cfg:
+        fig.add_annotation(x=hx, y=103, text=f'<b>{hlabel}</b>',
+                           showarrow=False, font=dict(size=11, color='#555'),
+                           xanchor='center')
+
+    # ── Region labels ────────────────────────────────────────────────────────
+    mid_top    = (TOP_YS[0]    + TOP_YS[-1])    / 2
+    mid_bottom = (BOTTOM_YS[0] + BOTTOM_YS[-1]) / 2
+    for lbl, lx, ly, color in [
+        ('EAST',    -0.8, mid_top,    '#1a73e8'),
+        ('SOUTH',   -0.8, mid_bottom, '#e67e22'),
+        ('WEST',    10.8, mid_top,    '#27ae60'),
+        ('MIDWEST', 10.8, mid_bottom, '#9b59b6'),
+    ]:
+        fig.add_annotation(x=lx, y=ly, text=f'<b>{lbl}</b>',
+                           showarrow=False, font=dict(size=14, color=color),
+                           xanchor='center', textangle=-90 if lx < 0 else 90)
+
+    # ── Vertical column dividers ─────────────────────────────────────────────
+    for col_x in [0, 1, 2, 3, 4, 4.2, 5.8, 6, 7, 8, 9, 10]:
+        fig.add_shape(type='line', x0=col_x, y0=-2, x1=col_x, y1=101,
+                      line=dict(color='#e8e8e8', width=1, dash='dot'), layer='below')
+
+    # ── Region dividers (horizontal) ─────────────────────────────────────────
+    div_y = (TOP_YS[-1] + BOTTOM_YS[0]) / 2
+    fig.add_shape(type='line', x0=-0.5, y0=div_y, x1=10.5, y1=div_y,
+                  line=dict(color='#cccccc', width=1.5), layer='below')
+
+    fig.update_layout(
+        title=dict(
+            text='Interactive Bracket — Predicted Most-Likely Outcomes  '
+                 '<span style="font-size:12px;color:#888">'
+                 '(hover any square for full probability breakdown)</span>',
+            font=dict(size=15),
+        ),
+        xaxis=dict(visible=False, range=[-1.2, 11.2]),
+        yaxis=dict(visible=False, range=[-4, 116]),
+        height=1400,
+        margin=dict(l=0, r=0, t=60, b=5),
+        plot_bgcolor='#f9f9f9',
+        paper_bgcolor='white',
+        hoverlabel=dict(bgcolor='white', font_size=13, bordercolor='#bbb'),
+    )
+    return fig
+
+
 def create_visual_bracket(sim_results: dict) -> go.Figure:
     """Create visual bracket layout that looks like traditional March Madness bracket."""
     
@@ -481,10 +820,28 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         if team.region in regions:
             regions[team.region].append((team.seed, team.name, stats))
     
-    # Sort by seed within each region
+    # Reorder each region into the standard NCAA bracket slot order.
+    # In a real bracket (top→bottom) the 16 first-round lines are:
+    #   1, 16, 8, 9, 5, 12, 4, 13,  6, 11, 3, 14, 7, 10, 2, 15
+    # This ensures consecutive slot-pairs (0,1),(2,3)... match the correct matchups:
+    #   1v16, 8v9, 5v12, 4v13, 6v11, 3v14, 7v10, 2v15
+    NCAA_SLOT_ORDER = [1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15]
     for region in regions:
-        regions[region].sort(key=lambda x: x[0])
+        by_seed = {t[0]: t for t in regions[region]}
+        ordered = []
+        for slot_seed in NCAA_SLOT_ORDER:
+            if slot_seed in by_seed:
+                ordered.append(by_seed[slot_seed])
+        # Append any remaining teams (shouldn't happen, but safety net)
+        seen = {t[0] for t in ordered}
+        for t in sorted(regions[region], key=lambda x: x[0]):
+            if t[0] not in seen:
+                ordered.append(t)
+        regions[region] = ordered
     
+    # Use module-level _sn as the short-name helper inside this function
+    _short_name = _sn
+
     # Layout parameters for traditional bracket (pulled from LAYOUT_CONFIG)
     cfg = LAYOUT_CONFIG
     y_spacing = cfg.get('y_spacing', 32)
@@ -585,7 +942,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             text_x = box_x + cfg.get('team_text_offset', 50)
             fig.add_annotation(
                 x=text_x, y=y_pos,
-                text=name[:25],
+                text=_short_name(name),
                 showarrow=False,
                 font=dict(size=cfg.get('team_text_size', 12), color='#2c3e50'),
                 xanchor=text_anchor,
@@ -627,7 +984,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             label_x = round2_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
             fig.add_annotation(
                 x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
-                text=winner[1][:12],
+                text=_short_name(winner[1]),
                 showarrow=False,
                 font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
                 xanchor=text_anchor,
@@ -666,7 +1023,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             label_x = round3_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
             fig.add_annotation(
                 x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
-                text=winner[1][:12],
+                text=_short_name(winner[1]),
                 showarrow=False,
                 font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
                 xanchor=text_anchor,
@@ -705,7 +1062,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
             label_x = round4_x + (cfg.get('winner_label_x_offset', 80) if direction == 1 else -cfg.get('winner_label_x_offset', 80))
             fig.add_annotation(
                 x=label_x, y=y_mid + cfg.get('winner_label_y_offset', 8),
-                text=winner[1][:12],
+                text=_short_name(winner[1]),
                 showarrow=False,
                 font=dict(size=cfg.get('winner_text_size', 10), color='#2c3e50'),
                 xanchor=text_anchor,
@@ -804,7 +1161,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=final_four_x - cfg.get('final_four_name_x_offset', 50), y=south_y,
-        text=south_ff[1][:15],
+        text=_short_name(south_ff[1]),
         showarrow=False,
         font=dict(size=cfg.get('team_text_size', 12), color='#2c3e50'),
         xanchor='right'
@@ -823,7 +1180,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=final_four_x - cfg.get('final_four_name_x_offset', 50), y=east_y,
-        text=east_ff[1][:15],
+        text=_short_name(east_ff[1]),
         showarrow=False,
         font=dict(size=cfg.get('team_text_size', 12), color='#2c3e50'),
         xanchor='right'
@@ -906,7 +1263,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=final_four_right_x + cfg.get('final_four_name_x_offset', 50), y=midwest_y,
-        text=midwest_ff[1][:15],
+        text=_short_name(midwest_ff[1]),
         showarrow=False,
         font=dict(size=cfg.get('team_text_size', 12), color='#2c3e50'),
         xanchor='left'
@@ -925,7 +1282,7 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=final_four_right_x + cfg.get('final_four_name_x_offset', 50), y=west_y,
-        text=west_ff[1][:15],
+        text=_short_name(west_ff[1]),
         showarrow=False,
         font=dict(size=cfg.get('team_text_size', 12), color='#2c3e50'),
         xanchor='left'
@@ -999,9 +1356,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=center_x - cfg.get('finalist_name_x_offset', 50), y=champ_y + 15,
-        text=left_winner[1][:12],
+        text=_short_name(left_winner[1]),
         showarrow=False,
-        font=dict(size=cfg.get('finalist_name_size', 9), color='#2c3e50'),
+        font=dict(size=14, color='#2c3e50', family='Arial'),
         xanchor='center',
         yanchor='bottom'
     )
@@ -1016,9 +1373,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     ))
     fig.add_annotation(
         x=center_x + cfg.get('finalist_name_x_offset', 50), y=champ_y + 15,
-        text=right_winner[1][:12],
+        text=_short_name(right_winner[1]),
         showarrow=False,
-        font=dict(size=cfg.get('finalist_name_size', 9), color='#2c3e50'),
+        font=dict(size=14, color='#2c3e50', family='Arial'),
         xanchor='center',
         yanchor='bottom'
     )
@@ -1070,9 +1427,418 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     return fig
 
 
+def render_round_matchups(bracket_data_raw: dict, sim_results: dict):
+    """Render round-by-round expected matchup analysis with spreads and totals."""
+    import json
+    from pathlib import Path
+
+    REGIONS = ['East', 'South', 'Midwest', 'West']
+
+    # ── efficiency-based spread / total estimator ──────────────────────────
+    stats_lkp = {t['name']: t.get('stats', {}) for t in bracket_data_raw.get('teams', [])}
+
+    def norm_cdf(x):
+        """Standard normal CDF via math.erf (no scipy needed)."""
+        return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
+
+    def ats_side(prob_a, spread_raw):
+        """Return ATS lean: ('fav', name_side, delta) or None.
+        Compares model win-prob against the spread-implied win-prob.
+        sigma=10 pts is a standard CBB approximation (1 pt ~ 3% WP near 50%).
+        Returns 'fav' (take the spread's favourite to cover) or
+        'dog' (take the underdog to cover), plus the delta.
+        """
+        sigma = 10.0
+        spread_abs = abs(spread_raw)
+        if spread_abs < 0.5:
+            return None  # pick-em
+        implied_wp = norm_cdf(spread_abs / sigma)
+        # prob for whichever side the spread says is favoured
+        prob_spread_fav = prob_a if spread_raw >= 0 else (1.0 - prob_a)
+        delta = prob_spread_fav - implied_wp
+        if delta > 0.10:
+            return 'fav', delta
+        elif delta < -0.10:
+            return 'dog', abs(delta)
+        return None
+
+    def eff_pred(name_a, name_b):
+        sa = stats_lkp.get(name_a, {})
+        sb = stats_lkp.get(name_b, {})
+        ea = float(sa.get('net_efficiency') or 0)
+        eb = float(sb.get('net_efficiency') or 0)
+        oa = float(sa.get('off_efficiency') or 110)
+        ob = float(sb.get('off_efficiency') or 110)
+        ta = float(sa.get('tempo') or 70)
+        tb = float(sb.get('tempo') or 70)
+        spread = (ea - eb) * 0.55          # positive = a favored
+        raw_total = (oa * tb + ob * ta) / 100
+        total = raw_total if 120 < raw_total < 185 else 148.5
+        return round(spread, 1), round(total, 1)
+
+    # ── index sim_results by region → seed ──────────────────────────────────
+    by_rs = {}
+    for _, stats in sim_results.items():
+        t = stats['team']
+        by_rs.setdefault(t.region, {})[t.seed] = stats
+
+    def best_from(seeds, region, prob_key):
+        candidates = [by_rs.get(region, {}).get(s) for s in seeds
+                      if by_rs.get(region, {}).get(s)]
+        return max(candidates, key=lambda s: s.get(prob_key, 0)) if candidates else None
+
+    # ── confidence colour ───────────────────────────────────────────────────
+    def conf_color(p):
+        if p >= 0.80: return '#27ae60'
+        if p >= 0.65: return '#f39c12'
+        return '#e74c3c'
+
+    def conf_label(p):
+        if p >= 0.80: return 'High'
+        if p >= 0.65: return 'Medium'
+        return 'Toss-up'
+
+    # ── render one structured game row ──────────────────────────────────────
+    def game_row(short_a, seed_a, prob_a, short_b, seed_b, prob_b,
+                 spread_raw, total, region, note='', date_str='', show_ats=True,
+                 ats_html_override=None, spread_label='Spread'):
+        fav_a = prob_a >= prob_b
+        fav_prob = max(prob_a, prob_b)
+        und_prob = min(prob_a, prob_b)
+        fav_name = short_a if fav_a else short_b
+        dog_name = short_b if fav_a else short_a
+        # spread string — always shown as "<favored> -X.X"
+        spread_str = (f"{fav_name} -{abs(spread_raw):.1f}" if abs(spread_raw) >= 0.5
+                      else "Pick 'em")
+        color = conf_color(fav_prob)
+        # ATS lean — only shown for rounds where spread/WP come from independent sources
+        if ats_html_override is not None:
+            ats_html = ats_html_override
+        elif show_ats:
+            lean = ats_side(prob_a, spread_raw)
+            if lean is None:
+                ats_html = "<span style='color:#aaa'>ATS: Even</span>"
+            elif lean[0] == 'fav':
+                ats_html = (f"<span style='color:#27ae60;font-weight:600'>"
+                            f"ATS: Take {fav_name} ✓</span>")
+            else:
+                ats_html = (f"<span style='color:#e67e22;font-weight:600'>"
+                            f"ATS: Take {dog_name} +{abs(spread_raw):.1f} ✓</span>")
+        else:
+            ats_html = ''
+
+        c1, c2, c3, c4, c5 = st.columns([3, 1, 3, 2, 2])
+        with c1:
+            if fav_a:
+                st.markdown(
+                    f"<span style='font-size:15px;font-weight:700'>"
+                    f"({seed_a}) {short_a}</span> "
+                    f"<span style='color:{color};font-weight:700'>{prob_a:.0%}</span>",
+                    unsafe_allow_html=True)
+            else:
+                st.markdown(
+                    f"<span style='font-size:14px;color:#555'>"
+                    f"({seed_a}) {short_a}</span> "
+                    f"<span style='color:#888'>{prob_a:.0%}</span>",
+                    unsafe_allow_html=True)
+        with c2:
+            st.markdown("<div style='text-align:center;color:#aaa;font-size:13px;"
+                        "padding-top:2px'>vs</div>", unsafe_allow_html=True)
+        with c3:
+            if not fav_a:
+                st.markdown(
+                    f"<span style='font-size:15px;font-weight:700'>"
+                    f"({seed_b}) {short_b}</span> "
+                    f"<span style='color:{color};font-weight:700'>{prob_b:.0%}</span>",
+                    unsafe_allow_html=True)
+            else:
+                st.markdown(
+                    f"<span style='font-size:14px;color:#555'>"
+                    f"({seed_b}) {short_b}</span> "
+                    f"<span style='color:#888'>{prob_b:.0%}</span>",
+                    unsafe_allow_html=True)
+        with c4:
+            st.markdown(
+                f"<div style='font-size:12px;color:#555'>"
+                f"<b>{spread_label}:</b> {spread_str}<br>"
+                f"<b>O/U:</b> {total:.1f}<br>"
+                f"{ats_html}</div>",
+                unsafe_allow_html=True)
+        with c5:
+            st.markdown(
+                f"<div style='font-size:12px'>"
+                f"<span style='color:{color};font-weight:600'>"
+                f"{conf_label(fav_prob)}</span><br>"
+                f"<span style='color:#888'>{region}</span>"
+                f"{('<br><span style=\"color:#e74c3c\">⚡ ' + note + '</span>') if note else ''}"
+                f"</div>",
+                unsafe_allow_html=True)
+        st.markdown("<hr style='margin:4px 0;border-color:#eee'>", unsafe_allow_html=True)
+
+    # ── load R64 / First Four predictions ──────────────────────────────────
+    r1_games, ff_games = [], []
+    pred_files = sorted(Path('data_files/precomputed_predictions').glob(
+        'tournament_predictions_*.json'))
+    if pred_files:
+        with open(pred_files[-1]) as f:
+            pdata = json.load(f)
+        for g in pdata['games']:
+            if g['round_label'] == '1st Round':
+                r1_games.append(g)
+            elif g['round_label'] == 'First Four':
+                ff_games.append(g)
+
+    # ── load live Vegas odds (The Odds API) ─────────────────────────────────
+    _live_odds = {}
+    try:
+        from fetch_live_odds import fetch_live_odds as _fetch_odds
+        from fetch_live_odds import normalize_team_name as _norm_odds
+        _live_odds = _fetch_odds()
+    except Exception:
+        pass
+
+    def _std(name):
+        """Normalize + collapse 'State'/'St' so both spellings match."""
+        return _norm_odds(name).replace(' State', ' St') if _live_odds else name
+
+    # Build a lookup: (norm_home, norm_away) -> odds dict (home-perspective)
+    _odds_lkp = {}
+    if _live_odds:
+        for k, v in _live_odds.items():
+            parts = k.split(' vs ')
+            if len(parts) != 2:
+                continue
+            kh, ka = _std(parts[0]), _std(parts[1])
+            _odds_lkp[(kh, ka)] = (v, False)   # not flipped
+            _odds_lkp[(ka, kh)] = (v, True)    # home/away reversed
+
+    def find_game_odds(home_team, away_team):
+        """Return (odds_dict, spread_raw, total) from Vegas or None."""
+        if not _odds_lkp:
+            return None
+        hn, an = _std(home_team), _std(away_team)
+        entry = _odds_lkp.get((hn, an))
+        if entry is None:
+            return None
+        v, flipped = entry
+        if flipped:
+            home_sp = v.get('away_spread')
+        else:
+            home_sp = v.get('home_spread')
+        total = v.get('total_line')
+        if home_sp is None or total is None:
+            return None
+        # Convention: spread_raw > 0 means home (team A) is favored
+        spread_raw = -home_sp
+        return spread_raw, float(total)
+
+    R32_PAIRS  = [([1,16],[8,9]), ([5,12],[4,13]), ([6,11],[3,14]), ([7,10],[2,15])]
+    S16_PAIRS  = [([1,16,8,9],[5,12,4,13]), ([6,11,3,14],[7,10,2,15])]
+    E8_PAIRS   = [([1,16,8,9,5,12,4,13],[6,11,3,14,7,10,2,15])]
+    FF_SEMIS   = [('East','South'), ('West','Midwest')]
+
+    ROUND_PROB = {
+        'Round of 32': 'round_32_prob',
+        'Sweet 16':    'sweet_16_prob',
+        'Elite 8':     'elite_8_prob',
+    }
+
+    # ── TABS ────────────────────────────────────────────────────────────────
+    tab_labels = ['First Four', 'Round of 64', 'Round of 32',
+                  'Sweet 16', 'Elite 8', 'Final Four', 'Championship']
+    tabs = st.tabs(tab_labels)
+
+    # header row helper
+    def section_header():
+        h1, h2, h3, h4, h5 = st.columns([3,1,3,2,2])
+        h1.markdown("<span style='font-size:11px;color:#aaa;font-weight:600'>TEAM</span>",
+                    unsafe_allow_html=True)
+        h3.markdown("<span style='font-size:11px;color:#aaa;font-weight:600'>TEAM</span>",
+                    unsafe_allow_html=True)
+        h4.markdown("<span style='font-size:11px;color:#aaa;font-weight:600'>LINE / O/U / ATS</span>",
+                    unsafe_allow_html=True)
+        h5.markdown("<span style='font-size:11px;color:#aaa;font-weight:600'>CONFIDENCE</span>",
+                    unsafe_allow_html=True)
+
+    # ── Historical R64 ATS cover rates (favorite = lower seed) ─────────────
+    # Sourced from multi-decade tournament ATS research (e.g. Action Network,
+    # ESPN analytics). Rate = fraction of games where lower seed covers.
+    R64_HIST_ATS = {
+        (1, 16): 0.62,  # 1-seeds cover ~62% — strong historical edge
+        (2, 15): 0.57,  # 2-seeds slight cover edge
+        (3, 14): 0.54,  # mild fav edge
+        (4, 13): 0.50,  # coin flip ATS
+        (5, 12): 0.46,  # 12-seeds beat spread more often — famous trend
+        (6, 11): 0.51,  # coin flip
+        (7, 10): 0.49,  # slight dog edge
+        (8,  9): 0.50,  # true coin flip
+    }
+
+    def hist_ats_html(seed_a, seed_b, short_a, short_b):
+        """Return ATS indicator based on historical seed-matchup cover rates."""
+        fav_seed  = min(seed_a, seed_b)
+        dog_seed  = max(seed_a, seed_b)
+        fav_name  = short_a if seed_a == fav_seed else short_b
+        dog_name  = short_b if seed_a == fav_seed else short_a
+        rate      = R64_HIST_ATS.get((fav_seed, dog_seed), 0.50)
+        dog_rate  = 1.0 - rate
+        if rate >= 0.55:
+            return (f"<span style='color:#27ae60;font-weight:600'>"
+                    f"ATS: {fav_name} covers hist ({rate:.0%})</span>")
+        elif dog_rate >= 0.55:
+            return (f"<span style='color:#e67e22;font-weight:600'>"
+                    f"ATS: {dog_name} covers hist ({dog_rate:.0%})</span>")
+        else:
+            return "<span style='color:#aaa'>ATS: No hist. edge</span>"
+
+    # ── First Four ──────────────────────────────────────────────────────────
+    with tabs[0]:
+        st.caption("Play-in games — winners advance to Round of 64")
+        section_header()
+        if ff_games:
+            for g in sorted(ff_games, key=lambda x: x['region']):
+                hw, aw = g['home_win_prob'], g['away_win_prob']
+                sp = g['predicted_spread']
+                ha = hist_ats_html(g['home_seed'], g['away_seed'],
+                                   _sn(g['home_team']), _sn(g['away_team']))
+                game_row(_sn(g['home_team']), g['home_seed'], hw,
+                         _sn(g['away_team']), g['away_seed'], aw,
+                         sp, g['predicted_total'], g['region'],
+                         show_ats=False, ats_html_override=ha)
+        else:
+            st.info("No First Four predictions available.")
+
+    # ── Round of 64 ─────────────────────────────────────────────────────────
+    with tabs[1]:
+        st.caption("Model predictions with spread and over/under")
+        for region in REGIONS:
+            st.markdown(f"#### {region}")
+            section_header()
+            rg = sorted([g for g in r1_games if g['region'] == region],
+                        key=lambda x: min(x['home_seed'], x['away_seed']))
+            for g in rg:
+                hw, aw = g['home_win_prob'], g['away_win_prob']
+                upset = g.get('upset_signal', False)
+                note = ''
+                if upset:
+                    und = _sn(g['away_team']) if aw > hw else _sn(g['home_team'])
+                    note = f"Upset alert: {und}"
+                vegas = find_game_odds(g['home_team'], g['away_team'])
+                if vegas:
+                    v_spread, v_total = vegas
+                    game_row(_sn(g['home_team']), g['home_seed'], hw,
+                             _sn(g['away_team']), g['away_seed'], aw,
+                             v_spread, v_total,
+                             region, note, show_ats=True, spread_label='Vegas')
+                else:
+                    ha = hist_ats_html(g['home_seed'], g['away_seed'],
+                                       _sn(g['home_team']), _sn(g['away_team']))
+                    game_row(_sn(g['home_team']), g['home_seed'], hw,
+                             _sn(g['away_team']), g['away_seed'], aw,
+                             g['predicted_spread'], g['predicted_total'],
+                             region, note, show_ats=False, ats_html_override=ha)
+
+    # ── Round of 32 ─────────────────────────────────────────────────────────
+    with tabs[2]:
+        st.caption("Expected matchups based on Monte Carlo simulation")
+        for region in REGIONS:
+            st.markdown(f"#### {region}")
+            section_header()
+            for sa, sb in R32_PAIRS:
+                ta = best_from(sa, region, 'round_32_prob')
+                tb = best_from(sb, region, 'round_32_prob')
+                if not ta or not tb: continue
+                pa, pb = ta.get('round_32_prob', 0.5), tb.get('round_32_prob', 0.5)
+                tot = pa + pb or 1
+                cpa, cpb = pa/tot, pb/tot
+                sp, ot = eff_pred(ta['team'].name, tb['team'].name)
+                game_row(_sn(ta['team'].name), ta['team'].seed, cpa,
+                         _sn(tb['team'].name), tb['team'].seed, cpb,
+                         sp, ot, region)
+
+    # ── Sweet 16 ────────────────────────────────────────────────────────────
+    with tabs[3]:
+        st.caption("Expected matchups — conditioned on R32 results")
+        for region in REGIONS:
+            st.markdown(f"#### {region}")
+            section_header()
+            for sa, sb in S16_PAIRS:
+                ta = best_from(sa, region, 'sweet_16_prob')
+                tb = best_from(sb, region, 'sweet_16_prob')
+                if not ta or not tb: continue
+                pa, pb = ta.get('sweet_16_prob', 0.5), tb.get('sweet_16_prob', 0.5)
+                tot = pa + pb or 1
+                cpa, cpb = pa/tot, pb/tot
+                sp, ot = eff_pred(ta['team'].name, tb['team'].name)
+                game_row(_sn(ta['team'].name), ta['team'].seed, cpa,
+                         _sn(tb['team'].name), tb['team'].seed, cpb,
+                         sp, ot, region)
+
+    # ── Elite 8 ─────────────────────────────────────────────────────────────
+    with tabs[4]:
+        st.caption("Regional finals — winner goes to Final Four")
+        for region in REGIONS:
+            st.markdown(f"#### {region}")
+            section_header()
+            for sa, sb in E8_PAIRS:
+                ta = best_from(sa, region, 'elite_8_prob')
+                tb = best_from(sb, region, 'elite_8_prob')
+                if not ta or not tb: continue
+                pa, pb = ta.get('elite_8_prob', 0.5), tb.get('elite_8_prob', 0.5)
+                tot = pa + pb or 1
+                cpa, cpb = pa/tot, pb/tot
+                sp, ot = eff_pred(ta['team'].name, tb['team'].name)
+                game_row(_sn(ta['team'].name), ta['team'].seed, cpa,
+                         _sn(tb['team'].name), tb['team'].seed, cpb,
+                         sp, ot, region)
+
+    # ── Final Four ──────────────────────────────────────────────────────────
+    with tabs[5]:
+        st.caption("National semifinals")
+        section_header()
+        for reg_a, reg_b in FF_SEMIS:
+            reg_teams_a = [s for _, s in sim_results.items() if s['team'].region == reg_a]
+            reg_teams_b = [s for _, s in sim_results.items() if s['team'].region == reg_b]
+            ta = max(reg_teams_a, key=lambda s: s.get('final_four_prob', 0)) if reg_teams_a else None
+            tb = max(reg_teams_b, key=lambda s: s.get('final_four_prob', 0)) if reg_teams_b else None
+            if not ta or not tb: continue
+            pa, pb = ta.get('final_four_prob', 0.5), tb.get('final_four_prob', 0.5)
+            tot = pa + pb or 1
+            cpa, cpb = pa/tot, pb/tot
+            sp, ot = eff_pred(ta['team'].name, tb['team'].name)
+            game_row(_sn(ta['team'].name), ta['team'].seed, cpa,
+                     _sn(tb['team'].name), tb['team'].seed, cpb,
+                     sp, ot, f"{reg_a} vs {reg_b}")
+
+    # ── Championship ────────────────────────────────────────────────────────
+    with tabs[6]:
+        st.caption("National championship game")
+        section_header()
+        # Left finalist: East/South winner; Right finalist: West/Midwest winner
+        left_teams  = [s for _, s in sim_results.items()
+                       if s['team'].region in ('East', 'South')]
+        right_teams = [s for _, s in sim_results.items()
+                       if s['team'].region in ('West', 'Midwest')]
+        ta = max(left_teams,  key=lambda s: s.get('championship_prob', 0)) if left_teams  else None
+        tb = max(right_teams, key=lambda s: s.get('championship_prob', 0)) if right_teams else None
+        if ta and tb:
+            pa, pb = ta.get('championship_prob', 0.5), tb.get('championship_prob', 0.5)
+            tot = pa + pb or 1
+            cpa, cpb = pa/tot, pb/tot
+            sp, ot = eff_pred(ta['team'].name, tb['team'].name)
+            game_row(_sn(ta['team'].name), ta['team'].seed, cpa,
+                     _sn(tb['team'].name), tb['team'].seed, cpb,
+                     sp, ot, 'National Championship')
+            st.markdown("")
+            champ = ta if cpa >= cpb else tb
+            st.success(f"🏆 **Predicted Champion: ({champ['team'].seed}) "
+                       f"{_sn(champ['team'].name)}**  —  "
+                       f"win probability {max(cpa,cpb):.0%}")
+
+
 def render_final_four(sim_results: dict):
     """Render Final Four and Championship probabilities."""
-    
+
     st.header("🏆 Final Four & Championship")
     
     # Get top Final Four candidates
@@ -1184,6 +1950,51 @@ if sim_results:
 
         st.divider()
     
+    # Show interactive grid bracket (Approach 2)
+    if viz_mode in ["Interactive Grid", "All Views"]:
+        st.header("🔲 Interactive Bracket Grid")
+        grid_fig = create_bracket_figure(sim_results)
+        st.plotly_chart(grid_fig)
+
+        # Export controls (same as Visual Bracket)
+        try:
+            grid_png = pio.to_image(grid_fig, format='png', width=2400, height=1400, scale=2)
+        except Exception:
+            grid_png = None
+        try:
+            grid_svg = pio.to_image(grid_fig, format='svg', width=2400, height=1400, scale=1)
+        except Exception:
+            grid_svg = None
+        try:
+            grid_pdf = pio.to_image(grid_fig, format='pdf', width=2400, height=1400, scale=1)
+        except Exception:
+            grid_pdf = None
+
+        col_exp, col_cap = st.columns([1, 4])
+        with col_exp:
+            if grid_png:
+                st.download_button("Download PNG", data=grid_png, file_name="bracket_grid.png", mime="image/png", key="grid_png")
+            if grid_svg:
+                st.download_button("Download SVG", data=grid_svg, file_name="bracket_grid.svg", mime="image/svg+xml", key="grid_svg")
+            if grid_pdf:
+                st.download_button("Download PDF", data=grid_pdf, file_name="bracket_grid.pdf", mime="application/pdf", key="grid_pdf")
+            if not grid_png and not grid_svg:
+                st.info("Image export unavailable (install kaleido to enable)")
+        with col_cap:
+            st.caption(
+                "💡 **How to read**: Each square is the predicted team for that bracket slot. "
+                "Color = championship probability (green = title favourite). "
+                "Hover any square for the full round-by-round breakdown. "
+                "Star (⭐) = predicted champion."
+            )
+        st.divider()
+
+    # Show matchup analysis
+    if viz_mode in ["Matchup Analysis", "All Views"]:
+        st.header("📋 Round-by-Round Matchup Analysis")
+        render_round_matchups(bracket_data, sim_results)
+        st.divider()
+
     # Show heatmap visualization
     if viz_mode in ["Probability Heatmap", "All Views"]:
         st.header("📊 Probability Statistics")
@@ -1253,11 +2064,15 @@ if sim_results:
 
         upset_pred = st.session_state.get('upset_predictor')
 
+        # Build efficiency lookup from bracket_data (name -> stats dict)
+        _eff_lkp = {t['name']: t.get('stats', {}) or {}
+                    for t in (bracket_data.get('teams', []) if isinstance(bracket_data, dict) else [])}
+
         # Build bracket_data structure expected by generate_upset_watch_list
-        bracket_data = []
+        bracket_data_upset = []
         for team_id, stats in sim_results.items():
             team_obj = stats.get('team')
-            if team_obj is None or not hasattr(team_obj, 'stats'):
+            if team_obj is None:
                 continue
             seed = team_obj.seed or 8
             region = team_obj.region or 'Unknown'
@@ -1267,18 +2082,18 @@ if sim_results:
             # Find opponent in sim_results by region + seed
             opp_stats = next(
                 (s for _, s in sim_results.items()
-                 if s.get('team') and hasattr(s['team'], 'stats')
+                 if s.get('team')
                  and s['team'].region == region
                  and s['team'].seed == opp_seed),
                 None
             )
-            if opp_stats is None or not hasattr(opp_stats['team'], 'stats'):
+            if opp_stats is None:
                 continue
             opp_team = opp_stats['team']
 
-            # helper to safely get stat values
-            t_stats = getattr(team_obj, 'stats', {}) or {}
-            o_stats = getattr(opp_team, 'stats', {}) or {}
+            # helper to safely get stat values — use bracket_data efficiency lookup
+            t_stats = _eff_lkp.get(team_obj.name, {})
+            o_stats = _eff_lkp.get(opp_team.name, {})
 
             favorite_dict = {
                 'seed': min(seed, opp_seed),
@@ -1306,13 +2121,13 @@ if sim_results:
                 'favorite_name': (opp_team.name if seed > opp_seed else team_obj.name),
                 'round': 1,
             }
-            bracket_data.append({'favorite': favorite_dict, 'underdog': underdog_dict})
+            bracket_data_upset.append({'favorite': favorite_dict, 'underdog': underdog_dict})
 
-        if upset_pred and bracket_data:
+        if upset_pred and bracket_data_upset:
             # Deduplicate matchups (each pair appears twice)
             seen = set()
             unique_matchups = []
-            for m in bracket_data:
+            for m in bracket_data_upset:
                 key = tuple(sorted([m['underdog']['name'], m['underdog']['favorite_name']]))
                 if key not in seen:
                     seen.add(key)

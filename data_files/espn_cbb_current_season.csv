@@ -1,6 +1,4 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-17 22:40:00+00:00,Howard Bison,UMBC Retrievers,47,2378,0,0,16,16,UD Arena,True,False,16,1,STATUS_SCHEDULED,401856435,UMBC Retrievers at Howard Bison
-2026,Regular,2026-03-18 01:15:00+00:00,NC State Wolfpack,Texas Longhorns,152,251,0,0,11,11,UD Arena,True,False,2,23,STATUS_SCHEDULED,401856434,Texas Longhorns at NC State Wolfpack
 2026,Regular,2026-03-18 22:40:00+00:00,Lehigh Mountain Hawks,Prairie View A&M Panthers,2329,2504,0,0,16,16,UD Arena,True,False,22,26,STATUS_SCHEDULED,401856437,Prairie View A&M Panthers at Lehigh Mountain Hawks
 2026,Regular,2026-03-19 01:15:00+00:00,SMU Mustangs,Miami (OH) RedHawks,2567,193,0,0,11,11,UD Arena,True,False,2,14,STATUS_SCHEDULED,401856436,Miami (OH) RedHawks at SMU Mustangs
 2026,Regular,2026-03-19 16:15:00+00:00,Ohio State Buckeyes,TCU Horned Frogs,194,2628,0,0,8,9,Bon Secours Wellness Arena,True,False,7,8,STATUS_SCHEDULED,401856479,TCU Horned Frogs at Ohio State Buckeyes
@@ -12,8 +10,8 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-19 20:05:00+00:00,Michigan State Spartans,North Dakota State Bison,127,2449,0,0,3,14,KeyBank Center,True,False,7,49,STATUS_SCHEDULED,401856483,North Dakota State Bison at Michigan State Spartans
 2026,Regular,2026-03-19 20:25:00+00:00,Arkansas Razorbacks,Hawai'i Rainbow Warriors,8,62,0,0,4,13,Moda Center,True,False,23,9,STATUS_SCHEDULED,401856481,Hawai'i Rainbow Warriors at Arkansas Razorbacks
 2026,Regular,2026-03-19 22:50:00+00:00,North Carolina Tar Heels,VCU Rams,153,2670,0,0,6,11,Bon Secours Wellness Arena,True,False,2,3,STATUS_SCHEDULED,401856490,VCU Rams at North Carolina Tar Heels
-2026,Regular,2026-03-19 23:10:00+00:00,Michigan Wolverines,TBD,130,-2,0,0,1,99,KeyBank Center,True,False,7,,STATUS_SCHEDULED,401856486,TBD at Michigan Wolverines
-2026,Regular,2026-03-19 23:25:00+00:00,BYU Cougars,TBD,252,-2,0,0,6,99,Moda Center,True,False,8,,STATUS_SCHEDULED,401856484,TBD at BYU Cougars
+2026,Regular,2026-03-19 23:10:00+00:00,Michigan Wolverines,Howard Bison,130,47,0,0,1,16,KeyBank Center,True,False,7,16,STATUS_SCHEDULED,401856486,Howard Bison at Michigan Wolverines
+2026,Regular,2026-03-19 23:25:00+00:00,BYU Cougars,Texas Longhorns,252,251,0,0,6,11,Moda Center,True,False,8,23,STATUS_SCHEDULED,401856484,Texas Longhorns at BYU Cougars
 2026,Regular,2026-03-19 23:35:00+00:00,Saint Mary's Gaels,Texas A&M Aggies,2608,245,0,0,7,10,Paycom Center,True,False,29,23,STATUS_SCHEDULED,401856492,Texas A&M Aggies at Saint Mary's Gaels
 2026,Regular,2026-03-20 01:25:00+00:00,Illinois Fighting Illini,Pennsylvania Quakers,356,219,0,0,3,14,Bon Secours Wellness Arena,True,False,7,12,STATUS_SCHEDULED,401856491,Pennsylvania Quakers at Illinois Fighting Illini
 2026,Regular,2026-03-20 01:45:00+00:00,Georgia Bulldogs,Saint Louis Billikens,61,139,0,0,8,9,KeyBank Center,True,False,23,3,STATUS_SCHEDULED,401856487,Saint Louis Billikens at Georgia Bulldogs
@@ -47,10 +45,10 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856559,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856560,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856561,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856565,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856569,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856568,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD

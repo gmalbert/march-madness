@@ -33,6 +33,7 @@ from features import (
     project_game_total,
 )
 from fetch_live_odds import fetch_live_odds
+from data_tools.efficiency_loader import EfficiencyDataLoader
 
 # Import normalize_team_name from predictions.py for consistency
 from predictions import normalize_team_name
@@ -114,6 +115,17 @@ def load_models():
                 except Exception as e:
                     print(f"Error loading {model_type} scaler: {e}")
 
+    # ── Improved spread model (KenPom + BartTorvik + NET) ────────────────
+    improved_path = MODEL_DIR / "spread_improved_xgb.pkl"
+    feat_path      = MODEL_DIR / "spread_improved_features.json"
+    if improved_path.exists() and feat_path.exists():
+        try:
+            models['spread_improved'] = joblib.load(improved_path)
+            models['spread_improved_features'] = json.loads(feat_path.read_text())
+            print("Loaded improved spread model (KenPom+BartTorvik+NET)")
+        except Exception as e:
+            print(f"Could not load improved spread model: {e}")
+
     return models
 
 def calculate_features(home_stats, away_stats, home_eff, away_eff):
@@ -186,6 +198,83 @@ def calculate_features(home_stats, away_stats, home_eff, away_eff):
         'moneyline': {**minimal, **win_feats}
     }
 
+def _compute_advanced_diffs(home_team: str, away_team: str,
+                            kenpom_df, bart_df, net_df) -> dict:
+    """Compute per-game KenPom, BartTorvik, and NET rank differential features."""
+    diffs = {}
+
+    def _val(df, team, col):
+        if df is None or df.empty:
+            return None
+        row = df[df['canonical_team'] == team]
+        if row.empty:
+            return None
+        v = row.iloc[0].get(col)
+        return float(v) if v is not None and not (isinstance(v, float) and np.isnan(v)) else None
+
+    def _diff(home_val, away_val):
+        if home_val is not None and away_val is not None:
+            return home_val - away_val
+        return 0.0  # neutral when data missing
+
+    # KenPom
+    diffs['kenpom_netrtg_diff'] = _diff(_val(kenpom_df, home_team, 'NetRtg'), _val(kenpom_df, away_team, 'NetRtg'))
+    diffs['kenpom_ortg_diff']   = _diff(_val(kenpom_df, home_team, 'ORtg'),   _val(kenpom_df, away_team, 'ORtg'))
+    diffs['kenpom_drtg_diff']   = _diff(_val(kenpom_df, home_team, 'DRtg'),   _val(kenpom_df, away_team, 'DRtg'))
+    diffs['kenpom_adjt_diff']   = _diff(_val(kenpom_df, home_team, 'AdjT'),   _val(kenpom_df, away_team, 'AdjT'))
+    diffs['kenpom_luck_diff']   = _diff(_val(kenpom_df, home_team, 'Luck'),   _val(kenpom_df, away_team, 'Luck'))
+    diffs['kenpom_sos_diff']    = _diff(_val(kenpom_df, home_team, 'SOS_NetRtg'), _val(kenpom_df, away_team, 'SOS_NetRtg'))
+
+    # BartTorvik
+    diffs['bart_oe_diff'] = _diff(_val(bart_df, home_team, 'Adj OE'), _val(bart_df, away_team, 'Adj OE'))
+    diffs['bart_de_diff'] = _diff(_val(bart_df, home_team, 'Adj DE'), _val(bart_df, away_team, 'Adj DE'))
+
+    # NCAA NET
+    if net_df is not None and not net_df.empty:
+        def _net_winpct(team):
+            row = net_df[net_df['canonical_team'] == team]
+            if row.empty:
+                return None
+            r = row.iloc[0]
+            w, l = float(r.get('Wins', 0) or 0), float(r.get('Losses', 0) or 0)
+            return w / (w + l) if (w + l) > 0 else 0.5
+
+        def _q1_wins(team):
+            row = net_df[net_df['canonical_team'] == team]
+            if row.empty:
+                return None
+            q = row.iloc[0].get('Quad1', '')
+            try:
+                return int(str(q).split('-')[0]) if '-' in str(q) else 0
+            except Exception:
+                return 0
+
+        def _q1_pct(team):
+            row = net_df[net_df['canonical_team'] == team]
+            if row.empty:
+                return None
+            q = row.iloc[0].get('Quad1', '')
+            try:
+                w, l = int(str(q).split('-')[0]), int(str(q).split('-')[1])
+                return w / (w + l) if (w + l) > 0 else 0.5
+            except Exception:
+                return 0.5
+
+        h_rank = _val(net_df, home_team, 'NET_Rank')
+        a_rank = _val(net_df, away_team, 'NET_Rank')
+        diffs['net_rank_diff']   = _diff(h_rank, a_rank)
+        diffs['net_winpct_diff'] = _diff(_net_winpct(home_team), _net_winpct(away_team))
+        diffs['net_q1wins_diff'] = _diff(_q1_wins(home_team),  _q1_wins(away_team))
+        diffs['net_q1pct_diff']  = _diff(_q1_pct(home_team),   _q1_pct(away_team))
+    else:
+        diffs['net_rank_diff']   = 0.0
+        diffs['net_winpct_diff'] = 0.0
+        diffs['net_q1wins_diff'] = 0.0
+        diffs['net_q1pct_diff']  = 0.0
+
+    return diffs
+
+
 def _build_tournament_feature_vector(features: dict, model) -> np.ndarray:
     """Build a feature vector aligned to the tournament model's expected columns.
 
@@ -241,6 +330,14 @@ def make_predictions(game_data: dict, models: dict,
         game_data.get('home_stats'), game_data.get('away_stats'),
         game_data.get('home_eff'), game_data.get('away_eff')
     )
+
+    # Merge pre-computed advanced diffs (KenPom / BartTorvik / NET) into
+    # the spread feature dict so that _build_tournament_feature_vector()
+    # and the improved model can find them by name.
+    adv = game_data.get('advanced_diffs', {})
+    if adv:
+        features['spread'].update(adv)
+        features['total'].update(adv)   # NET/KP may marginally help totals too
 
     predictions = {}
 
@@ -351,6 +448,22 @@ def make_predictions(game_data: dict, models: dict,
                 'moneyline_home_win_prob' in predictions):
             return predictions
 
+    # ── IMPROVED SPREAD MODEL (KenPom + BartTorvik + NET) ────────────────
+    improved_model = models.get('spread_improved')
+    if improved_model is not None:
+        try:
+            vec = _build_tournament_feature_vector(features, improved_model)
+            if vec is not None:
+                improved_pred = float(improved_model.predict(vec)[0])
+                # Use improved model as the primary spread prediction
+                predictions['spread_prediction'] = improved_pred
+                predictions.setdefault('spread_confidence_interval', [
+                    round(improved_pred - 3.0, 2), round(improved_pred + 3.0, 2)
+                ])
+                predictions.setdefault('model_source', 'improved')
+        except Exception as _e:
+            pass  # fall through to standard models
+
     # ── ADVANCED MODELS (regular-season, 3-feature) ──────────────────────
     adv_preds_spread: list = []
     adv_preds_total:  list = []
@@ -451,11 +564,24 @@ def make_predictions(game_data: dict, models: dict,
     predictions.setdefault('model_source', 'regular')
     return predictions
 
+def _current_ncaa_season() -> int:
+    """Return the NCAA season year for the current date.
+
+    NCAA convention: the season is labelled by the calendar year it ends in.
+    e.g. the 2025-26 season = season 2026 (tournament in April 2026).
+    If the current month is August or later we are already into the *next*
+    academic year's season, so return year+1.  Otherwise return the current year.
+    """
+    from datetime import datetime
+    now = datetime.now()
+    return now.year + 1 if now.month >= 8 else now.year
+
+
 def load_team_data_once():
     """Load team efficiency and stats data once for all games."""
-    current_year = 2025  # Use 2025 season data for current predictions
+    current_year = _current_ncaa_season()
 
-    print("Loading team data for all games...")
+    print(f"Loading team data for {current_year} season...")
     efficiency_data = fetch_efficiency_ratings(current_year)
     team_stats_data = fetch_team_stats(current_year)
 
@@ -484,7 +610,7 @@ def load_upcoming_games():
 
 def fetch_game_data(game, efficiency_lookup, stats_lookup, lines_data=None, live_odds=None):
     """Fetch team stats and efficiency data for a game using pre-loaded data."""
-    current_year = 2025  # Use 2025 season data for current predictions
+    current_year = _current_ncaa_season()
 
     try:
         # Get data for both teams
@@ -697,9 +823,32 @@ def generate_predictions():
     # Load team data once for all games
     efficiency_lookup, stats_lookup = load_team_data_once()
 
-    # Fetch betting lines once for the period (used to attach moneylines)
+    # Load advanced ratings data once (KenPom, BartTorvik, NET) for improved model
     try:
-        lines_data = fetch_betting_lines(2025, 'postseason')
+        _loader = EfficiencyDataLoader()
+        _kenpom_df = _loader.load_kenpom()
+        _bart_df   = _loader.load_barttorvik()
+        print(f"Loaded KenPom ({len(_kenpom_df)} teams) and BartTorvik ({len(_bart_df)} teams) for improved spread model")
+    except Exception as _e:
+        print(f"Could not load KenPom/BartTorvik: {_e}")
+        _kenpom_df = None
+        _bart_df   = None
+    _net_path = DATA_DIR / "net_rankings.csv"
+    _net_df = None
+    if _net_path.exists():
+        try:
+            _net_df = pd.read_csv(_net_path)
+            _net_df['NET_Rank'] = pd.to_numeric(_net_df['NET_Rank'], errors='coerce')
+            _net_df['Wins']     = pd.to_numeric(_net_df['Wins'],     errors='coerce').fillna(0)
+            _net_df['Losses']   = pd.to_numeric(_net_df['Losses'],   errors='coerce').fillna(0)
+            print(f"Loaded NCAA NET rankings ({len(_net_df)} teams) for improved spread model")
+        except Exception as _e:
+            print(f"Could not load NET rankings: {_e}")
+
+    # Fetch betting lines once for the period (used to attach moneylines)
+    season_year = _current_ncaa_season()
+    try:
+        lines_data = fetch_betting_lines(season_year, 'postseason')
         print(f"Loaded {len(lines_data)} betting line entries")
     except Exception as e:
         print(f"Could not load betting lines: {e}")
@@ -730,6 +879,14 @@ def generate_predictions():
         if not game_data:
             print(f"  Could not fetch data for this game")
             continue
+
+        # Attach advanced diffs (KenPom / BartTorvik / NET) to game_data
+        if models.get('spread_improved') is not None:
+            home_name = normalize_team_name(game_data.get('home_team', ''))
+            away_name = normalize_team_name(game_data.get('away_team', ''))
+            game_data['advanced_diffs'] = _compute_advanced_diffs(
+                home_name, away_name, _kenpom_df, _bart_df, _net_df
+            )
 
         # Detect tournament game
         season_type = str(game.get('season_type', '')).lower()

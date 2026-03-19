@@ -103,6 +103,7 @@ ranked_only = st.sidebar.checkbox("Ranked Teams Only", value=False)
 
 # Process games and generate predictions
 ou_picks = []
+predictions_no_line = []  # games with predictions but no betting line yet
 
 processing_debug = []
 with st.spinner("Analyzing over/under for all games..."):
@@ -167,7 +168,14 @@ with st.spinner("Analyzing over/under for all games..."):
             actual_total = enriched_game.get('total') or enriched_game.get('over_under')
         if actual_total is None:
             processing_debug.append(f"No total for {enriched_game.get('away_team', '?')} @ {enriched_game.get('home_team', '?')}")
-            continue  # Skip if no total line
+            # Still keep the prediction even without a line
+            predictions_no_line.append({
+                'matchup': f"{enriched_game.get('away_team', '?')} @ {enriched_game.get('home_team', '?')}",
+                'away_team': enriched_game.get('away_team', '?'),
+                'home_team': enriched_game.get('home_team', '?'),
+                'predicted_total': predicted_total,
+            })
+            continue  # Skip O/U edge analysis — no line to compare against
         
         # Calculate edge
         edge = abs(predicted_total - actual_total)
@@ -225,22 +233,29 @@ with st.spinner("Analyzing over/under for all games..."):
 if processing_debug:
     with st.expander("⚠️ Debugging Info: Games Without Totals", expanded=False):
         st.write(f"{len(processing_debug)} games skipped due to missing total data:")
-        st.info("💡 Betting lines may not be available yet for upcoming games. Run `python fetch_live_odds.py` to fetch current odds, then `python generate_predictions.py` to refresh predictions with betting lines.")
+        st.info("💡 Betting lines may not be available yet for upcoming games. ")
         for msg in processing_debug[:20]:  # Show first 20
             st.caption(msg)
 
 if not ou_picks:
-    st.warning("No games match the current filter criteria.")
-    st.info(f"**Summary:** Processed {len(games)} games, {len(processing_debug)} had no total data")
-    
-    if len(processing_debug) > len(games) * 0.8:  # If more than 80% missing data
-        st.error("🔴 Most games are missing betting lines. To fix this:")
-        st.code("""# Fetch current odds and regenerate predictions
-python fetch_live_odds.py
-python generate_predictions.py
-""")
+    if predictions_no_line:
+        st.warning("No betting lines are available yet for today's games. Showing model projections below — O/U analysis will appear once odds are posted.")
+        no_line_df = pd.DataFrame(predictions_no_line)
+        no_line_df['Matchup'] = no_line_df['matchup']
+        no_line_df['Projected Total'] = no_line_df['predicted_total'].apply(lambda x: f"{x:.1f}" if x is not None else 'N/A')
+        st.dataframe(no_line_df[['Matchup', 'Projected Total']], hide_index=True)
+        # st.info("To fetch live odds, run: `python fetch_live_odds.py && python generate_predictions.py`")
     else:
-        st.info("Try adjusting the filters (lower minimum edge, wider total range, disable ranked-only filter, change tempo filter)")
+        st.warning("No games match the current filter criteria.")
+        st.info(f"**Summary:** Processed {len(games)} games, {len(processing_debug)} had no total data")
+        if len(processing_debug) > len(games) * 0.8:  # If more than 80% missing data
+            st.error("🔴 Most games are missing betting lines. ")
+            # st.code("""# Fetch current odds and regenerate predictions
+# python fetch_live_odds.py
+# python generate_predictions.py
+# """)
+        else:
+            st.info("Try adjusting the filters (lower minimum edge, wider total range, disable ranked-only filter, change tempo filter)")
     st.stop()
 
 # Convert to DataFrame

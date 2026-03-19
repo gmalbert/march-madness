@@ -1,130 +1,6 @@
 [
   {
     "game_info": {
-      "game_id": 401856435,
-      "home_team": "Howard Bison",
-      "away_team": "UMBC Retrievers",
-      "date": "2026-03-17 22:40:00+00:00",
-      "venue": "UD Arena",
-      "home_rank": 16,
-      "away_rank": 16,
-      "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
-      },
-      "away_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.326205",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856434,
-      "home_team": "NC State Wolfpack",
-      "away_team": "Texas Longhorns",
-      "date": "2026-03-18 01:15:00+00:00",
-      "venue": "UD Arena",
-      "home_rank": 11,
-      "away_rank": 11,
-      "home_eff": {
-        "offensiveRating": 108.9,
-        "defensiveRating": 108.9
-      },
-      "away_eff": {
-        "offensiveRating": 108.9,
-        "defensiveRating": 108.9
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.328333",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856437,
-      "home_team": "Lehigh Mountain Hawks",
-      "away_team": "Prairie View A&M Panthers",
-      "date": "2026-03-18 22:40:00+00:00",
-      "venue": "UD Arena",
-      "home_rank": 16,
-      "away_rank": 16,
-      "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
-      },
-      "away_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.330056",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856436,
-      "home_team": "SMU Mustangs",
-      "away_team": "Miami (OH) RedHawks",
-      "date": "2026-03-19 01:15:00+00:00",
-      "venue": "UD Arena",
-      "home_rank": 11,
-      "away_rank": 11,
-      "home_eff": {
-        "offensiveRating": 108.9,
-        "defensiveRating": 108.9
-      },
-      "away_eff": {
-        "offensiveRating": 108.9,
-        "defensiveRating": 108.9
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.332228",
-    "season": 2025
-  },
-  {
-    "game_info": {
       "game_id": 401856479,
       "home_team": "Ohio State Buckeyes",
       "away_team": "TCU Horned Frogs",
@@ -141,136 +17,166 @@
         "defensiveRating": 109.1
       },
       "home_stats": {
-        "season": 2025,
-        "seasonLabel": "20242025",
+        "season": 2026,
+        "seasonLabel": "20252026",
         "teamId": 216,
         "team": "Ohio State",
         "conference": "Big Ten",
-        "games": 32,
-        "wins": 17,
-        "losses": 15,
-        "totalMinutes": 1350,
-        "pace": 65.4,
+        "games": 17,
+        "wins": 12,
+        "losses": 5,
+        "totalMinutes": 700,
+        "pace": 65.7,
         "teamStats": {
           "fieldGoals": {
-            "pct": 46.6,
-            "attempted": 1884,
-            "made": 878
+            "pct": 49.9,
+            "attempted": 978,
+            "made": 488
           },
           "twoPointFieldGoals": {
-            "pct": 52.6,
-            "attempted": 1173,
-            "made": 617
+            "pct": 60.3,
+            "attempted": 587,
+            "made": 354
           },
           "threePointFieldGoals": {
-            "pct": 36.7,
-            "attempted": 711,
-            "made": 261
+            "pct": 34.3,
+            "attempted": 391,
+            "made": 134
           },
           "freeThrows": {
-            "pct": 74.8,
-            "attempted": 675,
-            "made": 505
+            "pct": 79.3,
+            "attempted": 386,
+            "made": 306
           },
           "rebounds": {
-            "total": 1078,
-            "defensive": 773,
-            "offensive": 305
+            "total": 615,
+            "defensive": 443,
+            "offensive": 172
           },
           "turnovers": {
-            "teamTotal": 20,
-            "total": 349
+            "teamTotal": 10,
+            "total": 183
           },
           "fouls": {
             "flagrant": 0,
-            "technical": 2,
-            "total": 626
+            "technical": 1,
+            "total": 296
           },
           "points": {
-            "fastBreak": 176,
-            "offTurnovers": 418,
-            "inPaint": 1062,
-            "total": 2522
+            "fastBreak": 120,
+            "offTurnovers": 260,
+            "inPaint": 642,
+            "total": 1416
           },
           "fourFactors": {
-            "freeThrowRate": 35.8,
-            "offensiveReboundPct": 28.3,
+            "freeThrowRate": 39.5,
+            "offensiveReboundPct": 28,
             "turnoverRatio": 0.16,
-            "effectiveFieldGoalPct": 53.5
+            "effectiveFieldGoalPct": 56.7
           },
-          "assists": 421,
-          "blocks": 115,
-          "steals": 207,
-          "possessions": 2201,
-          "rating": 114.6,
-          "trueShooting": 57.8
+          "assists": 269,
+          "blocks": 41,
+          "steals": 75,
+          "possessions": 1152,
+          "rating": 122.9,
+          "trueShooting": 61.7
         },
         "opponentStats": {
           "fieldGoals": {
-            "pct": 42.8,
-            "attempted": 1851,
-            "made": 793
+            "pct": 41.8,
+            "attempted": 1025,
+            "made": 428
           },
           "twoPointFieldGoals": {
-            "pct": 50.3,
-            "attempted": 1155,
-            "made": 581
+            "pct": 49.9,
+            "attempted": 607,
+            "made": 303
           },
           "threePointFieldGoals": {
-            "pct": 30.5,
-            "attempted": 696,
-            "made": 212
+            "pct": 29.9,
+            "attempted": 418,
+            "made": 125
           },
           "freeThrows": {
-            "pct": 75.2,
-            "attempted": 738,
-            "made": 555
+            "pct": 73.9,
+            "attempted": 330,
+            "made": 244
           },
           "rebounds": {
-            "total": 1089,
-            "defensive": 750,
-            "offensive": 339
+            "total": 524,
+            "defensive": 336,
+            "offensive": 188
           },
           "turnovers": {
-            "teamTotal": 15,
-            "total": 376
+            "teamTotal": 9,
+            "total": 181
           },
           "fouls": {
-            "flagrant": 0,
-            "technical": 8,
-            "total": 604
+            "flagrant": 1,
+            "technical": 0,
+            "total": 333
           },
           "points": {
-            "fastBreak": 162,
-            "offTurnovers": 385,
-            "inPaint": 988,
-            "total": 2353
+            "fastBreak": 103,
+            "offTurnovers": 195,
+            "inPaint": 504,
+            "total": 1225
           },
           "fourFactors": {
-            "freeThrowRate": 39.9,
-            "offensiveReboundPct": 31.1,
-            "turnoverRatio": 0.17,
-            "effectiveFieldGoalPct": 48.6
+            "freeThrowRate": 32.2,
+            "offensiveReboundPct": 35.9,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 47.9
           },
-          "assists": 380,
-          "blocks": 107,
-          "steals": 135,
-          "possessions": 2211,
-          "rating": 106.4,
-          "trueShooting": 54.1
+          "assists": 220,
+          "blocks": 42,
+          "steals": 95,
+          "possessions": 1149,
+          "rating": 106.6,
+          "trueShooting": 52.3
         }
       },
       "away_stats": null,
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -10.0,
+        "net_winpct_diff": -0.030303030303030276,
+        "net_q1wins_diff": -1,
+        "net_q1pct_diff": -0.14903846153846156
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.474609375,
+      "moneyline_home_win_prob": 0.749104380607605,
+      "moneyline_away_win_prob": 0.250895619392395,
+      "total_confidence_interval": [
+        135.35,
+        149.6
+      ],
+      "moneyline_confidence_interval": [
+        0.6991,
+        0.7991
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.334314",
+    "generated_at": "2026-03-19T10:05:02.128041",
     "season": 2025
   },
   {
@@ -292,16 +198,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -1000,
+      "away_moneyline": 650,
+      "home_ml": -1000,
+      "away_ml": 650,
+      "home_spread": -13.5,
+      "away_spread": 13.5,
+      "total_line": 137.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 21.76,
+        "kenpom_ortg_diff": 9.099999999999994,
+        "kenpom_drtg_diff": -12.600000000000009,
+        "kenpom_adjt_diff": 0.5,
+        "kenpom_luck_diff": 0.095,
+        "kenpom_sos_diff": 7.33,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -111.0,
+        "net_winpct_diff": 0.16733870967741937,
+        "net_q1wins_diff": 8,
+        "net_q1pct_diff": -0.4
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.748779296875,
+      "moneyline_home_win_prob": 0.5668859481811523,
+      "moneyline_away_win_prob": 0.43311405181884766,
+      "total_confidence_interval": [
+        136.56,
+        150.94
+      ],
+      "moneyline_confidence_interval": [
+        0.5169,
+        0.6169
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.336426",
+    "generated_at": "2026-03-19T10:05:02.219858",
     "season": 2025
   },
   {
@@ -323,16 +262,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -185,
+      "away_moneyline": 154,
+      "home_ml": -185,
+      "away_ml": 154,
+      "home_spread": -4.5,
+      "away_spread": 4.5,
+      "total_line": 163.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 14.770000000000001,
+        "kenpom_ortg_diff": 10.700000000000003,
+        "kenpom_drtg_diff": -4.099999999999994,
+        "kenpom_adjt_diff": -2.3000000000000114,
+        "kenpom_luck_diff": 0.013000000000000005,
+        "kenpom_sos_diff": 3.9299999999999997,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -28.0,
+        "net_winpct_diff": -0.05303030303030298,
+        "net_q1wins_diff": 6,
+        "net_q1pct_diff": 0.0444444444444444
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.17819213867188,
+      "moneyline_home_win_prob": 0.7140478491783142,
+      "moneyline_away_win_prob": 0.2859521508216858,
+      "total_confidence_interval": [
+        135.07,
+        149.29
+      ],
+      "moneyline_confidence_interval": [
+        0.664,
+        0.764
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.338544",
+    "generated_at": "2026-03-19T10:05:02.357877",
     "season": 2025
   },
   {
@@ -354,16 +326,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -485,
+      "away_moneyline": 370,
+      "home_ml": -485,
+      "away_ml": 370,
+      "home_spread": -10.5,
+      "away_spread": 10.5,
+      "total_line": 162.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 11.280000000000001,
+        "kenpom_ortg_diff": 2.4000000000000057,
+        "kenpom_drtg_diff": -8.899999999999991,
+        "kenpom_adjt_diff": 1.0,
+        "kenpom_luck_diff": 0.057,
+        "kenpom_sos_diff": 15.24,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -50.0,
+        "net_winpct_diff": -0.16508538899430736,
+        "net_q1wins_diff": 9,
+        "net_q1pct_diff": 0.02941176470588236
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.5686798095703,
+      "moneyline_home_win_prob": 0.6579171419143677,
+      "moneyline_away_win_prob": 0.3420828580856323,
+      "total_confidence_interval": [
+        136.39,
+        150.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6079,
+        0.7079
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.339619",
+    "generated_at": "2026-03-19T10:05:02.435877",
     "season": 2025
   },
   {
@@ -385,16 +390,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -50000,
+      "away_moneyline": 5500,
+      "home_ml": -50000,
+      "away_ml": 5500,
+      "home_spread": -27.5,
+      "away_spread": 27.5,
+      "total_line": 135.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 147.96527099609375,
+      "moneyline_home_win_prob": 0.600827693939209,
+      "moneyline_away_win_prob": 0.399172306060791,
+      "total_confidence_interval": [
+        140.57,
+        155.36
+      ],
+      "moneyline_confidence_interval": [
+        0.5508,
+        0.6508
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.340793",
+    "generated_at": "2026-03-19T10:05:02.539159",
     "season": 2025
   },
   {
@@ -416,16 +454,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -750,
+      "away_moneyline": 525,
+      "home_ml": -750,
+      "away_ml": 525,
+      "home_spread": -12.5,
+      "away_spread": 12.5,
+      "total_line": 149.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 14.000000000000002,
+        "kenpom_ortg_diff": 7.799999999999997,
+        "kenpom_drtg_diff": -6.200000000000003,
+        "kenpom_adjt_diff": 4.200000000000003,
+        "kenpom_luck_diff": -0.005999999999999998,
+        "kenpom_sos_diff": 9.47,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -43.0,
+        "net_winpct_diff": -0.07400379506641375,
+        "net_q1wins_diff": 10,
+        "net_q1pct_diff": 0.5882352941176471
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.5686798095703,
+      "moneyline_home_win_prob": 0.6579171419143677,
+      "moneyline_away_win_prob": 0.3420828580856323,
+      "total_confidence_interval": [
+        136.39,
+        150.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6079,
+        0.7079
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.342819",
+    "generated_at": "2026-03-19T10:05:02.663743",
     "season": 2025
   },
   {
@@ -450,13 +521,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.8994598388672,
+      "moneyline_home_win_prob": 0.5734273791313171,
+      "moneyline_away_win_prob": 0.42657262086868286,
+      "total_confidence_interval": [
+        136.7,
+        151.09
+      ],
+      "moneyline_confidence_interval": [
+        0.5234,
+        0.6234
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.343850",
+    "generated_at": "2026-03-19T10:05:02.803103",
     "season": 2025
   },
   {
@@ -481,13 +582,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.748779296875,
+      "moneyline_home_win_prob": 0.5668859481811523,
+      "moneyline_away_win_prob": 0.43311405181884766,
+      "total_confidence_interval": [
+        136.56,
+        150.94
+      ],
+      "moneyline_confidence_interval": [
+        0.5169,
+        0.6169
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.345923",
+    "generated_at": "2026-03-19T10:05:02.955926",
     "season": 2025
   },
   {
@@ -509,197 +640,296 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -148,
+      "away_moneyline": 124,
+      "home_ml": -148,
+      "away_ml": 124,
+      "home_spread": -2.5,
+      "away_spread": 2.5,
+      "total_line": 151.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 3.869999999999999,
+        "kenpom_ortg_diff": 2.1000000000000085,
+        "kenpom_drtg_diff": -1.9000000000000057,
+        "kenpom_adjt_diff": -1.7000000000000028,
+        "kenpom_luck_diff": 0.111,
+        "kenpom_sos_diff": 2.43,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -19.0,
+        "net_winpct_diff": -0.044117647058823484,
+        "net_q1wins_diff": 4,
+        "net_q1pct_diff": 0.09523809523809523
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.17819213867188,
+      "moneyline_home_win_prob": 0.7140478491783142,
+      "moneyline_away_win_prob": 0.2859521508216858,
+      "total_confidence_interval": [
+        135.07,
+        149.29
+      ],
+      "moneyline_confidence_interval": [
+        0.664,
+        0.764
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.346979",
+    "generated_at": "2026-03-19T10:05:03.091556",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856486,
       "home_team": "Michigan Wolverines",
-      "away_team": "TBD",
+      "away_team": "Howard Bison",
       "date": "2026-03-19 23:10:00+00:00",
       "venue": "KeyBank Center",
       "home_rank": 1,
-      "away_rank": 99,
+      "away_rank": 16,
       "home_eff": {
         "offensiveRating": 114,
         "defensiveRating": 110.7
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 108.4,
+        "defensiveRating": 108.4
       },
       "home_stats": {
-        "season": 2025,
-        "seasonLabel": "20242025",
+        "season": 2026,
+        "seasonLabel": "20252026",
         "teamId": 170,
         "team": "Michigan",
         "conference": "Big Ten",
-        "games": 37,
-        "wins": 27,
-        "losses": 10,
-        "totalMinutes": 1510,
-        "pace": 67.3,
+        "games": 17,
+        "wins": 16,
+        "losses": 1,
+        "totalMinutes": 695,
+        "pace": 72.8,
         "teamStats": {
           "fieldGoals": {
-            "pct": 46.8,
-            "attempted": 2160,
-            "made": 1011
+            "pct": 51.7,
+            "attempted": 1069,
+            "made": 553
           },
           "twoPointFieldGoals": {
-            "pct": 56.7,
-            "attempted": 1253,
-            "made": 710
+            "pct": 63.9,
+            "attempted": 612,
+            "made": 391
           },
           "threePointFieldGoals": {
-            "pct": 33.2,
-            "attempted": 907,
-            "made": 301
+            "pct": 35.4,
+            "attempted": 457,
+            "made": 162
           },
           "freeThrows": {
-            "pct": 72.8,
-            "attempted": 772,
-            "made": 562
+            "pct": 72.9,
+            "attempted": 431,
+            "made": 314
           },
           "rebounds": {
-            "total": 1422,
-            "defensive": 1013,
-            "offensive": 409
+            "total": 727,
+            "defensive": 533,
+            "offensive": 194
           },
           "turnovers": {
-            "teamTotal": 12,
-            "total": 517
+            "teamTotal": 5,
+            "total": 207
           },
           "fouls": {
             "flagrant": 0,
-            "technical": 3,
-            "total": 634
+            "technical": 4,
+            "total": 278
           },
           "points": {
-            "fastBreak": 357,
-            "offTurnovers": 471,
-            "inPaint": 1322,
-            "total": 2885
+            "fastBreak": 274,
+            "offTurnovers": 274,
+            "inPaint": 728,
+            "total": 1582
           },
           "fourFactors": {
-            "freeThrowRate": 35.7,
-            "offensiveReboundPct": 28.8,
-            "turnoverRatio": 0.2,
-            "effectiveFieldGoalPct": 53.8
+            "freeThrowRate": 40.3,
+            "offensiveReboundPct": 26.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 59.3
           },
-          "assists": 586,
-          "blocks": 135,
-          "steals": 198,
-          "possessions": 2543,
-          "rating": 113.4,
-          "trueShooting": 57.7
+          "assists": 333,
+          "blocks": 105,
+          "steals": 115,
+          "possessions": 1266,
+          "rating": 125,
+          "trueShooting": 62.8
         },
         "opponentStats": {
           "fieldGoals": {
-            "pct": 40.1,
-            "attempted": 2340,
-            "made": 938
+            "pct": 36,
+            "attempted": 1124,
+            "made": 405
           },
           "twoPointFieldGoals": {
-            "pct": 46,
-            "attempted": 1425,
-            "made": 656
+            "pct": 40.3,
+            "attempted": 655,
+            "made": 264
           },
           "threePointFieldGoals": {
-            "pct": 30.8,
-            "attempted": 915,
-            "made": 282
+            "pct": 30.1,
+            "attempted": 469,
+            "made": 141
           },
           "freeThrows": {
-            "pct": 73.1,
-            "attempted": 665,
-            "made": 486
+            "pct": 71.1,
+            "attempted": 308,
+            "made": 219
           },
           "rebounds": {
-            "total": 1262,
-            "defensive": 824,
-            "offensive": 438
+            "total": 571,
+            "defensive": 360,
+            "offensive": 211
           },
           "turnovers": {
-            "teamTotal": 23,
-            "total": 417
+            "teamTotal": 10,
+            "total": 221
           },
           "fouls": {
-            "flagrant": 0,
-            "technical": 3,
-            "total": 686
+            "flagrant": 2,
+            "technical": 4,
+            "total": 365
           },
           "points": {
-            "fastBreak": 297,
-            "offTurnovers": 561,
-            "inPaint": 1054,
-            "total": 2644
+            "fastBreak": 99,
+            "offTurnovers": 188,
+            "inPaint": 404,
+            "total": 1170
           },
           "fourFactors": {
-            "freeThrowRate": 28.4,
-            "offensiveReboundPct": 34.7,
-            "turnoverRatio": 0.16,
-            "effectiveFieldGoalPct": 46.1
+            "freeThrowRate": 27.4,
+            "offensiveReboundPct": 37,
+            "turnoverRatio": 0.17,
+            "effectiveFieldGoalPct": 42.3
           },
-          "assists": 421,
-          "blocks": 93,
-          "steals": 269,
-          "possessions": 2540,
-          "rating": 104.1,
-          "trueShooting": 50.2
+          "assists": 165,
+          "blocks": 53,
+          "steals": 108,
+          "possessions": 1265,
+          "rating": 92.5,
+          "trueShooting": 46.4
         }
       },
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -100000,
+      "away_moneyline": 7000,
+      "home_ml": -100000,
+      "away_ml": 7000,
+      "home_spread": -31.5,
+      "away_spread": 31.5,
+      "total_line": 151.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.58236694335938,
+      "moneyline_home_win_prob": 0.7805122137069702,
+      "moneyline_away_win_prob": 0.21948778629302979,
+      "total_confidence_interval": [
+        136.4,
+        150.76
+      ],
+      "moneyline_confidence_interval": [
+        0.7305,
+        0.8305
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.349053",
+    "generated_at": "2026-03-19T10:05:03.186840",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856484,
       "home_team": "BYU Cougars",
-      "away_team": "TBD",
+      "away_team": "Texas Longhorns",
       "date": "2026-03-19 23:25:00+00:00",
       "venue": "Moda Center",
       "home_rank": 6,
-      "away_rank": 99,
+      "away_rank": 11,
       "home_eff": {
         "offensiveRating": 109.4,
         "defensiveRating": 109.4
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 108.9,
+        "defensiveRating": 108.9
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -135,
+      "away_moneyline": 114,
+      "home_ml": -135,
+      "away_ml": 114,
+      "home_spread": -2.5,
+      "away_spread": 2.5,
+      "total_line": 157.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 8.71,
+        "kenpom_ortg_diff": 0.5,
+        "kenpom_drtg_diff": -8.200000000000003,
+        "kenpom_adjt_diff": 3.0999999999999943,
+        "kenpom_luck_diff": 0.162,
+        "kenpom_sos_diff": -0.7700000000000005,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -19.0,
+        "net_winpct_diff": 0.12808349146110065,
+        "net_q1wins_diff": 1,
+        "net_q1pct_diff": 0.0117647058823529
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.17819213867188,
+      "moneyline_home_win_prob": 0.7140478491783142,
+      "moneyline_away_win_prob": 0.2859521508216858,
+      "total_confidence_interval": [
+        135.07,
+        149.29
+      ],
+      "moneyline_confidence_interval": [
+        0.664,
+        0.764
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.351169",
+    "generated_at": "2026-03-19T10:05:03.277146",
     "season": 2025
   },
   {
@@ -724,13 +954,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.6181182861328,
+      "moneyline_home_win_prob": 0.6777539253234863,
+      "moneyline_away_win_prob": 0.32224607467651367,
+      "total_confidence_interval": [
+        135.49,
+        149.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6278,
+        0.7278
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.352784",
+    "generated_at": "2026-03-19T10:05:03.355670",
     "season": 2025
   },
   {
@@ -752,16 +1012,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -8000,
+      "away_moneyline": 2200,
+      "home_ml": -8000,
+      "away_ml": 2200,
+      "home_spread": -25.5,
+      "away_spread": 25.5,
+      "total_line": 151.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.8994598388672,
+      "moneyline_home_win_prob": 0.5734273791313171,
+      "moneyline_away_win_prob": 0.42657262086868286,
+      "total_confidence_interval": [
+        136.7,
+        151.09
+      ],
+      "moneyline_confidence_interval": [
+        0.5234,
+        0.6234
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.354067",
+    "generated_at": "2026-03-19T10:05:03.430893",
     "season": 2025
   },
   {
@@ -783,135 +1076,168 @@
       },
       "home_stats": null,
       "away_stats": {
-        "season": 2025,
-        "seasonLabel": "20242025",
+        "season": 2026,
+        "seasonLabel": "20252026",
         "teamId": 252,
         "team": "Saint Louis",
         "conference": "A-10",
-        "games": 34,
-        "wins": 19,
-        "losses": 15,
-        "totalMinutes": 1390,
-        "pace": 67.2,
+        "games": 18,
+        "wins": 17,
+        "losses": 1,
+        "totalMinutes": 720,
+        "pace": 72.6,
         "teamStats": {
           "fieldGoals": {
-            "pct": 47.7,
-            "attempted": 1886,
-            "made": 899
+            "pct": 51.9,
+            "attempted": 1122,
+            "made": 582
           },
           "twoPointFieldGoals": {
-            "pct": 60.1,
-            "attempted": 941,
-            "made": 566
+            "pct": 63,
+            "attempted": 619,
+            "made": 390
           },
           "threePointFieldGoals": {
-            "pct": 35.2,
-            "attempted": 945,
-            "made": 333
+            "pct": 38.2,
+            "attempted": 503,
+            "made": 192
           },
           "freeThrows": {
-            "pct": 68.6,
-            "attempted": 577,
-            "made": 396
+            "pct": 76.8,
+            "attempted": 384,
+            "made": 295
           },
           "rebounds": {
-            "total": 1198,
-            "defensive": 940,
-            "offensive": 258
+            "total": 783,
+            "defensive": 575,
+            "offensive": 208
           },
           "turnovers": {
-            "teamTotal": 14,
-            "total": 431
+            "teamTotal": 2,
+            "total": 217
           },
           "fouls": {
-            "flagrant": 0,
+            "flagrant": 1,
             "technical": 0,
-            "total": 499
+            "total": 330
           },
           "points": {
-            "fastBreak": 323,
-            "offTurnovers": 376,
-            "inPaint": 1058,
-            "total": 2527
+            "fastBreak": 340,
+            "offTurnovers": 279,
+            "inPaint": 770,
+            "total": 1651
           },
           "fourFactors": {
-            "freeThrowRate": 30.6,
-            "offensiveReboundPct": 21.5,
-            "turnoverRatio": 0.18,
-            "effectiveFieldGoalPct": 56.5
+            "freeThrowRate": 34.2,
+            "offensiveReboundPct": 26.6,
+            "turnoverRatio": 0.17,
+            "effectiveFieldGoalPct": 60.4
           },
-          "assists": 509,
-          "blocks": 105,
-          "steals": 216,
-          "possessions": 2333,
-          "rating": 108.3,
-          "trueShooting": 59
+          "assists": 345,
+          "blocks": 59,
+          "steals": 131,
+          "possessions": 1307,
+          "rating": 126.3,
+          "trueShooting": 63.9
         },
         "opponentStats": {
           "fieldGoals": {
-            "pct": 42.2,
-            "attempted": 2117,
-            "made": 893
+            "pct": 35.6,
+            "attempted": 1102,
+            "made": 392
           },
           "twoPointFieldGoals": {
-            "pct": 48.1,
-            "attempted": 1286,
-            "made": 618
-          },
-          "threePointFieldGoals": {
-            "pct": 33.1,
-            "attempted": 831,
+            "pct": 41.2,
+            "attempted": 668,
             "made": 275
           },
+          "threePointFieldGoals": {
+            "pct": 27,
+            "attempted": 434,
+            "made": 117
+          },
           "freeThrows": {
-            "pct": 70.3,
-            "attempted": 515,
-            "made": 362
+            "pct": 72.8,
+            "attempted": 408,
+            "made": 297
           },
           "rebounds": {
-            "total": 1186,
-            "defensive": 828,
-            "offensive": 358
+            "total": 561,
+            "defensive": 374,
+            "offensive": 187
           },
           "turnovers": {
-            "teamTotal": 20,
-            "total": 352
+            "teamTotal": 19,
+            "total": 210
           },
           "fouls": {
             "flagrant": 0,
-            "technical": 4,
-            "total": 533
+            "technical": 2,
+            "total": 302
           },
           "points": {
-            "fastBreak": 307,
-            "offTurnovers": 480,
-            "inPaint": 1040,
-            "total": 2423
+            "fastBreak": 192,
+            "offTurnovers": 243,
+            "inPaint": 452,
+            "total": 1198
           },
           "fourFactors": {
-            "freeThrowRate": 24.3,
-            "offensiveReboundPct": 30.2,
-            "turnoverRatio": 0.15,
-            "effectiveFieldGoalPct": 48.7
+            "freeThrowRate": 37,
+            "offensiveReboundPct": 33.3,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 40.9
           },
-          "assists": 428,
-          "blocks": 107,
-          "steals": 247,
-          "possessions": 2337,
-          "rating": 103.7,
-          "trueShooting": 51.7
+          "assists": 185,
+          "blocks": 60,
+          "steals": 133,
+          "possessions": 1308,
+          "rating": 91.6,
+          "trueShooting": 46.7
         }
       },
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -148,
+      "away_moneyline": 124,
+      "home_ml": -148,
+      "away_ml": 124,
+      "home_spread": -2.5,
+      "away_spread": 2.5,
+      "total_line": 168.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": -0.9200000000000017,
+        "kenpom_ortg_diff": 0.8000000000000114,
+        "kenpom_drtg_diff": 1.7000000000000028,
+        "kenpom_adjt_diff": 3.1000000000000085,
+        "kenpom_luck_diff": 0.0010000000000000009,
+        "kenpom_sos_diff": 4.3100000000000005,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 2.0,
+        "net_winpct_diff": -0.15625,
+        "net_q1wins_diff": 4,
+        "net_q1pct_diff": -0.20512820512820507
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.42701721191406,
+      "moneyline_home_win_prob": 0.5720661282539368,
+      "moneyline_away_win_prob": 0.42793387174606323,
+      "total_confidence_interval": [
+        136.26,
+        150.6
+      ],
+      "moneyline_confidence_interval": [
+        0.5221,
+        0.6221
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.356070",
+    "generated_at": "2026-03-19T10:05:03.510574",
     "season": 2025
   },
   {
@@ -936,13 +1262,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -148.0,
+        "net_winpct_diff": 0.32844574780058644,
+        "net_q1wins_diff": 7,
+        "net_q1pct_diff": 0.7777777777777778
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.8994598388672,
+      "moneyline_home_win_prob": 0.5734273791313171,
+      "moneyline_away_win_prob": 0.42657262086868286,
+      "total_confidence_interval": [
+        136.7,
+        151.09
+      ],
+      "moneyline_confidence_interval": [
+        0.5234,
+        0.6234
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.358102",
+    "generated_at": "2026-03-19T10:05:03.583329",
     "season": 2025
   },
   {
@@ -964,16 +1320,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -8000,
+      "away_moneyline": 2200,
+      "home_ml": -8000,
+      "away_ml": 2200,
+      "home_spread": -23.5,
+      "away_spread": 23.5,
+      "total_line": 137.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 144.4828643798828,
+      "moneyline_home_win_prob": 0.5909303426742554,
+      "moneyline_away_win_prob": 0.40906965732574463,
+      "total_confidence_interval": [
+        137.26,
+        151.71
+      ],
+      "moneyline_confidence_interval": [
+        0.5409,
+        0.6409
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.360222",
+    "generated_at": "2026-03-19T10:05:03.657001",
     "season": 2025
   },
   {
@@ -995,16 +1384,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -162,
+      "away_moneyline": 136,
+      "home_ml": -162,
+      "away_ml": 136,
+      "home_spread": -3.5,
+      "away_spread": 3.5,
+      "total_line": 160.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 4.710000000000001,
+        "kenpom_ortg_diff": 1.9000000000000057,
+        "kenpom_drtg_diff": -2.799999999999997,
+        "kenpom_adjt_diff": -1.7999999999999972,
+        "kenpom_luck_diff": -0.007,
+        "kenpom_sos_diff": 5.92,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -12.0,
+        "net_winpct_diff": -0.13992869875222813,
+        "net_q1wins_diff": 3,
+        "net_q1pct_diff": 0.0625
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.6181182861328,
+      "moneyline_home_win_prob": 0.6777539253234863,
+      "moneyline_away_win_prob": 0.32224607467651367,
+      "total_confidence_interval": [
+        135.49,
+        149.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6278,
+        0.7278
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.362283",
+    "generated_at": "2026-03-19T10:05:03.741465",
     "season": 2025
   },
   {
@@ -1026,16 +1448,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -325,
+      "away_moneyline": 260,
+      "home_ml": -325,
+      "away_ml": 260,
+      "home_spread": -7.5,
+      "away_spread": 7.5,
+      "total_line": 155.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.5686798095703,
+      "moneyline_home_win_prob": 0.6579171419143677,
+      "moneyline_away_win_prob": 0.3420828580856323,
+      "total_confidence_interval": [
+        136.39,
+        150.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6079,
+        0.7079
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.363312",
+    "generated_at": "2026-03-19T10:05:03.809073",
     "season": 2025
   },
   {
@@ -1057,16 +1512,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -100000,
+      "away_moneyline": 8000,
+      "home_ml": -100000,
+      "away_ml": 8000,
+      "home_spread": -30.5,
+      "away_spread": 30.5,
+      "total_line": 150.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 147.96527099609375,
+      "moneyline_home_win_prob": 0.600827693939209,
+      "moneyline_away_win_prob": 0.399172306060791,
+      "total_confidence_interval": [
+        140.57,
+        155.36
+      ],
+      "moneyline_confidence_interval": [
+        0.5508,
+        0.6508
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.365417",
+    "generated_at": "2026-03-19T10:05:03.996343",
     "season": 2025
   },
   {
@@ -1091,13 +1579,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.8994598388672,
+      "moneyline_home_win_prob": 0.5734273791313171,
+      "moneyline_away_win_prob": 0.42657262086868286,
+      "total_confidence_interval": [
+        136.7,
+        151.09
+      ],
+      "moneyline_confidence_interval": [
+        0.5234,
+        0.6234
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.367493",
+    "generated_at": "2026-03-19T10:05:04.144509",
     "season": 2025
   },
   {
@@ -1122,13 +1640,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -166.0,
+        "net_winpct_diff": 0.10446247464503033,
+        "net_q1wins_diff": 8,
+        "net_q1pct_diff": 0.5333333333333333
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 144.4828643798828,
+      "moneyline_home_win_prob": 0.5909303426742554,
+      "moneyline_away_win_prob": 0.40906965732574463,
+      "total_confidence_interval": [
+        137.26,
+        151.71
+      ],
+      "moneyline_confidence_interval": [
+        0.5409,
+        0.6409
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.369510",
+    "generated_at": "2026-03-19T10:05:04.225659",
     "season": 2025
   },
   {
@@ -1150,16 +1698,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -880,
+      "away_moneyline": 580,
+      "home_ml": -880,
+      "away_ml": 580,
+      "home_spread": -11.5,
+      "away_spread": 11.5,
+      "total_line": 158.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.748779296875,
+      "moneyline_home_win_prob": 0.5668859481811523,
+      "moneyline_away_win_prob": 0.43311405181884766,
+      "total_confidence_interval": [
+        136.56,
+        150.94
+      ],
+      "moneyline_confidence_interval": [
+        0.5169,
+        0.6169
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.370763",
+    "generated_at": "2026-03-19T10:05:04.308840",
     "season": 2025
   },
   {
@@ -1181,47 +1762,113 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": 102,
+      "away_moneyline": -122,
+      "home_ml": 102,
+      "away_ml": -122,
+      "home_spread": 1.5,
+      "away_spread": -1.5,
+      "total_line": 146.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 9.0,
+        "net_winpct_diff": -0.06818181818181823,
+        "net_q1wins_diff": -2,
+        "net_q1pct_diff": -0.25
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.6791795492172241,
+      "moneyline_away_win_prob": 0.3208204507827759,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6292,
+        0.7292
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.372774",
+    "generated_at": "2026-03-19T10:05:04.405382",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856527,
       "home_team": "Tennessee Volunteers",
-      "away_team": "TBD",
+      "away_team": "Miami (OH) RedHawks",
       "date": "2026-03-20 20:25:00+00:00",
       "venue": "Xfinity Mobile Arena",
       "home_rank": 6,
-      "away_rank": 99,
+      "away_rank": 11,
       "home_eff": {
         "offensiveRating": 109.4,
         "defensiveRating": 109.4
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 108.9,
+        "defensiveRating": 108.9
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -630,
+      "away_moneyline": 450,
+      "home_ml": -630,
+      "away_ml": 450,
+      "home_spread": -10.5,
+      "away_spread": 10.5,
+      "total_line": 148.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -44.0,
+        "net_winpct_diff": -0.29885057471264376,
+        "net_q1wins_diff": 6,
+        "net_q1pct_diff": -0.125
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.17819213867188,
+      "moneyline_home_win_prob": 0.7140478491783142,
+      "moneyline_away_win_prob": 0.2859521508216858,
+      "total_confidence_interval": [
+        135.07,
+        149.29
+      ],
+      "moneyline_confidence_interval": [
+        0.664,
+        0.764
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.374827",
+    "generated_at": "2026-03-19T10:05:04.490125",
     "season": 2025
   },
   {
@@ -1243,16 +1890,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": 114,
+      "away_moneyline": -135,
+      "home_ml": 114,
+      "away_ml": -135,
+      "home_spread": 2.5,
+      "away_spread": -2.5,
+      "total_line": 128.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.6791795492172241,
+      "moneyline_away_win_prob": 0.3208204507827759,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6292,
+        0.7292
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.376822",
+    "generated_at": "2026-03-19T10:05:04.565754",
     "season": 2025
   },
   {
@@ -1274,16 +1954,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -530,
+      "away_moneyline": 390,
+      "home_ml": -530,
+      "away_ml": 390,
+      "home_spread": -9.5,
+      "away_spread": 9.5,
+      "total_line": 131.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.5686798095703,
+      "moneyline_home_win_prob": 0.6579171419143677,
+      "moneyline_away_win_prob": 0.3420828580856323,
+      "total_confidence_interval": [
+        136.39,
+        150.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6079,
+        0.7079
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.378937",
+    "generated_at": "2026-03-19T10:05:04.657368",
     "season": 2025
   },
   {
@@ -1305,16 +2018,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -245,
+      "away_moneyline": 200,
+      "home_ml": -245,
+      "away_ml": 200,
+      "home_spread": -5.5,
+      "away_spread": 5.5,
+      "total_line": 152.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 1.8999999999999986,
+        "kenpom_ortg_diff": 0.09999999999999432,
+        "kenpom_drtg_diff": -1.9000000000000057,
+        "kenpom_adjt_diff": -4.099999999999994,
+        "kenpom_luck_diff": -0.121,
+        "kenpom_sos_diff": -0.8499999999999996,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -21.0,
+        "net_winpct_diff": 0.020220588235294157,
+        "net_q1wins_diff": 0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.6181182861328,
+      "moneyline_home_win_prob": 0.6777539253234863,
+      "moneyline_away_win_prob": 0.32224607467651367,
+      "total_confidence_interval": [
+        135.49,
+        149.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6278,
+        0.7278
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.380976",
+    "generated_at": "2026-03-19T10:05:04.762270",
     "season": 2025
   },
   {
@@ -1336,47 +2082,110 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -20000,
+      "away_moneyline": 3500,
+      "home_ml": -20000,
+      "away_ml": 3500,
+      "home_spread": -25.5,
+      "away_spread": 25.5,
+      "total_line": 163.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 144.4828643798828,
+      "moneyline_home_win_prob": 0.5909303426742554,
+      "moneyline_away_win_prob": 0.40906965732574463,
+      "total_confidence_interval": [
+        137.26,
+        151.71
+      ],
+      "moneyline_confidence_interval": [
+        0.5409,
+        0.6409
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.383007",
+    "generated_at": "2026-03-19T10:05:04.864530",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856523,
       "home_team": "Florida Gators",
-      "away_team": "TBD",
+      "away_team": "Prairie View A&M Panthers",
       "date": "2026-03-21 01:25:00+00:00",
       "venue": "Benchmark International Arena",
       "home_rank": 1,
-      "away_rank": 99,
+      "away_rank": 16,
       "home_eff": {
         "offensiveRating": 109.9,
         "defensiveRating": 109.9
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 108.4,
+        "defensiveRating": 108.4
       },
       "home_stats": null,
       "away_stats": null,
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 42.14,
+        "kenpom_ortg_diff": 22.599999999999994,
+        "kenpom_drtg_diff": -19.599999999999994,
+        "kenpom_adjt_diff": -2.0,
+        "kenpom_luck_diff": -0.07999999999999999,
+        "kenpom_sos_diff": 13.24,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 147.96527099609375,
+      "moneyline_home_win_prob": 0.600827693939209,
+      "moneyline_away_win_prob": 0.399172306060791,
+      "total_confidence_interval": [
+        140.57,
+        155.36
+      ],
+      "moneyline_confidence_interval": [
+        0.5508,
+        0.6508
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.385071",
+    "generated_at": "2026-03-19T10:05:04.962418",
     "season": 2025
   },
   {
@@ -1398,16 +2207,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -1700,
+      "away_moneyline": 810,
+      "home_ml": -1700,
+      "away_ml": 810,
+      "home_spread": -14.5,
+      "away_spread": 14.5,
+      "total_line": 137.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 13.96,
+        "kenpom_ortg_diff": 6.299999999999997,
+        "kenpom_drtg_diff": -7.700000000000003,
+        "kenpom_adjt_diff": 0.6000000000000085,
+        "kenpom_luck_diff": -0.060000000000000005,
+        "kenpom_sos_diff": 10.99,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -46.0,
+        "net_winpct_diff": 0.05180840664711639,
+        "net_q1wins_diff": 5,
+        "net_q1pct_diff": 0.09999999999999998
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.748779296875,
+      "moneyline_home_win_prob": 0.5668859481811523,
+      "moneyline_away_win_prob": 0.43311405181884766,
+      "total_confidence_interval": [
+        136.56,
+        150.94
+      ],
+      "moneyline_confidence_interval": [
+        0.5169,
+        0.6169
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.387115",
+    "generated_at": "2026-03-19T10:05:05.075863",
     "season": 2025
   },
   {
@@ -1429,16 +2271,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -7000,
+      "away_moneyline": 2000,
+      "home_ml": -7000,
+      "away_ml": 2000,
+      "home_spread": -20.5,
+      "away_spread": 20.5,
+      "total_line": 136.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 144.4828643798828,
+      "moneyline_home_win_prob": 0.5909303426742554,
+      "moneyline_away_win_prob": 0.40906965732574463,
+      "total_confidence_interval": [
+        137.26,
+        151.71
+      ],
+      "moneyline_confidence_interval": [
+        0.5409,
+        0.6409
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.389197",
+    "generated_at": "2026-03-19T10:05:05.221040",
     "season": 2025
   },
   {
@@ -1460,16 +2335,49 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
+      "home_moneyline": -130,
+      "away_moneyline": 110,
+      "home_ml": -130,
+      "away_ml": 110,
+      "home_spread": -1.5,
+      "away_spread": 1.5,
+      "total_line": 146.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 142.6181182861328,
+      "moneyline_home_win_prob": 0.6777539253234863,
+      "moneyline_away_win_prob": 0.32224607467651367,
+      "total_confidence_interval": [
+        135.49,
+        149.75
+      ],
+      "moneyline_confidence_interval": [
+        0.6278,
+        0.7278
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.391287",
+    "generated_at": "2026-03-19T10:05:05.330790",
     "season": 2025
   },
   {
@@ -1494,13 +2402,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.393172",
+    "generated_at": "2026-03-19T10:05:05.428099",
     "season": 2025
   },
   {
@@ -1525,13 +2463,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.395063",
+    "generated_at": "2026-03-19T10:05:05.503225",
     "season": 2025
   },
   {
@@ -1556,13 +2524,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.396938",
+    "generated_at": "2026-03-19T10:05:05.566534",
     "season": 2025
   },
   {
@@ -1587,13 +2585,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.398824",
+    "generated_at": "2026-03-19T10:05:05.641316",
     "season": 2025
   },
   {
@@ -1618,13 +2646,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.400718",
+    "generated_at": "2026-03-19T10:05:05.755168",
     "season": 2025
   },
   {
@@ -1649,13 +2707,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.403071",
+    "generated_at": "2026-03-19T10:05:05.861250",
     "season": 2025
   },
   {
@@ -1680,13 +2768,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.404970",
+    "generated_at": "2026-03-19T10:05:05.975636",
     "season": 2025
   },
   {
@@ -1711,13 +2829,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.406880",
+    "generated_at": "2026-03-19T10:05:06.092513",
     "season": 2025
   },
   {
@@ -1742,13 +2890,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.408779",
+    "generated_at": "2026-03-19T10:05:06.191932",
     "season": 2025
   },
   {
@@ -1773,13 +2951,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.410692",
+    "generated_at": "2026-03-19T10:05:06.279279",
     "season": 2025
   },
   {
@@ -1804,13 +3012,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.412692",
+    "generated_at": "2026-03-19T10:05:06.352350",
     "season": 2025
   },
   {
@@ -1835,44 +3073,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.414667",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856562,
-      "home_team": "TBD",
-      "away_team": "TBD",
-      "date": "2026-03-22 04:00:00+00:00",
-      "venue": "Xfinity Mobile Arena",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null
-    },
-    "predictions": {
-      "model_source": "regular"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.416540",
+    "generated_at": "2026-03-19T10:05:06.423250",
     "season": 2025
   },
   {
@@ -1897,13 +3134,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.418458",
+    "generated_at": "2026-03-19T10:05:06.508509",
     "season": 2025
   },
   {
@@ -1928,13 +3195,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.420344",
+    "generated_at": "2026-03-19T10:05:06.592083",
     "season": 2025
   },
   {
@@ -1959,13 +3256,104 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.422231",
+    "generated_at": "2026-03-19T10:05:06.664468",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401856562,
+      "home_team": "TBD",
+      "away_team": "TBD",
+      "date": "2026-03-22 04:00:00+00:00",
+      "venue": "Xfinity Mobile Arena",
+      "home_rank": 99,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
+    },
+    "is_tournament": false,
+    "generated_at": "2026-03-19T10:05:06.764864",
     "season": 2025
   },
   {
@@ -1990,13 +3378,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.424154",
+    "generated_at": "2026-03-19T10:05:06.828056",
     "season": 2025
   },
   {
@@ -2021,13 +3439,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.426037",
+    "generated_at": "2026-03-19T10:05:06.895379",
     "season": 2025
   },
   {
@@ -2052,13 +3500,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.427956",
+    "generated_at": "2026-03-19T10:05:06.961859",
     "season": 2025
   },
   {
@@ -2083,13 +3561,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.429839",
+    "generated_at": "2026-03-19T10:05:07.035092",
     "season": 2025
   },
   {
@@ -2114,13 +3622,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.431725",
+    "generated_at": "2026-03-19T10:05:07.114468",
     "season": 2025
   },
   {
@@ -2145,13 +3683,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.433641",
+    "generated_at": "2026-03-19T10:05:07.186932",
     "season": 2025
   },
   {
@@ -2176,13 +3744,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.435573",
+    "generated_at": "2026-03-19T10:05:07.262381",
     "season": 2025
   },
   {
@@ -2207,13 +3805,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.437512",
+    "generated_at": "2026-03-19T10:05:07.334327",
     "season": 2025
   },
   {
@@ -2238,13 +3866,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.439447",
+    "generated_at": "2026-03-19T10:05:07.404963",
     "season": 2025
   },
   {
@@ -2269,13 +3927,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.441350",
+    "generated_at": "2026-03-19T10:05:07.468753",
     "season": 2025
   },
   {
@@ -2300,13 +3988,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.443244",
+    "generated_at": "2026-03-19T10:05:07.537062",
     "season": 2025
   },
   {
@@ -2331,13 +4049,43 @@
       "home_moneyline": null,
       "away_moneyline": null,
       "home_ml": null,
-      "away_ml": null
+      "away_ml": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
     },
     "predictions": {
-      "model_source": "regular"
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved",
+      "total_prediction": 143.44589233398438,
+      "moneyline_home_win_prob": 0.67951899766922,
+      "moneyline_away_win_prob": 0.32048100233078003,
+      "total_confidence_interval": [
+        136.27,
+        150.62
+      ],
+      "moneyline_confidence_interval": [
+        0.6295,
+        0.7295
+      ]
     },
     "is_tournament": false,
-    "generated_at": "2026-03-17T08:28:28.445142",
+    "generated_at": "2026-03-19T10:05:07.604017",
     "season": 2025
   }
 ]

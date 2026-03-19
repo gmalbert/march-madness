@@ -1,9 +1,9 @@
 """
-KenPom and BartTorvik data loader with canonical team name mapping.
+Efficiency data loader for KenPom, BartTorvik, and Haslametrics.
 
-Loads efficiency ratings from KenPom and BartTorvik CSVs, applies canonical
-team name mappings, cleans numeric columns, and outputs merged datasets
-ready for modeling.
+Loads efficiency ratings from each source's CSV, applies canonical team name
+mappings (via *_to_espn_matches.csv files), cleans numeric columns, and
+outputs merged datasets ready for modeling.
 """
 
 import pandas as pd
@@ -12,14 +12,16 @@ from pathlib import Path
 
 
 class EfficiencyDataLoader:
-    """Load and merge KenPom and BartTorvik efficiency data."""
+    """Load and merge KenPom, BartTorvik, and Haslametrics efficiency data."""
     
     def __init__(self, data_dir='data_files'):
         self.data_dir = Path(data_dir)
         self.kenpom_path = self.data_dir / 'kenpom_ratings.csv'
         self.bart_path = self.data_dir / 'barttorvik_ratings.csv'
+        self.hasla_path = self.data_dir / 'haslametrics_ratings.csv'
         self.kenpom_map_path = self.data_dir / 'kenpom_to_espn_matches.csv'
         self.bart_map_path = self.data_dir / 'bart_to_espn_matches.csv'
+        self.hasla_map_path = self.data_dir / 'haslametrics_to_espn_matches.csv'
     
     def load_kenpom(self):
         """Load and clean KenPom ratings with canonical team names."""
@@ -105,6 +107,52 @@ class EfficiencyDataLoader:
         
         return df
     
+    def load_haslametrics(self):
+        """Load and clean Haslametrics ratings with canonical team names."""
+        if not self.hasla_path.exists():
+            return None
+        df = pd.read_csv(self.hasla_path)
+
+        # Remove artifact rows (team names like "Duke 1" with NaN efficiency)
+        df = df[df['O_Eff'].notna()].copy()
+
+        if not self.hasla_map_path.exists():
+            # Fall back to using Team as-is if no mapping file exists
+            df['canonical_team'] = df['Team']
+        else:
+            mappings = pd.read_csv(self.hasla_map_path)
+            team_map = dict(zip(mappings['haslametrics'], mappings['espn_match']))
+            df['canonical_team'] = df['Team'].map(team_map)
+            # Strip "(fuzzy)" suffix — still a useful match
+            df['canonical_team'] = df['canonical_team'].str.replace(
+                r'\s*\(fuzzy\)\s*$', '', regex=True
+            )
+            # Fall back to raw name for any teams without a mapping
+            df['canonical_team'] = df['canonical_team'].fillna(df['Team'])
+
+        # Coerce all numeric columns
+        skip = {'Team', 'canonical_team'}
+        for col in df.columns:
+            if col not in skip:
+                df[col] = pd.to_numeric(df[col], errors='coerce')
+
+        # Derived net efficiency
+        if 'O_Eff' in df.columns and 'D_Eff' in df.columns:
+            df['hasla_net_eff'] = df['O_Eff'] - df['D_Eff']
+
+        df['source'] = 'haslametrics'
+        return df
+
+    def get_haslametrics_for_team(self, team_name):
+        """Get Haslametrics data for a specific canonical team name."""
+        hl = self.load_haslametrics()
+        if hl is None:
+            return None
+        team_data = hl[hl['canonical_team'] == team_name]
+        if team_data.empty:
+            return None
+        return team_data.iloc[0].to_dict()
+
     def get_kenpom_for_team(self, team_name):
         """Get KenPom data for a specific canonical team name."""
         kp = self.load_kenpom()
@@ -122,28 +170,35 @@ class EfficiencyDataLoader:
         return team_data.iloc[0].to_dict()
     
     def get_merged_efficiency(self, team_name):
-        """Get merged efficiency data from both sources for a team."""
+        """Get merged efficiency data from KenPom, BartTorvik, and Haslametrics."""
         kp_data = self.get_kenpom_for_team(team_name)
         bt_data = self.get_barttorvik_for_team(team_name)
-        
+        hl_data = self.get_haslametrics_for_team(team_name)
+
         return {
             'team': team_name,
             'kenpom': kp_data,
-            'barttorvik': bt_data
+            'barttorvik': bt_data,
+            'haslametrics': hl_data,
         }
     
     def save_canonical_datasets(self):
         """Save cleaned, canonicalized datasets for easy reuse."""
         kp = self.load_kenpom()
         bt = self.load_barttorvik()
-        
+        hl = self.load_haslametrics()
+
         kp.to_csv(self.data_dir / 'kenpom_canonical.csv', index=False)
         bt.to_csv(self.data_dir / 'barttorvik_canonical.csv', index=False)
-        
+        if hl is not None:
+            hl.to_csv(self.data_dir / 'haslametrics_canonical.csv', index=False)
+
         print(f"Saved {len(kp)} KenPom teams to kenpom_canonical.csv")
         print(f"Saved {len(bt)} BartTorvik teams to barttorvik_canonical.csv")
-        
-        return kp, bt
+        if hl is not None:
+            print(f"Saved {len(hl)} Haslametrics teams to haslametrics_canonical.csv")
+
+        return kp, bt, hl
 
 
 def main():

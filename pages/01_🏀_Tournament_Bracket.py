@@ -44,10 +44,14 @@ LAYOUT_CONFIG = {
     'left_region_x': 50,
     'right_region_x': 1825,
     'region_layout': {
-        'South': {'x_start': 50, 'y_start': 550, 'direction': 1, 'label_pos': 'top-left'},
-        'East': {'x_start': 50, 'y_start': 30, 'direction': 1, 'label_pos': 'bottom-left'},
-        'Midwest': {'x_start': 1825, 'y_start': 550, 'direction': -1, 'label_pos': 'top-right'},
-        'West': {'x_start': 1825, 'y_start': 30, 'direction': -1, 'label_pos': 'bottom-right'}
+        # x_start: leftmost column x for left regions, rightmost for right regions
+        # y_start: seed-1 anchor (top of region for East/West, bottom for South/Midwest)
+        # y_direction: -1 = bracket progresses downward (East/West, top half)
+        #               1 = bracket progresses upward   (South/Midwest, bottom half)
+        'East':    {'x_start': 50,   'y_start': 1020, 'y_direction': -1, 'direction': 1,  'label_pos': 'top-left'},
+        'South':   {'x_start': 50,   'y_start': 510,  'y_direction': -1, 'direction': 1,  'label_pos': 'bottom-left'},
+        'West':    {'x_start': 1825, 'y_start': 1020, 'y_direction': -1, 'direction': -1, 'label_pos': 'top-right'},
+        'Midwest': {'x_start': 1825, 'y_start': 510,  'y_direction': -1, 'direction': -1, 'label_pos': 'bottom-right'},
     },
     # Final Four columns (left and right semicenters)
     'final_four_x': 650,
@@ -591,7 +595,8 @@ def create_bracket_figure(sim_results: dict) -> go.Figure:
                  for i in range(16)]                                # 54..99
 
     def build_side(top_region, bottom_region):
-        """Build initial [(entry, y)] list for 32 teams on one side."""
+        """Build initial [(entry, y)] list for 32 teams on one side.
+        Both regions: seed 1 at lowest y index (visual top with reversed axis)."""
         top    = [(e, y) for e, y in zip(region_slots(top_region),    TOP_YS)]
         bottom = [(e, y) for e, y in zip(region_slots(bottom_region), BOTTOM_YS)]
         return top + bottom
@@ -797,7 +802,7 @@ def create_bracket_figure(sim_results: dict) -> go.Figure:
             font=dict(size=15),
         ),
         xaxis=dict(visible=False, range=[-1.2, 11.2]),
-        yaxis=dict(visible=False, range=[-4, 116]),
+        yaxis=dict(visible=False, range=[-4, 116], autorange='reversed'),
         height=1400,
         margin=dict(l=0, r=0, t=60, b=5),
         plot_bgcolor='#f9f9f9',
@@ -850,10 +855,10 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
 
     # Starting positions for each region (use the config block)
     region_layout = cfg.get('region_layout', {
-        'South': {'x_start': cfg.get('left_region_x', 50), 'y_start': 550, 'direction': 1, 'label_pos': 'top-left'},
-        'East': {'x_start': cfg.get('left_region_x', 50), 'y_start': 30, 'direction': 1, 'label_pos': 'bottom-left'},
-        'Midwest': {'x_start': cfg.get('right_region_x', 1825), 'y_start': 550, 'direction': -1, 'label_pos': 'top-right'},
-        'West': {'x_start': cfg.get('right_region_x', 1825), 'y_start': 30, 'direction': -1, 'label_pos': 'bottom-right'}
+        'East':    {'x_start': cfg.get('left_region_x', 50),    'y_start': 1020, 'y_direction': -1, 'direction': 1,  'label_pos': 'top-left'},
+        'South':   {'x_start': cfg.get('left_region_x', 50),    'y_start': 510,  'y_direction': -1, 'direction': 1,  'label_pos': 'bottom-left'},
+        'West':    {'x_start': cfg.get('right_region_x', 1825), 'y_start': 1020, 'y_direction': -1, 'direction': -1, 'label_pos': 'top-right'},
+        'Midwest': {'x_start': cfg.get('right_region_x', 1825), 'y_start': 510,  'y_direction': -1, 'direction': -1, 'label_pos': 'bottom-right'},
     })
     
     def get_color(prob: float) -> str:
@@ -902,13 +907,14 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         layout = region_layout[region_name]
         x_start = layout['x_start']
         y_start = layout['y_start']
+        y_direction = layout.get('y_direction', 1)  # -1 = top region (downward), +1 = bottom region (upward)
         direction = layout['direction']
         
         # Add region label (use configurable offsets)
         label_x = x_start - cfg.get('label_outset', 25) if direction == 1 else x_start + cfg.get('label_outset', 25)
         label_angle = -90 if direction == 1 else 90
         fig.add_annotation(
-            x=label_x, y=y_start + bracket_height/2 + cfg.get('region_label_vertical_offset', 50),
+            x=label_x, y=y_start + y_direction * bracket_height / 2,
             text=f"<b>{region_name.upper()}</b>",
             showarrow=False,
             font=dict(size=20, color='#2c3e50', family='Arial Black'),
@@ -916,9 +922,12 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
         )
         
         # Round 1: First Four (all 16 teams)
+        # Seed 1 anchored at y_start; bracket progresses in y_direction.
+        # East/West (y_direction=-1): seed 1 at top (high y), bracket goes down.
+        # South/Midwest (y_direction=+1): seed 1 at bottom (low y), bracket goes up.
         round1_positions = []
         for i, (seed, name, stats) in enumerate(teams):
-            y_pos = y_start + (i * y_spacing)
+            y_pos = y_start + i * y_direction * y_spacing
             round1_positions.append(y_pos)
             
             # Team box (box width comes from config)
@@ -1109,9 +1118,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     south_exit = region_exits['South']
     east_exit = region_exits['East']
     left_semi_y = (south_exit['y'] + east_exit['y']) / 2
-    # Use consistent spacing like other rounds (2x y_spacing for semifinal matchup)
-    south_y = left_semi_y + (y_spacing * 2)
-    east_y = left_semi_y - (y_spacing * 2)
+    # East is the top region (higher y), South is the bottom region (lower y)
+    east_y  = left_semi_y + (y_spacing * 2)
+    south_y = left_semi_y - (y_spacing * 2)
     
     # Draw lines from regions to Final Four (positions configurable)
     final_four_x = cfg.get('final_four_x', 650)
@@ -1202,9 +1211,9 @@ def create_visual_bracket(sim_results: dict) -> go.Figure:
     midwest_exit = region_exits['Midwest']
     west_exit = region_exits['West']
     right_semi_y = (midwest_exit['y'] + west_exit['y']) / 2
-    # Use consistent spacing like other rounds (2x y_spacing for semifinal matchup)
-    midwest_y = right_semi_y + (y_spacing * 2)
-    west_y = right_semi_y - (y_spacing * 2)
+    # West is the top region (higher y), Midwest is the bottom region (lower y)
+    west_y    = right_semi_y + (y_spacing * 2)
+    midwest_y = right_semi_y - (y_spacing * 2)
     
     # Connect from actual region exit positions to Final Four team positions
     final_four_right_x = cfg.get('final_four_right_x', 1250)

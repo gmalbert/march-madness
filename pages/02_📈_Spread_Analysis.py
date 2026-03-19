@@ -102,6 +102,7 @@ ranked_only = st.sidebar.checkbox("Ranked Teams Only", value=False)
 
 # Process games and generate predictions
 spread_picks = []
+predictions_no_line = []  # games with predictions but no betting line yet
 
 processing_debug = []
 with st.spinner("Analyzing spreads for all games..."):
@@ -166,7 +167,14 @@ with st.spinner("Analyzing spreads for all games..."):
             actual_spread = enriched_game.get('spread') or enriched_game.get('home_spread')
         if actual_spread is None:
             processing_debug.append(f"No spread for {enriched_game.get('away_team', '?')} @ {enriched_game.get('home_team', '?')}")
-            continue  # Skip if no spread available
+            # Still record the prediction so we can show it even without a line
+            predictions_no_line.append({
+                'matchup': f"{enriched_game.get('away_team', '?')} @ {enriched_game.get('home_team', '?')}",
+                'away_team': enriched_game.get('away_team', '?'),
+                'home_team': enriched_game.get('home_team', '?'),
+                'predicted_margin': predicted_margin,
+            })
+            continue  # Skip edge analysis — no line to compare against
         
         # Calculate edge (difference between predicted and actual spread)
         edge = abs(predicted_margin - actual_spread)
@@ -207,22 +215,32 @@ with st.spinner("Analyzing spreads for all games..."):
 if processing_debug:
     with st.expander("⚠️ Debugging Info: Games Without Spreads", expanded=False):
         st.write(f"{len(processing_debug)} games skipped due to missing spread data:")
-        st.info("💡 Betting lines may not be available yet for upcoming games. Run `python fetch_live_odds.py` to fetch current odds, then `python generate_predictions.py` to refresh predictions with betting lines.")
+        # st.info("💡 Betting lines may not be available yet for upcoming games. Run `python fetch_live_odds.py` to fetch current odds, then `python generate_predictions.py` to refresh predictions with betting lines.")
         for msg in processing_debug[:20]:  # Show first 20
             st.caption(msg)
 
 if not spread_picks:
-    st.warning("No games match the current filter criteria.")
-    st.info(f"**Summary:** Processed {len(games)} games, {len(processing_debug)} had no spread data")
-    
-    if len(processing_debug) > len(games) * 0.8:  # If more than 80% missing data
-        st.error("🔴 Most games are missing betting lines. To fix this:")
-        st.code("""# Fetch current odds and regenerate predictions
-python fetch_live_odds.py
-python generate_predictions.py
-""")
+    if predictions_no_line:
+        st.warning("No betting lines are available yet for today's games. Showing model predictions below — edge analysis will appear once odds are posted.")
+        no_line_df = pd.DataFrame(predictions_no_line)
+        no_line_df['Matchup'] = no_line_df['matchup']
+        no_line_df['Predicted Margin'] = no_line_df['predicted_margin'].apply(lambda x: f"{x:+.1f}" if x is not None else 'N/A')
+        no_line_df['Predicted Winner'] = no_line_df.apply(
+            lambda r: r['home_team'] if (r['predicted_margin'] or 0) > 0 else r['away_team'], axis=1
+        )
+        st.dataframe(no_line_df[['Matchup', 'Predicted Margin', 'Predicted Winner']], hide_index=True)
+        # st.info("To fetch live odds, run: `python fetch_live_odds.py && python generate_predictions.py`")
     else:
-        st.info("Try adjusting the filters (lower minimum edge, wider spread range, disable ranked-only filter)")
+        st.warning("No games match the current filter criteria.")
+        st.info(f"**Summary:** Processed {len(games)} games, {len(processing_debug)} had no spread data")
+        if len(processing_debug) > len(games) * 0.8:  # If more than 80% missing data
+            st.error("🔴 Most games are missing betting lines.")
+#             st.code("""# Fetch current odds and regenerate predictions
+# python fetch_live_odds.py
+# python generate_predictions.py
+# """)
+        else:
+            st.info("Try adjusting the filters (lower minimum edge, wider spread range, disable ranked-only filter)")
     st.stop()
 
 # Convert to DataFrame
@@ -253,15 +271,19 @@ st.header("🎯 Spread Picks")
 
 # Format the display dataframe
 display_df = df.copy()
-display_df['Matchup'] = display_df['matchup']
+display_df['Away Team'] = display_df['away_team']
+display_df['Home Team'] = display_df['home_team']
+display_df['Away Rank'] = display_df['away_rank'].apply(lambda x: f"#{int(x)}" if pd.notna(x) else "—")
+display_df['Home Rank'] = display_df['home_rank'].apply(lambda x: f"#{int(x)}" if pd.notna(x) else "—")
 display_df['Spread'] = display_df['spread'].apply(lambda x: f"{x:+.1f}")
 display_df['Predicted Margin'] = display_df['predicted_margin'].apply(lambda x: f"{x:+.1f}")
 display_df['Edge'] = display_df['edge'].apply(lambda x: f"{x:.1f}")
 display_df['Pick'] = display_df['pick']
+display_df['Pick Side'] = display_df['pick_type']
 display_df['Confidence'] = display_df['confidence']
 
 st.dataframe(
-    display_df[['Matchup', 'Spread', 'Predicted Margin', 'Edge', 'Pick', 'Confidence']],
+    display_df[['Away Team', 'Away Rank', 'Home Team', 'Home Rank', 'Spread', 'Predicted Margin', 'Edge', 'Pick', 'Pick Side', 'Confidence']],
     width="stretch",
     hide_index=True
 )

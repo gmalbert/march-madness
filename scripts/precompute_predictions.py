@@ -117,7 +117,16 @@ def load_espn_games() -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def get_team_data(year: int = 2025):
+def _current_ncaa_season() -> int:
+    """Return the current NCAA season year (the year the tournament is played)."""
+    from datetime import datetime
+    now = datetime.now()
+    return now.year + 1 if now.month >= 8 else now.year
+
+
+def get_team_data(year: int = None):
+    if year is None:
+        year = _current_ncaa_season()
     """Get team efficiency and stats data for a given year."""
     try:
         # Try the specified year first
@@ -421,7 +430,7 @@ def precompute_predictions(target_date: Optional[str] = None):
     
     print(f"[OK] Processing {len(upcoming)} games")
     
-    # Fetch live odds
+    # Fetch live odds (Odds API — requires ODDS_API_KEY)
     print("\nFetching live betting odds...")
     live_odds = {}
     try:
@@ -429,9 +438,42 @@ def precompute_predictions(target_date: Optional[str] = None):
         if live_odds:
             print(f"[OK] Fetched odds for {len(live_odds)} games")
         else:
-            print("[WARNING] No live odds available")
+            print("[WARNING] No live odds available (ODDS_API_KEY may not be set)")
     except Exception as e:
         print(f"[WARNING] Could not fetch live odds: {e}")
+
+    # Fetch CBBD postseason betting lines as fallback for spreads/totals
+    print("\nFetching CBBD postseason betting lines...")
+    cbbd_lines_lookup = {}
+    try:
+        cbbd_lines = fetch_betting_lines(season_used, 'postseason')
+        for entry in (cbbd_lines or []):
+            # entry is a dict with keys: homeTeam, awayTeam, lines [...]
+            ht = entry.get('homeTeam', '') if isinstance(entry, dict) else getattr(entry, 'homeTeam', '')
+            at = entry.get('awayTeam', '') if isinstance(entry, dict) else getattr(entry, 'awayTeam', '')
+            lines = entry.get('lines', []) if isinstance(entry, dict) else getattr(entry, 'lines', [])
+            if not ht or not at or not lines:
+                continue
+            # Pick the first provider that has a spread
+            for ln in lines:
+                spread = ln.get('spread') if isinstance(ln, dict) else getattr(ln, 'spread', None)
+                over_under = ln.get('overUnder') if isinstance(ln, dict) else getattr(ln, 'overUnder', None)
+                home_ml = ln.get('homeMoneyline') if isinstance(ln, dict) else getattr(ln, 'homeMoneyline', None)
+                away_ml = ln.get('awayMoneyline') if isinstance(ln, dict) else getattr(ln, 'awayMoneyline', None)
+                if spread is not None or over_under is not None:
+                    cbbd_lines_lookup[f"{normalize_team_name(ht)} vs {normalize_team_name(at)}"] = {
+                        'home_spread': float(spread) if spread is not None else None,
+                        'total_line': float(over_under) if over_under is not None else None,
+                        'home_moneyline': home_ml,
+                        'away_moneyline': away_ml,
+                    }
+                    break
+        if cbbd_lines_lookup:
+            print(f"[OK] Found CBBD lines for {len(cbbd_lines_lookup)} games")
+        else:
+            print("[WARNING] No CBBD postseason lines available yet")
+    except Exception as e:
+        print(f"[WARNING] Could not fetch CBBD lines: {e}")
     
     # Enrich and predict
     print("\nEnriching games with team data...")
@@ -446,27 +488,37 @@ def precompute_predictions(target_date: Optional[str] = None):
             skipped_count += 1
             continue
         
-        # Add live odds if available
-        home_team = enriched['home_team']
-        away_team = enriched['away_team']
-        
-        # Try to match odds by team names (normalize both sides)
-        odds_key = None
-        for key in live_odds.keys():
-            # Key format is typically "away_team @ home_team" or similar
-            if (normalize_team_name(home_team) in key or normalize_team_name(away_team) in key or
-                home_team in key or away_team in key):
-                odds_key = key
+        # Add live odds if available, with CBBD lines as fallback
+        home_norm = normalize_team_name(home_team)
+        away_norm = normalize_team_name(away_team)
+        odds_key_fwd = f"{home_norm} vs {away_norm}"
+        odds_key_rev = f"{away_norm} vs {home_norm}"
+
+        # 1. Try Odds API (live_odds)
+        matched_odds = None
+        for key, odds_data in live_odds.items():
+            if home_norm in key and away_norm in key:
+                matched_odds = odds_data
                 break
-        
-        if odds_key and odds_key in live_odds:
-            odds = live_odds[odds_key]
-            enriched['betting_spread'] = odds.get('home_spread') or enriched.get('betting_spread')
-            enriched['betting_over_under'] = odds.get('total_line') or enriched.get('betting_over_under')
-            enriched['home_moneyline'] = odds.get('home_moneyline') or enriched.get('home_moneyline')
-            enriched['away_moneyline'] = odds.get('away_moneyline') or enriched.get('away_moneyline')
+        if matched_odds:
+            enriched['betting_spread'] = matched_odds.get('home_spread')
+            enriched['betting_over_under'] = matched_odds.get('total_line')
+            enriched['home_moneyline'] = matched_odds.get('home_moneyline')
+            enriched['away_moneyline'] = matched_odds.get('away_moneyline')
             enriched['home_ml'] = enriched['home_moneyline']
             enriched['away_ml'] = enriched['away_moneyline']
+
+        # 2. Fall back to CBBD lines when Odds API has no spread
+        if enriched.get('betting_spread') is None:
+            cbbd = cbbd_lines_lookup.get(odds_key_fwd) or cbbd_lines_lookup.get(odds_key_rev)
+            if cbbd:
+                enriched['betting_spread'] = cbbd.get('home_spread')
+                enriched['betting_over_under'] = cbbd.get('total_line')
+                if not enriched.get('home_moneyline'):
+                    enriched['home_moneyline'] = cbbd.get('home_moneyline')
+                    enriched['away_moneyline'] = cbbd.get('away_moneyline')
+                    enriched['home_ml'] = enriched['home_moneyline']
+                    enriched['away_ml'] = enriched['away_moneyline']
         
         if not enriched:
             skipped_count += 1

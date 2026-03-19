@@ -1,1548 +1,1718 @@
 {
   "year": 2026,
-  "num_simulations": 10000,
-  "computed_at": "2026-03-19T05:37:13.368939",
+  "num_simulations": 5000,
+  "computed_at": "2026-03-19T10:29:10.541850",
   "bracket_data": {
     "year": 2026,
     "teams": [
       {
-        "id": "1",
-        "name": "Duke",
-        "seed": 1,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 25.0,
-          "tempo": 72.0,
-          "three_rate": 0.32
-        }
-      },
-      {
-        "id": "16",
-        "name": "American",
-        "seed": 16,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 5.0,
-          "tempo": 68.0,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "8",
-        "name": "Florida",
-        "seed": 8,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 15.0,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "9",
-        "name": "Boise State",
-        "seed": 9,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 12.0,
-          "tempo": 69.0,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "4",
-        "name": "Arizona",
-        "seed": 4,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 20.0,
-          "tempo": 71.0,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "13",
-        "name": "Akron",
-        "seed": 13,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 8.0,
-          "tempo": 67.0,
-          "three_rate": 0.39
-        }
-      },
-      {
-        "id": "5",
-        "name": "BYU",
-        "seed": 5,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 18.0,
-          "tempo": 70.5,
-          "three_rate": 0.34
-        }
-      },
-      {
-        "id": "12",
-        "name": "Duquesne",
-        "seed": 12,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 10.0,
-          "tempo": 68.5,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "2",
-        "name": "Alabama",
-        "seed": 2,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 23.0,
-          "tempo": 71.5,
-          "three_rate": 0.31
-        }
-      },
-      {
-        "id": "15",
-        "name": "Robert Morris",
-        "seed": 15,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 6.0,
-          "tempo": 67.5,
-          "three_rate": 0.4
-        }
-      },
-      {
-        "id": "7",
-        "name": "Clemson",
-        "seed": 7,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 16.0,
-          "tempo": 69.5,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "10",
-        "name": "New Mexico",
-        "seed": 10,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 11.0,
-          "tempo": 68.0,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "3",
-        "name": "Baylor",
-        "seed": 3,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 22.0,
-          "tempo": 71.0,
-          "three_rate": 0.32
-        }
-      },
-      {
-        "id": "14",
-        "name": "Colgate",
-        "seed": 14,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 7.0,
-          "tempo": 67.0,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "6",
-        "name": "Dayton",
-        "seed": 6,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 17.0,
-          "tempo": 70.0,
-          "three_rate": 0.34
-        }
-      },
-      {
-        "id": "11",
-        "name": "Nevada",
-        "seed": 11,
-        "region": "East",
-        "stats": {
-          "net_efficiency": 9.0,
-          "tempo": 68.5,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "17",
-        "name": "Houston",
-        "seed": 1,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 24.0,
-          "tempo": 72.5,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "32",
-        "name": "Longwood",
-        "seed": 16,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 4.0,
-          "tempo": 66.0,
-          "three_rate": 0.41
-        }
-      },
-      {
-        "id": "24",
-        "name": "Nebraska",
-        "seed": 8,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 14.0,
-          "tempo": 69.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "25",
-        "name": "Texas A&M",
-        "seed": 9,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 13.0,
-          "tempo": 68.5,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "20",
-        "name": "Texas",
-        "seed": 4,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 19.0,
-          "tempo": 70.5,
-          "three_rate": 0.34
-        }
-      },
-      {
-        "id": "29",
-        "name": "Colorado State",
-        "seed": 13,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 7.5,
-          "tempo": 67.5,
-          "three_rate": 0.39
-        }
-      },
-      {
-        "id": "21",
-        "name": "Xavier",
-        "seed": 5,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 17.5,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "28",
-        "name": "Missouri",
-        "seed": 12,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 9.5,
-          "tempo": 68.0,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "18",
-        "name": "Kentucky",
-        "seed": 2,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 22.5,
-          "tempo": 71.5,
-          "three_rate": 0.32
-        }
-      },
-      {
-        "id": "31",
-        "name": "Vermont",
-        "seed": 15,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 5.5,
-          "tempo": 66.5,
-          "three_rate": 0.4
-        }
-      },
-      {
-        "id": "23",
-        "name": "Indiana",
-        "seed": 7,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 15.5,
-          "tempo": 69.5,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "26",
-        "name": "Saint Mary's",
-        "seed": 10,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 10.5,
-          "tempo": 67.5,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "19",
-        "name": "Marquette",
-        "seed": 3,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 21.0,
-          "tempo": 71.0,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "30",
-        "name": "Drake",
-        "seed": 14,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 6.5,
-          "tempo": 67.0,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "22",
-        "name": "Michigan State",
-        "seed": 6,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 16.5,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "27",
-        "name": "UC San Diego",
-        "seed": 11,
-        "region": "West",
-        "stats": {
-          "net_efficiency": 8.5,
-          "tempo": 68.0,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "33",
-        "name": "Kansas",
-        "seed": 1,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 23.5,
-          "tempo": 72.0,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "48",
-        "name": "Southeast Missouri State",
-        "seed": 16,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 3.5,
-          "tempo": 65.5,
-          "three_rate": 0.42
-        }
-      },
-      {
-        "id": "40",
-        "name": "UCLA",
-        "seed": 8,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 13.5,
-          "tempo": 69.0,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "41",
-        "name": "Utah State",
-        "seed": 9,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 12.5,
-          "tempo": 68.5,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "36",
-        "name": "Iowa State",
-        "seed": 4,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 18.5,
-          "tempo": 70.5,
-          "three_rate": 0.34
-        }
-      },
-      {
-        "id": "45",
-        "name": "Lipscomb",
-        "seed": 13,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 7.0,
-          "tempo": 67.0,
-          "three_rate": 0.39
-        }
-      },
-      {
-        "id": "37",
-        "name": "Maryland",
-        "seed": 5,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 17.0,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "44",
-        "name": "Grand Canyon",
-        "seed": 12,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 8.0,
-          "tempo": 67.5,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "34",
-        "name": "Tennessee",
-        "seed": 2,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 22.0,
-          "tempo": 71.5,
-          "three_rate": 0.32
-        }
-      },
-      {
         "id": "47",
-        "name": "Wagner",
-        "seed": 15,
+        "name": "Howard Bison",
+        "seed": 16,
         "region": "Midwest",
-        "stats": {
-          "net_efficiency": 4.5,
-          "tempo": 66.0,
-          "three_rate": 0.41
-        }
+        "round_label": "First Four",
+        "stats": {},
+        "first_four_opponent": "UMBC Retrievers"
       },
       {
-        "id": "39",
-        "name": "Washington State",
-        "seed": 7,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 15.0,
-          "tempo": 69.5,
-          "three_rate": 0.36
-        }
-      },
-      {
-        "id": "42",
-        "name": "North Carolina State",
-        "seed": 10,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 11.0,
-          "tempo": 68.0,
-          "three_rate": 0.37
-        }
-      },
-      {
-        "id": "35",
-        "name": "Arkansas",
-        "seed": 3,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 20.5,
-          "tempo": 71.0,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "46",
-        "name": "Norfolk State",
-        "seed": 14,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 6.0,
-          "tempo": 66.5,
-          "three_rate": 0.4
-        }
-      },
-      {
-        "id": "38",
-        "name": "Memphis",
-        "seed": 6,
-        "region": "Midwest",
-        "stats": {
-          "net_efficiency": 16.0,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "43",
-        "name": "Oklahoma",
+        "id": "251",
+        "name": "Texas Longhorns",
         "seed": 11,
-        "region": "Midwest",
+        "region": "West",
+        "round_label": "First Four",
         "stats": {
-          "net_efficiency": 9.0,
-          "tempo": 68.5,
-          "three_rate": 0.38
-        }
+          "net_efficiency": 17.9,
+          "off_efficiency": 124.8,
+          "def_efficiency": 106.9,
+          "tempo": 67.4,
+          "luck": -0.122,
+          "sos": 7.73,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        },
+        "first_four_opponent": "NC State Wolfpack"
       },
       {
-        "id": "49",
-        "name": "Auburn",
-        "seed": 1,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 23.0,
-          "tempo": 72.0,
-          "three_rate": 0.33
-        }
-      },
-      {
-        "id": "64",
-        "name": "Alabama State",
+        "id": "2504",
+        "name": "Prairie View A&M Panthers",
         "seed": 16,
         "region": "South",
+        "round_label": "First Four",
         "stats": {
-          "net_efficiency": 3.0,
-          "tempo": 65.0,
-          "three_rate": 0.43
-        }
+          "net_efficiency": -12.18,
+          "off_efficiency": 102.9,
+          "def_efficiency": 115.1,
+          "tempo": 72.1,
+          "luck": -0.007,
+          "sos": -1.06,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        },
+        "first_four_opponent": "Lehigh Mountain Hawks"
       },
       {
-        "id": "56",
-        "name": "Louisville",
+        "id": "2567",
+        "name": "SMU Mustangs",
+        "seed": 11,
+        "region": "Midwest",
+        "round_label": "First Four",
+        "stats": {},
+        "first_four_opponent": "Miami (OH) RedHawks"
+      },
+      {
+        "id": "194",
+        "name": "Ohio State Buckeyes",
         "seed": 8,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 13.0,
-          "tempo": 69.0,
-          "three_rate": 0.36
-        }
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
       },
       {
-        "id": "57",
-        "name": "Creighton",
+        "id": "2628",
+        "name": "TCU Horned Frogs",
         "seed": 9,
-        "region": "South",
+        "region": "East",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 12.0,
-          "tempo": 68.5,
-          "three_rate": 0.37
+          "net_efficiency": 14.98,
+          "off_efficiency": 113.9,
+          "def_efficiency": 98.9,
+          "tempo": 67.1,
+          "luck": -0.091,
+          "sos": 3.54,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
-        "id": "52",
-        "name": "Wisconsin",
+        "id": "158",
+        "name": "Nebraska Cornhuskers",
         "seed": 4,
         "region": "South",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 18.0,
-          "tempo": 70.5,
-          "three_rate": 0.34
+          "net_efficiency": 27.17,
+          "off_efficiency": 123.5,
+          "def_efficiency": 96.3,
+          "tempo": 66.9,
+          "luck": 0.091,
+          "sos": 6.2,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
-        "id": "61",
-        "name": "James Madison",
+        "id": "2653",
+        "name": "Troy Trojans",
         "seed": 13,
         "region": "South",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 6.5,
-          "tempo": 67.0,
-          "three_rate": 0.39
+          "net_efficiency": 5.41,
+          "off_efficiency": 114.4,
+          "def_efficiency": 108.9,
+          "tempo": 66.4,
+          "luck": -0.004,
+          "sos": -1.13,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
-        "id": "53",
-        "name": "Florida Atlantic",
-        "seed": 5,
-        "region": "South",
+        "id": "97",
+        "name": "Louisville Cardinals",
+        "seed": 6,
+        "region": "East",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 16.5,
-          "tempo": 70.0,
-          "three_rate": 0.35
-        }
-      },
-      {
-        "id": "60",
-        "name": "Vermont",
-        "seed": 12,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 7.5,
-          "tempo": 67.5,
-          "three_rate": 0.38
-        }
-      },
-      {
-        "id": "50",
-        "name": "Texas A&M",
-        "seed": 2,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 21.5,
-          "tempo": 71.5,
-          "three_rate": 0.32
-        }
-      },
-      {
-        "id": "63",
-        "name": "FDU",
-        "seed": 15,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 4.0,
-          "tempo": 66.0,
-          "three_rate": 0.41
-        }
-      },
-      {
-        "id": "55",
-        "name": "Michigan",
-        "seed": 7,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 14.5,
-          "tempo": 69.5,
-          "three_rate": 0.36
+          "net_efficiency": 26.19,
+          "off_efficiency": 126.9,
+          "def_efficiency": 100.7,
+          "tempo": 70.1,
+          "luck": -0.054,
+          "sos": 7.76,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
         "id": "58",
-        "name": "Providence",
-        "seed": 10,
-        "region": "South",
+        "name": "South Florida Bulls",
+        "seed": 11,
+        "region": "East",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 10.5,
-          "tempo": 68.0,
-          "three_rate": 0.37
+          "net_efficiency": 11.42,
+          "off_efficiency": 116.2,
+          "def_efficiency": 104.8,
+          "tempo": 72.4,
+          "luck": -0.067,
+          "sos": 3.83,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
-        "id": "51",
-        "name": "Iowa",
-        "seed": 3,
-        "region": "South",
+        "id": "275",
+        "name": "Wisconsin Badgers",
+        "seed": 5,
+        "region": "West",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 20.0,
-          "tempo": 71.0,
-          "three_rate": 0.33
+          "net_efficiency": 19.28,
+          "off_efficiency": 122.5,
+          "def_efficiency": 103.2,
+          "tempo": 70.5,
+          "luck": 0.063,
+          "sos": 6.59,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2272",
+        "name": "High Point Panthers",
+        "seed": 12,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 8.0,
+          "off_efficiency": 120.1,
+          "def_efficiency": 112.1,
+          "tempo": 69.5,
+          "luck": 0.006,
+          "sos": -8.65,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "150",
+        "name": "Duke Blue Devils",
+        "seed": 1,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 33.25,
+          "off_efficiency": 126.2,
+          "def_efficiency": 93.0,
+          "tempo": 67.4,
+          "luck": 0.078,
+          "sos": 10.18
+        }
+      },
+      {
+        "id": "2561",
+        "name": "Siena Saints",
+        "seed": 16,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "238",
+        "name": "Vanderbilt Commodores",
+        "seed": 5,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 26.19,
+          "off_efficiency": 126.2,
+          "def_efficiency": 100.0,
+          "tempo": 70.4,
+          "luck": 0.054,
+          "sos": 9.16,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2377",
+        "name": "McNeese Cowboys",
+        "seed": 12,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 12.19,
+          "off_efficiency": 118.4,
+          "def_efficiency": 106.2,
+          "tempo": 66.2,
+          "luck": 0.06,
+          "sos": -0.31
+        }
+      },
+      {
+        "id": "127",
+        "name": "Michigan State Spartans",
+        "seed": 3,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2449",
+        "name": "North Dakota State Bison",
+        "seed": 14,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "8",
+        "name": "Arkansas Razorbacks",
+        "seed": 4,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 24.25,
+          "off_efficiency": 126.9,
+          "def_efficiency": 102.7,
+          "tempo": 71.5,
+          "luck": -0.004,
+          "sos": 10.86,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
         "id": "62",
-        "name": "UAB",
-        "seed": 14,
-        "region": "South",
-        "stats": {
-          "net_efficiency": 5.5,
-          "tempo": 66.5,
-          "three_rate": 0.4
-        }
+        "name": "Hawai'i Rainbow Warriors",
+        "seed": 13,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
       },
       {
-        "id": "54",
-        "name": "Northwestern",
+        "id": "153",
+        "name": "North Carolina Tar Heels",
         "seed": 6,
         "region": "South",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 15.5,
-          "tempo": 70.0,
-          "three_rate": 0.35
+          "net_efficiency": 19.84,
+          "off_efficiency": 122.9,
+          "def_efficiency": 103.0,
+          "tempo": 68.0,
+          "luck": 0.026,
+          "sos": 4.53,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       },
       {
-        "id": "59",
-        "name": "Richmond",
+        "id": "2670",
+        "name": "VCU Rams",
         "seed": 11,
         "region": "South",
+        "round_label": "1st Round",
         "stats": {
-          "net_efficiency": 8.5,
-          "tempo": 68.5,
-          "three_rate": 0.38
+          "net_efficiency": 15.97,
+          "off_efficiency": 120.8,
+          "def_efficiency": 104.9,
+          "tempo": 69.7,
+          "luck": -0.085,
+          "sos": 2.1,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "130",
+        "name": "Michigan Wolverines",
+        "seed": 1,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 35.99,
+          "off_efficiency": 126.6,
+          "def_efficiency": 90.6,
+          "tempo": 72.7,
+          "luck": 0.028,
+          "sos": 11.33
+        }
+      },
+      {
+        "id": "252",
+        "name": "BYU Cougars",
+        "seed": 6,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 26.61,
+          "off_efficiency": 125.3,
+          "def_efficiency": 98.7,
+          "tempo": 70.5,
+          "luck": 0.04,
+          "sos": 6.96,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2608",
+        "name": "Saint Mary's Gaels",
+        "seed": 7,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "245",
+        "name": "Texas A&M Aggies",
+        "seed": 10,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 18.99,
+          "off_efficiency": 120.6,
+          "def_efficiency": 101.6,
+          "tempo": 71.2,
+          "luck": 0.025,
+          "sos": 2.26,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "356",
+        "name": "Illinois Fighting Illini",
+        "seed": 3,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 30.35,
+          "off_efficiency": 129.5,
+          "def_efficiency": 99.2,
+          "tempo": 66.3,
+          "luck": 0.005,
+          "sos": 7.9,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "219",
+        "name": "Pennsylvania Quakers",
+        "seed": 14,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "61",
+        "name": "Georgia Bulldogs",
+        "seed": 8,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 21.38,
+          "off_efficiency": 122.4,
+          "def_efficiency": 101.0,
+          "tempo": 74.4,
+          "luck": 0.025,
+          "sos": 1.82,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "139",
+        "name": "Saint Louis Billikens",
+        "seed": 9,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 22.3,
+          "off_efficiency": 121.6,
+          "def_efficiency": 99.3,
+          "tempo": 71.3,
+          "luck": 0.024,
+          "sos": -2.49,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2250",
+        "name": "Gonzaga Bulldogs",
+        "seed": 3,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 30.71,
+          "off_efficiency": 125.8,
+          "def_efficiency": 95.1,
+          "tempo": 70.1,
+          "luck": 0.091,
+          "sos": 4.36,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "338",
+        "name": "Kennesaw State Owls",
+        "seed": 14,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "248",
+        "name": "Houston Cougars",
+        "seed": 2,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 31.12,
+          "off_efficiency": 124.1,
+          "def_efficiency": 93.0,
+          "tempo": 63.4,
+          "luck": 0.054,
+          "sos": 5.29,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "70",
+        "name": "Idaho Vandals",
+        "seed": 15,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "96",
+        "name": "Kentucky Wildcats",
+        "seed": 7,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 21.64,
+          "off_efficiency": 122.4,
+          "def_efficiency": 100.8,
+          "tempo": 67.7,
+          "luck": -0.012,
+          "sos": 8.78,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2541",
+        "name": "Santa Clara Broncos",
+        "seed": 10,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 16.93,
+          "off_efficiency": 120.5,
+          "def_efficiency": 103.6,
+          "tempo": 69.5,
+          "luck": -0.005,
+          "sos": 2.86,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2641",
+        "name": "Texas Tech Red Raiders",
+        "seed": 5,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 25.23,
+          "off_efficiency": 125.4,
+          "def_efficiency": 100.1,
+          "tempo": 67.6,
+          "luck": 0.05,
+          "sos": 11.18,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2006",
+        "name": "Akron Zips",
+        "seed": 12,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "12",
+        "name": "Arizona Wildcats",
+        "seed": 1,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 34.81,
+          "off_efficiency": 127.2,
+          "def_efficiency": 92.4,
+          "tempo": 71.1,
+          "luck": 0.029,
+          "sos": 6.71,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "112358",
+        "name": "Long Island University Sharks",
+        "seed": 16,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "258",
+        "name": "Virginia Cavaliers",
+        "seed": 3,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 27.11,
+          "off_efficiency": 124.8,
+          "def_efficiency": 97.7,
+          "tempo": 65.5,
+          "luck": 0.002,
+          "sos": 4.79,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2750",
+        "name": "Wright State Raiders",
+        "seed": 14,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "66",
+        "name": "Iowa State Cyclones",
+        "seed": 2,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2634",
+        "name": "Tennessee State Tigers",
+        "seed": 15,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "333",
+        "name": "Alabama Crimson Tide",
+        "seed": 4,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 25.33,
+          "off_efficiency": 129.2,
+          "def_efficiency": 103.9,
+          "tempo": 73.5,
+          "luck": -0.004,
+          "sos": 14.65,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2275",
+        "name": "Hofstra Pride",
+        "seed": 13,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "222",
+        "name": "Villanova Wildcats",
+        "seed": 8,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 21.58,
+          "off_efficiency": 122.4,
+          "def_efficiency": 100.8,
+          "tempo": 63.3,
+          "luck": 0.022,
+          "sos": 7.79,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "328",
+        "name": "Utah State Aggies",
+        "seed": 9,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2633",
+        "name": "Tennessee Volunteers",
+        "seed": 6,
+        "region": "Midwest",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 23.5,
+          "off_efficiency": 120.9,
+          "def_efficiency": 97.4,
+          "tempo": 66.5,
+          "luck": -0.074,
+          "sos": 8.17,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "228",
+        "name": "Clemson Tigers",
+        "seed": 8,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 20.88,
+          "off_efficiency": 118.3,
+          "def_efficiency": 97.4,
+          "tempo": 64.7,
+          "luck": 0.021,
+          "sos": 6.79,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2294",
+        "name": "Iowa Hawkeyes",
+        "seed": 9,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2599",
+        "name": "St. John's Red Storm",
+        "seed": 5,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2460",
+        "name": "Northern Iowa Panthers",
+        "seed": 12,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 6.08,
+          "off_efficiency": 104.8,
+          "def_efficiency": 98.7,
+          "tempo": 62.2,
+          "luck": -0.063,
+          "sos": 0.54,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "26",
+        "name": "UCLA Bruins",
+        "seed": 7,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 17.99,
+          "off_efficiency": 120.8,
+          "def_efficiency": 102.8,
+          "tempo": 64.9,
+          "luck": -0.015,
+          "sos": 5.87,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2116",
+        "name": "UCF Knights",
+        "seed": 10,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 16.09,
+          "off_efficiency": 120.7,
+          "def_efficiency": 104.7,
+          "tempo": 69.0,
+          "luck": 0.106,
+          "sos": 6.72,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2509",
+        "name": "Purdue Boilermakers",
+        "seed": 2,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 30.7,
+          "off_efficiency": 129.2,
+          "def_efficiency": 98.5,
+          "tempo": 65.4,
+          "luck": 0.055,
+          "sos": 10.12,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2511",
+        "name": "Queens University Royals",
+        "seed": 15,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "57",
+        "name": "Florida Gators",
+        "seed": 1,
+        "region": "South",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 29.96,
+          "off_efficiency": 125.5,
+          "def_efficiency": 95.5,
+          "tempo": 70.1,
+          "luck": -0.087,
+          "sos": 12.18,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2305",
+        "name": "Kansas Jayhawks",
+        "seed": 4,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 25.41,
+          "off_efficiency": 121.7,
+          "def_efficiency": 96.3,
+          "tempo": 67.4,
+          "luck": -0.002,
+          "sos": 13.15,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "2856",
+        "name": "California Baptist Lancers",
+        "seed": 13,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 11.45,
+          "off_efficiency": 115.4,
+          "def_efficiency": 104.0,
+          "tempo": 66.8,
+          "luck": 0.058,
+          "sos": 2.16,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "41",
+        "name": "UConn Huskies",
+        "seed": 2,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
+        }
+      },
+      {
+        "id": "231",
+        "name": "Furman Paladins",
+        "seed": 15,
+        "region": "East",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "2390",
+        "name": "Miami Hurricanes",
+        "seed": 7,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {}
+      },
+      {
+        "id": "142",
+        "name": "Missouri Tigers",
+        "seed": 10,
+        "region": "West",
+        "round_label": "1st Round",
+        "stats": {
+          "net_efficiency": 14.47,
+          "off_efficiency": 120.2,
+          "def_efficiency": 105.7,
+          "tempo": 66.2,
+          "luck": 0.038,
+          "sos": 2.85,
+          "bart_adj_oe": 0.0,
+          "bart_adj_de": 0.0
         }
       }
-    ]
+    ],
+    "games": []
   },
   "simulation_results": {
-    "1": {
-      "team": {
-        "name": "Duke",
-        "seed": 1,
-        "region": "East"
-      },
-      "round_32_prob": 0.8076,
-      "sweet_16_prob": 0.6016,
-      "elite_8_prob": 0.4296,
-      "final_four_prob": 0.2566,
-      "championship_prob": 0.1572,
-      "winner_prob": 0.0948
-    },
-    "16": {
-      "team": {
-        "name": "American",
-        "seed": 16,
-        "region": "East"
-      },
-      "round_32_prob": 0.1924,
-      "sweet_16_prob": 0.06,
-      "elite_8_prob": 0.017,
-      "final_four_prob": 0.0048,
-      "championship_prob": 0.0014,
-      "winner_prob": 0.0001
-    },
-    "8": {
-      "team": {
-        "name": "Florida",
-        "seed": 8,
-        "region": "East"
-      },
-      "round_32_prob": 0.5877,
-      "sweet_16_prob": 0.2121,
-      "elite_8_prob": 0.0747,
-      "final_four_prob": 0.0307,
-      "championship_prob": 0.0106,
-      "winner_prob": 0.0036
-    },
-    "9": {
-      "team": {
-        "name": "Boise State",
-        "seed": 9,
-        "region": "East"
-      },
-      "round_32_prob": 0.4123,
-      "sweet_16_prob": 0.1277,
-      "elite_8_prob": 0.0415,
-      "final_four_prob": 0.015,
-      "championship_prob": 0.0052,
-      "winner_prob": 0.001
-    },
-    "4": {
-      "team": {
-        "name": "Arizona",
-        "seed": 4,
-        "region": "East"
-      },
-      "round_32_prob": 0.7614,
-      "sweet_16_prob": 0.4821,
-      "elite_8_prob": 0.2469,
-      "final_four_prob": 0.1184,
-      "championship_prob": 0.0549,
-      "winner_prob": 0.0262
-    },
-    "13": {
-      "team": {
-        "name": "Akron",
-        "seed": 13,
-        "region": "East"
-      },
-      "round_32_prob": 0.2386,
-      "sweet_16_prob": 0.0665,
-      "elite_8_prob": 0.0191,
-      "final_four_prob": 0.0051,
-      "championship_prob": 0.0016,
-      "winner_prob": 0.0001
-    },
-    "5": {
-      "team": {
-        "name": "BYU",
-        "seed": 5,
-        "region": "East"
-      },
-      "round_32_prob": 0.6999,
-      "sweet_16_prob": 0.3843,
-      "elite_8_prob": 0.1696,
-      "final_four_prob": 0.0758,
-      "championship_prob": 0.0349,
-      "winner_prob": 0.0152
-    },
-    "12": {
-      "team": {
-        "name": "Duquesne",
-        "seed": 12,
-        "region": "East"
-      },
-      "round_32_prob": 0.3001,
-      "sweet_16_prob": 0.0775,
-      "elite_8_prob": 0.023,
-      "final_four_prob": 0.0072,
-      "championship_prob": 0.0016,
-      "winner_prob": 0.0002
-    },
-    "2": {
-      "team": {
-        "name": "Alabama",
-        "seed": 2,
-        "region": "East"
-      },
-      "round_32_prob": 0.7205,
-      "sweet_16_prob": 0.5253,
-      "elite_8_prob": 0.3304,
-      "final_four_prob": 0.1873,
-      "championship_prob": 0.1027,
-      "winner_prob": 0.0561
-    },
-    "15": {
-      "team": {
-        "name": "Robert Morris",
-        "seed": 15,
-        "region": "East"
-      },
-      "round_32_prob": 0.2795,
-      "sweet_16_prob": 0.0726,
-      "elite_8_prob": 0.0218,
-      "final_four_prob": 0.0065,
-      "championship_prob": 0.0016,
-      "winner_prob": 0.0004
-    },
-    "7": {
-      "team": {
-        "name": "Clemson",
-        "seed": 7,
-        "region": "East"
-      },
-      "round_32_prob": 0.6599,
-      "sweet_16_prob": 0.2665,
-      "elite_8_prob": 0.1074,
-      "final_four_prob": 0.0444,
-      "championship_prob": 0.0161,
-      "winner_prob": 0.0073
-    },
-    "10": {
-      "team": {
-        "name": "New Mexico",
-        "seed": 10,
-        "region": "East"
-      },
-      "round_32_prob": 0.3401,
-      "sweet_16_prob": 0.0951,
-      "elite_8_prob": 0.029,
-      "final_four_prob": 0.0115,
-      "championship_prob": 0.0036,
-      "winner_prob": 0.0015
-    },
-    "3": {
-      "team": {
-        "name": "Baylor",
-        "seed": 3,
-        "region": "East"
-      },
-      "round_32_prob": 0.7945,
-      "sweet_16_prob": 0.5694,
-      "elite_8_prob": 0.3245,
-      "final_four_prob": 0.1689,
-      "championship_prob": 0.0866,
-      "winner_prob": 0.0453
-    },
-    "14": {
-      "team": {
-        "name": "Colgate",
-        "seed": 14,
-        "region": "East"
-      },
-      "round_32_prob": 0.2055,
-      "sweet_16_prob": 0.0557,
-      "elite_8_prob": 0.0117,
-      "final_four_prob": 0.0039,
-      "championship_prob": 0.0018,
-      "winner_prob": 0.0004
-    },
-    "6": {
-      "team": {
-        "name": "Dayton",
-        "seed": 6,
-        "region": "East"
-      },
-      "round_32_prob": 0.7034,
-      "sweet_16_prob": 0.3282,
-      "elite_8_prob": 0.1327,
-      "final_four_prob": 0.0558,
-      "championship_prob": 0.0222,
-      "winner_prob": 0.0101
-    },
-    "11": {
-      "team": {
-        "name": "Nevada",
-        "seed": 11,
-        "region": "East"
-      },
-      "round_32_prob": 0.2966,
-      "sweet_16_prob": 0.0754,
-      "elite_8_prob": 0.0211,
-      "final_four_prob": 0.0081,
-      "championship_prob": 0.0021,
-      "winner_prob": 0.0009
-    },
-    "17": {
-      "team": {
-        "name": "Houston",
-        "seed": 1,
-        "region": "West"
-      },
-      "round_32_prob": 0.7832,
-      "sweet_16_prob": 0.5812,
-      "elite_8_prob": 0.4054,
-      "final_four_prob": 0.2467,
-      "championship_prob": 0.148,
-      "winner_prob": 0.0799
-    },
-    "32": {
-      "team": {
-        "name": "Longwood",
-        "seed": 16,
-        "region": "West"
-      },
-      "round_32_prob": 0.2168,
-      "sweet_16_prob": 0.0655,
-      "elite_8_prob": 0.0191,
-      "final_four_prob": 0.0065,
-      "championship_prob": 0.0019,
-      "winner_prob": 0.0006
-    },
-    "24": {
-      "team": {
-        "name": "Nebraska",
-        "seed": 8,
-        "region": "West"
-      },
-      "round_32_prob": 0.5592,
-      "sweet_16_prob": 0.2045,
-      "elite_8_prob": 0.0754,
-      "final_four_prob": 0.0292,
-      "championship_prob": 0.0094,
-      "winner_prob": 0.0031
-    },
-    "25": {
-      "team": {
-        "name": "Texas A&M",
-        "seed": 9,
-        "region": "West"
-      },
-      "round_32_prob": 0.4408,
-      "sweet_16_prob": 0.1558,
-      "elite_8_prob": 0.0543,
-      "final_four_prob": 0.0193,
-      "championship_prob": 0.0061,
-      "winner_prob": 0.0017
-    },
-    "20": {
-      "team": {
-        "name": "Texas",
-        "seed": 4,
-        "region": "West"
-      },
-      "round_32_prob": 0.7157,
-      "sweet_16_prob": 0.4418,
-      "elite_8_prob": 0.2214,
-      "final_four_prob": 0.1047,
-      "championship_prob": 0.0485,
-      "winner_prob": 0.0251
-    },
-    "29": {
-      "team": {
-        "name": "Colorado State",
-        "seed": 13,
-        "region": "West"
-      },
-      "round_32_prob": 0.2843,
-      "sweet_16_prob": 0.0772,
-      "elite_8_prob": 0.0246,
-      "final_four_prob": 0.0077,
-      "championship_prob": 0.003,
-      "winner_prob": 0.0007
-    },
-    "21": {
-      "team": {
-        "name": "Xavier",
-        "seed": 5,
-        "region": "West"
-      },
-      "round_32_prob": 0.6994,
-      "sweet_16_prob": 0.3734,
-      "elite_8_prob": 0.1691,
-      "final_four_prob": 0.0724,
-      "championship_prob": 0.0277,
-      "winner_prob": 0.0121
-    },
-    "28": {
-      "team": {
-        "name": "Missouri",
-        "seed": 12,
-        "region": "West"
-      },
-      "round_32_prob": 0.3006,
-      "sweet_16_prob": 0.0803,
-      "elite_8_prob": 0.0228,
-      "final_four_prob": 0.0078,
-      "championship_prob": 0.0027,
-      "winner_prob": 0.0006
-    },
-    "18": {
-      "team": {
-        "name": "Kentucky",
-        "seed": 2,
-        "region": "West"
-      },
-      "round_32_prob": 0.6893,
-      "sweet_16_prob": 0.4942,
-      "elite_8_prob": 0.3197,
-      "final_four_prob": 0.1836,
-      "championship_prob": 0.1092,
-      "winner_prob": 0.059
-    },
-    "31": {
-      "team": {
-        "name": "Vermont",
-        "seed": 15,
-        "region": "West"
-      },
-      "round_32_prob": 0.3107,
-      "sweet_16_prob": 0.0878,
-      "elite_8_prob": 0.0237,
-      "final_four_prob": 0.0093,
-      "championship_prob": 0.0025,
-      "winner_prob": 0.0006
-    },
-    "23": {
-      "team": {
-        "name": "Indiana",
-        "seed": 7,
-        "region": "West"
-      },
-      "round_32_prob": 0.6386,
-      "sweet_16_prob": 0.2748,
-      "elite_8_prob": 0.1105,
-      "final_four_prob": 0.0475,
-      "championship_prob": 0.0181,
-      "winner_prob": 0.0074
-    },
-    "26": {
-      "team": {
-        "name": "Saint Mary's",
-        "seed": 10,
-        "region": "West"
-      },
-      "round_32_prob": 0.3614,
-      "sweet_16_prob": 0.1144,
-      "elite_8_prob": 0.0347,
-      "final_four_prob": 0.0142,
-      "championship_prob": 0.0044,
-      "winner_prob": 0.0016
-    },
-    "19": {
-      "team": {
-        "name": "Marquette",
-        "seed": 3,
-        "region": "West"
-      },
-      "round_32_prob": 0.7898,
-      "sweet_16_prob": 0.547,
-      "elite_8_prob": 0.3228,
-      "final_four_prob": 0.1685,
-      "championship_prob": 0.0852,
-      "winner_prob": 0.0411
-    },
-    "30": {
-      "team": {
-        "name": "Drake",
-        "seed": 14,
-        "region": "West"
-      },
-      "round_32_prob": 0.2102,
-      "sweet_16_prob": 0.0638,
-      "elite_8_prob": 0.0153,
-      "final_four_prob": 0.0059,
-      "championship_prob": 0.001,
-      "winner_prob": 0.0003
-    },
-    "22": {
-      "team": {
-        "name": "Michigan State",
-        "seed": 6,
-        "region": "West"
-      },
-      "round_32_prob": 0.7111,
-      "sweet_16_prob": 0.3648,
-      "elite_8_prob": 0.1622,
-      "final_four_prob": 0.0707,
-      "championship_prob": 0.0265,
-      "winner_prob": 0.0105
-    },
-    "27": {
-      "team": {
-        "name": "UC San Diego",
-        "seed": 11,
-        "region": "West"
-      },
-      "round_32_prob": 0.2889,
-      "sweet_16_prob": 0.0735,
-      "elite_8_prob": 0.019,
-      "final_four_prob": 0.006,
-      "championship_prob": 0.0017,
-      "winner_prob": 0.0003
-    },
-    "33": {
-      "team": {
-        "name": "Kansas",
-        "seed": 1,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.7812,
-      "sweet_16_prob": 0.568,
-      "elite_8_prob": 0.399,
-      "final_four_prob": 0.24,
-      "championship_prob": 0.138,
-      "winner_prob": 0.0808
-    },
-    "48": {
-      "team": {
-        "name": "Southeast Missouri State",
-        "seed": 16,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.2188,
-      "sweet_16_prob": 0.0602,
-      "elite_8_prob": 0.0145,
-      "final_four_prob": 0.0047,
-      "championship_prob": 0.0009,
-      "winner_prob": 0.0002
-    },
-    "40": {
-      "team": {
-        "name": "UCLA",
-        "seed": 8,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.555,
-      "sweet_16_prob": 0.2128,
-      "elite_8_prob": 0.0791,
-      "final_four_prob": 0.0308,
-      "championship_prob": 0.0113,
-      "winner_prob": 0.0045
-    },
-    "41": {
-      "team": {
-        "name": "Utah State",
-        "seed": 9,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.445,
-      "sweet_16_prob": 0.1703,
-      "elite_8_prob": 0.0604,
-      "final_four_prob": 0.0243,
-      "championship_prob": 0.0083,
-      "winner_prob": 0.0026
-    },
-    "36": {
-      "team": {
-        "name": "Iowa State",
-        "seed": 4,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.7132,
-      "sweet_16_prob": 0.442,
-      "elite_8_prob": 0.2309,
-      "final_four_prob": 0.1114,
-      "championship_prob": 0.0519,
-      "winner_prob": 0.0229
-    },
-    "45": {
-      "team": {
-        "name": "Lipscomb",
-        "seed": 13,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.2868,
-      "sweet_16_prob": 0.0817,
-      "elite_8_prob": 0.0223,
-      "final_four_prob": 0.0066,
-      "championship_prob": 0.0014,
-      "winner_prob": 0.0002
-    },
-    "37": {
-      "team": {
-        "name": "Maryland",
-        "seed": 5,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.6988,
-      "sweet_16_prob": 0.3848,
-      "elite_8_prob": 0.1796,
-      "final_four_prob": 0.082,
-      "championship_prob": 0.0357,
-      "winner_prob": 0.0141
-    },
-    "44": {
-      "team": {
-        "name": "Grand Canyon",
-        "seed": 12,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.3012,
-      "sweet_16_prob": 0.0744,
-      "elite_8_prob": 0.02,
-      "final_four_prob": 0.0063,
-      "championship_prob": 0.0017,
-      "winner_prob": 0.0002
-    },
-    "34": {
-      "team": {
-        "name": "Tennessee",
-        "seed": 2,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.6633,
-      "sweet_16_prob": 0.4738,
-      "elite_8_prob": 0.3093,
-      "final_four_prob": 0.18,
-      "championship_prob": 0.098,
-      "winner_prob": 0.0524
-    },
     "47": {
       "team": {
-        "name": "Wagner",
-        "seed": 15,
+        "name": "Howard Bison",
+        "seed": 16,
         "region": "Midwest"
       },
-      "round_32_prob": 0.3367,
-      "sweet_16_prob": 0.0876,
-      "elite_8_prob": 0.0238,
-      "final_four_prob": 0.0063,
-      "championship_prob": 0.0019,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.1534,
+      "sweet_16_prob": 0.0516,
+      "elite_8_prob": 0.0116,
+      "final_four_prob": 0.0028,
+      "championship_prob": 0.0008,
+      "winner_prob": 0.0002
     },
-    "39": {
+    "251": {
       "team": {
-        "name": "Washington State",
-        "seed": 7,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.6009,
-      "sweet_16_prob": 0.2573,
-      "elite_8_prob": 0.0981,
-      "final_four_prob": 0.0434,
-      "championship_prob": 0.0167,
-      "winner_prob": 0.0063
-    },
-    "42": {
-      "team": {
-        "name": "North Carolina State",
-        "seed": 10,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.3991,
-      "sweet_16_prob": 0.1412,
-      "elite_8_prob": 0.045,
-      "final_four_prob": 0.0165,
-      "championship_prob": 0.0057,
-      "winner_prob": 0.001
-    },
-    "35": {
-      "team": {
-        "name": "Arkansas",
-        "seed": 3,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.7751,
-      "sweet_16_prob": 0.5402,
-      "elite_8_prob": 0.3208,
-      "final_four_prob": 0.1652,
-      "championship_prob": 0.0864,
-      "winner_prob": 0.0436
-    },
-    "46": {
-      "team": {
-        "name": "Norfolk State",
-        "seed": 14,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.2249,
-      "sweet_16_prob": 0.0666,
-      "elite_8_prob": 0.0186,
-      "final_four_prob": 0.0065,
-      "championship_prob": 0.0022,
-      "winner_prob": 0.0004
-    },
-    "38": {
-      "team": {
-        "name": "Memphis",
-        "seed": 6,
-        "region": "Midwest"
-      },
-      "round_32_prob": 0.6723,
-      "sweet_16_prob": 0.3447,
-      "elite_8_prob": 0.1516,
-      "final_four_prob": 0.0676,
-      "championship_prob": 0.0258,
-      "winner_prob": 0.0098
-    },
-    "43": {
-      "team": {
-        "name": "Oklahoma",
+        "name": "Texas Longhorns",
         "seed": 11,
-        "region": "Midwest"
+        "region": "West"
       },
-      "round_32_prob": 0.3277,
-      "sweet_16_prob": 0.0944,
-      "elite_8_prob": 0.027,
-      "final_four_prob": 0.0084,
-      "championship_prob": 0.0022,
-      "winner_prob": 0.0006
+      "round_32_prob": 0.2766,
+      "sweet_16_prob": 0.065,
+      "elite_8_prob": 0.014,
+      "final_four_prob": 0.0036,
+      "championship_prob": 0.0014,
+      "winner_prob": 0.0002
     },
-    "49": {
+    "2504": {
       "team": {
-        "name": "Auburn",
-        "seed": 1,
-        "region": "South"
-      },
-      "round_32_prob": 0.7604,
-      "sweet_16_prob": 0.5498,
-      "elite_8_prob": 0.3873,
-      "final_four_prob": 0.2374,
-      "championship_prob": 0.1467,
-      "winner_prob": 0.0857
-    },
-    "64": {
-      "team": {
-        "name": "Alabama State",
+        "name": "Prairie View A&M Panthers",
         "seed": 16,
         "region": "South"
       },
-      "round_32_prob": 0.2396,
-      "sweet_16_prob": 0.0641,
-      "elite_8_prob": 0.0159,
-      "final_four_prob": 0.0046,
-      "championship_prob": 0.0016,
-      "winner_prob": 0.0005
+      "round_32_prob": 0.1834,
+      "sweet_16_prob": 0.0408,
+      "elite_8_prob": 0.0054,
+      "final_four_prob": 0.0004,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
-    "56": {
+    "2567": {
       "team": {
-        "name": "Louisville",
+        "name": "SMU Mustangs",
+        "seed": 11,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.2092,
+      "sweet_16_prob": 0.047,
+      "elite_8_prob": 0.0102,
+      "final_four_prob": 0.003,
+      "championship_prob": 0.0004,
+      "winner_prob": 0.0
+    },
+    "194": {
+      "team": {
+        "name": "Ohio State Buckeyes",
         "seed": 8,
-        "region": "South"
+        "region": "East"
       },
-      "round_32_prob": 0.559,
-      "sweet_16_prob": 0.2091,
-      "elite_8_prob": 0.0763,
-      "final_four_prob": 0.0305,
-      "championship_prob": 0.0102,
-      "winner_prob": 0.0035
+      "round_32_prob": 0.3666,
+      "sweet_16_prob": 0.1236,
+      "elite_8_prob": 0.0266,
+      "final_four_prob": 0.0044,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0
     },
-    "57": {
+    "2628": {
       "team": {
-        "name": "Creighton",
+        "name": "TCU Horned Frogs",
         "seed": 9,
-        "region": "South"
+        "region": "East"
       },
-      "round_32_prob": 0.441,
-      "sweet_16_prob": 0.1646,
-      "elite_8_prob": 0.061,
-      "final_four_prob": 0.0245,
-      "championship_prob": 0.0092,
-      "winner_prob": 0.0032
+      "round_32_prob": 0.6334,
+      "sweet_16_prob": 0.2506,
+      "elite_8_prob": 0.0562,
+      "final_four_prob": 0.0142,
+      "championship_prob": 0.0028,
+      "winner_prob": 0.0002
     },
-    "52": {
+    "158": {
       "team": {
-        "name": "Wisconsin",
+        "name": "Nebraska Cornhuskers",
         "seed": 4,
         "region": "South"
       },
-      "round_32_prob": 0.6981,
-      "sweet_16_prob": 0.4482,
-      "elite_8_prob": 0.2348,
-      "final_four_prob": 0.1104,
-      "championship_prob": 0.0538,
-      "winner_prob": 0.0236
+      "round_32_prob": 0.9144,
+      "sweet_16_prob": 0.5792,
+      "elite_8_prob": 0.2598,
+      "final_four_prob": 0.1188,
+      "championship_prob": 0.0554,
+      "winner_prob": 0.0218
     },
-    "61": {
+    "2653": {
       "team": {
-        "name": "James Madison",
+        "name": "Troy Trojans",
         "seed": 13,
         "region": "South"
       },
-      "round_32_prob": 0.3019,
-      "sweet_16_prob": 0.0818,
-      "elite_8_prob": 0.0201,
-      "final_four_prob": 0.0076,
-      "championship_prob": 0.0025,
-      "winner_prob": 0.0008
+      "round_32_prob": 0.0856,
+      "sweet_16_prob": 0.0068,
+      "elite_8_prob": 0.0004,
+      "final_four_prob": 0.0,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     },
-    "53": {
+    "97": {
       "team": {
-        "name": "Florida Atlantic",
-        "seed": 5,
-        "region": "South"
+        "name": "Louisville Cardinals",
+        "seed": 6,
+        "region": "East"
       },
-      "round_32_prob": 0.706,
-      "sweet_16_prob": 0.3835,
-      "elite_8_prob": 0.1761,
-      "final_four_prob": 0.0791,
-      "championship_prob": 0.0335,
-      "winner_prob": 0.0119
-    },
-    "60": {
-      "team": {
-        "name": "Vermont",
-        "seed": 12,
-        "region": "South"
-      },
-      "round_32_prob": 0.294,
-      "sweet_16_prob": 0.0753,
-      "elite_8_prob": 0.021,
-      "final_four_prob": 0.0071,
-      "championship_prob": 0.0019,
-      "winner_prob": 0.0001
-    },
-    "50": {
-      "team": {
-        "name": "Texas A&M",
-        "seed": 2,
-        "region": "South"
-      },
-      "round_32_prob": 0.6612,
-      "sweet_16_prob": 0.4795,
-      "elite_8_prob": 0.3081,
-      "final_four_prob": 0.1774,
-      "championship_prob": 0.1075,
-      "winner_prob": 0.0609
-    },
-    "63": {
-      "team": {
-        "name": "FDU",
-        "seed": 15,
-        "region": "South"
-      },
-      "round_32_prob": 0.3388,
-      "sweet_16_prob": 0.0897,
-      "elite_8_prob": 0.023,
-      "final_four_prob": 0.0072,
-      "championship_prob": 0.0017,
-      "winner_prob": 0.0004
-    },
-    "55": {
-      "team": {
-        "name": "Michigan",
-        "seed": 7,
-        "region": "South"
-      },
-      "round_32_prob": 0.6055,
-      "sweet_16_prob": 0.2622,
-      "elite_8_prob": 0.0989,
-      "final_four_prob": 0.0402,
-      "championship_prob": 0.014,
-      "winner_prob": 0.0047
+      "round_32_prob": 0.8064,
+      "sweet_16_prob": 0.6304,
+      "elite_8_prob": 0.3638,
+      "final_four_prob": 0.182,
+      "championship_prob": 0.0668,
+      "winner_prob": 0.0286
     },
     "58": {
       "team": {
-        "name": "Providence",
-        "seed": 10,
-        "region": "South"
+        "name": "South Florida Bulls",
+        "seed": 11,
+        "region": "East"
       },
-      "round_32_prob": 0.3945,
-      "sweet_16_prob": 0.1297,
-      "elite_8_prob": 0.0401,
-      "final_four_prob": 0.0149,
-      "championship_prob": 0.0045,
-      "winner_prob": 0.0013
+      "round_32_prob": 0.1936,
+      "sweet_16_prob": 0.0728,
+      "elite_8_prob": 0.0138,
+      "final_four_prob": 0.0054,
+      "championship_prob": 0.001,
+      "winner_prob": 0.0
     },
-    "51": {
+    "275": {
       "team": {
-        "name": "Iowa",
-        "seed": 3,
+        "name": "Wisconsin Badgers",
+        "seed": 5,
+        "region": "West"
+      },
+      "round_32_prob": 0.7684,
+      "sweet_16_prob": 0.3044,
+      "elite_8_prob": 0.0788,
+      "final_four_prob": 0.0208,
+      "championship_prob": 0.0056,
+      "winner_prob": 0.0016
+    },
+    "2272": {
+      "team": {
+        "name": "High Point Panthers",
+        "seed": 12,
+        "region": "West"
+      },
+      "round_32_prob": 0.2316,
+      "sweet_16_prob": 0.021,
+      "elite_8_prob": 0.0016,
+      "final_four_prob": 0.001,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "150": {
+      "team": {
+        "name": "Duke Blue Devils",
+        "seed": 1,
+        "region": "East"
+      },
+      "round_32_prob": 0.9094,
+      "sweet_16_prob": 0.822,
+      "elite_8_prob": 0.6756,
+      "final_four_prob": 0.4934,
+      "championship_prob": 0.2628,
+      "winner_prob": 0.149
+    },
+    "2561": {
+      "team": {
+        "name": "Siena Saints",
+        "seed": 16,
+        "region": "East"
+      },
+      "round_32_prob": 0.0906,
+      "sweet_16_prob": 0.0372,
+      "elite_8_prob": 0.009,
+      "final_four_prob": 0.002,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
+    },
+    "238": {
+      "team": {
+        "name": "Vanderbilt Commodores",
+        "seed": 5,
         "region": "South"
       },
-      "round_32_prob": 0.7849,
-      "sweet_16_prob": 0.5492,
-      "elite_8_prob": 0.3288,
-      "final_four_prob": 0.1712,
-      "championship_prob": 0.092,
-      "winner_prob": 0.0447
+      "round_32_prob": 0.8138,
+      "sweet_16_prob": 0.473,
+      "elite_8_prob": 0.1924,
+      "final_four_prob": 0.0814,
+      "championship_prob": 0.0332,
+      "winner_prob": 0.0134
+    },
+    "2377": {
+      "team": {
+        "name": "McNeese Cowboys",
+        "seed": 12,
+        "region": "South"
+      },
+      "round_32_prob": 0.1862,
+      "sweet_16_prob": 0.0286,
+      "elite_8_prob": 0.005,
+      "final_four_prob": 0.001,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "127": {
+      "team": {
+        "name": "Michigan State Spartans",
+        "seed": 3,
+        "region": "East"
+      },
+      "round_32_prob": 0.5462,
+      "sweet_16_prob": 0.2538,
+      "elite_8_prob": 0.081,
+      "final_four_prob": 0.0132,
+      "championship_prob": 0.0024,
+      "winner_prob": 0.0006
+    },
+    "2449": {
+      "team": {
+        "name": "North Dakota State Bison",
+        "seed": 14,
+        "region": "East"
+      },
+      "round_32_prob": 0.4538,
+      "sweet_16_prob": 0.0714,
+      "elite_8_prob": 0.014,
+      "final_four_prob": 0.004,
+      "championship_prob": 0.001,
+      "winner_prob": 0.0
+    },
+    "8": {
+      "team": {
+        "name": "Arkansas Razorbacks",
+        "seed": 4,
+        "region": "West"
+      },
+      "round_32_prob": 0.7692,
+      "sweet_16_prob": 0.5088,
+      "elite_8_prob": 0.2024,
+      "final_four_prob": 0.0774,
+      "championship_prob": 0.0272,
+      "winner_prob": 0.0098
     },
     "62": {
       "team": {
-        "name": "UAB",
-        "seed": 14,
-        "region": "South"
+        "name": "Hawai'i Rainbow Warriors",
+        "seed": 13,
+        "region": "West"
       },
-      "round_32_prob": 0.2151,
-      "sweet_16_prob": 0.067,
-      "elite_8_prob": 0.0221,
-      "final_four_prob": 0.0078,
-      "championship_prob": 0.0026,
-      "winner_prob": 0.0008
+      "round_32_prob": 0.2308,
+      "sweet_16_prob": 0.0344,
+      "elite_8_prob": 0.0066,
+      "final_four_prob": 0.0024,
+      "championship_prob": 0.0004,
+      "winner_prob": 0.0
     },
-    "54": {
+    "153": {
       "team": {
-        "name": "Northwestern",
+        "name": "North Carolina Tar Heels",
         "seed": 6,
         "region": "South"
       },
-      "round_32_prob": 0.6656,
-      "sweet_16_prob": 0.3518,
-      "elite_8_prob": 0.1574,
-      "final_four_prob": 0.0707,
-      "championship_prob": 0.0275,
-      "winner_prob": 0.0099
+      "round_32_prob": 0.6222,
+      "sweet_16_prob": 0.1974,
+      "elite_8_prob": 0.0488,
+      "final_four_prob": 0.0142,
+      "championship_prob": 0.0034,
+      "winner_prob": 0.0008
     },
-    "59": {
+    "2670": {
       "team": {
-        "name": "Richmond",
+        "name": "VCU Rams",
         "seed": 11,
         "region": "South"
       },
-      "round_32_prob": 0.3344,
-      "sweet_16_prob": 0.0945,
-      "elite_8_prob": 0.0291,
-      "final_four_prob": 0.0094,
-      "championship_prob": 0.0027,
-      "winner_prob": 0.0001
+      "round_32_prob": 0.3778,
+      "sweet_16_prob": 0.0778,
+      "elite_8_prob": 0.0124,
+      "final_four_prob": 0.0032,
+      "championship_prob": 0.0004,
+      "winner_prob": 0.0
+    },
+    "130": {
+      "team": {
+        "name": "Michigan Wolverines",
+        "seed": 1,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.8466,
+      "sweet_16_prob": 0.7154,
+      "elite_8_prob": 0.5824,
+      "final_four_prob": 0.4378,
+      "championship_prob": 0.2894,
+      "winner_prob": 0.1874
+    },
+    "252": {
+      "team": {
+        "name": "BYU Cougars",
+        "seed": 6,
+        "region": "West"
+      },
+      "round_32_prob": 0.7234,
+      "sweet_16_prob": 0.3958,
+      "elite_8_prob": 0.1568,
+      "final_four_prob": 0.058,
+      "championship_prob": 0.0244,
+      "winner_prob": 0.0106
+    },
+    "2608": {
+      "team": {
+        "name": "Saint Mary's Gaels",
+        "seed": 7,
+        "region": "South"
+      },
+      "round_32_prob": 0.4478,
+      "sweet_16_prob": 0.0666,
+      "elite_8_prob": 0.0112,
+      "final_four_prob": 0.0018,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "245": {
+      "team": {
+        "name": "Texas A&M Aggies",
+        "seed": 10,
+        "region": "South"
+      },
+      "round_32_prob": 0.5522,
+      "sweet_16_prob": 0.138,
+      "elite_8_prob": 0.0388,
+      "final_four_prob": 0.0112,
+      "championship_prob": 0.0028,
+      "winner_prob": 0.0004
+    },
+    "356": {
+      "team": {
+        "name": "Illinois Fighting Illini",
+        "seed": 3,
+        "region": "South"
+      },
+      "round_32_prob": 0.8908,
+      "sweet_16_prob": 0.7182,
+      "elite_8_prob": 0.443,
+      "final_four_prob": 0.2414,
+      "championship_prob": 0.1218,
+      "winner_prob": 0.058
+    },
+    "219": {
+      "team": {
+        "name": "Pennsylvania Quakers",
+        "seed": 14,
+        "region": "South"
+      },
+      "round_32_prob": 0.1092,
+      "sweet_16_prob": 0.0164,
+      "elite_8_prob": 0.0026,
+      "final_four_prob": 0.0006,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
+    },
+    "61": {
+      "team": {
+        "name": "Georgia Bulldogs",
+        "seed": 8,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.4442,
+      "sweet_16_prob": 0.166,
+      "elite_8_prob": 0.0438,
+      "final_four_prob": 0.0134,
+      "championship_prob": 0.004,
+      "winner_prob": 0.0006
+    },
+    "139": {
+      "team": {
+        "name": "Saint Louis Billikens",
+        "seed": 9,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.5558,
+      "sweet_16_prob": 0.238,
+      "elite_8_prob": 0.0766,
+      "final_four_prob": 0.0286,
+      "championship_prob": 0.009,
+      "winner_prob": 0.0032
+    },
+    "2250": {
+      "team": {
+        "name": "Gonzaga Bulldogs",
+        "seed": 3,
+        "region": "West"
+      },
+      "round_32_prob": 0.887,
+      "sweet_16_prob": 0.6898,
+      "elite_8_prob": 0.408,
+      "final_four_prob": 0.1898,
+      "championship_prob": 0.103,
+      "winner_prob": 0.0482
+    },
+    "338": {
+      "team": {
+        "name": "Kennesaw State Owls",
+        "seed": 14,
+        "region": "West"
+      },
+      "round_32_prob": 0.113,
+      "sweet_16_prob": 0.0164,
+      "elite_8_prob": 0.0022,
+      "final_four_prob": 0.001,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
+    },
+    "248": {
+      "team": {
+        "name": "Houston Cougars",
+        "seed": 2,
+        "region": "South"
+      },
+      "round_32_prob": 0.8982,
+      "sweet_16_prob": 0.7326,
+      "elite_8_prob": 0.4484,
+      "final_four_prob": 0.2478,
+      "championship_prob": 0.1338,
+      "winner_prob": 0.0666
+    },
+    "70": {
+      "team": {
+        "name": "Idaho Vandals",
+        "seed": 15,
+        "region": "South"
+      },
+      "round_32_prob": 0.1018,
+      "sweet_16_prob": 0.0158,
+      "elite_8_prob": 0.0014,
+      "final_four_prob": 0.0006,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0
+    },
+    "96": {
+      "team": {
+        "name": "Kentucky Wildcats",
+        "seed": 7,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.6644,
+      "sweet_16_prob": 0.2966,
+      "elite_8_prob": 0.0998,
+      "final_four_prob": 0.0364,
+      "championship_prob": 0.0106,
+      "winner_prob": 0.003
+    },
+    "2541": {
+      "team": {
+        "name": "Santa Clara Broncos",
+        "seed": 10,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.3356,
+      "sweet_16_prob": 0.0954,
+      "elite_8_prob": 0.022,
+      "final_four_prob": 0.0064,
+      "championship_prob": 0.0016,
+      "winner_prob": 0.0004
+    },
+    "2641": {
+      "team": {
+        "name": "Texas Tech Red Raiders",
+        "seed": 5,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.8238,
+      "sweet_16_prob": 0.4802,
+      "elite_8_prob": 0.2226,
+      "final_four_prob": 0.0956,
+      "championship_prob": 0.0362,
+      "winner_prob": 0.0112
+    },
+    "2006": {
+      "team": {
+        "name": "Akron Zips",
+        "seed": 12,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.1762,
+      "sweet_16_prob": 0.04,
+      "elite_8_prob": 0.0112,
+      "final_four_prob": 0.0024,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "12": {
+      "team": {
+        "name": "Arizona Wildcats",
+        "seed": 1,
+        "region": "West"
+      },
+      "round_32_prob": 0.863,
+      "sweet_16_prob": 0.7498,
+      "elite_8_prob": 0.5858,
+      "final_four_prob": 0.3906,
+      "championship_prob": 0.2724,
+      "winner_prob": 0.1572
+    },
+    "112358": {
+      "team": {
+        "name": "Long Island University Sharks",
+        "seed": 16,
+        "region": "West"
+      },
+      "round_32_prob": 0.137,
+      "sweet_16_prob": 0.022,
+      "elite_8_prob": 0.003,
+      "final_four_prob": 0.0008,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
+    },
+    "258": {
+      "team": {
+        "name": "Virginia Cavaliers",
+        "seed": 3,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.8216,
+      "sweet_16_prob": 0.5994,
+      "elite_8_prob": 0.385,
+      "final_four_prob": 0.177,
+      "championship_prob": 0.0724,
+      "winner_prob": 0.0306
+    },
+    "2750": {
+      "team": {
+        "name": "Wright State Raiders",
+        "seed": 14,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.1784,
+      "sweet_16_prob": 0.0306,
+      "elite_8_prob": 0.0066,
+      "final_four_prob": 0.0016,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0
+    },
+    "66": {
+      "team": {
+        "name": "Iowa State Cyclones",
+        "seed": 2,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.5422,
+      "sweet_16_prob": 0.2244,
+      "elite_8_prob": 0.07,
+      "final_four_prob": 0.0154,
+      "championship_prob": 0.0036,
+      "winner_prob": 0.0004
+    },
+    "2634": {
+      "team": {
+        "name": "Tennessee State Tigers",
+        "seed": 15,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.4578,
+      "sweet_16_prob": 0.0728,
+      "elite_8_prob": 0.012,
+      "final_four_prob": 0.0024,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "333": {
+      "team": {
+        "name": "Alabama Crimson Tide",
+        "seed": 4,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.8026,
+      "sweet_16_prob": 0.5176,
+      "elite_8_prob": 0.2818,
+      "final_four_prob": 0.119,
+      "championship_prob": 0.0454,
+      "winner_prob": 0.017
+    },
+    "2275": {
+      "team": {
+        "name": "Hofstra Pride",
+        "seed": 13,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.1974,
+      "sweet_16_prob": 0.0408,
+      "elite_8_prob": 0.0096,
+      "final_four_prob": 0.0022,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "222": {
+      "team": {
+        "name": "Villanova Wildcats",
+        "seed": 8,
+        "region": "West"
+      },
+      "round_32_prob": 0.7412,
+      "sweet_16_prob": 0.2308,
+      "elite_8_prob": 0.061,
+      "final_four_prob": 0.0166,
+      "championship_prob": 0.0056,
+      "winner_prob": 0.0012
+    },
+    "328": {
+      "team": {
+        "name": "Utah State Aggies",
+        "seed": 9,
+        "region": "West"
+      },
+      "round_32_prob": 0.2588,
+      "sweet_16_prob": 0.0486,
+      "elite_8_prob": 0.0076,
+      "final_four_prob": 0.0016,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0002
+    },
+    "2633": {
+      "team": {
+        "name": "Tennessee Volunteers",
+        "seed": 6,
+        "region": "Midwest"
+      },
+      "round_32_prob": 0.7908,
+      "sweet_16_prob": 0.3842,
+      "elite_8_prob": 0.1548,
+      "final_four_prob": 0.056,
+      "championship_prob": 0.0192,
+      "winner_prob": 0.0048
+    },
+    "228": {
+      "team": {
+        "name": "Clemson Tigers",
+        "seed": 8,
+        "region": "South"
+      },
+      "round_32_prob": 0.7172,
+      "sweet_16_prob": 0.2074,
+      "elite_8_prob": 0.064,
+      "final_four_prob": 0.0186,
+      "championship_prob": 0.0042,
+      "winner_prob": 0.0016
+    },
+    "2294": {
+      "team": {
+        "name": "Iowa Hawkeyes",
+        "seed": 9,
+        "region": "South"
+      },
+      "round_32_prob": 0.2828,
+      "sweet_16_prob": 0.0414,
+      "elite_8_prob": 0.005,
+      "final_four_prob": 0.0004,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "2599": {
+      "team": {
+        "name": "St. John's Red Storm",
+        "seed": 5,
+        "region": "East"
+      },
+      "round_32_prob": 0.6362,
+      "sweet_16_prob": 0.216,
+      "elite_8_prob": 0.0596,
+      "final_four_prob": 0.0102,
+      "championship_prob": 0.0008,
+      "winner_prob": 0.0
+    },
+    "2460": {
+      "team": {
+        "name": "Northern Iowa Panthers",
+        "seed": 12,
+        "region": "East"
+      },
+      "round_32_prob": 0.3638,
+      "sweet_16_prob": 0.0908,
+      "elite_8_prob": 0.0156,
+      "final_four_prob": 0.0026,
+      "championship_prob": 0.0004,
+      "winner_prob": 0.0
+    },
+    "26": {
+      "team": {
+        "name": "UCLA Bruins",
+        "seed": 7,
+        "region": "East"
+      },
+      "round_32_prob": 0.6328,
+      "sweet_16_prob": 0.2674,
+      "elite_8_prob": 0.0822,
+      "final_four_prob": 0.0268,
+      "championship_prob": 0.0062,
+      "winner_prob": 0.001
+    },
+    "2116": {
+      "team": {
+        "name": "UCF Knights",
+        "seed": 10,
+        "region": "East"
+      },
+      "round_32_prob": 0.3672,
+      "sweet_16_prob": 0.1564,
+      "elite_8_prob": 0.0446,
+      "final_four_prob": 0.0172,
+      "championship_prob": 0.0046,
+      "winner_prob": 0.0012
+    },
+    "2509": {
+      "team": {
+        "name": "Purdue Boilermakers",
+        "seed": 2,
+        "region": "West"
+      },
+      "round_32_prob": 0.8526,
+      "sweet_16_prob": 0.6964,
+      "elite_8_prob": 0.4398,
+      "final_four_prob": 0.2306,
+      "championship_prob": 0.131,
+      "winner_prob": 0.0666
+    },
+    "2511": {
+      "team": {
+        "name": "Queens University Royals",
+        "seed": 15,
+        "region": "West"
+      },
+      "round_32_prob": 0.1474,
+      "sweet_16_prob": 0.0206,
+      "elite_8_prob": 0.0022,
+      "final_four_prob": 0.0008,
+      "championship_prob": 0.0002,
+      "winner_prob": 0.0
+    },
+    "57": {
+      "team": {
+        "name": "Florida Gators",
+        "seed": 1,
+        "region": "South"
+      },
+      "round_32_prob": 0.8166,
+      "sweet_16_prob": 0.66,
+      "elite_8_prob": 0.4614,
+      "final_four_prob": 0.2586,
+      "championship_prob": 0.15,
+      "winner_prob": 0.0784
+    },
+    "2305": {
+      "team": {
+        "name": "Kansas Jayhawks",
+        "seed": 4,
+        "region": "East"
+      },
+      "round_32_prob": 0.8166,
+      "sweet_16_prob": 0.6208,
+      "elite_8_prob": 0.4262,
+      "final_four_prob": 0.199,
+      "championship_prob": 0.0714,
+      "winner_prob": 0.0226
+    },
+    "2856": {
+      "team": {
+        "name": "California Baptist Lancers",
+        "seed": 13,
+        "region": "East"
+      },
+      "round_32_prob": 0.1834,
+      "sweet_16_prob": 0.0556,
+      "elite_8_prob": 0.0096,
+      "final_four_prob": 0.002,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0002
+    },
+    "41": {
+      "team": {
+        "name": "UConn Huskies",
+        "seed": 2,
+        "region": "East"
+      },
+      "round_32_prob": 0.5568,
+      "sweet_16_prob": 0.2862,
+      "elite_8_prob": 0.1076,
+      "final_four_prob": 0.019,
+      "championship_prob": 0.0056,
+      "winner_prob": 0.001
+    },
+    "231": {
+      "team": {
+        "name": "Furman Paladins",
+        "seed": 15,
+        "region": "East"
+      },
+      "round_32_prob": 0.4432,
+      "sweet_16_prob": 0.045,
+      "elite_8_prob": 0.0146,
+      "final_four_prob": 0.0046,
+      "championship_prob": 0.0008,
+      "winner_prob": 0.0
+    },
+    "2390": {
+      "team": {
+        "name": "Miami Hurricanes",
+        "seed": 7,
+        "region": "West"
+      },
+      "round_32_prob": 0.5506,
+      "sweet_16_prob": 0.1154,
+      "elite_8_prob": 0.0188,
+      "final_four_prob": 0.0034,
+      "championship_prob": 0.0006,
+      "winner_prob": 0.0002
+    },
+    "142": {
+      "team": {
+        "name": "Missouri Tigers",
+        "seed": 10,
+        "region": "West"
+      },
+      "round_32_prob": 0.4494,
+      "sweet_16_prob": 0.0808,
+      "elite_8_prob": 0.0114,
+      "final_four_prob": 0.0016,
+      "championship_prob": 0.0,
+      "winner_prob": 0.0
     }
   }
 }

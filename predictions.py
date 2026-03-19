@@ -27,7 +27,9 @@ try:
     from features import find_upset_candidates, predict_win_probability
     # line movement helpers (reads from opening_lines.json or uses API)
     try:
-        from odds_api_integration import track_line_movement
+        # This module may not be available in all environments (e.g., CI/test), so we
+        # fall back gracefully.
+        from scripts.odds_api_integration import track_line_movement  # type: ignore[import]
     except ImportError:
         track_line_movement = None
     from upset_prediction import UpsetPredictor, generate_upset_watch_list, display_upset_watch, identify_cinderella_candidates, display_cinderella_candidates
@@ -149,13 +151,7 @@ def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[
             with open(upcoming_file, 'r') as f:
                 games_list = json.load(f)
             
-            # Check if this file has betting data
-            has_betting = any(
-                g.get('game_info', {}).get('home_spread') is not None 
-                for g in games_list[:10]  # Check first 10 games
-            )
-            
-            if has_betting and games_list:
+            if games_list:
                 # Flatten the nested structure: merge game_info and predictions into single dict
                 flattened_games = []
                 for game in games_list:
@@ -184,7 +180,8 @@ def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[
                     
                     flattened_games.append(flat_game)
                 
-                st.info(f"📊 Using predictions with live betting lines from {upcoming_file.name}")
+                # Even if odds are missing, still use the precomputed predictions to avoid
+                # forcing the UI into a "no games" state. (Odds are often populated later.)
                 return {
                     'games': flattened_games,
                     'num_games': len(flattened_games),
@@ -449,11 +446,20 @@ def get_kenpom_barttorvik_data():
         print(f"Error loading KenPom/BartTorvik data: {e}")
         return None, None
 
-def enrich_with_advanced_metrics(home_team_name, away_team_name, kenpom_df=None, bart_df=None):
-    """Enrich team efficiency with KenPom and BartTorvik metrics."""
+def get_haslametrics_data():
+    """Load Haslametrics efficiency data for all teams."""
+    try:
+        loader = EfficiencyDataLoader()
+        return loader.load_haslametrics()
+    except Exception as e:
+        print(f"Error loading Haslametrics data: {e}")
+        return None
+
+def enrich_with_advanced_metrics(home_team_name, away_team_name, kenpom_df=None, bart_df=None, hasla_df=None):
+    """Enrich team efficiency with KenPom, BartTorvik, and Haslametrics metrics."""
     metrics = {
-        'home': {'kenpom': None, 'barttorvik': None},
-        'away': {'kenpom': None, 'barttorvik': None}
+        'home': {'kenpom': None, 'barttorvik': None, 'haslametrics': None},
+        'away': {'kenpom': None, 'barttorvik': None, 'haslametrics': None}
     }
     
     if kenpom_df is not None:
@@ -502,7 +508,30 @@ def enrich_with_advanced_metrics(home_team_name, away_team_name, kenpom_df=None,
                 'Adj OE': adj_oe,
                 'Adj DE': adj_de
             }
-    
+
+    if hasla_df is not None:
+        home_hl = hasla_df[hasla_df['canonical_team'] == home_team_name]
+        away_hl = hasla_df[hasla_df['canonical_team'] == away_team_name]
+
+        def _hasla_row(row_df):
+            if row_df.empty:
+                return None
+            r = row_df.iloc[0]
+            return {
+                'O_Eff':        r.get('O_Eff'),
+                'D_Eff':        r.get('D_Eff'),
+                'hasla_net':    r.get('hasla_net_eff'),
+                'O_AP%':        r.get('O_AP%'),
+                'D_AP%':        r.get('D_AP%'),
+                'O_FG%':        r.get('O_FG%'),
+                'D_FG%':        r.get('D_FG%'),
+                'O_3P%':        r.get('O_3P%'),
+                'D_3P%':        r.get('D_3P%'),
+            }
+
+        metrics['home']['haslametrics'] = _hasla_row(home_hl)
+        metrics['away']['haslametrics'] = _hasla_row(away_hl)
+
     return metrics
 
 def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, season_used) -> Optional[Dict]:

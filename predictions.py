@@ -143,55 +143,7 @@ def load_precomputed_predictions(target_date: Optional[str] = None) -> Optional[
     """Load pre-computed predictions from JSON file."""
     from datetime import datetime
     
-    # First, check for upcoming_game_predictions.json (has betting lines from fetch_live_odds.py)
-    upcoming_file = DATA_DIR / "upcoming_game_predictions.json"
-    if upcoming_file.exists():
-        try:
-            import json
-            with open(upcoming_file, 'r') as f:
-                games_list = json.load(f)
-            
-            if games_list:
-                # Flatten the nested structure: merge game_info and predictions into single dict
-                flattened_games = []
-                for game in games_list:
-                    game_info = game.get('game_info', {})
-                    predictions = game.get('predictions', {})
-                    
-                    # Merge and rename prediction fields to match what the app expects
-                    flat_game = {**game_info}
-                    
-                    # Rename prediction fields
-                    if 'spread_prediction' in predictions:
-                        flat_game['predicted_margin'] = predictions['spread_prediction']
-                    if 'total_prediction' in predictions:
-                        flat_game['predicted_total'] = predictions['total_prediction']
-                    if 'moneyline_home_win_prob' in predictions:
-                        flat_game['win_probability'] = predictions['moneyline_home_win_prob']
-                        flat_game['home_win_prob'] = predictions['moneyline_home_win_prob']
-                    if 'moneyline_away_win_prob' in predictions:
-                        flat_game['away_win_prob'] = predictions['moneyline_away_win_prob']
-                    
-                    # Rename betting fields to match what Spread/OverUnder pages expect
-                    if 'home_spread' in flat_game:
-                        flat_game['betting_spread'] = flat_game['home_spread']
-                    if 'total_line' in flat_game:
-                        flat_game['betting_over_under'] = flat_game['total_line']
-                    
-                    flattened_games.append(flat_game)
-                
-                # Even if odds are missing, still use the precomputed predictions to avoid
-                # forcing the UI into a "no games" state. (Odds are often populated later.)
-                return {
-                    'games': flattened_games,
-                    'num_games': len(flattened_games),
-                    'season_used': games_list[0].get('game_info', {}).get('season_used', '2025'),
-                    'computed_at': datetime.fromtimestamp(upcoming_file.stat().st_mtime).isoformat()
-                }
-        except Exception as e:
-            st.warning(f"Could not load upcoming predictions: {e}")
-    
-    # Fall back to precomputed predictions directory
+    # Load from precomputed predictions directory (written by precompute_predictions.py)
     precomputed_dir = DATA_DIR / "precomputed_predictions"
     
     if not precomputed_dir.exists():
@@ -1301,6 +1253,20 @@ def make_predictions(game_data: Dict, models: Dict, advanced_metrics: Dict = Non
             }
 
     return predictions
+
+
+def _efficiency_based_margin(game_data: Dict, advanced_metrics: Dict = None) -> float:
+    """Estimate predicted margin from net efficiency difference when no ML models are loaded."""
+    features = calculate_features(
+        game_data['home_stats'], game_data['away_stats'],
+        game_data['home_eff'], game_data['away_eff'],
+        advanced_metrics
+    )
+    # Use KenPom net rating diff if available, otherwise CBBD net efficiency diff
+    spread_feats = features.get('spread', {})
+    net_diff = spread_feats.get('kenpom_netrtg_diff') or spread_feats.get('net_eff_diff') or 0
+    # ~0.55 pts per net-efficiency point is a reasonable empirical scaling
+    return float(net_diff) * 0.55
 
 def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List = None, stats_list: List = None, models: Dict = None):
     """Render a game prediction card."""

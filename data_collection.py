@@ -107,6 +107,10 @@ def fetch_tournament_games(year: int) -> List:
     return fetch_games(year, season_type="postseason")
 
 
+# Track whether we've logged cache loads to avoid repeated messages
+_loaded_betting_lines_cache = set()
+
+
 def fetch_betting_lines(year: int, season_type: str = "regular") -> List:
     """Fetch betting lines including spreads, over/unders, moneylines.
     
@@ -118,7 +122,10 @@ def fetch_betting_lines(year: int, season_type: str = "regular") -> List:
     # Check cache first
     cached = load_cached(cache_filename)
     if cached:
-        print(f"Loaded {len(cached)} betting lines from cache for {year} {season_type}")
+        key = (year, season_type)
+        if key not in _loaded_betting_lines_cache:
+            print(f"Loaded {len(cached)} betting lines from cache for {year} {season_type}")
+            _loaded_betting_lines_cache.add(key)
         return cached
 
     with get_api_client() as api_client:

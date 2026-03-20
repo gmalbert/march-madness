@@ -297,38 +297,41 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
         if not home_eff or not away_eff or not home_stats or not away_stats:
             return None
         
-        # Convert to dicts
+        # Convert to dicts — CBBD API returns camelCase keys
         home_eff_dict = {
-            'offensiveRating': float(home_eff.get('offensive_rating', 100)),
-            'defensiveRating': float(home_eff.get('defensive_rating', 100)),
-            'netRating': float(home_eff.get('net_rating', 0))
+            'offensiveRating': float(home_eff.get('offensiveRating', 100)),
+            'defensiveRating': float(home_eff.get('defensiveRating', 100)),
+            'netRating': float(home_eff.get('netRating', 0))
         }
         
         away_eff_dict = {
-            'offensiveRating': float(away_eff.get('offensive_rating', 100)),
-            'defensiveRating': float(away_eff.get('defensive_rating', 100)),
-            'netRating': float(away_eff.get('net_rating', 0))
+            'offensiveRating': float(away_eff.get('offensiveRating', 100)),
+            'defensiveRating': float(away_eff.get('defensiveRating', 100)),
+            'netRating': float(away_eff.get('netRating', 0))
         }
         
-        home_stats_dict = {
-            'ppg': float(home_stats.get('points_per_game', 70)),
-            'pace': float(home_stats.get('pace', 68)),
-            'efg_pct': float(home_stats.get('effective_fg_pct', 0.50)),
-            'to_rate': float(home_stats.get('turnover_pct', 0.15)),
-            'orb_pct': float(home_stats.get('orb_pct', 0.30)),
-            'ft_rate': float(home_stats.get('ft_rate', 0.35)),
-            'opp_ppg': float(home_stats.get('opp_points_per_game', 70))
-        }
+        def _extract_stats(s):
+            """Extract stats from CBBD nested structure."""
+            team_stats = s.get('teamStats', {})
+            opp_stats = s.get('opponentStats', {})
+            four_factors = team_stats.get('fourFactors', {})
+            field_goals = team_stats.get('fieldGoals', {})
+            three_pt_fg = team_stats.get('threePointFieldGoals', {})
+            games = s.get('games', 32) or 32
+            return {
+                'ppg': team_stats.get('points', {}).get('total', 2240) / games,
+                'pace': float(s.get('pace', 70) or 70),
+                'efg_pct': float(four_factors.get('effectiveFieldGoalPct', 48.0) or 48.0) / 100.0,
+                'to_rate': float(four_factors.get('turnoverRatio', 0.15) or 0.15),
+                'orb_pct': float(four_factors.get('offensiveReboundPct', 30.0) or 30.0) / 100.0,
+                'ft_rate': float(four_factors.get('freeThrowRate', 30.0) or 30.0) / 100.0,
+                'opp_ppg': opp_stats.get('points', {}).get('total', 2240) / games,
+                'fg_pct': float(field_goals.get('pct', 44.0) or 44.0) / 100.0,
+                'three_pct': float(three_pt_fg.get('pct', 33.0) or 33.0) / 100.0,
+            }
         
-        away_stats_dict = {
-            'ppg': float(away_stats.get('points_per_game', 70)),
-            'pace': float(away_stats.get('pace', 68)),
-            'efg_pct': float(away_stats.get('effective_fg_pct', 0.50)),
-            'to_rate': float(away_stats.get('turnover_pct', 0.15)),
-            'orb_pct': float(away_stats.get('orb_pct', 0.30)),
-            'ft_rate': float(away_stats.get('ft_rate', 0.35)),
-            'opp_ppg': float(away_stats.get('opp_points_per_game', 70))
-        }
+        home_stats_dict = _extract_stats(home_stats)
+        away_stats_dict = _extract_stats(away_stats)
         
         # Get betting lines - handle both dict and Series
         if isinstance(game_row, dict):

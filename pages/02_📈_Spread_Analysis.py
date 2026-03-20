@@ -24,7 +24,8 @@ from predictions import (
     normalize_team_name,
     sort_games_by_date,
     get_kenpom_barttorvik_data,
-    enrich_with_advanced_metrics
+    enrich_with_advanced_metrics,
+    _efficiency_based_margin
 )
 
 # Page configuration
@@ -125,7 +126,7 @@ with st.spinner("Analyzing spreads for all games..."):
                     'away_eff': game_info.get('away_eff', {}),
                     'home_stats': game_info.get('home_stats'),
                     'away_stats': game_info.get('away_stats'),
-                    'betting_spread': game_info.get('home_spread'),
+                    'betting_spread': game_info.get('betting_spread') or game_info.get('home_spread'),
                     'betting_over_under': game_info.get('total_line'),
                     'home_moneyline': game_info.get('home_moneyline'),
                     'away_moneyline': game_info.get('away_moneyline'),
@@ -153,12 +154,16 @@ with st.spinner("Analyzing spreads for all games..."):
             except Exception as e:
                 continue
             
-            # Extract spread prediction
+            # Extract spread prediction; fall back to efficiency-based estimate when no ML models
             spread_pred = predictions.get('spread', {})
             if not spread_pred or 'prediction' not in spread_pred:
-                continue
-            
-            predicted_margin = spread_pred['prediction']
+                try:
+                    predicted_margin = _efficiency_based_margin(enriched_game, advanced_metrics)
+                    spread_pred = {'prediction': predicted_margin, 'confidence': 'Low (no ML models)'}
+                except Exception:
+                    continue
+            else:
+                predicted_margin = spread_pred['prediction']
         
         # Get actual spread if available (betting_spread is the field from enriched data)
         actual_spread = enriched_game.get('betting_spread')

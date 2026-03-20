@@ -49,8 +49,8 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add data_files/precomputed_predictions/*.json
           git diff --staged --quiet && echo "No changes to commit" && exit 0
-          git pull --rebase origin main
           git commit -m "Update pre-computed predictions [skip ci]"
+          git pull --rebase origin main
           # push with retry/backoff
           for attempt in 1 2 3; do
             git push && break

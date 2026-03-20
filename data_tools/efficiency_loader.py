@@ -207,7 +207,7 @@ def main():
     
     # Load and save canonical datasets
     print("Loading and cleaning efficiency data...")
-    kp, bt = loader.save_canonical_datasets()
+    kp, bt, hl = loader.save_canonical_datasets()
     
     # Example: Get data for a specific team
     print("\nExample: Michigan data")

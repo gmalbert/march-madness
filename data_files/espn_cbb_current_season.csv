@@ -1,20 +1,4 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-19 16:15:00+00:00,Ohio State Buckeyes,TCU Horned Frogs,194,2628,0,0,8,9,Bon Secours Wellness Arena,True,False,7,8,STATUS_SCHEDULED,401856479,TCU Horned Frogs at Ohio State Buckeyes
-2026,Regular,2026-03-19 16:40:00+00:00,Nebraska Cornhuskers,Troy Trojans,158,2653,0,0,4,13,Paycom Center,True,False,7,27,STATUS_SCHEDULED,401856489,Troy Trojans at Nebraska Cornhuskers
-2026,Regular,2026-03-19 17:30:00+00:00,Louisville Cardinals,South Florida Bulls,97,58,0,0,6,11,KeyBank Center,True,False,2,62,STATUS_SCHEDULED,401856482,South Florida Bulls at Louisville Cardinals
-2026,Regular,2026-03-19 17:50:00+00:00,Wisconsin Badgers,High Point Panthers,275,2272,0,0,5,12,Moda Center,True,False,7,6,STATUS_SCHEDULED,401856480,High Point Panthers at Wisconsin Badgers
-2026,Regular,2026-03-19 18:50:00+00:00,Duke Blue Devils,Siena Saints,150,2561,0,0,1,16,Bon Secours Wellness Arena,True,False,2,13,STATUS_SCHEDULED,401856478,Siena Saints at Duke Blue Devils
-2026,Regular,2026-03-19 19:15:00+00:00,Vanderbilt Commodores,McNeese Cowboys,238,2377,0,0,5,12,Paycom Center,True,False,23,25,STATUS_SCHEDULED,401856488,McNeese Cowboys at Vanderbilt Commodores
-2026,Regular,2026-03-19 20:05:00+00:00,Michigan State Spartans,North Dakota State Bison,127,2449,0,0,3,14,KeyBank Center,True,False,7,49,STATUS_SCHEDULED,401856483,North Dakota State Bison at Michigan State Spartans
-2026,Regular,2026-03-19 20:25:00+00:00,Arkansas Razorbacks,Hawai'i Rainbow Warriors,8,62,0,0,4,13,Moda Center,True,False,23,9,STATUS_SCHEDULED,401856481,Hawai'i Rainbow Warriors at Arkansas Razorbacks
-2026,Regular,2026-03-19 22:50:00+00:00,North Carolina Tar Heels,VCU Rams,153,2670,0,0,6,11,Bon Secours Wellness Arena,True,False,2,3,STATUS_SCHEDULED,401856490,VCU Rams at North Carolina Tar Heels
-2026,Regular,2026-03-19 23:10:00+00:00,Michigan Wolverines,Howard Bison,130,47,0,0,1,16,KeyBank Center,True,False,7,16,STATUS_SCHEDULED,401856486,Howard Bison at Michigan Wolverines
-2026,Regular,2026-03-19 23:25:00+00:00,BYU Cougars,Texas Longhorns,252,251,0,0,6,11,Moda Center,True,False,8,23,STATUS_SCHEDULED,401856484,Texas Longhorns at BYU Cougars
-2026,Regular,2026-03-19 23:35:00+00:00,Saint Mary's Gaels,Texas A&M Aggies,2608,245,0,0,7,10,Paycom Center,True,False,29,23,STATUS_SCHEDULED,401856492,Texas A&M Aggies at Saint Mary's Gaels
-2026,Regular,2026-03-20 01:25:00+00:00,Illinois Fighting Illini,Pennsylvania Quakers,356,219,0,0,3,14,Bon Secours Wellness Arena,True,False,7,12,STATUS_SCHEDULED,401856491,Pennsylvania Quakers at Illinois Fighting Illini
-2026,Regular,2026-03-20 01:45:00+00:00,Georgia Bulldogs,Saint Louis Billikens,61,139,0,0,8,9,KeyBank Center,True,False,23,3,STATUS_SCHEDULED,401856487,Saint Louis Billikens at Georgia Bulldogs
-2026,Regular,2026-03-20 02:00:00+00:00,Gonzaga Bulldogs,Kennesaw State Owls,2250,338,0,0,3,14,Moda Center,True,False,29,11,STATUS_SCHEDULED,401856485,Kennesaw State Owls at Gonzaga Bulldogs
-2026,Regular,2026-03-20 02:10:00+00:00,Houston Cougars,Idaho Vandals,248,70,0,0,2,15,Paycom Center,True,False,8,5,STATUS_SCHEDULED,401856493,Idaho Vandals at Houston Cougars
 2026,Regular,2026-03-20 16:15:00+00:00,Kentucky Wildcats,Santa Clara Broncos,96,2541,0,0,7,10,Enterprise Center,True,False,23,29,STATUS_SCHEDULED,401856525,Santa Clara Broncos at Kentucky Wildcats
 2026,Regular,2026-03-20 16:40:00+00:00,Texas Tech Red Raiders,Akron Zips,2641,2006,0,0,5,12,Benchmark International Arena,True,False,8,14,STATUS_SCHEDULED,401856520,Akron Zips at Texas Tech Red Raiders
 2026,Regular,2026-03-20 17:35:00+00:00,Arizona Wildcats,Long Island University Sharks,12,112358,0,0,1,16,Viejas Arena,True,False,8,19,STATUS_SCHEDULED,401856529,Long Island University Sharks at Arizona Wildcats
@@ -31,26 +15,26 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-21 01:45:00+00:00,Kansas Jayhawks,California Baptist Lancers,2305,2856,0,0,4,13,Viejas Arena,True,False,8,30,STATUS_SCHEDULED,401856495,California Baptist Lancers at Kansas Jayhawks
 2026,Regular,2026-03-21 02:00:00+00:00,UConn Huskies,Furman Paladins,41,231,0,0,2,15,Xfinity Mobile Arena,True,False,4,24,STATUS_SCHEDULED,401856497,Furman Paladins at UConn Huskies
 2026,Regular,2026-03-21 02:10:00+00:00,Miami Hurricanes,Missouri Tigers,2390,142,0,0,7,10,Enterprise Center,True,False,2,23,STATUS_SCHEDULED,401856518,Missouri Tigers at Miami Hurricanes
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Moda Center,True,False,,,STATUS_SCHEDULED,401856537,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Moda Center,True,False,,,STATUS_SCHEDULED,401856536,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Paycom Center,True,False,,,STATUS_SCHEDULED,401856535,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Paycom Center,True,False,,,STATUS_SCHEDULED,401856534,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bon Secours Wellness Arena,True,False,,,STATUS_SCHEDULED,401856533,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,KeyBank Center,True,False,,,STATUS_SCHEDULED,401856532,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,KeyBank Center,True,False,,,STATUS_SCHEDULED,401856531,TBD at TBD
-2026,Regular,2026-03-21 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Bon Secours Wellness Arena,True,False,,,STATUS_SCHEDULED,401856530,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856558,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856559,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856560,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856561,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
+2026,Regular,2026-03-21 16:10:00+00:00,Michigan Wolverines,Saint Louis Billikens,130,139,0,0,1,9,KeyBank Center,True,False,7,3,STATUS_SCHEDULED,401856532,Saint Louis Billikens at Michigan Wolverines
+2026,Regular,2026-03-21 18:45:00+00:00,Michigan State Spartans,Louisville Cardinals,127,97,0,0,3,6,KeyBank Center,True,False,7,2,STATUS_SCHEDULED,401856531,Louisville Cardinals at Michigan State Spartans
+2026,Regular,2026-03-21 21:15:00+00:00,Duke Blue Devils,TCU Horned Frogs,150,2628,0,0,1,9,Bon Secours Wellness Arena,True,False,2,8,STATUS_SCHEDULED,401856530,TCU Horned Frogs at Duke Blue Devils
+2026,Regular,2026-03-21 22:10:00+00:00,Houston Cougars,Texas A&M Aggies,248,245,0,0,2,10,Paycom Center,True,False,8,23,STATUS_SCHEDULED,401856535,Texas A&M Aggies at Houston Cougars
+2026,Regular,2026-03-21 23:10:00+00:00,Gonzaga Bulldogs,Texas Longhorns,2250,251,0,0,3,11,Moda Center,True,False,29,23,STATUS_SCHEDULED,401856537,Texas Longhorns at Gonzaga Bulldogs
+2026,Regular,2026-03-21 23:50:00+00:00,Illinois Fighting Illini,VCU Rams,356,2670,0,0,3,11,Bon Secours Wellness Arena,True,False,7,3,STATUS_SCHEDULED,401856533,VCU Rams at Illinois Fighting Illini
+2026,Regular,2026-03-22 00:45:00+00:00,Nebraska Cornhuskers,Vanderbilt Commodores,158,238,0,0,4,5,Paycom Center,True,False,7,23,STATUS_SCHEDULED,401856534,Vanderbilt Commodores at Nebraska Cornhuskers
+2026,Regular,2026-03-22 01:45:00+00:00,Arkansas Razorbacks,High Point Panthers,8,2272,0,0,4,12,Moda Center,True,False,23,6,STATUS_SCHEDULED,401856536,High Point Panthers at Arkansas Razorbacks
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856565,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
 2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856561,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856560,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856559,TBD at TBD
+2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856558,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856566,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856569,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856568,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856566,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,False,,,STATUS_SCHEDULED,401856573,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,False,,,STATUS_SCHEDULED,401856572,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Capital One Arena,True,False,,,STATUS_SCHEDULED,401856571,TBD at TBD

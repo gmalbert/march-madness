@@ -21,7 +21,7 @@ load_dotenv()
 DATA_DIR = Path("data_files")
 CACHE_DIR = DATA_DIR / "cache"
 CACHE_FILE = CACHE_DIR / "odds_live.json"
-API_KEY = os.getenv('ODDS_API_KEY')
+API_KEY = os.getenv('ODDS_API_KEY', '').strip() or None
 BASE_URL = "https://api.the-odds-api.com/v4/sports/basketball_ncaab/odds"
 
 def normalize_team_name(name: str) -> str:

@@ -224,7 +224,8 @@ def normalize_team_name(espn_name: str) -> str:
         'Hornets', 'Sycamores', 'Jackrabbits', 'Thunderbirds', 'Tommies', 'Anteaters',
         'Gauchos', 'Trailblazers', 'Beacons', 'Leathernecks', 'Tribe', 'Warriors',
         'Ramblers', 'Foxes', 'Roadrunners', 'Scarlet', 'Golden', 'Blue',
-        'Screaming', 'Red', 'Black', 'Pioneers', 'Tritons'
+        'Screaming', 'Red', 'Black', 'Pioneers', 'Tritons',
+        'Zips', 'Hawkeyes', 'Royals', 'Paladins'
     ]
     
     # Remove mascot from end of name
@@ -448,18 +449,18 @@ def precompute_predictions(target_date: Optional[str] = None):
     try:
         cbbd_lines = fetch_betting_lines(season_used, 'postseason')
         for entry in (cbbd_lines or []):
-            # entry is a dict with keys: homeTeam, awayTeam, lines [...]
-            ht = entry.get('homeTeam', '') if isinstance(entry, dict) else getattr(entry, 'homeTeam', '')
-            at = entry.get('awayTeam', '') if isinstance(entry, dict) else getattr(entry, 'awayTeam', '')
+            # entry may be a dict (from cache, camelCase keys) or a Pydantic model (snake_case attrs)
+            ht = entry.get('homeTeam', '') if isinstance(entry, dict) else getattr(entry, 'home_team', '')
+            at = entry.get('awayTeam', '') if isinstance(entry, dict) else getattr(entry, 'away_team', '')
             lines = entry.get('lines', []) if isinstance(entry, dict) else getattr(entry, 'lines', [])
             if not ht or not at or not lines:
                 continue
             # Pick the first provider that has a spread
             for ln in lines:
                 spread = ln.get('spread') if isinstance(ln, dict) else getattr(ln, 'spread', None)
-                over_under = ln.get('overUnder') if isinstance(ln, dict) else getattr(ln, 'overUnder', None)
-                home_ml = ln.get('homeMoneyline') if isinstance(ln, dict) else getattr(ln, 'homeMoneyline', None)
-                away_ml = ln.get('awayMoneyline') if isinstance(ln, dict) else getattr(ln, 'awayMoneyline', None)
+                over_under = ln.get('overUnder') if isinstance(ln, dict) else getattr(ln, 'over_under', None)
+                home_ml = ln.get('homeMoneyline') if isinstance(ln, dict) else getattr(ln, 'home_moneyline', None)
+                away_ml = ln.get('awayMoneyline') if isinstance(ln, dict) else getattr(ln, 'away_moneyline', None)
                 if spread is not None or over_under is not None:
                     cbbd_lines_lookup[f"{normalize_team_name(ht)} vs {normalize_team_name(at)}"] = {
                         'home_spread': float(spread) if spread is not None else None,

@@ -489,8 +489,8 @@ def precompute_predictions(target_date: Optional[str] = None):
             continue
         
         # Add live odds if available, with CBBD lines as fallback
-        home_norm = normalize_team_name(home_team)
-        away_norm = normalize_team_name(away_team)
+        home_norm = normalize_team_name(enriched['home_team'])
+        away_norm = normalize_team_name(enriched['away_team'])
         odds_key_fwd = f"{home_norm} vs {away_norm}"
         odds_key_rev = f"{away_norm} vs {home_norm}"
 

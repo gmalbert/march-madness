@@ -695,7 +695,7 @@ def enrich_espn_game_with_cbbd_data(game_row, efficiency_list, stats_list, seaso
             'away_moneyline': away_ml,
             'home_ml': home_ml,
             'away_ml': away_ml,
-            'game_date': game_row.get('date', ''),
+            'game_date': game_row.get('game_date') or game_row.get('date') or game_row.get('start_date') or '',
             'status': game_row.get('status', ''),
             'venue': game_row.get('venue', ''),
             'neutral_site': game_row.get('neutral_site', False),
@@ -1283,9 +1283,10 @@ def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List 
     # Show game details
     col1, col2, col3 = st.columns(3)
     with col1:
-        if game.get('game_date'):
+        _date_val = game.get('game_date') or game.get('date') or game.get('start_date')
+        if _date_val:
             try:
-                game_dt = pd.to_datetime(game['game_date'])
+                game_dt = pd.to_datetime(_date_val)
                 # Convert to Eastern Time
                 eastern = pytz.timezone('US/Eastern')
                 if game_dt.tz is None:
@@ -1298,7 +1299,7 @@ def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List 
                 else:
                     st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y %I:%M %p ET')}")
             except:
-                st.caption(f"📅 {game.get('game_date', 'TBD')}")
+                st.caption(f"📅 {_date_val}")
         else:
             st.caption("📅 Date TBD")
     with col2:
@@ -1728,7 +1729,23 @@ def main():
             spread_pred = predictions.get('spread', {})
             total_pred = predictions.get('total', {})
 
-            moneyline_str = f"{moneyline_pred.get('prediction', 'N/A')} ({moneyline_pred.get('confidence', 'N/A')})" if moneyline_pred else "N/A"
+            # Show the projected winner's market moneyline odds
+            _home_ml_raw = enriched_game.get('home_moneyline') or enriched_game.get('home_ml')
+            _away_ml_raw = enriched_game.get('away_moneyline') or enriched_game.get('away_ml')
+            _projected_winner = moneyline_pred.get('prediction') if moneyline_pred else None
+            try:
+                if _projected_winner == 'Home' and _home_ml_raw is not None:
+                    moneyline_str = f"Home {int(_home_ml_raw):+d}"
+                elif _projected_winner == 'Away' and _away_ml_raw is not None:
+                    moneyline_str = f"Away {int(_away_ml_raw):+d}"
+                elif _home_ml_raw is not None:
+                    moneyline_str = f"Home {int(_home_ml_raw):+d}"
+                elif _away_ml_raw is not None:
+                    moneyline_str = f"Away {int(_away_ml_raw):+d}"
+                else:
+                    moneyline_str = "N/A"
+            except (TypeError, ValueError):
+                moneyline_str = "N/A"
             
             # Format spread to show which team has the line
             if spread_pred and 'prediction' in spread_pred:

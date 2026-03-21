@@ -48,10 +48,25 @@ if csv_files:
     latest_file = max(csv_files, key=os.path.getmtime)
     target_file = 'data_files/barttorvik_ratings.csv'
     
-    # Copy/rename to the expected filename
-    shutil.copy2(latest_file, target_file)
-    print(f"Renamed {latest_file} to {target_file}")
-    
+    # Read the headerless CSV and add proper column headers
+    headers_tab = (
+        "Team\tAdj OE\tAdj DE\tBarthag\tRecord\tWins\tGames\teFG\teFG D.\t"
+        "FT Rate\tFT Rate D\tTOV%\tTOV% D\tO Reb%\tOp OReb%\tRaw T\t"
+        "2P %\t2P % D.\t3P %\t3P % D.\tBlk %\tBlked %\tAst %\tOp Ast %\t"
+        "3P Rate\t3P Rate D\tAdj. T\tAvg Hgt.\tEff. Hgt.\tExp.\tYear\t"
+        "PAKE\tPASE\tTalent\t\tFT%\tOp. FT%\tPPP Off.\tPPP Def.\tElite SOS\tTeam"
+    )
+    headers = headers_tab.split('\t')[:-1]  # drop trailing duplicate 'Team'
+
+    import pandas as pd
+    df = pd.read_csv(latest_file, header=None)
+    if len(df.columns) == len(headers):
+        df.columns = headers
+    else:
+        print(f"Warning: expected {len(headers)} columns but got {len(df.columns)}; saving without headers")
+    df.to_csv(target_file, index=False)
+    print(f"Saved {latest_file} with headers to {target_file}")
+
     # Clean up old files (keep only the canonical one)
     for old_file in csv_files:
         if old_file != target_file:

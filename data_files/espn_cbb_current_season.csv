@@ -1,20 +1,4 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-20 16:15:00+00:00,Kentucky Wildcats,Santa Clara Broncos,96,2541,0,0,7,10,Enterprise Center,True,False,23,29,STATUS_SCHEDULED,401856525,Santa Clara Broncos at Kentucky Wildcats
-2026,Regular,2026-03-20 16:40:00+00:00,Texas Tech Red Raiders,Akron Zips,2641,2006,0,0,5,12,Benchmark International Arena,True,False,8,14,STATUS_SCHEDULED,401856520,Akron Zips at Texas Tech Red Raiders
-2026,Regular,2026-03-20 17:35:00+00:00,Arizona Wildcats,Long Island University Sharks,12,112358,0,0,1,16,Viejas Arena,True,False,8,19,STATUS_SCHEDULED,401856529,Long Island University Sharks at Arizona Wildcats
-2026,Regular,2026-03-20 17:50:00+00:00,Virginia Cavaliers,Wright State Raiders,258,2750,0,0,3,14,Xfinity Mobile Arena,True,False,2,45,STATUS_SCHEDULED,401856526,Wright State Raiders at Virginia Cavaliers
-2026,Regular,2026-03-20 18:50:00+00:00,Iowa State Cyclones,Tennessee State Tigers,66,2634,0,0,2,15,Enterprise Center,True,False,8,20,STATUS_SCHEDULED,401856524,Tennessee State Tigers at Iowa State Cyclones
-2026,Regular,2026-03-20 19:15:00+00:00,Alabama Crimson Tide,Hofstra Pride,333,2275,0,0,4,13,Benchmark International Arena,True,False,23,10,STATUS_SCHEDULED,401856521,Hofstra Pride at Alabama Crimson Tide
-2026,Regular,2026-03-20 20:10:00+00:00,Villanova Wildcats,Utah State Aggies,222,328,0,0,8,9,Viejas Arena,True,False,4,44,STATUS_SCHEDULED,401856528,Utah State Aggies at Villanova Wildcats
-2026,Regular,2026-03-20 20:25:00+00:00,Tennessee Volunteers,Miami (OH) RedHawks,2633,193,0,0,6,11,Xfinity Mobile Arena,True,False,23,14,STATUS_SCHEDULED,401856527,Miami (OH) RedHawks at Tennessee Volunteers
-2026,Regular,2026-03-20 22:50:00+00:00,Clemson Tigers,Iowa Hawkeyes,228,2294,0,0,8,9,Benchmark International Arena,True,False,2,7,STATUS_SCHEDULED,401856522,Iowa Hawkeyes at Clemson Tigers
-2026,Regular,2026-03-20 23:10:00+00:00,St. John's Red Storm,Northern Iowa Panthers,2599,2460,0,0,5,12,Viejas Arena,True,False,4,18,STATUS_SCHEDULED,401856494,Northern Iowa Panthers at St. John's Red Storm
-2026,Regular,2026-03-20 23:25:00+00:00,UCLA Bruins,UCF Knights,26,2116,0,0,7,10,Xfinity Mobile Arena,True,False,7,8,STATUS_SCHEDULED,401856496,UCF Knights at UCLA Bruins
-2026,Regular,2026-03-20 23:35:00+00:00,Purdue Boilermakers,Queens University Royals,2509,2511,0,0,2,15,Enterprise Center,True,False,7,46,STATUS_SCHEDULED,401856519,Queens University Royals at Purdue Boilermakers
-2026,Regular,2026-03-21 01:25:00+00:00,Florida Gators,Prairie View A&M Panthers,57,2504,0,0,1,16,Benchmark International Arena,True,False,23,26,STATUS_SCHEDULED,401856523,Prairie View A&M Panthers at Florida Gators
-2026,Regular,2026-03-21 01:45:00+00:00,Kansas Jayhawks,California Baptist Lancers,2305,2856,0,0,4,13,Viejas Arena,True,False,8,30,STATUS_SCHEDULED,401856495,California Baptist Lancers at Kansas Jayhawks
-2026,Regular,2026-03-21 02:00:00+00:00,UConn Huskies,Furman Paladins,41,231,0,0,2,15,Xfinity Mobile Arena,True,False,4,24,STATUS_SCHEDULED,401856497,Furman Paladins at UConn Huskies
-2026,Regular,2026-03-21 02:10:00+00:00,Miami Hurricanes,Missouri Tigers,2390,142,0,0,7,10,Enterprise Center,True,False,2,23,STATUS_SCHEDULED,401856518,Missouri Tigers at Miami Hurricanes
 2026,Regular,2026-03-21 16:10:00+00:00,Michigan Wolverines,Saint Louis Billikens,130,139,0,0,1,9,KeyBank Center,True,False,7,3,STATUS_SCHEDULED,401856532,Saint Louis Billikens at Michigan Wolverines
 2026,Regular,2026-03-21 18:45:00+00:00,Michigan State Spartans,Louisville Cardinals,127,97,0,0,3,6,KeyBank Center,True,False,7,2,STATUS_SCHEDULED,401856531,Louisville Cardinals at Michigan State Spartans
 2026,Regular,2026-03-21 21:15:00+00:00,Duke Blue Devils,TCU Horned Frogs,150,2628,0,0,1,9,Bon Secours Wellness Arena,True,False,2,8,STATUS_SCHEDULED,401856530,TCU Horned Frogs at Duke Blue Devils
@@ -23,18 +7,18 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-03-21 23:50:00+00:00,Illinois Fighting Illini,VCU Rams,356,2670,0,0,3,11,Bon Secours Wellness Arena,True,False,7,3,STATUS_SCHEDULED,401856533,VCU Rams at Illinois Fighting Illini
 2026,Regular,2026-03-22 00:45:00+00:00,Nebraska Cornhuskers,Vanderbilt Commodores,158,238,0,0,4,5,Paycom Center,True,False,7,23,STATUS_SCHEDULED,401856534,Vanderbilt Commodores at Nebraska Cornhuskers
 2026,Regular,2026-03-22 01:45:00+00:00,Arkansas Razorbacks,High Point Panthers,8,2272,0,0,4,12,Moda Center,True,False,23,6,STATUS_SCHEDULED,401856536,High Point Panthers at Arkansas Razorbacks
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856565,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856564,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856563,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856562,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Enterprise Center,True,False,,,STATUS_SCHEDULED,401856561,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Benchmark International Arena,True,False,,,STATUS_SCHEDULED,401856560,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Xfinity Mobile Arena,True,False,,,STATUS_SCHEDULED,401856559,TBD at TBD
-2026,Regular,2026-03-22 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Viejas Arena,True,False,,,STATUS_SCHEDULED,401856558,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856566,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
+2026,Regular,2026-03-22 16:10:00+00:00,Purdue Boilermakers,Miami Hurricanes,2509,2390,0,0,2,7,Enterprise Center,True,False,7,2,STATUS_SCHEDULED,401856564,Miami Hurricanes at Purdue Boilermakers
+2026,Regular,2026-03-22 18:45:00+00:00,Iowa State Cyclones,Kentucky Wildcats,66,96,0,0,2,7,Enterprise Center,True,False,8,23,STATUS_SCHEDULED,401856561,Kentucky Wildcats at Iowa State Cyclones
+2026,Regular,2026-03-22 21:15:00+00:00,Kansas Jayhawks,St. John's Red Storm,2305,2599,0,0,4,5,Viejas Arena,True,False,8,4,STATUS_SCHEDULED,401856558,St. John's Red Storm at Kansas Jayhawks
+2026,Regular,2026-03-22 22:10:00+00:00,Virginia Cavaliers,Tennessee Volunteers,258,2633,0,0,3,6,Xfinity Mobile Arena,True,False,2,23,STATUS_SCHEDULED,401856562,Tennessee Volunteers at Virginia Cavaliers
+2026,Regular,2026-03-22 23:10:00+00:00,Florida Gators,Iowa Hawkeyes,57,2294,0,0,1,9,Benchmark International Arena,True,False,23,7,STATUS_SCHEDULED,401856563,Iowa Hawkeyes at Florida Gators
+2026,Regular,2026-03-22 23:50:00+00:00,Arizona Wildcats,Utah State Aggies,12,328,0,0,1,9,Viejas Arena,True,False,8,44,STATUS_SCHEDULED,401856565,Utah State Aggies at Arizona Wildcats
+2026,Regular,2026-03-23 00:45:00+00:00,UConn Huskies,UCLA Bruins,41,26,0,0,2,7,Xfinity Mobile Arena,True,False,4,7,STATUS_SCHEDULED,401856559,UCLA Bruins at UConn Huskies
+2026,Regular,2026-03-23 01:45:00+00:00,Alabama Crimson Tide,Texas Tech Red Raiders,333,2641,0,0,4,5,Benchmark International Arena,True,False,23,8,STATUS_SCHEDULED,401856560,Texas Tech Red Raiders at Alabama Crimson Tide
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856569,TBD at TBD
 2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856568,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
+2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856566,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,False,,,STATUS_SCHEDULED,401856573,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,False,,,STATUS_SCHEDULED,401856572,TBD at TBD
 2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Capital One Arena,True,False,,,STATUS_SCHEDULED,401856571,TBD at TBD

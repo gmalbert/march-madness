@@ -1,20 +1,12 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-22 16:10:00+00:00,Purdue Boilermakers,Miami Hurricanes,2509,2390,0,0,2,7,Enterprise Center,True,False,7,2,STATUS_SCHEDULED,401856564,Miami Hurricanes at Purdue Boilermakers
-2026,Regular,2026-03-22 18:45:00+00:00,Iowa State Cyclones,Kentucky Wildcats,66,96,0,0,2,7,Enterprise Center,True,False,8,23,STATUS_SCHEDULED,401856561,Kentucky Wildcats at Iowa State Cyclones
-2026,Regular,2026-03-22 21:15:00+00:00,Kansas Jayhawks,St. John's Red Storm,2305,2599,0,0,4,5,Viejas Arena,True,False,8,4,STATUS_SCHEDULED,401856558,St. John's Red Storm at Kansas Jayhawks
-2026,Regular,2026-03-22 22:10:00+00:00,Virginia Cavaliers,Tennessee Volunteers,258,2633,0,0,3,6,Xfinity Mobile Arena,True,False,2,23,STATUS_SCHEDULED,401856562,Tennessee Volunteers at Virginia Cavaliers
-2026,Regular,2026-03-22 23:10:00+00:00,Florida Gators,Iowa Hawkeyes,57,2294,0,0,1,9,Benchmark International Arena,True,False,23,7,STATUS_SCHEDULED,401856563,Iowa Hawkeyes at Florida Gators
-2026,Regular,2026-03-22 23:50:00+00:00,Arizona Wildcats,Utah State Aggies,12,328,0,0,1,9,Viejas Arena,True,False,8,44,STATUS_SCHEDULED,401856565,Utah State Aggies at Arizona Wildcats
-2026,Regular,2026-03-23 00:45:00+00:00,UConn Huskies,UCLA Bruins,41,26,0,0,2,7,Xfinity Mobile Arena,True,False,4,7,STATUS_SCHEDULED,401856559,UCLA Bruins at UConn Huskies
-2026,Regular,2026-03-23 01:45:00+00:00,Alabama Crimson Tide,Texas Tech Red Raiders,333,2641,0,0,4,5,Benchmark International Arena,True,False,23,8,STATUS_SCHEDULED,401856560,Texas Tech Red Raiders at Alabama Crimson Tide
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856567,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856569,TBD at TBD
-2026,Regular,2026-03-26 04:00:00+00:00,Houston Cougars,Illinois Fighting Illini,248,356,0,0,2,3,Toyota Center (Houston),True,False,8,7,STATUS_SCHEDULED,401856566,Illinois Fighting Illini at Houston Cougars
-2026,Regular,2026-03-26 04:00:00+00:00,TBD,Texas Longhorns,-1,251,0,0,99,11,SAP Center at San Jose,True,False,,23,STATUS_SCHEDULED,401856568,Texas Longhorns at TBD
-2026,Regular,2026-03-27 04:00:00+00:00,Michigan Wolverines,TBD,130,-2,0,0,1,99,United Center,True,False,7,,STATUS_SCHEDULED,401856572,TBD at Michigan Wolverines
-2026,Regular,2026-03-27 04:00:00+00:00,Duke Blue Devils,TBD,150,-2,0,0,1,99,Capital One Arena,True,False,2,,STATUS_SCHEDULED,401856570,TBD at Duke Blue Devils
-2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,United Center,True,False,,,STATUS_SCHEDULED,401856573,TBD at TBD
-2026,Regular,2026-03-27 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Capital One Arena,True,False,,,STATUS_SCHEDULED,401856571,TBD at TBD
+2026,Regular,2026-03-26 23:10:00+00:00,Purdue Boilermakers,Texas Longhorns,2509,251,0,0,2,11,SAP Center at San Jose,True,False,7,23,STATUS_SCHEDULED,401856568,Texas Longhorns at Purdue Boilermakers
+2026,Regular,2026-03-26 23:30:00+00:00,Nebraska Cornhuskers,Iowa Hawkeyes,158,2294,0,0,4,9,Toyota Center (Houston),True,False,7,7,STATUS_SCHEDULED,401856567,Iowa Hawkeyes at Nebraska Cornhuskers
+2026,Regular,2026-03-27 01:45:00+00:00,Arizona Wildcats,Arkansas Razorbacks,12,8,0,0,1,4,SAP Center at San Jose,True,False,8,23,STATUS_SCHEDULED,401856569,Arkansas Razorbacks at Arizona Wildcats
+2026,Regular,2026-03-27 02:05:00+00:00,Houston Cougars,Illinois Fighting Illini,248,356,0,0,2,3,Toyota Center (Houston),True,False,8,7,STATUS_SCHEDULED,401856566,Illinois Fighting Illini at Houston Cougars
+2026,Regular,2026-03-27 23:10:00+00:00,Duke Blue Devils,St. John's Red Storm,150,2599,0,0,1,5,Capital One Arena,True,False,2,4,STATUS_SCHEDULED,401856570,St. John's Red Storm at Duke Blue Devils
+2026,Regular,2026-03-27 23:35:00+00:00,Michigan Wolverines,Alabama Crimson Tide,130,333,0,0,1,4,United Center,True,False,7,23,STATUS_SCHEDULED,401856572,Alabama Crimson Tide at Michigan Wolverines
+2026,Regular,2026-03-28 01:45:00+00:00,UConn Huskies,Michigan State Spartans,41,127,0,0,2,3,Capital One Arena,True,False,4,7,STATUS_SCHEDULED,401856571,Michigan State Spartans at UConn Huskies
+2026,Regular,2026-03-28 02:10:00+00:00,Iowa State Cyclones,Tennessee Volunteers,66,2633,0,0,2,6,United Center,True,False,8,23,STATUS_SCHEDULED,401856573,Tennessee Volunteers at Iowa State Cyclones
 2026,Regular,2026-03-28 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,SAP Center at San Jose,True,False,,,STATUS_SCHEDULED,401856575,TBD at TBD
 2026,Regular,2026-03-28 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Toyota Center (Houston),True,False,,,STATUS_SCHEDULED,401856574,TBD at TBD
 2026,Regular,2026-03-29 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Capital One Arena,True,False,,,STATUS_SCHEDULED,401856577,TBD at TBD

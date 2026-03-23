@@ -1,43 +1,43 @@
 [
   {
     "game_info": {
-      "game_id": 401856564,
+      "game_id": 401856568,
       "home_team": "Purdue Boilermakers",
-      "away_team": "Miami Hurricanes",
-      "date": "2026-03-22 16:10:00+00:00",
-      "venue": "Enterprise Center",
+      "away_team": "Texas Longhorns",
+      "date": "2026-03-26 23:10:00+00:00",
+      "venue": "SAP Center at San Jose",
       "home_rank": 2,
-      "away_rank": 7,
+      "away_rank": 11,
       "home_eff": {
         "offensiveRating": 109.8,
         "defensiveRating": 109.8
       },
       "away_eff": {
-        "offensiveRating": 109.3,
-        "defensiveRating": 109.3
+        "offensiveRating": 108.9,
+        "defensiveRating": 108.9
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -340,
+      "home_moneyline": -345,
       "away_moneyline": 270,
-      "home_ml": -340,
+      "home_ml": -345,
       "away_ml": 270,
       "home_spread": -7.5,
       "away_spread": 7.5,
-      "total_line": 147.5,
+      "total_line": 148.5,
       "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
+        "kenpom_netrtg_diff": 12.8,
+        "kenpom_ortg_diff": 4.3999999999999915,
+        "kenpom_drtg_diff": -8.400000000000006,
+        "kenpom_adjt_diff": -2.0,
+        "kenpom_luck_diff": 0.177,
+        "kenpom_sos_diff": 2.389999999999999,
+        "bart_oe_diff": 10.064933804279988,
+        "bart_de_diff": -4.4632615721600075,
+        "net_rank_diff": -33.0,
+        "net_winpct_diff": 0.22304147465437796,
+        "net_q1wins_diff": 5,
+        "net_q1pct_diff": 0.17894736842105263
       }
     },
     "predictions": {
@@ -49,188 +49,35 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:33.952397",
+    "generated_at": "2026-03-23T08:37:56.307382",
     "season": 2025
   },
   {
     "game_info": {
-      "game_id": 401856561,
-      "home_team": "Iowa State Cyclones",
-      "away_team": "Kentucky Wildcats",
-      "date": "2026-03-22 18:45:00+00:00",
-      "venue": "Enterprise Center",
-      "home_rank": 2,
-      "away_rank": 7,
-      "home_eff": {
-        "offensiveRating": 109.8,
-        "defensiveRating": 109.8
-      },
-      "away_eff": {
-        "offensiveRating": 109.3,
-        "defensiveRating": 109.3
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -218,
-      "away_moneyline": 180,
-      "home_ml": -218,
-      "away_ml": 180,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": -22.0,
-        "net_winpct_diff": 0.17647058823529405,
-        "net_q1wins_diff": 3,
-        "net_q1pct_diff": 0.22083333333333333
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:33.965784",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856558,
-      "home_team": "Kansas Jayhawks",
-      "away_team": "St. John's Red Storm",
-      "date": "2026-03-22 21:15:00+00:00",
-      "venue": "Viejas Arena",
+      "game_id": 401856567,
+      "home_team": "Nebraska Cornhuskers",
+      "away_team": "Iowa Hawkeyes",
+      "date": "2026-03-26 23:30:00+00:00",
+      "venue": "Toyota Center (Houston)",
       "home_rank": 4,
-      "away_rank": 5,
+      "away_rank": 9,
       "home_eff": {
         "offensiveRating": 109.6,
         "defensiveRating": 109.6
       },
       "away_eff": {
-        "offensiveRating": 109.5,
-        "defensiveRating": 109.5
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": 140,
-      "away_moneyline": -166,
-      "home_ml": 140,
-      "away_ml": -166,
-      "home_spread": 3.5,
-      "away_spread": -3.5,
-      "total_line": 144.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:33.979132",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856562,
-      "home_team": "Virginia Cavaliers",
-      "away_team": "Tennessee Volunteers",
-      "date": "2026-03-22 22:10:00+00:00",
-      "venue": "Xfinity Mobile Arena",
-      "home_rank": 3,
-      "away_rank": 6,
-      "home_eff": {
-        "offensiveRating": 109.7,
-        "defensiveRating": 109.7
-      },
-      "away_eff": {
-        "offensiveRating": 109.4,
-        "defensiveRating": 109.4
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -108,
-      "away_moneyline": -112,
-      "home_ml": -108,
-      "away_ml": -112,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 3.6099999999999994,
-        "kenpom_ortg_diff": 3.8999999999999915,
-        "kenpom_drtg_diff": 0.29999999999999716,
-        "kenpom_adjt_diff": -1.0,
-        "kenpom_luck_diff": 0.076,
-        "kenpom_sos_diff": -3.38,
-        "bart_oe_diff": 0.8934819061500008,
-        "bart_de_diff": 1.8723390548949936,
-        "net_rank_diff": -8.0,
-        "net_winpct_diff": 0.18627450980392157,
-        "net_q1wins_diff": 2,
-        "net_q1pct_diff": 0.29166666666666663
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:33.993879",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856563,
-      "home_team": "Florida Gators",
-      "away_team": "Iowa Hawkeyes",
-      "date": "2026-03-22 23:10:00+00:00",
-      "venue": "Benchmark International Arena",
-      "home_rank": 1,
-      "away_rank": 9,
-      "home_eff": {
-        "offensiveRating": 109.9,
-        "defensiveRating": 109.9
-      },
-      "away_eff": {
         "offensiveRating": 109.1,
         "defensiveRating": 109.1
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -600,
-      "away_moneyline": 440,
-      "home_ml": -600,
-      "away_ml": 440,
-      "home_spread": -10.5,
-      "away_spread": 10.5,
-      "total_line": 145.5,
+      "home_moneyline": -155,
+      "away_moneyline": 130,
+      "home_ml": -155,
+      "away_ml": 130,
+      "home_spread": -2.5,
+      "away_spread": 2.5,
+      "total_line": 133.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -255,44 +102,47 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.007254",
+    "generated_at": "2026-03-23T08:37:56.320737",
     "season": 2025
   },
   {
     "game_info": {
-      "game_id": 401856565,
+      "game_id": 401856569,
       "home_team": "Arizona Wildcats",
-      "away_team": "Utah State Aggies",
-      "date": "2026-03-22 23:50:00+00:00",
-      "venue": "Viejas Arena",
+      "away_team": "Arkansas Razorbacks",
+      "date": "2026-03-27 01:45:00+00:00",
+      "venue": "SAP Center at San Jose",
       "home_rank": 1,
-      "away_rank": 9,
+      "away_rank": 4,
       "home_eff": {
         "offensiveRating": 109.9,
         "defensiveRating": 109.9
       },
       "away_eff": {
-        "offensiveRating": 109.1,
-        "defensiveRating": 109.1
+        "offensiveRating": 109.6,
+        "defensiveRating": 109.6
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -800,
-      "away_moneyline": 550,
-      "home_ml": -800,
-      "away_ml": 550,
+      "home_moneyline": -380,
+      "away_moneyline": 300,
+      "home_ml": -380,
+      "away_ml": 300,
+      "home_spread": -8.5,
+      "away_spread": 8.5,
+      "total_line": 166.5,
       "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": -23.0,
-        "net_winpct_diff": 0.12299465240641705,
-        "net_q1wins_diff": 12,
+        "kenpom_netrtg_diff": 10.560000000000002,
+        "kenpom_ortg_diff": 0.29999999999999716,
+        "kenpom_drtg_diff": -10.299999999999997,
+        "kenpom_adjt_diff": -0.4000000000000057,
+        "kenpom_luck_diff": 0.033,
+        "kenpom_sos_diff": -4.1499999999999995,
+        "bart_oe_diff": -0.8940867361299922,
+        "bart_de_diff": -10.643673090293007,
+        "net_rank_diff": -12.0,
+        "net_winpct_diff": 0.17647058823529416,
+        "net_q1wins_diff": 8,
         "net_q1pct_diff": 0.38888888888888884
       }
     },
@@ -305,210 +155,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.020714",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856559,
-      "home_team": "UConn Huskies",
-      "away_team": "UCLA Bruins",
-      "date": "2026-03-23 00:45:00+00:00",
-      "venue": "Xfinity Mobile Arena",
-      "home_rank": 2,
-      "away_rank": 7,
-      "home_eff": {
-        "offensiveRating": 109.8,
-        "defensiveRating": 109.8
-      },
-      "away_eff": {
-        "offensiveRating": 109.3,
-        "defensiveRating": 109.3
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -185,
-      "away_moneyline": 154,
-      "home_ml": -185,
-      "away_ml": 154,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 10.84,
-        "kenpom_ortg_diff": 1.0,
-        "kenpom_drtg_diff": -9.799999999999997,
-        "kenpom_adjt_diff": 0.29999999999999716,
-        "kenpom_luck_diff": 0.102,
-        "kenpom_sos_diff": 3.6000000000000005,
-        "bart_oe_diff": -0.9249655961899919,
-        "bart_de_diff": -5.7569684224269935,
-        "net_rank_diff": -20.0,
-        "net_winpct_diff": 0.17647058823529405,
-        "net_q1wins_diff": 2,
-        "net_q1pct_diff": 0.3153846153846153
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.035419",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856560,
-      "home_team": "Alabama Crimson Tide",
-      "away_team": "Texas Tech Red Raiders",
-      "date": "2026-03-23 01:45:00+00:00",
-      "venue": "Benchmark International Arena",
-      "home_rank": 4,
-      "away_rank": 5,
-      "home_eff": {
-        "offensiveRating": 109.6,
-        "defensiveRating": 109.6
-      },
-      "away_eff": {
-        "offensiveRating": 109.5,
-        "defensiveRating": 109.5
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -105,
-      "away_moneyline": -114,
-      "home_ml": -105,
-      "away_ml": -114,
-      "home_spread": -1.5,
-      "away_spread": 1.5,
-      "total_line": 165.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.09999999999999787,
-        "kenpom_ortg_diff": 3.799999999999983,
-        "kenpom_drtg_diff": 3.8000000000000114,
-        "kenpom_adjt_diff": 5.900000000000006,
-        "kenpom_luck_diff": -0.054000000000000006,
-        "kenpom_sos_diff": 3.4700000000000006,
-        "bart_oe_diff": 2.614206190389993,
-        "bart_de_diff": 3.8411471035479963,
-        "net_rank_diff": -1.0,
-        "net_winpct_diff": 0.03125,
-        "net_q1wins_diff": 0,
-        "net_q1pct_diff": 0.0625
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.049623",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856567,
-      "home_team": "TBD",
-      "away_team": "TBD",
-      "date": "2026-03-26 04:00:00+00:00",
-      "venue": "Toyota Center (Houston)",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.061039",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856569,
-      "home_team": "TBD",
-      "away_team": "TBD",
-      "date": "2026-03-26 04:00:00+00:00",
-      "venue": "SAP Center at San Jose",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.072652",
+    "generated_at": "2026-03-23T08:37:56.335623",
     "season": 2025
   },
   {
@@ -516,7 +163,7 @@
       "game_id": 401856566,
       "home_team": "Houston Cougars",
       "away_team": "Illinois Fighting Illini",
-      "date": "2026-03-26 04:00:00+00:00",
+      "date": "2026-03-27 02:05:00+00:00",
       "venue": "Toyota Center (Houston)",
       "home_rank": 2,
       "away_rank": 3,
@@ -530,13 +177,10 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -148,
-      "away_moneyline": 124,
-      "home_ml": -148,
-      "away_ml": 124,
-      "home_spread": -2.5,
-      "away_spread": 2.5,
-      "total_line": 139.5,
+      "home_moneyline": -155,
+      "away_moneyline": 130,
+      "home_ml": -155,
+      "away_ml": 130,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.7699999999999996,
         "kenpom_ortg_diff": -5.400000000000006,
@@ -561,32 +205,35 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.087438",
+    "generated_at": "2026-03-23T08:37:56.350434",
     "season": 2025
   },
   {
     "game_info": {
-      "game_id": 401856568,
-      "home_team": "TBD",
-      "away_team": "Texas Longhorns",
-      "date": "2026-03-26 04:00:00+00:00",
-      "venue": "SAP Center at San Jose",
-      "home_rank": 99,
-      "away_rank": 11,
+      "game_id": 401856570,
+      "home_team": "Duke Blue Devils",
+      "away_team": "St. John's Red Storm",
+      "date": "2026-03-27 23:10:00+00:00",
+      "venue": "Capital One Arena",
+      "home_rank": 1,
+      "away_rank": 5,
       "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.9,
+        "defensiveRating": 109.9
       },
       "away_eff": {
-        "offensiveRating": 108.9,
-        "defensiveRating": 108.9
+        "offensiveRating": 109.5,
+        "defensiveRating": 109.5
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
+      "home_moneyline": -310,
+      "away_moneyline": 250,
+      "home_ml": -310,
+      "away_ml": 250,
+      "home_spread": -6.5,
+      "away_spread": 6.5,
+      "total_line": 142.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -611,25 +258,25 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.100716",
+    "generated_at": "2026-03-23T08:37:56.363063",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856572,
       "home_team": "Michigan Wolverines",
-      "away_team": "TBD",
-      "date": "2026-03-27 04:00:00+00:00",
+      "away_team": "Alabama Crimson Tide",
+      "date": "2026-03-27 23:35:00+00:00",
       "venue": "United Center",
       "home_rank": 1,
-      "away_rank": 99,
+      "away_rank": 4,
       "home_eff": {
         "offensiveRating": 114,
         "defensiveRating": 110.7
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.6,
+        "defensiveRating": 109.6
       },
       "home_stats": {
         "season": 2026,
@@ -752,23 +399,23 @@
         }
       },
       "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
+      "home_moneyline": -600,
+      "away_moneyline": 440,
+      "home_ml": -600,
+      "away_ml": 440,
       "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
+        "kenpom_netrtg_diff": 10.660000000000004,
+        "kenpom_ortg_diff": -2.5999999999999943,
+        "kenpom_drtg_diff": -13.300000000000011,
+        "kenpom_adjt_diff": -0.7999999999999972,
+        "kenpom_luck_diff": 0.032,
+        "kenpom_sos_diff": -3.3200000000000003,
+        "bart_oe_diff": -0.9398262859299962,
+        "bart_de_diff": -10.684792531485996,
+        "net_rank_diff": -16.0,
+        "net_winpct_diff": 0.19301470588235292,
+        "net_q1wins_diff": 10,
+        "net_q1pct_diff": 0.35
       }
     },
     "predictions": {
@@ -780,125 +427,25 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.114317",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856570,
-      "home_team": "Duke Blue Devils",
-      "away_team": "TBD",
-      "date": "2026-03-27 04:00:00+00:00",
-      "venue": "Capital One Arena",
-      "home_rank": 1,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 109.9,
-        "defensiveRating": 109.9
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.127076",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856573,
-      "home_team": "TBD",
-      "away_team": "TBD",
-      "date": "2026-03-27 04:00:00+00:00",
-      "venue": "United Center",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.138583",
+    "generated_at": "2026-03-23T08:37:56.377854",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856571,
-      "home_team": "TBD",
-      "away_team": "TBD",
-      "date": "2026-03-27 04:00:00+00:00",
+      "home_team": "UConn Huskies",
+      "away_team": "Michigan State Spartans",
+      "date": "2026-03-28 01:45:00+00:00",
       "venue": "Capital One Arena",
-      "home_rank": 99,
-      "away_rank": 99,
+      "home_rank": 2,
+      "away_rank": 3,
       "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.8,
+        "defensiveRating": 109.8
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.7,
+        "defensiveRating": 109.7
       },
       "home_stats": null,
       "away_stats": null,
@@ -915,10 +462,10 @@
         "kenpom_sos_diff": 0.0,
         "bart_oe_diff": 0.0,
         "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
+        "net_rank_diff": -1.0,
+        "net_winpct_diff": 0.0716911764705882,
+        "net_q1wins_diff": -3,
+        "net_q1pct_diff": 0.07499999999999996
       }
     },
     "predictions": {
@@ -930,7 +477,60 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.150009",
+    "generated_at": "2026-03-23T08:37:56.391249",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401856573,
+      "home_team": "Iowa State Cyclones",
+      "away_team": "Tennessee Volunteers",
+      "date": "2026-03-28 02:10:00+00:00",
+      "venue": "United Center",
+      "home_rank": 2,
+      "away_rank": 6,
+      "home_eff": {
+        "offensiveRating": 109.8,
+        "defensiveRating": 109.8
+      },
+      "away_eff": {
+        "offensiveRating": 109.4,
+        "defensiveRating": 109.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "home_moneyline": -192,
+      "away_moneyline": 160,
+      "home_ml": -192,
+      "away_ml": 160,
+      "home_spread": -4.5,
+      "away_spread": 4.5,
+      "total_line": 138.5,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -14.0,
+        "net_winpct_diff": 0.12745098039215685,
+        "net_q1wins_diff": 2,
+        "net_q1pct_diff": 0.15833333333333333
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-03-23T08:37:56.404775",
     "season": 2025
   },
   {
@@ -980,7 +580,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.161445",
+    "generated_at": "2026-03-23T08:37:56.416095",
     "season": 2025
   },
   {
@@ -1030,7 +630,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.172859",
+    "generated_at": "2026-03-23T08:37:56.427368",
     "season": 2025
   },
   {
@@ -1080,7 +680,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.184303",
+    "generated_at": "2026-03-23T08:37:56.438772",
     "season": 2025
   },
   {
@@ -1130,7 +730,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.195689",
+    "generated_at": "2026-03-23T08:37:56.450001",
     "season": 2025
   },
   {
@@ -1180,7 +780,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.207169",
+    "generated_at": "2026-03-23T08:37:56.461303",
     "season": 2025
   },
   {
@@ -1230,7 +830,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-22T08:24:34.218675",
+    "generated_at": "2026-03-23T08:37:56.472642",
     "season": 2025
   }
 ]

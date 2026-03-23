@@ -92,12 +92,6 @@ LAYOUT_CONFIG = {
 }
 
 
-st.set_page_config(
-    page_title="Tournament Bracket",
-    page_icon="🏀",
-    layout="wide"
-)
-
 st.title("🏀 March Madness Tournament Bracket")
 st.markdown("*Monte Carlo simulation of full tournament outcomes*")
 

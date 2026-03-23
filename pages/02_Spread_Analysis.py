@@ -28,13 +28,6 @@ from predictions import (
     _efficiency_based_margin
 )
 
-# Page configuration
-st.set_page_config(
-    page_title="Spread Analysis - Bracket Oracle",
-    page_icon="📈",
-    layout="wide"
-)
-
 # Logo
 logo_path = Path("data_files/logo.png")
 if logo_path.exists():

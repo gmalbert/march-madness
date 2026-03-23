@@ -28,16 +28,6 @@ IS_CLOUD = (
     or os.path.exists("/mount/src")
 )
 
-# ---------------------------------------------------------------------------
-# Page config
-# ---------------------------------------------------------------------------
-
-st.set_page_config(
-    page_title="Ratings - Bracket Oracle",
-    page_icon="📊",
-    layout="wide",
-)
-
 logo_path = Path("data_files/logo.png")
 if logo_path.exists():
     st.image(str(logo_path), width=250)

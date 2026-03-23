@@ -1,0 +1,57 @@
+{
+  "computed_at": "2026-03-23T06:38:41.138597",
+  "season_used": 2026,
+  "num_games": 1,
+  "games": [
+    {
+      "home_team": "Houston Cougars",
+      "away_team": "Illinois Fighting Illini",
+      "home_eff": {
+        "offensiveRating": 124.1,
+        "defensiveRating": 89.3,
+        "netRating": 34.9
+      },
+      "away_eff": {
+        "offensiveRating": 133.9,
+        "defensiveRating": 97.6,
+        "netRating": 36.4
+      },
+      "home_stats": {
+        "ppg": 77.47222222222223,
+        "pace": 64.4,
+        "efg_pct": 0.522,
+        "to_rate": 0.13,
+        "orb_pct": 0.345,
+        "ft_rate": 0.27,
+        "opp_ppg": 62.25,
+        "fg_pct": 0.451,
+        "three_pct": 0.349
+      },
+      "away_stats": {
+        "ppg": 84.73529411764706,
+        "pace": 61.5,
+        "efg_pct": 0.5529999999999999,
+        "to_rate": 0.14,
+        "orb_pct": 0.326,
+        "ft_rate": 0.327,
+        "opp_ppg": 69.38235294117646,
+        "fg_pct": 0.465,
+        "three_pct": 0.35
+      },
+      "betting_spread": -2.5,
+      "betting_over_under": 140.5,
+      "home_moneyline": -148,
+      "away_moneyline": 124,
+      "home_ml": -148,
+      "away_ml": 124,
+      "game_date": "2026-03-26 04:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Toyota Center (Houston)",
+      "neutral_site": true,
+      "home_rank": 2,
+      "away_rank": 3,
+      "season_used": 2026,
+      "predictions": {}
+    }
+  ]
+}

@@ -27,13 +27,6 @@ from predictions import (
     enrich_with_advanced_metrics
 )
 
-# Page configuration
-st.set_page_config(
-    page_title="Over/Under Analysis - Bracket Oracle",
-    page_icon="📊",
-    layout="wide"
-)
-
 # Logo
 logo_path = Path("data_files/logo.png")
 if logo_path.exists():

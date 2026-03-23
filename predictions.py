@@ -11,6 +11,13 @@ from datetime import datetime, timezone
 from dateutil import parser as date_parser
 import pytz
 
+# Must be called once at module level — sub-pages must NOT call set_page_config
+st.set_page_config(
+    page_title="Bracket Oracle - March Madness Predictions",
+    page_icon="🏀",
+    layout="wide",
+)
+
 # Add the current directory to the path so we can import data_collection
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -1551,12 +1558,6 @@ def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List 
 
 
 def main():
-    st.set_page_config(
-        page_title="Bracket Oracle - March Madness Predictions",
-        page_icon="🏀",
-        layout="wide"
-    )
-
     # Logo
     st.image("data_files/logo.png", width=250)
 
@@ -2568,9 +2569,22 @@ def main():
             st.error(f"Error loading upset detection: {e}")
             st.info("Make sure the upset_prediction.py module is properly implemented.")
 
-if __name__ == "__main__":
-    main()
-
-    # Add footer at the bottom of the page
+    # Footer
     from footer import add_betting_oracle_footer
     add_betting_oracle_footer()
+
+
+pg = st.navigation(
+    {
+        "": [
+            st.Page(main, title="Predictions", icon="🏀", default=True),
+        ],
+        "Analysis": [
+            st.Page("pages/01_Tournament_Bracket.py",  title="Tournament Bracket",   icon="🏀"),
+            st.Page("pages/02_Spread_Analysis.py",     title="Spread Analysis",       icon="📈"),
+            st.Page("pages/03_OverUnder_Analysis.py",  title="Over/Under Analysis",   icon="📊"),
+            st.Page("pages/04_Ratings.py",             title="Ratings",               icon="📊"),
+        ],
+    }
+)
+pg.run()

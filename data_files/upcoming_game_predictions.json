@@ -19,9 +19,12 @@
       "home_stats": null,
       "away_stats": null,
       "home_moneyline": -345,
-      "away_moneyline": 275,
+      "away_moneyline": 270,
       "home_ml": -345,
-      "away_ml": 275,
+      "away_ml": 270,
+      "home_spread": -7.5,
+      "away_spread": 7.5,
+      "total_line": 147.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 12.8,
         "kenpom_ortg_diff": 4.3999999999999915,
@@ -29,8 +32,8 @@
         "kenpom_adjt_diff": -2.0,
         "kenpom_luck_diff": 0.177,
         "kenpom_sos_diff": 2.389999999999999,
-        "bart_oe_diff": 9.993612578799997,
-        "bart_de_diff": -4.528637848359992,
+        "bart_oe_diff": 10.01922929170999,
+        "bart_de_diff": -4.523449412380003,
         "net_rank_diff": -33.0,
         "net_winpct_diff": 0.22304147465437796,
         "net_q1wins_diff": 5,
@@ -46,7 +49,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.433472",
+    "generated_at": "2026-03-26T08:33:15.321482",
     "season": 2025
   },
   {
@@ -74,7 +77,7 @@
       "away_ml": 110,
       "home_spread": -1.5,
       "away_spread": 1.5,
-      "total_line": 132.5,
+      "total_line": 131.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -99,7 +102,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.447359",
+    "generated_at": "2026-03-26T08:33:15.333661",
     "season": 2025
   },
   {
@@ -132,8 +135,8 @@
         "kenpom_adjt_diff": -0.4000000000000057,
         "kenpom_luck_diff": 0.033,
         "kenpom_sos_diff": -4.1499999999999995,
-        "bart_oe_diff": -0.9159444044700109,
-        "bart_de_diff": -10.495650344471997,
+        "bart_oe_diff": -0.9419284157800121,
+        "bart_de_diff": -10.475250828518,
         "net_rank_diff": -12.0,
         "net_winpct_diff": 0.17647058823529416,
         "net_q1wins_diff": 8,
@@ -149,7 +152,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.462671",
+    "generated_at": "2026-03-26T08:33:15.346743",
     "season": 2025
   },
   {
@@ -182,8 +185,8 @@
         "kenpom_adjt_diff": -2.8999999999999986,
         "kenpom_luck_diff": 0.049,
         "kenpom_sos_diff": -2.6100000000000003,
-        "bart_oe_diff": -6.925268601369993,
-        "bart_de_diff": -6.489260513519994,
+        "bart_oe_diff": -6.934710568569997,
+        "bart_de_diff": -6.490628294236004,
         "net_rank_diff": -3.0,
         "net_winpct_diff": 0.07352941176470584,
         "net_q1wins_diff": 3,
@@ -199,7 +202,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.478188",
+    "generated_at": "2026-03-26T08:33:15.360100",
     "season": 2025
   },
   {
@@ -221,10 +224,10 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -290,
-      "away_moneyline": 235,
-      "home_ml": -290,
-      "away_ml": 235,
+      "home_moneyline": -285,
+      "away_moneyline": 230,
+      "home_ml": -285,
+      "away_ml": 230,
       "home_spread": -6.5,
       "away_spread": 6.5,
       "total_line": 141.5,
@@ -252,7 +255,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.491252",
+    "generated_at": "2026-03-26T08:33:15.371882",
     "season": 2025
   },
   {
@@ -404,8 +407,8 @@
         "kenpom_adjt_diff": -0.7999999999999972,
         "kenpom_luck_diff": 0.032,
         "kenpom_sos_diff": -3.3200000000000003,
-        "bart_oe_diff": -1.4448069598499842,
-        "bart_de_diff": -9.806427974733992,
+        "bart_oe_diff": -1.4880717715099934,
+        "bart_de_diff": -9.791618614976997,
         "net_rank_diff": -16.0,
         "net_winpct_diff": 0.19301470588235292,
         "net_q1wins_diff": 10,
@@ -421,7 +424,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.506405",
+    "generated_at": "2026-03-26T08:33:15.384923",
     "season": 2025
   },
   {
@@ -471,7 +474,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.520836",
+    "generated_at": "2026-03-26T08:33:15.396898",
     "season": 2025
   },
   {
@@ -497,9 +500,6 @@
       "away_moneyline": 160,
       "home_ml": -192,
       "away_ml": 160,
-      "home_spread": -4.5,
-      "away_spread": 4.5,
-      "total_line": 138.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -524,7 +524,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.534753",
+    "generated_at": "2026-03-26T08:33:15.408952",
     "season": 2025
   },
   {
@@ -574,7 +574,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.546311",
+    "generated_at": "2026-03-26T08:33:15.419127",
     "season": 2025
   },
   {
@@ -624,7 +624,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.558168",
+    "generated_at": "2026-03-26T08:33:15.429300",
     "season": 2025
   },
   {
@@ -674,7 +674,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.570267",
+    "generated_at": "2026-03-26T08:33:15.439448",
     "season": 2025
   },
   {
@@ -724,7 +724,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.582057",
+    "generated_at": "2026-03-26T08:33:15.449722",
     "season": 2025
   },
   {
@@ -774,7 +774,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.593758",
+    "generated_at": "2026-03-26T08:33:15.459796",
     "season": 2025
   },
   {
@@ -824,7 +824,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.605475",
+    "generated_at": "2026-03-26T08:33:15.470142",
     "season": 2025
   },
   {
@@ -874,7 +874,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-25T08:30:50.617317",
+    "generated_at": "2026-03-26T08:33:15.480215",
     "season": 2025
   }
 ]

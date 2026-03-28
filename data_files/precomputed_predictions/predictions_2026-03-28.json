@@ -1,0 +1,107 @@
+{
+  "computed_at": "2026-03-28T06:32:04.312235",
+  "season_used": 2026,
+  "num_games": 2,
+  "games": [
+    {
+      "home_team": "Illinois Fighting Illini",
+      "away_team": "Iowa Hawkeyes",
+      "home_eff": {
+        "offensiveRating": 133.8,
+        "defensiveRating": 96.9,
+        "netRating": 36.9
+      },
+      "away_eff": {
+        "offensiveRating": 125.0,
+        "defensiveRating": 99.4,
+        "netRating": 25.7
+      },
+      "home_stats": {
+        "ppg": 84.17142857142858,
+        "pace": 61.4,
+        "efg_pct": 0.552,
+        "to_rate": 0.14,
+        "orb_pct": 0.325,
+        "ft_rate": 0.32899999999999996,
+        "opp_ppg": 68.97142857142858,
+        "fg_pct": 0.46399999999999997,
+        "three_pct": 0.35100000000000003
+      },
+      "away_stats": {
+        "ppg": 74.97222222222223,
+        "pace": 60.5,
+        "efg_pct": 0.565,
+        "to_rate": 0.16,
+        "orb_pct": 0.3,
+        "ft_rate": 0.35200000000000004,
+        "opp_ppg": 66.13888888888889,
+        "fg_pct": 0.49,
+        "three_pct": 0.354
+      },
+      "betting_spread": -6.5,
+      "betting_over_under": 137.5,
+      "home_moneyline": -300,
+      "away_moneyline": 240,
+      "home_ml": -300,
+      "away_ml": 240,
+      "game_date": "2026-03-28 22:09:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Toyota Center (Houston)",
+      "neutral_site": true,
+      "home_rank": 3,
+      "away_rank": 9,
+      "season_used": 2026,
+      "predictions": {}
+    },
+    {
+      "home_team": "Arizona Wildcats",
+      "away_team": "Purdue Boilermakers",
+      "home_eff": {
+        "offensiveRating": 126.9,
+        "defensiveRating": 89.1,
+        "netRating": 37.9
+      },
+      "away_eff": {
+        "offensiveRating": 133.2,
+        "defensiveRating": 99.9,
+        "netRating": 33.3
+      },
+      "home_stats": {
+        "ppg": 86.70270270270271,
+        "pace": 70.7,
+        "efg_pct": 0.552,
+        "to_rate": 0.15,
+        "orb_pct": 0.302,
+        "ft_rate": 0.445,
+        "opp_ppg": 68.94594594594595,
+        "fg_pct": 0.504,
+        "three_pct": 0.36700000000000005
+      },
+      "away_stats": {
+        "ppg": 82.10526315789474,
+        "pace": 63.8,
+        "efg_pct": 0.58,
+        "to_rate": 0.14,
+        "orb_pct": 0.318,
+        "ft_rate": 0.28800000000000003,
+        "opp_ppg": 70.3157894736842,
+        "fg_pct": 0.503,
+        "three_pct": 0.384
+      },
+      "betting_spread": -5.5,
+      "betting_over_under": 153.5,
+      "home_moneyline": -255,
+      "away_moneyline": 205,
+      "home_ml": -255,
+      "away_ml": 205,
+      "game_date": "2026-03-29 00:49:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "SAP Center at San Jose",
+      "neutral_site": true,
+      "home_rank": 1,
+      "away_rank": 2,
+      "season_used": 2026,
+      "predictions": {}
+    }
+  ]
+}

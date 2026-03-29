@@ -1,109 +1,6 @@
 [
   {
     "game_info": {
-      "game_id": 401856574,
-      "home_team": "Illinois Fighting Illini",
-      "away_team": "Iowa Hawkeyes",
-      "date": "2026-03-28 22:09:00+00:00",
-      "venue": "Toyota Center (Houston)",
-      "home_rank": 3,
-      "away_rank": 9,
-      "home_eff": {
-        "offensiveRating": 109.7,
-        "defensiveRating": 109.7
-      },
-      "away_eff": {
-        "offensiveRating": 109.1,
-        "defensiveRating": 109.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -300,
-      "away_moneyline": 240,
-      "home_ml": -300,
-      "away_ml": 240,
-      "home_spread": -6.5,
-      "away_spread": 6.5,
-      "total_line": 137.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:34.988016",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401856575,
-      "home_team": "Arizona Wildcats",
-      "away_team": "Purdue Boilermakers",
-      "date": "2026-03-29 00:49:00+00:00",
-      "venue": "SAP Center at San Jose",
-      "home_rank": 1,
-      "away_rank": 2,
-      "home_eff": {
-        "offensiveRating": 109.9,
-        "defensiveRating": 109.9
-      },
-      "away_eff": {
-        "offensiveRating": 109.8,
-        "defensiveRating": 109.8
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -270,
-      "away_moneyline": 220,
-      "home_ml": -270,
-      "away_ml": 220,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 4.110000000000003,
-        "kenpom_ortg_diff": -1.9999999999999858,
-        "kenpom_drtg_diff": -6.099999999999994,
-        "kenpom_adjt_diff": 5.699999999999989,
-        "kenpom_luck_diff": -0.026,
-        "kenpom_sos_diff": -3.4099999999999993,
-        "bart_oe_diff": -5.635177174619997,
-        "bart_de_diff": -9.028330155129993,
-        "net_rank_diff": -6.0,
-        "net_winpct_diff": 0.16974789915966382,
-        "net_q1wins_diff": 5,
-        "net_q1pct_diff": 0.3099415204678362
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.003055",
-    "season": 2025
-  },
-  {
-    "game_info": {
       "game_id": 401856576,
       "home_team": "Michigan Wolverines",
       "away_team": "Tennessee Volunteers",
@@ -240,13 +137,10 @@
         }
       },
       "away_stats": null,
-      "home_moneyline": -285,
-      "away_moneyline": 230,
-      "home_ml": -285,
-      "away_ml": 230,
-      "home_spread": -7.5,
-      "away_spread": 7.5,
-      "total_line": 145.5,
+      "home_moneyline": -340,
+      "away_moneyline": 270,
+      "home_ml": -340,
+      "away_ml": 270,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 12.490000000000002,
         "kenpom_ortg_diff": 5.699999999999989,
@@ -254,8 +148,8 @@
         "kenpom_adjt_diff": 6.200000000000003,
         "kenpom_luck_diff": 0.102,
         "kenpom_sos_diff": 3.16,
-        "bart_oe_diff": 6.504844079379993,
-        "bart_de_diff": -2.2465624690519945,
+        "bart_oe_diff": 6.489505481219993,
+        "bart_de_diff": -2.220122049154,
         "net_rank_diff": -18.0,
         "net_winpct_diff": 0.2450980392156863,
         "net_q1wins_diff": 11,
@@ -271,7 +165,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.018005",
+    "generated_at": "2026-03-29T08:21:17.349612",
     "season": 2025
   },
   {
@@ -293,13 +187,10 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -210,
-      "away_moneyline": 172,
-      "home_ml": -210,
-      "away_ml": 172,
-      "home_spread": -5.5,
-      "away_spread": 5.5,
-      "total_line": 134.5,
+      "home_moneyline": -218,
+      "away_moneyline": 180,
+      "home_ml": -218,
+      "away_ml": 180,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 4.420000000000002,
         "kenpom_ortg_diff": 4.400000000000006,
@@ -307,8 +198,8 @@
         "kenpom_adjt_diff": 2.200000000000003,
         "kenpom_luck_diff": -0.008999999999999994,
         "kenpom_sos_diff": 0.7099999999999991,
-        "bart_oe_diff": 4.352225648270007,
-        "bart_de_diff": -2.590400223315001,
+        "bart_oe_diff": 4.348654505349998,
+        "bart_de_diff": -2.591182960736006,
         "net_rank_diff": -9.0,
         "net_winpct_diff": 0.08823529411764708,
         "net_q1wins_diff": 10,
@@ -324,21 +215,21 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.032269",
+    "generated_at": "2026-03-29T08:21:17.363740",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856599,
-      "home_team": "TBD",
+      "home_team": "Arizona Wildcats",
       "away_team": "TBD",
       "date": "2026-04-04 04:00:00+00:00",
       "venue": "Lucas Oil Stadium",
-      "home_rank": 99,
+      "home_rank": 1,
       "away_rank": 99,
       "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.9,
+        "defensiveRating": 109.9
       },
       "away_eff": {
         "offensiveRating": 100.1,
@@ -374,25 +265,25 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.043959",
+    "generated_at": "2026-03-29T08:21:17.377239",
     "season": 2025
   },
   {
     "game_info": {
       "game_id": 401856598,
       "home_team": "TBD",
-      "away_team": "TBD",
+      "away_team": "Illinois Fighting Illini",
       "date": "2026-04-04 04:00:00+00:00",
       "venue": "Lucas Oil Stadium",
       "home_rank": 99,
-      "away_rank": 99,
+      "away_rank": 3,
       "home_eff": {
         "offensiveRating": 100.1,
         "defensiveRating": 100.1
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.7,
+        "defensiveRating": 109.7
       },
       "home_stats": null,
       "away_stats": null,
@@ -424,7 +315,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.055531",
+    "generated_at": "2026-03-29T08:21:17.390544",
     "season": 2025
   },
   {
@@ -474,7 +365,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-03-28T08:24:35.067112",
+    "generated_at": "2026-03-29T08:21:17.402136",
     "season": 2025
   }
 ]

@@ -1,6 +1,1 @@
-year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-03-29 18:15:00+00:00,Michigan Wolverines,Tennessee Volunteers,130,2633,0,0,1,6,United Center,True,False,7,23,STATUS_SCHEDULED,401856576,Tennessee Volunteers at Michigan Wolverines
-2026,Regular,2026-03-29 21:05:00+00:00,Duke Blue Devils,UConn Huskies,150,41,0,0,1,2,Capital One Arena,True,False,2,4,STATUS_SCHEDULED,401856577,UConn Huskies at Duke Blue Devils
-2026,Regular,2026-04-04 04:00:00+00:00,Arizona Wildcats,TBD,12,-2,0,0,1,99,Lucas Oil Stadium,True,False,8,,STATUS_SCHEDULED,401856599,TBD at Arizona Wildcats
-2026,Regular,2026-04-04 04:00:00+00:00,TBD,Illinois Fighting Illini,-1,356,0,0,99,3,Lucas Oil Stadium,True,False,,7,STATUS_SCHEDULED,401856598,Illinois Fighting Illini at TBD
-2026,Regular,2026-04-06 04:00:00+00:00,TBD,TBD,-1,-2,0,0,99,99,Lucas Oil Stadium,True,False,,,STATUS_SCHEDULED,401856600,TBD at TBD
+date,home_team,away_team,home_score,away_score,year,season_type,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name

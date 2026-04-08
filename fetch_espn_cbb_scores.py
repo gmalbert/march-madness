@@ -133,9 +133,17 @@ print(f"\nTotal games collected: {len(all_scores)}")
 # Create DataFrame and save
 scores_df = pd.DataFrame(all_scores)
 
-# Sort by date
-scores_df['date'] = pd.to_datetime(scores_df['date'])
-scores_df = scores_df.sort_values('date')
+if scores_df.empty:
+    print("No games found. Writing empty file.")
+    scores_df = pd.DataFrame(columns=[
+        "date", "home_team", "away_team", "home_score", "away_score",
+        "year", "season_type", "neutral_site", "conference_game",
+        "home_conference", "away_conference", "status", "event_id", "game_name"
+    ])
+else:
+    # Sort by date
+    scores_df['date'] = pd.to_datetime(scores_df['date'])
+    scores_df = scores_df.sort_values('date')
 
 output_file = "data_files/espn_cbb_current_season.csv"
 scores_df.to_csv(output_file, index=False)
@@ -144,6 +152,7 @@ print(f"Saved all scores to {output_file}")
 # Print summary statistics
 print(f"\nSummary:")
 print(f"  Total games: {len(scores_df)}")
-print(f"  Years: {scores_df['year'].min()} - {scores_df['year'].max()}")
-print(f"  Season types: {scores_df['season_type'].value_counts().to_dict()}")
-print(f"  Unique teams: {len(set(scores_df['home_team'].unique()) | set(scores_df['away_team'].unique()))}")
+if not scores_df.empty:
+    print(f"  Years: {scores_df['year'].min()} - {scores_df['year'].max()}")
+    print(f"  Season types: {scores_df['season_type'].value_counts().to_dict()}")
+    print(f"  Unique teams: {len(set(scores_df['home_team'].unique()) | set(scores_df['away_team'].unique()))}")

@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "sport": "NCAAB",
+    "generated_at": "2026-04-30T02:04:34.463807+00:00",
+    "model_version": "1.0.0",
+    "season": "2026"
+  },
+  "bets": [
+    {
+      "game_date": "2026-04-29",
+      "game_time": "9:40 PM ET",
+      "game": "UNC @ Duke",
+      "home_team": "Duke",
+      "away_team": "UNC",
+      "bet_type": "Spread",
+      "pick": "Duke -4.5",
+      "confidence": 0.7,
+      "edge": null,
+      "tier": "Good",
+      "odds": -160,
+      "line": -4.5,
+      "league": "NCAAB",
+      "notes": "XGBoost | CI: [-7.5, 1.5]"
+    },
+    {
+      "game_date": "2026-04-29",
+      "game_time": "7:05 PM ET",
+      "game": "Kentucky @ Kansas",
+      "home_team": "Kansas",
+      "away_team": "Kentucky",
+      "bet_type": "Spread",
+      "pick": "Kansas -3.0",
+      "confidence": 0.7667,
+      "edge": null,
+      "tier": "Strong",
+      "odds": -145,
+      "line": -3.0,
+      "league": "NCAAB",
+      "notes": "XGBoost | CI: [-6.5, 0.5]"
+    }
+  ]
+}

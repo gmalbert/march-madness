@@ -63,7 +63,7 @@ def load_models():
             models['spread_scalers'] = {
                 'linear': joblib.load(MODEL_DIR / 'spread_linear_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['spread_scalers'] = {}
         print("[OK] Loaded spread models")
     except Exception as e:
@@ -81,7 +81,7 @@ def load_models():
             models['total_scalers'] = {
                 'linear': joblib.load(MODEL_DIR / 'total_linear_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['total_scalers'] = {}
         print("[OK] Loaded total models")
     except Exception as e:
@@ -99,7 +99,7 @@ def load_models():
             models['moneyline_scalers'] = {
                 'logistic': joblib.load(MODEL_DIR / 'moneyline_logistic_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['moneyline_scalers'] = {}
         print("[OK] Loaded moneyline models")
     except Exception as e:

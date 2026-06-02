@@ -29,12 +29,12 @@ def load_trained_models():
     # Load scalers
     try:
         models['spread_scaler'] = joblib.load(MODEL_DIR / 'spread_linear_regression_scaler.joblib')
-    except:
+    except Exception:
         models['spread_scaler'] = None
 
     try:
         models['total_scaler'] = joblib.load(MODEL_DIR / 'total_linear_regression_scaler.joblib')
-    except:
+    except Exception:
         models['total_scaler'] = None
 
     # Load spread models
@@ -42,7 +42,7 @@ def load_trained_models():
     for model_name in ['xgboost', 'random_forest', 'linear']:
         try:
             models['spread'][model_name] = joblib.load(MODEL_DIR / f'spread_{model_name}.joblib')
-        except:
+        except Exception:
             print(f"Warning: Could not load spread_{model_name}.joblib")
             models['spread'][model_name] = None
 
@@ -51,7 +51,7 @@ def load_trained_models():
     for model_name in ['xgboost', 'random_forest', 'linear']:
         try:
             models['total'][model_name] = joblib.load(MODEL_DIR / f'total_{model_name}.joblib')
-        except:
+        except Exception:
             print(f"Warning: Could not load total_{model_name}.joblib")
             models['total'][model_name] = None
 
@@ -60,7 +60,7 @@ def load_trained_models():
     for model_name in ['xgboost', 'random_forest', 'logistic']:
         try:
             models['moneyline'][model_name] = joblib.load(MODEL_DIR / f'moneyline_{model_name}.joblib')
-        except:
+        except Exception:
             print(f"Warning: Could not load moneyline_{model_name}.joblib")
             models['moneyline'][model_name] = None
 
@@ -167,7 +167,7 @@ def generate_predictions_for_historical_data():
                         else:
                             prob = model.predict_proba(moneyline_df)[0][1]
                         moneyline_probs.append(prob)
-                    except:
+                    except Exception:
                         continue
 
                 if moneyline_probs:
@@ -193,7 +193,7 @@ def generate_predictions_for_historical_data():
                         else:
                             pred = model.predict(spread_df)[0]
                         spread_preds.append(pred)
-                    except:
+                    except Exception:
                         continue
 
                 if spread_preds:
@@ -219,7 +219,7 @@ def generate_predictions_for_historical_data():
                         else:
                             pred = model.predict(total_df)[0]
                         total_preds.append(pred)
-                    except:
+                    except Exception:
                         continue
 
                 if total_preds:

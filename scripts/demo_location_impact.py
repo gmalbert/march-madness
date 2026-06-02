@@ -13,7 +13,7 @@ try:
     predictor.scaler = joblib.load(MODEL_DIR / 'upset_predictor_scaler.joblib')
     predictor.is_trained = True
     print("Loaded pre-trained model with location features\n")
-except:
+except Exception:
     print("Training new model...")
     predictor, _ = train_upset_model()
 

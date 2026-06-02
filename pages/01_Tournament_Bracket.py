@@ -184,7 +184,7 @@ def load_precomputed_bracket(year: int):
         # Try live simulation as fallback
         try:
             return load_and_simulate_bracket_live(year, 1000)
-        except:
+        except Exception:
             return None, None, False, 0
 
 

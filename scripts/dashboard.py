@@ -293,7 +293,7 @@ def render_game_card(game):
             game_date_utc = datetime.fromisoformat(game_date_str.replace('Z', '+00:00'))
             game_date_local = game_date_utc.replace(tzinfo=timezone.utc).astimezone(tz=None)
             game_time_display = game_date_local.strftime('%I:%M %p')
-        except:
+        except Exception:
             pass
     
     # Check for value bets
@@ -525,7 +525,7 @@ def render_dashboard():
                     game_date_local = datetime.fromisoformat(game_date_str)
                 
                 date_key = game_date_local.strftime('%A, %B %d, %Y')
-            except:
+            except Exception:
                 date_key = 'Unknown Date'
             games_by_date[date_key].append(game)
         

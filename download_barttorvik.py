@@ -73,7 +73,7 @@ if csv_files:
             try:
                 os.remove(old_file)
                 print(f"Cleaned up duplicate file: {old_file}")
-            except:
+            except Exception:
                 pass
 else:
     print("Warning: No BartTorvik CSV file found after download")

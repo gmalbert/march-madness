@@ -116,7 +116,7 @@ class OpeningLineCapture:
             try:
                 game_date = datetime.fromisoformat(commence_time.replace('Z', '+00:00'))
                 game_date_str = game_date.strftime('%Y-%m-%d')
-            except:
+            except Exception:
                 game_date_str = datetime.now().strftime('%Y-%m-%d')
             
             # Extract odds from bookmakers

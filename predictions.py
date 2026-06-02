@@ -92,10 +92,10 @@ def load_models():
             models['spread_scalers'] = {
                 'linear': joblib.load(MODEL_DIR / 'spread_linear_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['spread_scalers'] = {}
-    except:
-        st.error("Spread models not found. Please run model training first.")
+    except Exception as e:
+        st.error(f"Spread models not found: {e}. Please run model training first.")
         models['spread'] = None
 
     # Total models
@@ -110,10 +110,10 @@ def load_models():
             models['total_scalers'] = {
                 'linear': joblib.load(MODEL_DIR / 'total_linear_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['total_scalers'] = {}
-    except:
-        st.error("Total models not found. Please run model training first.")
+    except Exception as e:
+        st.error(f"Total models not found: {e}. Please run model training first.")
         models['total'] = None
 
     # Moneyline models
@@ -128,10 +128,10 @@ def load_models():
             models['moneyline_scalers'] = {
                 'logistic': joblib.load(MODEL_DIR / 'moneyline_logistic_regression_scaler.joblib')
             }
-        except:
+        except Exception:
             models['moneyline_scalers'] = {}
-    except:
-        st.error("Moneyline models not found. Please run model training first.")
+    except Exception as e:
+        st.error(f"Moneyline models not found: {e}. Please run model training first.")
         models['moneyline'] = None
 
     return models
@@ -237,7 +237,7 @@ def sort_games_by_date(games: List) -> List:
             else:
                 # If no date, put at the end
                 return datetime.min.replace(tzinfo=timezone.utc)
-        except:
+        except Exception:
             return datetime.min.replace(tzinfo=timezone.utc)
 
     return sorted(games, key=get_game_datetime, reverse=True)
@@ -390,7 +390,7 @@ def get_team_data(season: int = 2025):
             stats_list = fetch_team_stats(s)
             if efficiency_list and stats_list:
                 return efficiency_list, stats_list, s
-        except:
+        except Exception:
             continue
     return [], [], None
 
@@ -852,7 +852,7 @@ def format_game_data(game) -> Optional[Dict]:
             efficiency_data = fetch_adjusted_efficiency(2026)  # Current season
             home_eff = next((e for e in efficiency_data if getattr(e, 'team', None) == home_team_name), {})
             away_eff = next((e for e in efficiency_data if getattr(e, 'team', None) == away_team_name), {})
-        except:
+        except Exception:
             home_eff = {}
             away_eff = {}
 
@@ -861,7 +861,7 @@ def format_game_data(game) -> Optional[Dict]:
             team_stats_data = fetch_team_stats(2026)
             home_stats = next((s for s in team_stats_data if getattr(s, 'team', None) == home_team_name), {})
             away_stats = next((s for s in team_stats_data if getattr(s, 'team', None) == away_team_name), {})
-        except:
+        except Exception:
             home_stats = {}
             away_stats = {}
 
@@ -1305,7 +1305,7 @@ def render_game_prediction(game: Dict, predictions: Dict, efficiency_list: List 
                     st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y')} (Time TBD)")
                 else:
                     st.caption(f"📅 {game_dt.strftime('%a, %b %d, %Y %I:%M %p ET')}")
-            except:
+            except Exception:
                 st.caption(f"📅 {_date_val}")
         else:
             st.caption("📅 Date TBD")
@@ -1597,19 +1597,19 @@ def main():
     try:
         with open(MODEL_DIR / "spread_metrics.json", 'r') as f:
             spread_metrics = json.load(f)
-    except:
+    except Exception:
         pass
     
     try:
         with open(MODEL_DIR / "total_metrics.json", 'r') as f:
             total_metrics = json.load(f)
-    except:
+    except Exception:
         pass
     
     try:
         with open(MODEL_DIR / "moneyline_metrics.json", 'r') as f:
             moneyline_metrics = json.load(f)
-    except:
+    except Exception:
         pass
     
     # Display metrics with real values or fallbacks
@@ -1716,7 +1716,7 @@ def main():
                         date_str = game_dt.strftime('%a, %b %d (Time TBD)')
                     else:
                         date_str = game_dt.strftime('%a, %b %d %I:%M %p')
-                except:
+                except Exception:
                     date_str = "Date TBD"
             else:
                 date_str = "Date TBD"
@@ -1912,7 +1912,7 @@ def main():
                         date_str = game_dt.strftime('%a, %b %d (Time TBD)')
                     else:
                         date_str = game_dt.strftime('%a, %b %d %I:%M %p')
-                except:
+                except Exception:
                     date_str = "Date TBD"
             else:
                 date_str = "Date TBD"

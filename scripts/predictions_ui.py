@@ -25,7 +25,7 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'spread_random_forest.joblib'),
             'linear': joblib.load(MODEL_DIR / 'spread_linear_regression.joblib')
         }
-    except:
+    except Exception:
         st.error("Spread models not found. Please run model training first.")
         models['spread'] = None
 
@@ -36,7 +36,7 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'total_random_forest.joblib'),
             'linear': joblib.load(MODEL_DIR / 'total_linear_regression.joblib')
         }
-    except:
+    except Exception:
         st.error("Total models not found. Please run model training first.")
         models['total'] = None
 
@@ -47,7 +47,7 @@ def load_models():
             'random_forest': joblib.load(MODEL_DIR / 'moneyline_random_forest.joblib'),
             'logistic': joblib.load(MODEL_DIR / 'moneyline_logistic_regression.joblib')
         }
-    except:
+    except Exception:
         st.error("Moneyline models not found. Please run model training first.")
         models['moneyline'] = None
 

@@ -36,7 +36,7 @@ def display_predictions():
         try:
             game_date = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
             date_display = game_date.strftime('%a %b %d, %I:%M %p ET')
-        except:
+        except Exception:
             date_display = date_str
 
         print(f"🎯 {away_team} @ {home_team}")

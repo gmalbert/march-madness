@@ -47,7 +47,7 @@ for g in data:
             
             if now_local.date() <= game_date_local.date() <= three_days_from_now.date():
                 todays_games.append(g)
-        except:
+        except Exception:
             pass
 
 print(f'\n\nGames in next 3 days (local time): {len(todays_games)}')
@@ -61,7 +61,7 @@ for g in todays_games:
         game_date_utc = datetime.fromisoformat(game_date_str.replace('Z', '+00:00'))
         game_date_local = game_date_utc.replace(tzinfo=timezone.utc).astimezone(tz=None)
         date_key = game_date_local.strftime('%A, %B %d')
-    except:
+    except Exception:
         date_key = 'Unknown'
     games_by_date[date_key].append(g)
 

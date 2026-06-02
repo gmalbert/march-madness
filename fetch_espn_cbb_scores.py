@@ -100,7 +100,7 @@ for date_str in dates_to_fetch:
         try:
             game_date = pd.to_datetime(date)
             year = game_date.year
-        except:
+        except Exception:
             year = 2026  # fallback
         
         all_scores.append({

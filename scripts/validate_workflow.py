@@ -125,7 +125,7 @@ def check_shell_scripts(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             workflow = yaml.safe_load(f)
-    except:
+    except Exception:
         return [], []  # Already caught by YAML validation
     
     for job_name, job in workflow.get('jobs', {}).items():

@@ -169,7 +169,7 @@ def main():
                     f"Box Score (Game ID: {game_id})"
                 )
                 results['box_score'] = success
-    except:
+    except Exception:
         results['box_score'] = False
     
     # FINAL SUMMARY

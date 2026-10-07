@@ -16,8 +16,9 @@ name: Keep Streamlit App Alive
 
 on:
   schedule:
-    # Run every 30 minutes with randomization (pings roughly every 30-40 minutes)
-    - cron: '*/30 * * * *'
+    # Run every 30 minutes during March Madness season (March and April).
+    # GitHub cron uses UTC; tournament dates span these two calendar months.
+    - cron: '*/30 * * 3,4 *'
   
   workflow_dispatch:  # Allow manual trigger for testing
 

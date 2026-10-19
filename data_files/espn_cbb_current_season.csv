@@ -1,1 +1,3 @@
-date,home_team,away_team,home_score,away_score,year,season_type,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
+year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
+2026,Regular,2026-11-01 14:30:00+00:00,Villanova Wildcats,Notre Dame Fighting Irish,222,87,0,0,99,99,Palazzo dello Sport,True,False,4,2,STATUS_SCHEDULED,401920982,Notre Dame Fighting Irish at Villanova Wildcats
+2026,Regular,2026-11-02 04:59:00+00:00,High Point Panthers,Liberty Flames,2272,2335,0,0,99,99,Rock Hill Sports & Event Center,True,False,6,11,STATUS_SCHEDULED,401920409,Liberty Flames at High Point Panthers

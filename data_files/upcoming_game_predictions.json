@@ -1,0 +1,94 @@
+[
+  {
+    "game_info": {
+      "game_id": 401920982,
+      "home_team": "Villanova Wildcats",
+      "away_team": "Notre Dame Fighting Irish",
+      "date": "2026-11-01 14:30:00+00:00",
+      "venue": "Palazzo dello Sport",
+      "home_rank": 99,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 11.239999999999998,
+        "kenpom_ortg_diff": 7.900000000000006,
+        "kenpom_drtg_diff": -3.4000000000000057,
+        "kenpom_adjt_diff": -2.0,
+        "kenpom_luck_diff": 0.068,
+        "kenpom_sos_diff": 0.6100000000000003,
+        "bart_oe_diff": 4.94759009481001,
+        "bart_de_diff": -6.964906474700001,
+        "net_rank_diff": -59.0,
+        "net_winpct_diff": 0.33064516129032256,
+        "net_q1wins_diff": 0,
+        "net_q1pct_diff": 0.08333333333333334
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-10-19T15:33:16.713201",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401920409,
+      "home_team": "High Point Panthers",
+      "away_team": "Liberty Flames",
+      "date": "2026-11-02 04:59:00+00:00",
+      "venue": "Rock Hill Sports & Event Center",
+      "home_rank": 99,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": -0.28999999999999915,
+        "kenpom_ortg_diff": 1.0999999999999943,
+        "kenpom_drtg_diff": 1.3999999999999915,
+        "kenpom_adjt_diff": 5.700000000000003,
+        "kenpom_luck_diff": -0.162,
+        "kenpom_sos_diff": -8.31,
+        "bart_oe_diff": -1.302841737679998,
+        "bart_de_diff": -5.86238293577,
+        "net_rank_diff": -31.0,
+        "net_winpct_diff": 0.1123470522803115,
+        "net_q1wins_diff": -1,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-10-19T15:33:16.727238",
+    "season": 2025
+  }
+]

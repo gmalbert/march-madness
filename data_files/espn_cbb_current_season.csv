@@ -43,10 +43,10 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-11-05 01:00:00+00:00,South Dakota Coyotes,Northern Kentucky Norse,233,94,0,0,99,99,Sanford Coyote Sports Center,False,False,49,45,STATUS_SCHEDULED,401928811,Northern Kentucky Norse at South Dakota Coyotes
 2026,Regular,2026-11-05 01:00:00+00:00,Norfolk State Spartans,Randolph Wildcats,2450,3153,0,0,99,99,Joseph G. Echols Hall,False,False,16,,STATUS_SCHEDULED,401925893,Randolph Wildcats at Norfolk State Spartans
 2026,Regular,2026-11-05 01:00:00+00:00,Southern Indiana Screaming Eagles,Saint Mary of the Woods Pomeroys,88,126824,0,0,99,99,Liberty Arena (IN),False,False,20,,STATUS_SCHEDULED,401923391,Saint Mary of the Woods Pomeroys at Southern Indiana Screaming Eagles
-2026,Regular,2026-11-05 02:00:00+00:00,California Golden Bears,Radford Highlanders,25,2515,0,0,99,99,Haas Pavilion,False,False,2,6,STATUS_SCHEDULED,401918052,Radford Highlanders at California Golden Bears
 2026,Regular,2026-11-05 02:00:00+00:00,Montana Grizzlies,Salish Kootenai Bison,149,131858,0,0,99,99,Dahlberg Arena,False,False,5,,STATUS_SCHEDULED,401922030,Salish Kootenai Bison at Montana Grizzlies
-2026,Regular,2026-11-05 02:00:00+00:00,Utah Tech Trailblazers,Grace University Lancers,3101,134743,0,0,99,99,Burns Arena,False,False,5,,STATUS_SCHEDULED,401925939,Grace University Lancers at Utah Tech Trailblazers
+2026,Regular,2026-11-05 02:00:00+00:00,California Golden Bears,Radford Highlanders,25,2515,0,0,99,99,Haas Pavilion,False,False,2,6,STATUS_SCHEDULED,401918052,Radford Highlanders at California Golden Bears
 2026,Regular,2026-11-05 02:00:00+00:00,Boise State Broncos,West Coast Baptist Eagles,68,110418,0,0,99,99,ExtraMile Arena,False,False,21,,STATUS_SCHEDULED,401929171,West Coast Baptist Eagles at Boise State Broncos
+2026,Regular,2026-11-05 02:00:00+00:00,Utah Tech Trailblazers,Grace University Lancers,3101,134743,0,0,99,99,Burns Arena,False,False,5,,STATUS_SCHEDULED,401925939,Grace University Lancers at Utah Tech Trailblazers
 2026,Regular,2026-11-05 03:00:00+00:00,Loyola Marymount Lions,Queens University Royals,2351,2511,0,0,99,99,Gersten Pavilion,False,False,29,46,STATUS_SCHEDULED,401917514,Queens University Royals at Loyola Marymount Lions
 2026,Regular,2026-11-05 03:00:00+00:00,Santa Clara Broncos,Milwaukee Panthers,2541,270,0,0,99,99,Leavey Center,False,False,29,45,STATUS_SCHEDULED,401917513,Milwaukee Panthers at Santa Clara Broncos
 2026,Regular,2026-11-05 03:00:00+00:00,Saint Mary's Gaels,North Dakota State Bison,2608,2449,0,0,99,99,University Credit Union Pavilion,False,False,29,49,STATUS_SCHEDULED,401917512,North Dakota State Bison at Saint Mary's Gaels
@@ -81,8 +81,8 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-11-10 23:00:00+00:00,Florida State Seminoles,Florida Gators,52,57,0,0,99,1,Tucker Center,False,False,2,23,STATUS_SCHEDULED,401906771,Florida Gators at Florida State Seminoles
 2026,Regular,2026-11-11 00:00:00+00:00,Duke Blue Devils,Michigan State Spartans,150,127,0,0,2,6,United Center,True,False,2,7,STATUS_SCHEDULED,401909564,Michigan State Spartans at Duke Blue Devils
 2026,Regular,2026-11-11 00:15:00+00:00,Vanderbilt Commodores,Memphis Tigers,238,235,0,0,24,99,Memorial Gymnasium (TN),False,False,23,62,STATUS_SCHEDULED,401918987,Memphis Tigers at Vanderbilt Commodores
-2026,Regular,2026-11-11 01:00:00+00:00,Texas Tech Red Raiders,Illinois Fighting Illini,2641,356,0,0,19,3,United Supermarkets Arena,False,False,8,7,STATUS_SCHEDULED,401913527,Illinois Fighting Illini at Texas Tech Red Raiders
 2026,Regular,2026-11-11 01:00:00+00:00,Iowa State Cyclones,Southern Jaguars,66,2582,0,0,18,99,Hilton Coliseum,False,False,8,26,STATUS_SCHEDULED,401909773,Southern Jaguars at Iowa State Cyclones
+2026,Regular,2026-11-11 01:00:00+00:00,Texas Tech Red Raiders,Illinois Fighting Illini,2641,356,0,0,19,3,United Supermarkets Arena,False,False,8,7,STATUS_SCHEDULED,401913527,Illinois Fighting Illini at Texas Tech Red Raiders
 2026,Regular,2026-11-11 02:00:00+00:00,Arizona Wildcats,Northern Arizona Lumberjacks,12,2464,0,0,5,99,McKale Center at ALKEME Arena,False,False,8,5,STATUS_SCHEDULED,401909740,Northern Arizona Lumberjacks at Arizona Wildcats
 2026,Regular,2026-11-11 02:00:00+00:00,Virginia Cavaliers,Bucknell Bison,258,2083,0,0,9,99,John Paul Jones Arena,False,False,2,22,STATUS_SCHEDULED,401920425,Bucknell Bison at Virginia Cavaliers
 2026,Regular,2026-11-11 02:00:00+00:00,BYU Cougars,Queens University Royals,252,2511,0,0,25,99,Marriott Center,False,False,8,46,STATUS_SCHEDULED,401921740,Queens University Royals at BYU Cougars
@@ -90,6 +90,7 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-11-11 05:00:00+00:00,UCLA Bruins,Arkansas-Pine Bluff Golden Lions,26,2029,0,0,22,99,Pauley Pavilion,False,False,7,26,STATUS_SCHEDULED,401930177,Arkansas-Pine Bluff Golden Lions at UCLA Bruins
 2026,Regular,2026-11-12 00:00:00+00:00,St. John's Red Storm,Colgate Raiders,2599,2142,0,0,13,99,Carnesecca Arena,False,False,4,22,STATUS_SCHEDULED,401920680,Colgate Raiders at St. John's Red Storm
 2026,Regular,2026-11-12 00:00:00+00:00,Michigan Wolverines,Marquette Golden Eagles,130,269,0,0,16,99,Crisler Center,False,False,7,4,STATUS_SCHEDULED,401909524,Marquette Golden Eagles at Michigan Wolverines
-2026,Regular,2026-11-12 01:00:00+00:00,Arkansas Razorbacks,Robert Morris Colonials,8,2523,0,0,12,99,Bud Walton Arena,False,False,23,45,STATUS_SCHEDULED,401928824,Robert Morris Colonials at Arkansas Razorbacks
 2026,Regular,2026-11-12 01:00:00+00:00,Houston Cougars,Jacksonville State Gamecocks,248,55,0,0,10,99,Fertitta Center,False,False,8,11,STATUS_SCHEDULED,401925702,Jacksonville State Gamecocks at Houston Cougars
+2026,Regular,2026-11-12 01:00:00+00:00,Arkansas Razorbacks,Robert Morris Colonials,8,2523,0,0,12,99,Bud Walton Arena,False,False,23,45,STATUS_SCHEDULED,401928824,Robert Morris Colonials at Arkansas Razorbacks
 2026,Regular,2026-11-12 04:00:00+00:00,California Golden Bears,USC Trojans,25,30,0,0,99,21,Haas Pavilion,False,False,2,7,STATUS_SCHEDULED,401918054,USC Trojans at California Golden Bears
+2026,Regular,2026-11-13 02:00:00+00:00,BYU Cougars,Montana State Bobcats,252,147,0,0,25,99,Marriott Center,False,False,8,5,STATUS_SCHEDULED,401921741,Montana State Bobcats at BYU Cougars

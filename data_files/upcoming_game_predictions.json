@@ -1,59 +1,6 @@
 [
   {
     "game_info": {
-      "game_id": 401920982,
-      "home_team": "Villanova Wildcats",
-      "away_team": "Notre Dame Fighting Irish",
-      "date": "2026-11-01 14:30:00+00:00",
-      "venue": "Palazzo dello Sport",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -305,
-      "away_moneyline": 245,
-      "home_ml": -305,
-      "away_ml": 245,
-      "home_spread": 7.5,
-      "away_spread": -7.5,
-      "total_line": 147.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 11.239999999999998,
-        "kenpom_ortg_diff": 7.900000000000006,
-        "kenpom_drtg_diff": -3.4000000000000057,
-        "kenpom_adjt_diff": -2.0,
-        "kenpom_luck_diff": 0.068,
-        "kenpom_sos_diff": 0.6100000000000003,
-        "bart_oe_diff": 4.94759009481001,
-        "bart_de_diff": -6.964906474700001,
-        "net_rank_diff": -59.0,
-        "net_winpct_diff": 0.33064516129032256,
-        "net_q1wins_diff": 0,
-        "net_q1pct_diff": 0.08333333333333334
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.891391",
-    "season": 2025
-  },
-  {
-    "game_info": {
       "game_id": 401920409,
       "home_team": "High Point Panthers",
       "away_team": "Liberty Flames",
@@ -71,13 +18,13 @@
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -325,
-      "away_moneyline": 260,
-      "home_ml": -325,
-      "away_ml": 260,
+      "home_moneyline": -310,
+      "away_moneyline": 250,
+      "home_ml": -310,
+      "away_ml": 250,
       "home_spread": 6.5,
       "away_spread": -6.5,
-      "total_line": 154.5,
+      "total_line": 155.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": -0.28999999999999915,
         "kenpom_ortg_diff": 1.0999999999999943,
@@ -102,7 +49,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.916011",
+    "generated_at": "2026-11-01T14:58:07.379920",
     "season": 2025
   },
   {
@@ -155,7 +102,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.937813",
+    "generated_at": "2026-11-01T14:58:07.389689",
     "season": 2025
   },
   {
@@ -168,8 +115,8 @@
       "home_rank": 16,
       "away_rank": 99,
       "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
+        "offensiveRating": 114,
+        "defensiveRating": 110.7
       },
       "away_eff": {
         "offensiveRating": 100.1,
@@ -177,6 +124,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -10000,
+      "away_moneyline": 3000,
+      "home_ml": -10000,
+      "away_ml": 3000,
+      "home_spread": -26.5,
+      "away_spread": 26.5,
+      "total_line": 157.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -201,7 +155,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.959573",
+    "generated_at": "2026-11-01T14:58:07.399267",
     "season": 2025
   },
   {
@@ -247,7 +201,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.981119",
+    "generated_at": "2026-11-01T14:58:07.408987",
     "season": 2025
   },
   {
@@ -269,6 +223,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -50000,
+      "away_moneyline": 4000,
+      "home_ml": -50000,
+      "away_ml": 4000,
+      "home_spread": -27.5,
+      "away_spread": 27.5,
+      "total_line": 153.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -293,7 +254,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:00.999812",
+    "generated_at": "2026-11-01T14:58:07.417283",
     "season": 2025
   },
   {
@@ -339,7 +300,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.019262",
+    "generated_at": "2026-11-01T14:58:07.425838",
     "season": 2025
   },
   {
@@ -392,7 +353,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.041674",
+    "generated_at": "2026-11-01T14:58:07.435851",
     "season": 2025
   },
   {
@@ -438,7 +399,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.064533",
+    "generated_at": "2026-11-01T14:58:07.445808",
     "season": 2025
   },
   {
@@ -484,7 +445,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.088823",
+    "generated_at": "2026-11-01T14:58:07.456519",
     "season": 2025
   },
   {
@@ -512,7 +473,7 @@
       "away_ml": -245,
       "home_spread": -5.5,
       "away_spread": 5.5,
-      "total_line": 154.5,
+      "total_line": 155.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": -0.010000000000001563,
         "kenpom_ortg_diff": 3.3999999999999915,
@@ -537,7 +498,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.113168",
+    "generated_at": "2026-11-01T14:58:07.467097",
     "season": 2025
   },
   {
@@ -583,7 +544,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.137623",
+    "generated_at": "2026-11-01T14:58:07.477684",
     "season": 2025
   },
   {
@@ -605,6 +566,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -6500,
+      "away_moneyline": 2000,
+      "home_ml": -6500,
+      "away_ml": 2000,
+      "home_spread": -22.0,
+      "away_spread": 22.0,
+      "total_line": 145.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 28.64,
         "kenpom_ortg_diff": 16.10000000000001,
@@ -629,7 +597,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.161784",
+    "generated_at": "2026-11-01T14:58:07.488345",
     "season": 2025
   },
   {
@@ -646,17 +614,17 @@
         "defensiveRating": 107.5
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 111,
+        "defensiveRating": 108
       },
       "home_stats": null,
       "away_stats": null,
-      "home_moneyline": -142,
-      "away_moneyline": 120,
-      "home_ml": -142,
-      "away_ml": 120,
-      "home_spread": -2.5,
-      "away_spread": 2.5,
+      "home_moneyline": -148,
+      "away_moneyline": 124,
+      "home_ml": -148,
+      "away_ml": 124,
+      "home_spread": -3.5,
+      "away_spread": 3.5,
       "total_line": 160.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
@@ -682,7 +650,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.184134",
+    "generated_at": "2026-11-01T14:58:07.498437",
     "season": 2025
   },
   {
@@ -704,6 +672,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -100000,
+      "away_moneyline": 5000,
+      "home_ml": -100000,
+      "away_ml": 5000,
+      "home_spread": -31.5,
+      "away_spread": 31.5,
+      "total_line": 158.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -728,7 +703,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.205615",
+    "generated_at": "2026-11-01T14:58:07.508315",
     "season": 2025
   },
   {
@@ -774,7 +749,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.227889",
+    "generated_at": "2026-11-01T14:58:07.518430",
     "season": 2025
   },
   {
@@ -820,7 +795,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.249417",
+    "generated_at": "2026-11-01T14:58:07.528013",
     "season": 2025
   },
   {
@@ -842,6 +817,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "home_spread": -29.0,
+      "away_spread": 29.0,
+      "total_line": 139.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -866,7 +848,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.270944",
+    "generated_at": "2026-11-01T14:58:07.537669",
     "season": 2025
   },
   {
@@ -892,9 +874,9 @@
       "away_moneyline": -205,
       "home_ml": 170,
       "away_ml": -205,
-      "home_spread": -5.5,
-      "away_spread": 5.5,
-      "total_line": 150.5,
+      "home_spread": -4.5,
+      "away_spread": 4.5,
+      "total_line": 149.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": -16.820000000000004,
         "kenpom_ortg_diff": -6.400000000000006,
@@ -919,7 +901,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.294958",
+    "generated_at": "2026-11-01T14:58:07.548481",
     "season": 2025
   },
   {
@@ -941,6 +923,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -9000,
+      "away_moneyline": 2500,
+      "home_ml": -9000,
+      "away_ml": 2500,
+      "home_spread": -25.0,
+      "away_spread": 25.0,
+      "total_line": 158.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 22.47,
         "kenpom_ortg_diff": 8.799999999999997,
@@ -965,7 +954,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.319281",
+    "generated_at": "2026-11-01T14:58:07.559107",
     "season": 2025
   },
   {
@@ -1011,7 +1000,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.340911",
+    "generated_at": "2026-11-01T14:58:07.568599",
     "season": 2025
   },
   {
@@ -1057,7 +1046,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.364939",
+    "generated_at": "2026-11-01T14:58:07.579195",
     "season": 2025
   },
   {
@@ -1103,7 +1092,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.389451",
+    "generated_at": "2026-11-01T14:58:07.588648",
     "season": 2025
   },
   {
@@ -1149,7 +1138,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.411071",
+    "generated_at": "2026-11-01T14:58:07.598598",
     "season": 2025
   },
   {
@@ -1195,7 +1184,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.433518",
+    "generated_at": "2026-11-01T14:58:07.608485",
     "season": 2025
   },
   {
@@ -1241,7 +1230,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.452372",
+    "generated_at": "2026-11-01T14:58:07.616679",
     "season": 2025
   },
   {
@@ -1287,7 +1276,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.474129",
+    "generated_at": "2026-11-01T14:58:07.626426",
     "season": 2025
   },
   {
@@ -1333,7 +1322,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.498733",
+    "generated_at": "2026-11-01T14:58:07.637378",
     "season": 2025
   },
   {
@@ -1379,7 +1368,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.517368",
+    "generated_at": "2026-11-01T14:58:07.645705",
     "season": 2025
   },
   {
@@ -1425,7 +1414,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.539015",
+    "generated_at": "2026-11-01T14:58:07.655444",
     "season": 2025
   },
   {
@@ -1471,7 +1460,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.557995",
+    "generated_at": "2026-11-01T14:58:07.663826",
     "season": 2025
   },
   {
@@ -1517,7 +1506,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.577561",
+    "generated_at": "2026-11-01T14:58:07.672560",
     "season": 2025
   },
   {
@@ -1563,7 +1552,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.596369",
+    "generated_at": "2026-11-01T14:58:07.680771",
     "season": 2025
   },
   {
@@ -1609,7 +1598,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.616324",
+    "generated_at": "2026-11-01T14:58:07.689568",
     "season": 2025
   },
   {
@@ -1655,7 +1644,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.638213",
+    "generated_at": "2026-11-01T14:58:07.699456",
     "season": 2025
   },
   {
@@ -1701,7 +1690,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.656896",
+    "generated_at": "2026-11-01T14:58:07.707689",
     "season": 2025
   },
   {
@@ -1747,7 +1736,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.676389",
+    "generated_at": "2026-11-01T14:58:07.716411",
     "season": 2025
   },
   {
@@ -1793,7 +1782,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.695028",
+    "generated_at": "2026-11-01T14:58:07.724763",
     "season": 2025
   },
   {
@@ -1839,7 +1828,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.713665",
+    "generated_at": "2026-11-01T14:58:07.733202",
     "season": 2025
   },
   {
@@ -1885,7 +1874,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.732355",
+    "generated_at": "2026-11-01T14:58:07.741577",
     "season": 2025
   },
   {
@@ -1931,7 +1920,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.754041",
+    "generated_at": "2026-11-01T14:58:07.751230",
     "season": 2025
   },
   {
@@ -1977,53 +1966,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.772891",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401928811,
-      "home_team": "South Dakota Coyotes",
-      "away_team": "Northern Kentucky Norse",
-      "date": "2026-11-05 01:00:00+00:00",
-      "venue": "Sanford Coyote Sports Center",
-      "home_rank": 99,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.791544",
+    "generated_at": "2026-11-01T14:58:07.759436",
     "season": 2025
   },
   {
@@ -2069,7 +2012,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.811192",
+    "generated_at": "2026-11-01T14:58:07.768128",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401928811,
+      "home_team": "South Dakota Coyotes",
+      "away_team": "Northern Kentucky Norse",
+      "date": "2026-11-05 01:00:00+00:00",
+      "venue": "Sanford Coyote Sports Center",
+      "home_rank": 99,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-01T14:58:07.776252",
     "season": 2025
   },
   {
@@ -2115,7 +2104,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.839974",
+    "generated_at": "2026-11-01T14:58:07.784882",
     "season": 2025
   },
   {
@@ -2161,7 +2150,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.862942",
+    "generated_at": "2026-11-01T14:58:07.794457",
     "season": 2025
   },
   {
@@ -2207,7 +2196,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.884575",
+    "generated_at": "2026-11-01T14:58:07.804161",
     "season": 2025
   },
   {
@@ -2253,7 +2242,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.903326",
+    "generated_at": "2026-11-01T14:58:07.812454",
     "season": 2025
   },
   {
@@ -2299,7 +2288,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.922146",
+    "generated_at": "2026-11-01T14:58:07.820696",
     "season": 2025
   },
   {
@@ -2345,7 +2334,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.946590",
+    "generated_at": "2026-11-01T14:58:07.831863",
     "season": 2025
   },
   {
@@ -2391,7 +2380,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.965623",
+    "generated_at": "2026-11-01T14:58:07.840068",
     "season": 2025
   },
   {
@@ -2437,7 +2426,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:01.989907",
+    "generated_at": "2026-11-01T14:58:07.850991",
     "season": 2025
   },
   {
@@ -2483,7 +2472,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.011384",
+    "generated_at": "2026-11-01T14:58:07.862576",
     "season": 2025
   },
   {
@@ -2529,7 +2518,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.030876",
+    "generated_at": "2026-11-01T14:58:07.872277",
     "season": 2025
   },
   {
@@ -2575,7 +2564,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.052679",
+    "generated_at": "2026-11-01T14:58:07.882245",
     "season": 2025
   },
   {
@@ -2621,7 +2610,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.076949",
+    "generated_at": "2026-11-01T14:58:07.893611",
     "season": 2025
   },
   {
@@ -2667,7 +2656,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.098511",
+    "generated_at": "2026-11-01T14:58:07.903446",
     "season": 2025
   },
   {
@@ -2713,7 +2702,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.120902",
+    "generated_at": "2026-11-01T14:58:07.913469",
     "season": 2025
   },
   {
@@ -2759,7 +2748,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.142526",
+    "generated_at": "2026-11-01T14:58:07.923205",
     "season": 2025
   },
   {
@@ -2805,7 +2794,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.167051",
+    "generated_at": "2026-11-01T14:58:07.934116",
     "season": 2025
   },
   {
@@ -2851,7 +2840,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.191505",
+    "generated_at": "2026-11-01T14:58:07.945008",
     "season": 2025
   },
   {
@@ -2897,7 +2886,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.213195",
+    "generated_at": "2026-11-01T14:58:07.954666",
     "season": 2025
   },
   {
@@ -2910,8 +2899,8 @@
       "home_rank": 16,
       "away_rank": 4,
       "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
+        "offensiveRating": 114,
+        "defensiveRating": 110.7
       },
       "away_eff": {
         "offensiveRating": 109.6,
@@ -2943,7 +2932,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.237524",
+    "generated_at": "2026-11-01T14:58:07.965619",
     "season": 2025
   },
   {
@@ -2989,7 +2978,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.257082",
+    "generated_at": "2026-11-01T14:58:07.974451",
     "season": 2025
   },
   {
@@ -3035,7 +3024,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.278646",
+    "generated_at": "2026-11-01T14:58:07.984141",
     "season": 2025
   },
   {
@@ -3081,7 +3070,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.300401",
+    "generated_at": "2026-11-01T14:58:07.993852",
     "season": 2025
   },
   {
@@ -3127,7 +3116,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.324671",
+    "generated_at": "2026-11-01T14:58:08.004624",
     "season": 2025
   },
   {
@@ -3173,7 +3162,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.346336",
+    "generated_at": "2026-11-01T14:58:08.014228",
     "season": 2025
   },
   {
@@ -3219,7 +3208,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.368719",
+    "generated_at": "2026-11-01T14:58:08.024227",
     "season": 2025
   },
   {
@@ -3265,7 +3254,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.391270",
+    "generated_at": "2026-11-01T14:58:08.034311",
     "season": 2025
   },
   {
@@ -3311,7 +3300,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.412915",
+    "generated_at": "2026-11-01T14:58:08.044076",
     "season": 2025
   },
   {
@@ -3357,7 +3346,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.437120",
+    "generated_at": "2026-11-01T14:58:08.054786",
     "season": 2025
   },
   {
@@ -3403,7 +3392,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.458633",
+    "generated_at": "2026-11-01T14:58:08.064479",
     "season": 2025
   },
   {
@@ -3449,7 +3438,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.480192",
+    "generated_at": "2026-11-01T14:58:08.074155",
     "season": 2025
   },
   {
@@ -3495,7 +3484,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.504427",
+    "generated_at": "2026-11-01T14:58:08.085077",
     "season": 2025
   },
   {
@@ -3541,7 +3530,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.526901",
+    "generated_at": "2026-11-01T14:58:08.095208",
     "season": 2025
   },
   {
@@ -3587,7 +3576,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.548917",
+    "generated_at": "2026-11-01T14:58:08.105088",
     "season": 2025
   },
   {
@@ -3633,7 +3622,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.567530",
+    "generated_at": "2026-11-01T14:58:08.113546",
     "season": 2025
   },
   {
@@ -3679,7 +3668,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.589092",
+    "generated_at": "2026-11-01T14:58:08.123576",
     "season": 2025
   },
   {
@@ -3725,7 +3714,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.610700",
+    "generated_at": "2026-11-01T14:58:08.133586",
     "season": 2025
   },
   {
@@ -3771,7 +3760,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.632997",
+    "generated_at": "2026-11-01T14:58:08.143970",
     "season": 2025
   },
   {
@@ -3817,7 +3806,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.657529",
+    "generated_at": "2026-11-01T14:58:08.155234",
     "season": 2025
   },
   {
@@ -3863,7 +3852,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.681876",
+    "generated_at": "2026-11-01T14:58:08.166304",
     "season": 2025
   },
   {
@@ -3909,7 +3898,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.704267",
+    "generated_at": "2026-11-01T14:58:08.176667",
     "season": 2025
   },
   {
@@ -3955,7 +3944,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.725820",
+    "generated_at": "2026-11-01T14:58:08.186711",
     "season": 2025
   },
   {
@@ -4001,7 +3990,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.747491",
+    "generated_at": "2026-11-01T14:58:08.196762",
     "season": 2025
   },
   {
@@ -4047,7 +4036,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.769267",
+    "generated_at": "2026-11-01T14:58:08.206540",
     "season": 2025
   },
   {
@@ -4093,7 +4082,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.793753",
+    "generated_at": "2026-11-01T14:58:08.217567",
     "season": 2025
   },
   {
@@ -4139,7 +4128,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.816577",
+    "generated_at": "2026-11-01T14:58:08.227800",
     "season": 2025
   },
   {
@@ -4185,7 +4174,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.840270",
+    "generated_at": "2026-11-01T14:58:08.237792",
     "season": 2025
   },
   {
@@ -4198,8 +4187,8 @@
       "home_rank": 16,
       "away_rank": 99,
       "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
+        "offensiveRating": 114,
+        "defensiveRating": 110.7
       },
       "away_eff": {
         "offensiveRating": 100.1,
@@ -4231,7 +4220,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.862205",
+    "generated_at": "2026-11-01T14:58:08.247764",
     "season": 2025
   },
   {
@@ -4277,7 +4266,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.884661",
+    "generated_at": "2026-11-01T14:58:08.258233",
     "season": 2025
   },
   {
@@ -4323,7 +4312,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.906386",
+    "generated_at": "2026-11-01T14:58:08.276671",
     "season": 2025
   },
   {
@@ -4369,7 +4358,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.928108",
+    "generated_at": "2026-11-01T14:58:08.287632",
     "season": 2025
   },
   {
@@ -4415,7 +4404,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.949827",
+    "generated_at": "2026-11-01T14:58:08.297768",
     "season": 2025
   },
   {
@@ -4461,7 +4450,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.968631",
+    "generated_at": "2026-11-01T14:58:08.306286",
     "season": 2025
   },
   {
@@ -4507,7 +4496,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:02.990259",
+    "generated_at": "2026-11-01T14:58:08.316351",
     "season": 2025
   },
   {
@@ -4553,7 +4542,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.011975",
+    "generated_at": "2026-11-01T14:58:08.326277",
     "season": 2025
   },
   {
@@ -4599,7 +4588,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.034552",
+    "generated_at": "2026-11-01T14:58:08.336773",
     "season": 2025
   },
   {
@@ -4645,7 +4634,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.056902",
+    "generated_at": "2026-11-01T14:58:08.347133",
     "season": 2025
   },
   {
@@ -4691,7 +4680,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.078526",
+    "generated_at": "2026-11-01T14:58:08.357062",
     "season": 2025
   },
   {
@@ -4737,7 +4726,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.102006",
+    "generated_at": "2026-11-01T14:58:08.368120",
     "season": 2025
   },
   {
@@ -4754,8 +4743,8 @@
         "defensiveRating": 109.6
       },
       "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 111,
+        "defensiveRating": 108
       },
       "home_stats": null,
       "away_stats": null,
@@ -4783,7 +4772,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.124589",
+    "generated_at": "2026-11-01T14:58:08.378430",
     "season": 2025
   },
   {
@@ -4829,7 +4818,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.147392",
+    "generated_at": "2026-11-01T14:58:08.388877",
     "season": 2025
   },
   {
@@ -4875,7 +4864,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.171672",
+    "generated_at": "2026-11-01T14:58:08.399975",
     "season": 2025
   },
   {
@@ -4921,7 +4910,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.195894",
+    "generated_at": "2026-11-01T14:58:08.411023",
     "season": 2025
   },
   {
@@ -4967,7 +4956,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.220054",
+    "generated_at": "2026-11-01T14:58:08.422568",
     "season": 2025
   },
   {
@@ -5013,7 +5002,99 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-10-31T14:37:03.241577",
+    "generated_at": "2026-11-01T14:58:08.432481",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401919847,
+      "home_team": "Texas Tech Red Raiders",
+      "away_team": "Stonehill Skyhawks",
+      "date": "2026-11-14 19:00:00+00:00",
+      "venue": "United Supermarkets Arena",
+      "home_rank": 19,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 108.1,
+        "defensiveRating": 108.1
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 42.92,
+        "kenpom_ortg_diff": 31.0,
+        "kenpom_drtg_diff": -12.0,
+        "kenpom_adjt_diff": 1.3999999999999915,
+        "kenpom_luck_diff": 0.07100000000000001,
+        "kenpom_sos_diff": 18.05,
+        "bart_oe_diff": 33.53183133085899,
+        "bart_de_diff": -8.651785214139991,
+        "net_rank_diff": -313.0,
+        "net_winpct_diff": 0.3649193548387097,
+        "net_q1wins_diff": 7,
+        "net_q1pct_diff": 0.4375
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-01T14:58:08.443480",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401921689,
+      "home_team": "Gonzaga Bulldogs",
+      "away_team": "LSU Tigers",
+      "date": "2026-11-14 20:30:00+00:00",
+      "venue": "Spokane Numerica Veterans Arena",
+      "home_rank": 15,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 108.5,
+        "defensiveRating": 108.5
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 13.670000000000002,
+        "kenpom_ortg_diff": 4.299999999999997,
+        "kenpom_drtg_diff": -9.300000000000011,
+        "kenpom_adjt_diff": 3.0,
+        "kenpom_luck_diff": 0.124,
+        "kenpom_sos_diff": 0.9800000000000004,
+        "bart_oe_diff": 0.25922108507000985,
+        "bart_de_diff": -12.329952190018005,
+        "net_rank_diff": -70.0,
+        "net_winpct_diff": 0.44034090909090906,
+        "net_q1wins_diff": 6,
+        "net_q1pct_diff": 0.7008547008547008
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-01T14:58:08.454577",
     "season": 2025
   }
 ]

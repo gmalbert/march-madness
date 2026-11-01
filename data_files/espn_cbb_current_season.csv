@@ -1,5 +1,5 @@
 year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,away_score,home_rank,away_rank,venue,neutral_site,conference_game,home_conference,away_conference,status,event_id,game_name
-2026,Regular,2026-11-01 14:30:00+00:00,Villanova Wildcats,Notre Dame Fighting Irish,222,87,0,0,99,99,Palazzo dello Sport,True,False,4,2,STATUS_SCHEDULED,401920982,Notre Dame Fighting Irish at Villanova Wildcats
+2026,Regular,2026-11-01 14:30:00+00:00,Villanova Wildcats,Notre Dame Fighting Irish,222,87,22,18,99,99,Palazzo dello Sport,True,False,4,2,STATUS_IN_PROGRESS,401920982,Notre Dame Fighting Irish at Villanova Wildcats
 2026,Regular,2026-11-02 04:59:00+00:00,High Point Panthers,Liberty Flames,2272,2335,0,0,99,99,Rock Hill Sports & Event Center,True,False,6,11,STATUS_SCHEDULED,401920409,Liberty Flames at High Point Panthers
 2026,Regular,2026-11-02 23:00:00+00:00,Florida Gators,Miami Hurricanes,57,2390,0,0,1,14,Benchmark International Arena,True,False,23,2,STATUS_SCHEDULED,401906769,Miami Hurricanes at Florida Gators
 2026,Regular,2026-11-02 23:00:00+00:00,Michigan Wolverines,Oakland Golden Grizzlies,130,2473,0,0,16,99,Crisler Center,False,False,7,45,STATUS_SCHEDULED,401925733,Oakland Golden Grizzlies at Michigan Wolverines
@@ -41,8 +41,8 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-11-05 00:30:00+00:00,UL Monroe Warhawks,Champion Christian Tigers,2433,3134,0,0,99,99,b1Bank Fant Coliseum,False,False,27,,STATUS_SCHEDULED,401917977,Champion Christian Tigers at UL Monroe Warhawks
 2026,Regular,2026-11-05 01:00:00+00:00,Auburn Tigers,SE Louisiana Lions,2,2545,0,0,99,99,Neville Arena,False,False,23,25,STATUS_SCHEDULED,401920798,SE Louisiana Lions at Auburn Tigers
 2026,Regular,2026-11-05 01:00:00+00:00,Southern Indiana Screaming Eagles,Saint Mary of the Woods Pomeroys,88,126824,0,0,99,99,Liberty Arena (IN),False,False,20,,STATUS_SCHEDULED,401923391,Saint Mary of the Woods Pomeroys at Southern Indiana Screaming Eagles
-2026,Regular,2026-11-05 01:00:00+00:00,South Dakota Coyotes,Northern Kentucky Norse,233,94,0,0,99,99,Sanford Coyote Sports Center,False,False,49,45,STATUS_SCHEDULED,401928811,Northern Kentucky Norse at South Dakota Coyotes
 2026,Regular,2026-11-05 01:00:00+00:00,Norfolk State Spartans,Randolph Wildcats,2450,3153,0,0,99,99,Joseph G. Echols Hall,False,False,16,,STATUS_SCHEDULED,401925893,Randolph Wildcats at Norfolk State Spartans
+2026,Regular,2026-11-05 01:00:00+00:00,South Dakota Coyotes,Northern Kentucky Norse,233,94,0,0,99,99,Sanford Coyote Sports Center,False,False,49,45,STATUS_SCHEDULED,401928811,Northern Kentucky Norse at South Dakota Coyotes
 2026,Regular,2026-11-05 02:00:00+00:00,Boise State Broncos,West Coast Baptist Eagles,68,110418,0,0,99,99,ExtraMile Arena,False,False,21,,STATUS_SCHEDULED,401929171,West Coast Baptist Eagles at Boise State Broncos
 2026,Regular,2026-11-05 02:00:00+00:00,Utah Tech Trailblazers,Grace University Lancers,3101,134743,0,0,99,99,Burns Arena,False,False,5,,STATUS_SCHEDULED,401925939,Grace University Lancers at Utah Tech Trailblazers
 2026,Regular,2026-11-05 02:00:00+00:00,Montana Grizzlies,Salish Kootenai Bison,149,131858,0,0,99,99,Dahlberg Arena,False,False,5,,STATUS_SCHEDULED,401922030,Salish Kootenai Bison at Montana Grizzlies
@@ -107,3 +107,5 @@ year,season_type,date,home_team,away_team,home_team_id,away_team_id,home_score,a
 2026,Regular,2026-11-14 01:00:00+00:00,Arkansas Razorbacks,Central Arkansas Bears,8,2110,0,0,12,99,Bud Walton Arena,False,False,23,30,STATUS_SCHEDULED,401917916,Central Arkansas Bears at Arkansas Razorbacks
 2026,Regular,2026-11-14 02:00:00+00:00,Auburn Tigers,Arizona Wildcats,2,12,0,0,99,5,Neville Arena,False,False,23,8,STATUS_SCHEDULED,401909741,Arizona Wildcats at Auburn Tigers
 2026,Regular,2026-11-14 02:00:00+00:00,Alabama Crimson Tide,Seton Hall Pirates,333,2550,0,0,20,99,Coleman Coliseum,False,False,23,4,STATUS_SCHEDULED,401906760,Seton Hall Pirates at Alabama Crimson Tide
+2026,Regular,2026-11-14 19:00:00+00:00,Texas Tech Red Raiders,Stonehill Skyhawks,2641,284,0,0,19,99,United Supermarkets Arena,False,False,8,19,STATUS_SCHEDULED,401919847,Stonehill Skyhawks at Texas Tech Red Raiders
+2026,Regular,2026-11-14 20:30:00+00:00,Gonzaga Bulldogs,LSU Tigers,2250,99,0,0,15,99,Spokane Numerica Veterans Arena,False,False,21,23,STATUS_SCHEDULED,401921689,LSU Tigers at Gonzaga Bulldogs

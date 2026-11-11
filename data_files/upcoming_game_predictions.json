@@ -1,23 +1,30 @@
 [
   {
     "game_info": {
-      "game_id": 401906771,
-      "home_team": "Florida State Seminoles",
-      "away_team": "Florida Gators",
-      "date": "2026-11-10 23:00:00+00:00",
-      "venue": "Tucker Center",
-      "home_rank": 99,
-      "away_rank": 1,
+      "game_id": 401920680,
+      "home_team": "St. John's Red Storm",
+      "away_team": "Colgate Raiders",
+      "date": "2026-11-12 00:00:00+00:00",
+      "venue": "Carnesecca Arena",
+      "home_rank": 13,
+      "away_rank": 99,
       "home_eff": {
+        "offensiveRating": 108.7,
+        "defensiveRating": 108.7
+      },
+      "away_eff": {
         "offensiveRating": 100.1,
         "defensiveRating": 100.1
       },
-      "away_eff": {
-        "offensiveRating": 109.9,
-        "defensiveRating": 109.9
-      },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -10000,
+      "away_moneyline": 2500,
+      "home_ml": -10000,
+      "away_ml": 2500,
+      "home_spread": -30.0,
+      "away_spread": 30.0,
+      "total_line": 159.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -42,364 +49,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.050246",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401909564,
-      "home_team": "Duke Blue Devils",
-      "away_team": "Michigan State Spartans",
-      "date": "2026-11-11 00:00:00+00:00",
-      "venue": "United Center",
-      "home_rank": 2,
-      "away_rank": 5,
-      "home_eff": {
-        "offensiveRating": 109.8,
-        "defensiveRating": 109.8
-      },
-      "away_eff": {
-        "offensiveRating": 109.5,
-        "defensiveRating": 109.5
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": -10.0,
-        "net_winpct_diff": 0.15992647058823528,
-        "net_q1wins_diff": 7,
-        "net_q1pct_diff": 0.26973684210526316
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.072255",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401918987,
-      "home_team": "Vanderbilt Commodores",
-      "away_team": "Memphis Tigers",
-      "date": "2026-11-11 00:15:00+00:00",
-      "venue": "Memorial Gymnasium (TN)",
-      "home_rank": 22,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.8,
-        "defensiveRating": 107.8
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -1800,
-      "away_moneyline": 979,
-      "home_ml": -1800,
-      "away_ml": 979,
-      "home_spread": -14.0,
-      "away_spread": 14.0,
-      "total_line": 160.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 18.380000000000003,
-        "kenpom_ortg_diff": 17.60000000000001,
-        "kenpom_drtg_diff": -0.7999999999999972,
-        "kenpom_adjt_diff": 1.5,
-        "kenpom_luck_diff": 0.078,
-        "kenpom_sos_diff": 2.8100000000000005,
-        "bart_oe_diff": 19.61404794133,
-        "bart_de_diff": -4.923779292669991,
-        "net_rank_diff": -122.0,
-        "net_winpct_diff": 0.3584558823529411,
-        "net_q1wins_diff": 10,
-        "net_q1pct_diff": 0.5882352941176471
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.096017",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401913527,
-      "home_team": "Texas Tech Red Raiders",
-      "away_team": "Illinois Fighting Illini",
-      "date": "2026-11-11 01:00:00+00:00",
-      "venue": "United Supermarkets Arena",
-      "home_rank": 16,
-      "away_rank": 3,
-      "home_eff": {
-        "offensiveRating": 108.4,
-        "defensiveRating": 108.4
-      },
-      "away_eff": {
-        "offensiveRating": 109.7,
-        "defensiveRating": 109.7
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": 120,
-      "away_moneyline": -142,
-      "home_ml": 120,
-      "away_ml": -142,
-      "home_spread": 2.5,
-      "away_spread": -2.5,
-      "total_line": 166.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": -5.120000000000001,
-        "kenpom_ortg_diff": -4.099999999999994,
-        "kenpom_drtg_diff": 0.8999999999999915,
-        "kenpom_adjt_diff": 1.2999999999999972,
-        "kenpom_luck_diff": 0.045000000000000005,
-        "kenpom_sos_diff": 3.2799999999999994,
-        "bart_oe_diff": -6.534193343140018,
-        "bart_de_diff": 2.146002577945012,
-        "net_rank_diff": 11.0,
-        "net_winpct_diff": -0.0625,
-        "net_q1wins_diff": 0,
-        "net_q1pct_diff": -0.029166666666666674
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.119796",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401920425,
-      "home_team": "Virginia Cavaliers",
-      "away_team": "Bucknell Bison",
-      "date": "2026-11-11 02:00:00+00:00",
-      "venue": "John Paul Jones Arena",
-      "home_rank": 6,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 109.4,
-        "defensiveRating": 109.4
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": null,
-      "away_moneyline": null,
-      "home_ml": null,
-      "away_ml": null,
-      "home_spread": -38.5,
-      "away_spread": 38.5,
-      "total_line": 150.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.141006",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401909740,
-      "home_team": "Arizona Wildcats",
-      "away_team": "Northern Arizona Lumberjacks",
-      "date": "2026-11-11 02:00:00+00:00",
-      "venue": "McKale Center at ALKEME Arena",
-      "home_rank": 12,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 108.8,
-        "defensiveRating": 108.8
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.162165",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401921740,
-      "home_team": "BYU Cougars",
-      "away_team": "Queens University Royals",
-      "date": "2026-11-11 02:00:00+00:00",
-      "venue": "Marriott Center",
-      "home_rank": 23,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.7,
-        "defensiveRating": 107.7
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": -50000,
-      "away_moneyline": 4000,
-      "home_ml": -50000,
-      "away_ml": 4000,
-      "home_spread": -29.5,
-      "away_spread": 29.5,
-      "total_line": 182.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.183092",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401909786,
-      "home_team": "Kentucky Wildcats",
-      "away_team": "Kansas Jayhawks",
-      "date": "2026-11-11 02:30:00+00:00",
-      "venue": "United Center",
-      "home_rank": 24,
-      "away_rank": 15,
-      "home_eff": {
-        "offensiveRating": 107.6,
-        "defensiveRating": 107.6
-      },
-      "away_eff": {
-        "offensiveRating": 108.5,
-        "defensiveRating": 108.5
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "home_moneyline": 170,
-      "away_moneyline": -205,
-      "home_ml": 170,
-      "away_ml": -205,
-      "home_spread": 4.5,
-      "away_spread": -4.5,
-      "total_line": 158.5,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": -3.7699999999999996,
-        "kenpom_ortg_diff": 0.7000000000000028,
-        "kenpom_drtg_diff": 4.5,
-        "kenpom_adjt_diff": 0.29999999999999716,
-        "kenpom_luck_diff": -0.01,
-        "kenpom_sos_diff": -4.370000000000001,
-        "bart_oe_diff": 2.9337872202499966,
-        "bart_de_diff": 5.995632507943,
-        "net_rank_diff": 7.0,
-        "net_winpct_diff": -0.07932263814616758,
-        "net_q1wins_diff": -4,
-        "net_q1pct_diff": -0.1875
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.207003",
+    "generated_at": "2026-11-11T16:08:14.522429",
     "season": 2025
   },
   {
@@ -540,6 +190,13 @@
         }
       },
       "away_stats": null,
+      "home_moneyline": -170,
+      "away_moneyline": 149,
+      "home_ml": -170,
+      "away_ml": 149,
+      "home_spread": -3.5,
+      "away_spread": 3.5,
+      "total_line": 157.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -564,53 +221,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.227986",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401920680,
-      "home_team": "St. John's Red Storm",
-      "away_team": "Colgate Raiders",
-      "date": "2026-11-12 00:00:00+00:00",
-      "venue": "Carnesecca Arena",
-      "home_rank": 13,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 108.7,
-        "defensiveRating": 108.7
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.248803",
+    "generated_at": "2026-11-11T16:08:14.543853",
     "season": 2025
   },
   {
@@ -656,7 +267,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.270645",
+    "generated_at": "2026-11-11T16:08:14.566105",
     "season": 2025
   },
   {
@@ -678,6 +289,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": -100000,
+      "away_moneyline": 4500,
+      "home_ml": -100000,
+      "away_ml": 4500,
+      "home_spread": -31.0,
+      "away_spread": 31.0,
+      "total_line": 156.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -702,7 +320,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.291597",
+    "generated_at": "2026-11-11T16:08:14.587471",
     "season": 2025
   },
   {
@@ -724,6 +342,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "home_spread": -46.5,
+      "away_spread": 46.5,
+      "total_line": 158.0,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -748,7 +373,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.313277",
+    "generated_at": "2026-11-11T16:08:14.609246",
     "season": 2025
   },
   {
@@ -770,6 +395,13 @@
       },
       "home_stats": null,
       "away_stats": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "home_spread": -34.5,
+      "away_spread": 34.5,
+      "total_line": 150.5,
       "advanced_diffs": {
         "kenpom_netrtg_diff": 0.0,
         "kenpom_ortg_diff": 0.0,
@@ -794,7 +426,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.334251",
+    "generated_at": "2026-11-11T16:08:14.630455",
     "season": 2025
   },
   {
@@ -840,7 +472,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.355278",
+    "generated_at": "2026-11-11T16:08:14.651947",
     "season": 2025
   },
   {
@@ -886,7 +518,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.376333",
+    "generated_at": "2026-11-11T16:08:14.673056",
     "season": 2025
   },
   {
@@ -932,53 +564,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.394532",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401921825,
-      "home_team": "Vanderbilt Commodores",
-      "away_team": "Prairie View A&M Panthers",
-      "date": "2026-11-14 00:00:00+00:00",
-      "venue": "Memorial Gymnasium (TN)",
-      "home_rank": 22,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.8,
-        "defensiveRating": 107.8
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 38.370000000000005,
-        "kenpom_ortg_diff": 23.299999999999997,
-        "kenpom_drtg_diff": -15.099999999999994,
-        "kenpom_adjt_diff": -1.6999999999999886,
-        "kenpom_luck_diff": 0.061,
-        "kenpom_sos_diff": 10.22,
-        "bart_oe_diff": 26.280178175079996,
-        "bart_de_diff": -10.95494095897999,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.417546",
+    "generated_at": "2026-11-11T16:08:14.690991",
     "season": 2025
   },
   {
@@ -1024,7 +610,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.438685",
+    "generated_at": "2026-11-11T16:08:14.712229",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401921825,
+      "home_team": "Vanderbilt Commodores",
+      "away_team": "Prairie View A&M Panthers",
+      "date": "2026-11-14 00:00:00+00:00",
+      "venue": "Memorial Gymnasium (TN)",
+      "home_rank": 22,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 107.8,
+        "defensiveRating": 107.8
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 38.370000000000005,
+        "kenpom_ortg_diff": 23.299999999999997,
+        "kenpom_drtg_diff": -15.099999999999994,
+        "kenpom_adjt_diff": -1.6999999999999886,
+        "kenpom_luck_diff": 0.061,
+        "kenpom_sos_diff": 10.22,
+        "bart_oe_diff": 26.280178175079996,
+        "bart_de_diff": -10.95494095897999,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:14.735104",
     "season": 2025
   },
   {
@@ -1070,7 +702,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.461050",
+    "generated_at": "2026-11-11T16:08:14.757049",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401906772,
+      "home_team": "Florida Gators",
+      "away_team": "Merrimack Warriors",
+      "date": "2026-11-14 00:00:00+00:00",
+      "venue": "Thomas Hill Arena",
+      "home_rank": 1,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 109.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:14.778204",
     "season": 2025
   },
   {
@@ -1116,53 +794,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.482015",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401906772,
-      "home_team": "Florida Gators",
-      "away_team": "Merrimack Warriors",
-      "date": "2026-11-14 00:00:00+00:00",
-      "venue": "Stephen C. O'Connell Center",
-      "home_rank": 1,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 109.9,
-        "defensiveRating": 109.9
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.502959",
+    "generated_at": "2026-11-11T16:08:14.798895",
     "season": 2025
   },
   {
@@ -1208,7 +840,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.524590",
+    "generated_at": "2026-11-11T16:08:14.820857",
     "season": 2025
   },
   {
@@ -1373,99 +1005,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.546382",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401909565,
-      "home_team": "Duke Blue Devils",
-      "away_team": "SIU Edwardsville Cougars",
-      "date": "2026-11-14 01:00:00+00:00",
-      "venue": "Cameron Indoor Stadium",
-      "home_rank": 2,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 109.8,
-        "defensiveRating": 109.8
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 28.697386962674997,
-        "bart_de_diff": -14.389581098212005,
-        "net_rank_diff": -258.0,
-        "net_winpct_diff": 0.3894523326572008,
-        "net_q1wins_diff": 17,
-        "net_q1pct_diff": 0.8947368421052632
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.568513",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401916297,
-      "home_team": "Maryland Terrapins",
-      "away_team": "Virginia Cavaliers",
-      "date": "2026-11-14 01:00:00+00:00",
-      "venue": "XFINITY Center",
-      "home_rank": 99,
-      "away_rank": 6,
-      "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "away_eff": {
-        "offensiveRating": 109.4,
-        "defensiveRating": 109.4
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": -22.1,
-        "kenpom_ortg_diff": -13.0,
-        "kenpom_drtg_diff": 9.099999999999994,
-        "kenpom_adjt_diff": 2.299999999999997,
-        "kenpom_luck_diff": 0.005,
-        "kenpom_sos_diff": 5.36,
-        "bart_oe_diff": -10.63995772361001,
-        "bart_de_diff": 8.328789607263005,
-        "net_rank_diff": 126.0,
-        "net_winpct_diff": -0.48930481283422456,
-        "net_q1wins_diff": -7,
-        "net_q1pct_diff": -0.6041666666666666
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.592401",
+    "generated_at": "2026-11-11T16:08:14.842658",
     "season": 2025
   },
   {
@@ -1511,41 +1051,41 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.615965",
+    "generated_at": "2026-11-11T16:08:14.866502",
     "season": 2025
   },
   {
     "game_info": {
-      "game_id": 401909741,
-      "home_team": "Auburn Tigers",
-      "away_team": "Arizona Wildcats",
-      "date": "2026-11-14 02:00:00+00:00",
-      "venue": "Neville Arena",
-      "home_rank": 99,
-      "away_rank": 12,
+      "game_id": 401909565,
+      "home_team": "Duke Blue Devils",
+      "away_team": "SIU Edwardsville Cougars",
+      "date": "2026-11-14 01:00:00+00:00",
+      "venue": "Cameron Indoor Stadium",
+      "home_rank": 2,
+      "away_rank": 99,
       "home_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
+        "offensiveRating": 109.8,
+        "defensiveRating": 109.8
       },
       "away_eff": {
-        "offensiveRating": 108.8,
-        "defensiveRating": 108.8
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
       },
       "home_stats": null,
       "away_stats": null,
       "advanced_diffs": {
-        "kenpom_netrtg_diff": -14.320000000000004,
-        "kenpom_ortg_diff": -2.1000000000000085,
-        "kenpom_drtg_diff": 12.199999999999989,
-        "kenpom_adjt_diff": -3.0999999999999943,
-        "kenpom_luck_diff": -0.026000000000000002,
-        "kenpom_sos_diff": 6.04,
-        "bart_oe_diff": -3.0710456244,
-        "bart_de_diff": 15.108094852658994,
-        "net_rank_diff": 35.0,
-        "net_winpct_diff": -0.42602495543672014,
-        "net_q1wins_diff": -12,
-        "net_q1pct_diff": -0.65359477124183
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 28.697386962674997,
+        "bart_de_diff": -14.389581098212005,
+        "net_rank_diff": -258.0,
+        "net_winpct_diff": 0.3894523326572008,
+        "net_q1wins_diff": 17,
+        "net_q1pct_diff": 0.8947368421052632
       }
     },
     "predictions": {
@@ -1557,7 +1097,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.639605",
+    "generated_at": "2026-11-11T16:08:14.888982",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401916297,
+      "home_team": "Maryland Terrapins",
+      "away_team": "Virginia Cavaliers",
+      "date": "2026-11-14 01:00:00+00:00",
+      "venue": "XFINITY Center",
+      "home_rank": 99,
+      "away_rank": 6,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 109.4,
+        "defensiveRating": 109.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": -22.1,
+        "kenpom_ortg_diff": -13.0,
+        "kenpom_drtg_diff": 9.099999999999994,
+        "kenpom_adjt_diff": 2.299999999999997,
+        "kenpom_luck_diff": 0.005,
+        "kenpom_sos_diff": 5.36,
+        "bart_oe_diff": -10.63995772361001,
+        "bart_de_diff": 8.328789607263005,
+        "net_rank_diff": 126.0,
+        "net_winpct_diff": -0.48930481283422456,
+        "net_q1wins_diff": -7,
+        "net_q1pct_diff": -0.6041666666666666
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:14.912944",
     "season": 2025
   },
   {
@@ -1603,7 +1189,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.660613",
+    "generated_at": "2026-11-11T16:08:14.933869",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401909741,
+      "home_team": "Auburn Tigers",
+      "away_team": "Arizona Wildcats",
+      "date": "2026-11-14 02:00:00+00:00",
+      "venue": "Neville Arena",
+      "home_rank": 99,
+      "away_rank": 12,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 108.8,
+        "defensiveRating": 108.8
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": -14.320000000000004,
+        "kenpom_ortg_diff": -2.1000000000000085,
+        "kenpom_drtg_diff": 12.199999999999989,
+        "kenpom_adjt_diff": -3.0999999999999943,
+        "kenpom_luck_diff": -0.026000000000000002,
+        "kenpom_sos_diff": 6.04,
+        "bart_oe_diff": -3.0710456244,
+        "bart_de_diff": 15.108094852658994,
+        "net_rank_diff": 35.0,
+        "net_winpct_diff": -0.42602495543672014,
+        "net_q1wins_diff": -12,
+        "net_q1pct_diff": -0.65359477124183
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:14.957229",
     "season": 2025
   },
   {
@@ -1649,7 +1281,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.684448",
+    "generated_at": "2026-11-11T16:08:14.980435",
     "season": 2025
   },
   {
@@ -1695,7 +1327,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.708390",
+    "generated_at": "2026-11-11T16:08:15.004208",
     "season": 2025
   },
   {
@@ -1741,7 +1373,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.732320",
+    "generated_at": "2026-11-11T16:08:15.030849",
     "season": 2025
   },
   {
@@ -1787,7 +1419,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.754413",
+    "generated_at": "2026-11-11T16:08:15.052449",
     "season": 2025
   },
   {
@@ -1952,7 +1584,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.775924",
+    "generated_at": "2026-11-11T16:08:15.073765",
     "season": 2025
   },
   {
@@ -1998,53 +1630,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.799775",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401926772,
-      "home_team": "USC Trojans",
-      "away_team": "Arkansas-Pine Bluff Golden Lions",
-      "date": "2026-11-16 00:00:00+00:00",
-      "venue": "Galen Center",
-      "home_rank": 21,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.9,
-        "defensiveRating": 107.9
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": -237.0,
-        "net_winpct_diff": 0.18172043010752686,
-        "net_q1wins_diff": 1,
-        "net_q1pct_diff": 0.09090909090909091
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.821692",
+    "generated_at": "2026-11-11T16:08:15.097602",
     "season": 2025
   },
   {
@@ -2090,7 +1676,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.839690",
+    "generated_at": "2026-11-11T16:08:15.115820",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401926772,
+      "home_team": "USC Trojans",
+      "away_team": "Arkansas-Pine Bluff Golden Lions",
+      "date": "2026-11-16 00:00:00+00:00",
+      "venue": "Galen Center",
+      "home_rank": 21,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 107.9,
+        "defensiveRating": 107.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": -237.0,
+        "net_winpct_diff": 0.18172043010752686,
+        "net_q1wins_diff": 1,
+        "net_q1pct_diff": 0.09090909090909091
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:15.137856",
     "season": 2025
   },
   {
@@ -2136,7 +1768,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.861480",
+    "generated_at": "2026-11-11T16:08:15.159740",
     "season": 2025
   },
   {
@@ -2182,7 +1814,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.882740",
+    "generated_at": "2026-11-11T16:08:15.181260",
     "season": 2025
   },
   {
@@ -2228,7 +1860,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.906440",
+    "generated_at": "2026-11-11T16:08:15.204903",
     "season": 2025
   },
   {
@@ -2274,7 +1906,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.930043",
+    "generated_at": "2026-11-11T16:08:15.228640",
     "season": 2025
   },
   {
@@ -2320,7 +1952,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.953760",
+    "generated_at": "2026-11-11T16:08:15.252350",
     "season": 2025
   },
   {
@@ -2366,7 +1998,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.971967",
+    "generated_at": "2026-11-11T16:08:15.270339",
     "season": 2025
   },
   {
@@ -2412,7 +2044,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:08.993726",
+    "generated_at": "2026-11-11T16:08:15.292045",
     "season": 2025
   },
   {
@@ -2458,7 +2090,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.017487",
+    "generated_at": "2026-11-11T16:08:15.315849",
     "season": 2025
   },
   {
@@ -2504,7 +2136,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.041386",
+    "generated_at": "2026-11-11T16:08:15.339764",
     "season": 2025
   },
   {
@@ -2550,7 +2182,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.062560",
+    "generated_at": "2026-11-11T16:08:15.360905",
     "season": 2025
   },
   {
@@ -2596,7 +2228,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.084505",
+    "generated_at": "2026-11-11T16:08:15.382612",
     "season": 2025
   },
   {
@@ -2642,7 +2274,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.108363",
+    "generated_at": "2026-11-11T16:08:15.406339",
     "season": 2025
   },
   {
@@ -2688,7 +2320,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.129358",
+    "generated_at": "2026-11-11T16:08:15.427604",
     "season": 2025
   },
   {
@@ -2734,7 +2366,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.147246",
+    "generated_at": "2026-11-11T16:08:15.445672",
     "season": 2025
   },
   {
@@ -2780,7 +2412,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.168450",
+    "generated_at": "2026-11-11T16:08:15.466818",
     "season": 2025
   },
   {
@@ -2826,53 +2458,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.193431",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401921742,
-      "home_team": "BYU Cougars",
-      "away_team": "Northern Colorado Bears",
-      "date": "2026-11-19 02:00:00+00:00",
-      "venue": "Marriott Center",
-      "home_rank": 23,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 107.7,
-        "defensiveRating": 107.7
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 27.81,
-        "kenpom_ortg_diff": 13.299999999999997,
-        "kenpom_drtg_diff": -14.5,
-        "kenpom_adjt_diff": 1.9000000000000057,
-        "kenpom_luck_diff": 0.078,
-        "kenpom_sos_diff": 8.23,
-        "bart_oe_diff": 11.922142046640005,
-        "bart_de_diff": -5.660027233709997,
-        "net_rank_diff": -126.0,
-        "net_winpct_diff": 0.09026369168357007,
-        "net_q1wins_diff": 7,
-        "net_q1pct_diff": 0.4117647058823529
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.217014",
+    "generated_at": "2026-11-11T16:08:15.487875",
     "season": 2025
   },
   {
@@ -2918,7 +2504,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.240662",
+    "generated_at": "2026-11-11T16:08:15.511775",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401921742,
+      "home_team": "BYU Cougars",
+      "away_team": "Northern Colorado Bears",
+      "date": "2026-11-19 02:00:00+00:00",
+      "venue": "Marriott Center",
+      "home_rank": 23,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 107.7,
+        "defensiveRating": 107.7
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 27.81,
+        "kenpom_ortg_diff": 13.299999999999997,
+        "kenpom_drtg_diff": -14.5,
+        "kenpom_adjt_diff": 1.9000000000000057,
+        "kenpom_luck_diff": 0.078,
+        "kenpom_sos_diff": 8.23,
+        "bart_oe_diff": 11.922142046640005,
+        "bart_de_diff": -5.660027233709997,
+        "net_rank_diff": -126.0,
+        "net_winpct_diff": 0.09026369168357007,
+        "net_q1wins_diff": 7,
+        "net_q1pct_diff": 0.4117647058823529
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:15.535785",
     "season": 2025
   },
   {
@@ -2964,7 +2596,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.262000",
+    "generated_at": "2026-11-11T16:08:15.557017",
     "season": 2025
   },
   {
@@ -3010,7 +2642,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.283271",
+    "generated_at": "2026-11-11T16:08:15.578061",
     "season": 2025
   },
   {
@@ -3056,7 +2688,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.307107",
+    "generated_at": "2026-11-11T16:08:15.601942",
     "season": 2025
   },
   {
@@ -3102,7 +2734,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.328106",
+    "generated_at": "2026-11-11T16:08:15.623252",
     "season": 2025
   },
   {
@@ -3148,7 +2780,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.349173",
+    "generated_at": "2026-11-11T16:08:15.644544",
     "season": 2025
   },
   {
@@ -3194,7 +2826,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.370237",
+    "generated_at": "2026-11-11T16:08:15.670338",
     "season": 2025
   },
   {
@@ -3240,7 +2872,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.391269",
+    "generated_at": "2026-11-11T16:08:15.691601",
     "season": 2025
   },
   {
@@ -3286,7 +2918,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.412689",
+    "generated_at": "2026-11-11T16:08:15.712628",
     "season": 2025
   },
   {
@@ -3332,7 +2964,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.436974",
+    "generated_at": "2026-11-11T16:08:15.736581",
     "season": 2025
   },
   {
@@ -3378,7 +3010,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.466091",
+    "generated_at": "2026-11-11T16:08:15.760744",
     "season": 2025
   },
   {
@@ -3424,7 +3056,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.490942",
+    "generated_at": "2026-11-11T16:08:15.784636",
     "season": 2025
   },
   {
@@ -3470,7 +3102,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.509968",
+    "generated_at": "2026-11-11T16:08:15.803565",
     "season": 2025
   },
   {
@@ -3635,7 +3267,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.533835",
+    "generated_at": "2026-11-11T16:08:15.827444",
     "season": 2025
   },
   {
@@ -3681,7 +3313,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.555774",
+    "generated_at": "2026-11-11T16:08:15.849461",
     "season": 2025
   },
   {
@@ -3727,7 +3359,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.579789",
+    "generated_at": "2026-11-11T16:08:15.874355",
     "season": 2025
   },
   {
@@ -3773,7 +3405,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.601419",
+    "generated_at": "2026-11-11T16:08:15.895766",
     "season": 2025
   },
   {
@@ -3819,7 +3451,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.622674",
+    "generated_at": "2026-11-11T16:08:15.916862",
     "season": 2025
   },
   {
@@ -3865,7 +3497,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.643924",
+    "generated_at": "2026-11-11T16:08:15.937888",
     "season": 2025
   },
   {
@@ -3911,53 +3543,7 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.667752",
-    "season": 2025
-  },
-  {
-    "game_info": {
-      "game_id": 401909788,
-      "home_team": "Kansas Jayhawks",
-      "away_team": "Denver Pioneers",
-      "date": "2026-11-24 01:00:00+00:00",
-      "venue": "Allen Fieldhouse",
-      "home_rank": 15,
-      "away_rank": 99,
-      "home_eff": {
-        "offensiveRating": 108.5,
-        "defensiveRating": 108.5
-      },
-      "away_eff": {
-        "offensiveRating": 100.1,
-        "defensiveRating": 100.1
-      },
-      "home_stats": null,
-      "away_stats": null,
-      "advanced_diffs": {
-        "kenpom_netrtg_diff": 0.0,
-        "kenpom_ortg_diff": 0.0,
-        "kenpom_drtg_diff": 0.0,
-        "kenpom_adjt_diff": 0.0,
-        "kenpom_luck_diff": 0.0,
-        "kenpom_sos_diff": 0.0,
-        "bart_oe_diff": 0.0,
-        "bart_de_diff": 0.0,
-        "net_rank_diff": 0.0,
-        "net_winpct_diff": 0.0,
-        "net_q1wins_diff": 0.0,
-        "net_q1pct_diff": 0.0
-      }
-    },
-    "predictions": {
-      "spread_prediction": -4.541888236999512,
-      "spread_confidence_interval": [
-        -7.54,
-        -1.54
-      ],
-      "model_source": "improved"
-    },
-    "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.688971",
+    "generated_at": "2026-11-11T16:08:15.961752",
     "season": 2025
   },
   {
@@ -4003,7 +3589,53 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.712878",
+    "generated_at": "2026-11-11T16:08:15.985724",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401909788,
+      "home_team": "Kansas Jayhawks",
+      "away_team": "Denver Pioneers",
+      "date": "2026-11-24 01:00:00+00:00",
+      "venue": "Allen Fieldhouse",
+      "home_rank": 15,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 108.5,
+        "defensiveRating": 108.5
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.007055",
     "season": 2025
   },
   {
@@ -4049,7 +3681,659 @@
       "model_source": "improved"
     },
     "is_tournament": false,
-    "generated_at": "2026-11-10T16:27:09.734773",
+    "generated_at": "2026-11-11T16:08:16.037910",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401906853,
+      "home_team": "Maryland Terrapins",
+      "away_team": "Tennessee Volunteers",
+      "date": "2026-11-24 20:00:00+00:00",
+      "venue": "Michelob ULTRA Arena",
+      "home_rank": 99,
+      "away_rank": 11,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 108.9,
+        "defensiveRating": 108.9
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": -18.490000000000002,
+        "kenpom_ortg_diff": -9.100000000000009,
+        "kenpom_drtg_diff": 9.399999999999991,
+        "kenpom_adjt_diff": 1.2999999999999972,
+        "kenpom_luck_diff": 0.081,
+        "kenpom_sos_diff": 1.9800000000000004,
+        "bart_oe_diff": -10.420554157240005,
+        "bart_de_diff": 11.133032706625002,
+        "net_rank_diff": 118.0,
+        "net_winpct_diff": -0.303030303030303,
+        "net_q1wins_diff": -5,
+        "net_q1pct_diff": -0.3125
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.062739",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401915941,
+      "home_team": "TCU Horned Frogs",
+      "away_team": "Miami Hurricanes",
+      "date": "2026-11-24 20:00:00+00:00",
+      "venue": "T-Mobile Arena",
+      "home_rank": 99,
+      "away_rank": 17,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 108.3,
+        "defensiveRating": 108.3
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.083999",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401909495,
+      "home_team": "Michigan Wolverines",
+      "away_team": "Creighton Bluejays",
+      "date": "2026-11-24 22:30:00+00:00",
+      "venue": "T-Mobile Arena",
+      "home_rank": 20,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 114,
+        "defensiveRating": 110.7
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": {
+        "season": 2027,
+        "seasonLabel": "20262027",
+        "teamId": 170,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 2,
+        "wins": 1,
+        "losses": 1,
+        "totalMinutes": 80,
+        "pace": 70.8,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 42.5,
+            "attempted": 134,
+            "made": 57
+          },
+          "twoPointFieldGoals": {
+            "pct": 59.7,
+            "attempted": 72,
+            "made": 43
+          },
+          "threePointFieldGoals": {
+            "pct": 22.6,
+            "attempted": 62,
+            "made": 14
+          },
+          "freeThrows": {
+            "pct": 76.7,
+            "attempted": 43,
+            "made": 33
+          },
+          "rebounds": {
+            "total": 77,
+            "defensive": 48,
+            "offensive": 29
+          },
+          "turnovers": {
+            "teamTotal": 0,
+            "total": 23
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 2,
+            "total": 51
+          },
+          "points": {
+            "fastBreak": 28,
+            "offTurnovers": 26,
+            "inPaint": 86,
+            "total": 161
+          },
+          "fourFactors": {
+            "freeThrowRate": 32.1,
+            "offensiveReboundPct": 37.7,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 47.8
+          },
+          "assists": 30,
+          "blocks": 7,
+          "steals": 14,
+          "possessions": 142,
+          "rating": 113.4,
+          "trueShooting": 52.6
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 36.4,
+            "attempted": 118,
+            "made": 43
+          },
+          "twoPointFieldGoals": {
+            "pct": 40,
+            "attempted": 70,
+            "made": 28
+          },
+          "threePointFieldGoals": {
+            "pct": 31.3,
+            "attempted": 48,
+            "made": 15
+          },
+          "freeThrows": {
+            "pct": 78.8,
+            "attempted": 66,
+            "made": 52
+          },
+          "rebounds": {
+            "total": 77,
+            "defensive": 47,
+            "offensive": 30
+          },
+          "turnovers": {
+            "teamTotal": 3,
+            "total": 27
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 2,
+            "total": 42
+          },
+          "points": {
+            "fastBreak": 12,
+            "offTurnovers": 25,
+            "inPaint": 48,
+            "total": 153
+          },
+          "fourFactors": {
+            "freeThrowRate": 55.9,
+            "offensiveReboundPct": 39,
+            "turnoverRatio": 0.19,
+            "effectiveFieldGoalPct": 42.8
+          },
+          "assists": 14,
+          "blocks": 3,
+          "steals": 11,
+          "possessions": 141,
+          "rating": 108.5,
+          "trueShooting": 52
+        }
+      },
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.105631",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401906774,
+      "home_team": "Florida Gators",
+      "away_team": "Milwaukee Panthers",
+      "date": "2026-11-25 00:00:00+00:00",
+      "venue": "Thomas Hill Arena",
+      "home_rank": 1,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 109.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 37.17,
+        "kenpom_ortg_diff": 17.0,
+        "kenpom_drtg_diff": -20.200000000000003,
+        "kenpom_adjt_diff": 2.1999999999999886,
+        "kenpom_luck_diff": -0.093,
+        "kenpom_sos_diff": 11.9,
+        "bart_oe_diff": 20.28608149038999,
+        "bart_de_diff": -22.019945192349,
+        "net_rank_diff": -249.0,
+        "net_winpct_diff": 0.4330400782013685,
+        "net_q1wins_diff": 12,
+        "net_q1pct_diff": 0.6666666666666666
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.129566",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401916319,
+      "home_team": "Ohio State Buckeyes",
+      "away_team": "Vanderbilt Commodores",
+      "date": "2026-11-25 00:00:00+00:00",
+      "venue": "Schottenstein Center",
+      "home_rank": 99,
+      "away_rank": 22,
+      "home_eff": {
+        "offensiveRating": 111,
+        "defensiveRating": 108
+      },
+      "away_eff": {
+        "offensiveRating": 107.8,
+        "defensiveRating": 107.8
+      },
+      "home_stats": {
+        "season": 2027,
+        "seasonLabel": "20262027",
+        "teamId": 216,
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "games": 3,
+        "wins": 2,
+        "losses": 1,
+        "totalMinutes": 120,
+        "pace": 72.7,
+        "teamStats": {
+          "fieldGoals": {
+            "pct": 46.9,
+            "attempted": 175,
+            "made": 82
+          },
+          "twoPointFieldGoals": {
+            "pct": 60.2,
+            "attempted": 103,
+            "made": 62
+          },
+          "threePointFieldGoals": {
+            "pct": 27.8,
+            "attempted": 72,
+            "made": 20
+          },
+          "freeThrows": {
+            "pct": 81.8,
+            "attempted": 88,
+            "made": 72
+          },
+          "rebounds": {
+            "total": 111,
+            "defensive": 77,
+            "offensive": 34
+          },
+          "turnovers": {
+            "teamTotal": 2,
+            "total": 36
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 1,
+            "total": 52
+          },
+          "points": {
+            "fastBreak": 47,
+            "offTurnovers": 35,
+            "inPaint": 120,
+            "total": 256
+          },
+          "fourFactors": {
+            "freeThrowRate": 50.3,
+            "offensiveReboundPct": 30.6,
+            "turnoverRatio": 0.16,
+            "effectiveFieldGoalPct": 52.6
+          },
+          "assists": 46,
+          "blocks": 10,
+          "steals": 21,
+          "possessions": 219,
+          "rating": 116.9,
+          "trueShooting": 59.9
+        },
+        "opponentStats": {
+          "fieldGoals": {
+            "pct": 46.4,
+            "attempted": 179,
+            "made": 83
+          },
+          "twoPointFieldGoals": {
+            "pct": 56.9,
+            "attempted": 102,
+            "made": 58
+          },
+          "threePointFieldGoals": {
+            "pct": 32.5,
+            "attempted": 77,
+            "made": 25
+          },
+          "freeThrows": {
+            "pct": 71.2,
+            "attempted": 59,
+            "made": 42
+          },
+          "rebounds": {
+            "total": 91,
+            "defensive": 64,
+            "offensive": 27
+          },
+          "turnovers": {
+            "teamTotal": 0,
+            "total": 36
+          },
+          "fouls": {
+            "flagrant": 0,
+            "technical": 0,
+            "total": 69
+          },
+          "points": {
+            "fastBreak": 26,
+            "offTurnovers": 34,
+            "inPaint": 88,
+            "total": 233
+          },
+          "fourFactors": {
+            "freeThrowRate": 33,
+            "offensiveReboundPct": 29.7,
+            "turnoverRatio": 0.17,
+            "effectiveFieldGoalPct": 53.4
+          },
+          "assists": 31,
+          "blocks": 4,
+          "steals": 13,
+          "possessions": 217,
+          "rating": 107.4,
+          "trueShooting": 56.8
+        }
+      },
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 16.0,
+        "net_winpct_diff": -0.12834224598930477,
+        "net_q1wins_diff": -5,
+        "net_q1pct_diff": -0.2757352941176471
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.151823",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401915942,
+      "home_team": "Louisville Cardinals",
+      "away_team": "Texas Tech Red Raiders",
+      "date": "2026-11-25 01:00:00+00:00",
+      "venue": "Michelob ULTRA Arena",
+      "home_rank": 10,
+      "away_rank": 16,
+      "home_eff": {
+        "offensiveRating": 109.0,
+        "defensiveRating": 109.0
+      },
+      "away_eff": {
+        "offensiveRating": 108.4,
+        "defensiveRating": 108.4
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.9600000000000009,
+        "kenpom_ortg_diff": 1.5,
+        "kenpom_drtg_diff": 0.6000000000000085,
+        "kenpom_adjt_diff": 2.5,
+        "kenpom_luck_diff": -0.10400000000000001,
+        "kenpom_sos_diff": -3.42,
+        "bart_oe_diff": -2.33608874123,
+        "bart_de_diff": -1.2564521672950093,
+        "net_rank_diff": -2.0,
+        "net_winpct_diff": 0.009469696969697017,
+        "net_q1wins_diff": 1,
+        "net_q1pct_diff": 0.00694444444444442
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.175560",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401906762,
+      "home_team": "Alabama Crimson Tide",
+      "away_team": "Baylor Bears",
+      "date": "2026-11-25 03:00:00+00:00",
+      "venue": "T-Mobile Arena",
+      "home_rank": 18,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 108.2,
+        "defensiveRating": 108.2
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 9.369999999999997,
+        "kenpom_ortg_diff": 5.599999999999994,
+        "kenpom_drtg_diff": -3.6999999999999886,
+        "kenpom_adjt_diff": 5.599999999999994,
+        "kenpom_luck_diff": 0.023,
+        "kenpom_sos_diff": 5.220000000000001,
+        "bart_oe_diff": 6.576660919120002,
+        "bart_de_diff": -4.917604445389998,
+        "net_rank_diff": -32.0,
+        "net_winpct_diff": 0.2348790322580645,
+        "net_q1wins_diff": 3,
+        "net_q1pct_diff": 0.25
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.199409",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401915943,
+      "home_team": "St. John's Red Storm",
+      "away_team": "Oregon Ducks",
+      "date": "2026-11-25 03:30:00+00:00",
+      "venue": "Michelob ULTRA Arena",
+      "home_rank": 13,
+      "away_rank": 99,
+      "home_eff": {
+        "offensiveRating": 108.7,
+        "defensiveRating": 108.7
+      },
+      "away_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 0.0,
+        "net_winpct_diff": 0.0,
+        "net_q1wins_diff": 0.0,
+        "net_q1pct_diff": 0.0
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.220628",
+    "season": 2025
+  },
+  {
+    "game_info": {
+      "game_id": 401909800,
+      "home_team": "Kansas State Wildcats",
+      "away_team": "Gonzaga Bulldogs",
+      "date": "2026-11-25 05:30:00+00:00",
+      "venue": "T-Mobile Arena",
+      "home_rank": 99,
+      "away_rank": 14,
+      "home_eff": {
+        "offensiveRating": 100.1,
+        "defensiveRating": 100.1
+      },
+      "away_eff": {
+        "offensiveRating": 108.6,
+        "defensiveRating": 108.6
+      },
+      "home_stats": null,
+      "away_stats": null,
+      "advanced_diffs": {
+        "kenpom_netrtg_diff": 0.0,
+        "kenpom_ortg_diff": 0.0,
+        "kenpom_drtg_diff": 0.0,
+        "kenpom_adjt_diff": 0.0,
+        "kenpom_luck_diff": 0.0,
+        "kenpom_sos_diff": 0.0,
+        "bart_oe_diff": 0.0,
+        "bart_de_diff": 0.0,
+        "net_rank_diff": 93.0,
+        "net_winpct_diff": -0.5340909090909091,
+        "net_q1wins_diff": -7,
+        "net_q1pct_diff": -0.7777777777777778
+      }
+    },
+    "predictions": {
+      "spread_prediction": -4.541888236999512,
+      "spread_confidence_interval": [
+        -7.54,
+        -1.54
+      ],
+      "model_source": "improved"
+    },
+    "is_tournament": false,
+    "generated_at": "2026-11-11T16:08:16.242502",
     "season": 2025
   }
 ]

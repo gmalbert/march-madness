@@ -1,0 +1,4457 @@
+{
+  "computed_at": "2026-11-19T15:42:36.404655",
+  "season_used": 2027,
+  "num_games": 89,
+  "games": [
+    {
+      "home_team": "Texas Longhorns",
+      "away_team": "Southern Utah Thunderbirds",
+      "home_eff": {
+        "offensiveRating": 118.5,
+        "defensiveRating": 99.6,
+        "netRating": 18.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.8,
+        "defensiveRating": 112.2,
+        "netRating": -11.4
+      },
+      "home_stats": {
+        "ppg": 93.75,
+        "pace": 70.0,
+        "efg_pct": 0.626,
+        "to_rate": 0.14,
+        "orb_pct": 0.299,
+        "ft_rate": 0.513,
+        "opp_ppg": 60.75,
+        "fg_pct": 0.56,
+        "three_pct": 0.413
+      },
+      "away_stats": {
+        "ppg": 96.8,
+        "pace": 75.2,
+        "efg_pct": 0.589,
+        "to_rate": 0.15,
+        "orb_pct": 0.355,
+        "ft_rate": 0.322,
+        "opp_ppg": 69.6,
+        "fg_pct": 0.526,
+        "three_pct": 0.35200000000000004
+      },
+      "betting_spread": -37.0,
+      "betting_over_under": 156.0,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-20 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Moody Center",
+      "neutral_site": false,
+      "home_rank": 6,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Miami Hurricanes",
+      "away_team": "Manhattan Jaspers",
+      "home_eff": {
+        "offensiveRating": 109.1,
+        "defensiveRating": 94.7,
+        "netRating": 14.5
+      },
+      "away_eff": {
+        "offensiveRating": 97.9,
+        "defensiveRating": 109.6,
+        "netRating": -11.7
+      },
+      "home_stats": {
+        "ppg": 85.6,
+        "pace": 73.1,
+        "efg_pct": 0.522,
+        "to_rate": 0.16,
+        "orb_pct": 0.31,
+        "ft_rate": 0.32899999999999996,
+        "opp_ppg": 57.0,
+        "fg_pct": 0.469,
+        "three_pct": 0.28800000000000003
+      },
+      "away_stats": {
+        "ppg": 63.2,
+        "pace": 68.7,
+        "efg_pct": 0.423,
+        "to_rate": 0.17,
+        "orb_pct": 0.358,
+        "ft_rate": 0.37200000000000005,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.386,
+        "three_pct": 0.19
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-20 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Watsco Center",
+      "neutral_site": false,
+      "home_rank": 17,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Tennessee Volunteers",
+      "away_team": "Coastal Carolina Chanticleers",
+      "home_eff": {
+        "offensiveRating": 104.2,
+        "defensiveRating": 96.7,
+        "netRating": 7.4
+      },
+      "away_eff": {
+        "offensiveRating": 100.7,
+        "defensiveRating": 109.9,
+        "netRating": -9.1
+      },
+      "home_stats": {
+        "ppg": 76.0,
+        "pace": 69.4,
+        "efg_pct": 0.534,
+        "to_rate": 0.2,
+        "orb_pct": 0.247,
+        "ft_rate": 0.423,
+        "opp_ppg": 57.5,
+        "fg_pct": 0.473,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 74.2,
+        "pace": 73.4,
+        "efg_pct": 0.474,
+        "to_rate": 0.18,
+        "orb_pct": 0.33799999999999997,
+        "ft_rate": 0.182,
+        "opp_ppg": 76.6,
+        "fg_pct": 0.42200000000000004,
+        "three_pct": 0.267
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-21 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Food City Center",
+      "neutral_site": false,
+      "home_rank": 14,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Vanderbilt Commodores",
+      "away_team": "UCF Knights",
+      "home_eff": {
+        "offensiveRating": 113.6,
+        "defensiveRating": 95.3,
+        "netRating": 18.3
+      },
+      "away_eff": {
+        "offensiveRating": 110.0,
+        "defensiveRating": 113.9,
+        "netRating": -3.9
+      },
+      "home_stats": {
+        "ppg": 91.4,
+        "pace": 54.3,
+        "efg_pct": 0.623,
+        "to_rate": 0.21,
+        "orb_pct": 0.325,
+        "ft_rate": 0.31,
+        "opp_ppg": 58.2,
+        "fg_pct": 0.542,
+        "three_pct": 0.39399999999999996
+      },
+      "away_stats": {
+        "ppg": 85.2,
+        "pace": 68.1,
+        "efg_pct": 0.542,
+        "to_rate": 0.11,
+        "orb_pct": 0.273,
+        "ft_rate": 0.466,
+        "opp_ppg": 79.0,
+        "fg_pct": 0.48,
+        "three_pct": 0.349
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-21 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Memorial Gymnasium (TN)",
+      "neutral_site": false,
+      "home_rank": 15,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Illinois Fighting Illini",
+      "away_team": "Eastern Illinois Panthers",
+      "home_eff": {
+        "offensiveRating": 123.9,
+        "defensiveRating": 98.4,
+        "netRating": 25.5
+      },
+      "away_eff": {
+        "offensiveRating": 99.7,
+        "defensiveRating": 118.5,
+        "netRating": -18.8
+      },
+      "home_stats": {
+        "ppg": 103.4,
+        "pace": 78.7,
+        "efg_pct": 0.606,
+        "to_rate": 0.15,
+        "orb_pct": 0.31,
+        "ft_rate": 0.32,
+        "opp_ppg": 72.6,
+        "fg_pct": 0.523,
+        "three_pct": 0.32799999999999996
+      },
+      "away_stats": {
+        "ppg": 66.66666666666667,
+        "pace": 68.2,
+        "efg_pct": 0.505,
+        "to_rate": 0.22,
+        "orb_pct": 0.27399999999999997,
+        "ft_rate": 0.34299999999999997,
+        "opp_ppg": 83.66666666666667,
+        "fg_pct": 0.44,
+        "three_pct": 0.342
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-21 02:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "State Farm Center",
+      "neutral_site": false,
+      "home_rank": 10,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Michigan State Spartans",
+      "away_team": "Detroit Mercy Titans",
+      "home_eff": {
+        "offensiveRating": 113.0,
+        "defensiveRating": 99.1,
+        "netRating": 13.9
+      },
+      "away_eff": {
+        "offensiveRating": 97.1,
+        "defensiveRating": 119.9,
+        "netRating": -22.8
+      },
+      "home_stats": {
+        "ppg": 83.6,
+        "pace": 70.5,
+        "efg_pct": 0.534,
+        "to_rate": 0.17,
+        "orb_pct": 0.324,
+        "ft_rate": 0.583,
+        "opp_ppg": 65.2,
+        "fg_pct": 0.449,
+        "three_pct": 0.39
+      },
+      "away_stats": {
+        "ppg": 55.25,
+        "pace": 71.1,
+        "efg_pct": 0.36200000000000004,
+        "to_rate": 0.24,
+        "orb_pct": 0.368,
+        "ft_rate": 0.322,
+        "opp_ppg": 94.25,
+        "fg_pct": 0.314,
+        "three_pct": 0.23
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-21 17:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Breslin Center",
+      "neutral_site": false,
+      "home_rank": 2,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "LSU Tigers",
+      "away_team": "Queens University Royals",
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 95.7,
+        "netRating": 14.2
+      },
+      "away_eff": {
+        "offensiveRating": 115.3,
+        "defensiveRating": 119.2,
+        "netRating": -3.9
+      },
+      "home_stats": {
+        "ppg": 88.4,
+        "pace": 74.3,
+        "efg_pct": 0.56,
+        "to_rate": 0.18,
+        "orb_pct": 0.303,
+        "ft_rate": 0.373,
+        "opp_ppg": 61.0,
+        "fg_pct": 0.498,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 89.2,
+        "pace": 74.9,
+        "efg_pct": 0.5579999999999999,
+        "to_rate": 0.15,
+        "orb_pct": 0.348,
+        "ft_rate": 0.371,
+        "opp_ppg": 100.2,
+        "fg_pct": 0.489,
+        "three_pct": 0.344
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-21 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pete Maravich Assembly Center",
+      "neutral_site": false,
+      "home_rank": 25,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Villanova Wildcats",
+      "away_team": "Michigan Wolverines",
+      "home_eff": {
+        "offensiveRating": 109.3,
+        "defensiveRating": 104.2,
+        "netRating": 5.1
+      },
+      "away_eff": {
+        "offensiveRating": 112.3,
+        "defensiveRating": 103.5,
+        "netRating": 8.8
+      },
+      "home_stats": {
+        "ppg": 81.4,
+        "pace": 70.4,
+        "efg_pct": 0.546,
+        "to_rate": 0.17,
+        "orb_pct": 0.3,
+        "ft_rate": 0.278,
+        "opp_ppg": 68.4,
+        "fg_pct": 0.46799999999999997,
+        "three_pct": 0.363
+      },
+      "away_stats": {
+        "ppg": 92.0,
+        "pace": 77.0,
+        "efg_pct": 0.532,
+        "to_rate": 0.16,
+        "orb_pct": 0.335,
+        "ft_rate": 0.298,
+        "opp_ppg": 75.5,
+        "fg_pct": 0.46299999999999997,
+        "three_pct": 0.305
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-22 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Xfinity Mobile Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": 18,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Duke Blue Devils",
+      "away_team": "Washington State Cougars",
+      "home_eff": {
+        "offensiveRating": 110.9,
+        "defensiveRating": 97.1,
+        "netRating": 13.8
+      },
+      "away_eff": {
+        "offensiveRating": 111.6,
+        "defensiveRating": 112.5,
+        "netRating": -0.9
+      },
+      "home_stats": {
+        "ppg": 87.6,
+        "pace": 74.6,
+        "efg_pct": 0.518,
+        "to_rate": 0.17,
+        "orb_pct": 0.344,
+        "ft_rate": 0.534,
+        "opp_ppg": 65.4,
+        "fg_pct": 0.45299999999999996,
+        "three_pct": 0.282
+      },
+      "away_stats": {
+        "ppg": 81.0,
+        "pace": 69.5,
+        "efg_pct": 0.557,
+        "to_rate": 0.21,
+        "orb_pct": 0.33899999999999997,
+        "ft_rate": 0.32799999999999996,
+        "opp_ppg": 76.2,
+        "fg_pct": 0.486,
+        "three_pct": 0.36200000000000004
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-22 04:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Acrisure Arena",
+      "neutral_site": true,
+      "home_rank": 5,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Butler Bulldogs",
+      "away_team": "Nebraska Cornhuskers",
+      "home_eff": {
+        "offensiveRating": 112.0,
+        "defensiveRating": 105.3,
+        "netRating": 6.7
+      },
+      "away_eff": {
+        "offensiveRating": 114.6,
+        "defensiveRating": 97.7,
+        "netRating": 16.9
+      },
+      "home_stats": {
+        "ppg": 85.8,
+        "pace": 72.5,
+        "efg_pct": 0.536,
+        "to_rate": 0.2,
+        "orb_pct": 0.34700000000000003,
+        "ft_rate": 0.263,
+        "opp_ppg": 73.0,
+        "fg_pct": 0.43700000000000006,
+        "three_pct": 0.33299999999999996
+      },
+      "away_stats": {
+        "ppg": 88.4,
+        "pace": 70.7,
+        "efg_pct": 0.624,
+        "to_rate": 0.19,
+        "orb_pct": 0.24600000000000002,
+        "ft_rate": 0.429,
+        "opp_ppg": 60.8,
+        "fg_pct": 0.535,
+        "three_pct": 0.368
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-22 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Credit Union 1 Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 24,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Texas Longhorns",
+      "away_team": "Southern Indiana Screaming Eagles",
+      "home_eff": {
+        "offensiveRating": 118.5,
+        "defensiveRating": 99.6,
+        "netRating": 18.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.5,
+        "defensiveRating": 104.7,
+        "netRating": -4.2
+      },
+      "home_stats": {
+        "ppg": 93.75,
+        "pace": 70.0,
+        "efg_pct": 0.626,
+        "to_rate": 0.14,
+        "orb_pct": 0.299,
+        "ft_rate": 0.513,
+        "opp_ppg": 60.75,
+        "fg_pct": 0.56,
+        "three_pct": 0.413
+      },
+      "away_stats": {
+        "ppg": 76.33333333333333,
+        "pace": 70.4,
+        "efg_pct": 0.489,
+        "to_rate": 0.16,
+        "orb_pct": 0.336,
+        "ft_rate": 0.316,
+        "opp_ppg": 71.16666666666667,
+        "fg_pct": 0.431,
+        "three_pct": 0.31
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-22 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Moody Center",
+      "neutral_site": false,
+      "home_rank": 6,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UCLA Bruins",
+      "away_team": "Delaware Blue Hens",
+      "home_eff": {
+        "offensiveRating": 118.4,
+        "defensiveRating": 99.6,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 102.1,
+        "defensiveRating": 106.6,
+        "netRating": -4.5
+      },
+      "home_stats": {
+        "ppg": 96.8,
+        "pace": 72.5,
+        "efg_pct": 0.5670000000000001,
+        "to_rate": 0.12,
+        "orb_pct": 0.344,
+        "ft_rate": 0.38,
+        "opp_ppg": 62.4,
+        "fg_pct": 0.49700000000000005,
+        "three_pct": 0.369
+      },
+      "away_stats": {
+        "ppg": 77.4,
+        "pace": 68.0,
+        "efg_pct": 0.546,
+        "to_rate": 0.13,
+        "orb_pct": 0.248,
+        "ft_rate": 0.19699999999999998,
+        "opp_ppg": 58.6,
+        "fg_pct": 0.47100000000000003,
+        "three_pct": 0.392
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-23 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pauley Pavilion",
+      "neutral_site": false,
+      "home_rank": 7,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "USC Trojans",
+      "away_team": "Louisiana Ragin' Cajuns",
+      "home_eff": {
+        "offensiveRating": 117.6,
+        "defensiveRating": 99.5,
+        "netRating": 18.1
+      },
+      "away_eff": {
+        "offensiveRating": 98.8,
+        "defensiveRating": 112.6,
+        "netRating": -13.9
+      },
+      "home_stats": {
+        "ppg": 96.75,
+        "pace": 74.4,
+        "efg_pct": 0.584,
+        "to_rate": 0.15,
+        "orb_pct": 0.281,
+        "ft_rate": 0.48,
+        "opp_ppg": 65.0,
+        "fg_pct": 0.52,
+        "three_pct": 0.386
+      },
+      "away_stats": {
+        "ppg": 58.25,
+        "pace": 67.3,
+        "efg_pct": 0.368,
+        "to_rate": 0.19,
+        "orb_pct": 0.336,
+        "ft_rate": 0.43200000000000005,
+        "opp_ppg": 64.5,
+        "fg_pct": 0.305,
+        "three_pct": 0.272
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-23 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Galen Center",
+      "neutral_site": false,
+      "home_rank": 18,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "BYU Cougars",
+      "away_team": "Washington Huskies",
+      "home_eff": {
+        "offensiveRating": 117.1,
+        "defensiveRating": 106.0,
+        "netRating": 11.1
+      },
+      "away_eff": {
+        "offensiveRating": 110.3,
+        "defensiveRating": 109.8,
+        "netRating": 0.4
+      },
+      "home_stats": {
+        "ppg": 96.8,
+        "pace": 73.0,
+        "efg_pct": 0.648,
+        "to_rate": 0.16,
+        "orb_pct": 0.273,
+        "ft_rate": 0.318,
+        "opp_ppg": 71.4,
+        "fg_pct": 0.547,
+        "three_pct": 0.418
+      },
+      "away_stats": {
+        "ppg": 87.66666666666667,
+        "pace": 67.8,
+        "efg_pct": 0.586,
+        "to_rate": 0.17,
+        "orb_pct": 0.34600000000000003,
+        "ft_rate": 0.332,
+        "opp_ppg": 66.33333333333333,
+        "fg_pct": 0.47600000000000003,
+        "three_pct": 0.353
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-23 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Lahaina Civic Center",
+      "neutral_site": true,
+      "home_rank": 21,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Kansas Jayhawks",
+      "away_team": "Denver Pioneers",
+      "home_eff": {
+        "offensiveRating": 116.1,
+        "defensiveRating": 97.3,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 101.4,
+        "defensiveRating": 106.4,
+        "netRating": -5.1
+      },
+      "home_stats": {
+        "ppg": 92.2,
+        "pace": 74.2,
+        "efg_pct": 0.611,
+        "to_rate": 0.16,
+        "orb_pct": 0.263,
+        "ft_rate": 0.517,
+        "opp_ppg": 67.6,
+        "fg_pct": 0.5539999999999999,
+        "three_pct": 0.34299999999999997
+      },
+      "away_stats": {
+        "ppg": 70.5,
+        "pace": 66.6,
+        "efg_pct": 0.509,
+        "to_rate": 0.18,
+        "orb_pct": 0.24600000000000002,
+        "ft_rate": 0.332,
+        "opp_ppg": 69.5,
+        "fg_pct": 0.457,
+        "three_pct": 0.264
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Allen Fieldhouse",
+      "neutral_site": false,
+      "home_rank": 11,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Illinois Fighting Illini",
+      "away_team": "Winthrop Eagles",
+      "home_eff": {
+        "offensiveRating": 123.9,
+        "defensiveRating": 98.4,
+        "netRating": 25.5
+      },
+      "away_eff": {
+        "offensiveRating": 103.7,
+        "defensiveRating": 113.5,
+        "netRating": -9.8
+      },
+      "home_stats": {
+        "ppg": 103.4,
+        "pace": 78.7,
+        "efg_pct": 0.606,
+        "to_rate": 0.15,
+        "orb_pct": 0.31,
+        "ft_rate": 0.32,
+        "opp_ppg": 72.6,
+        "fg_pct": 0.523,
+        "three_pct": 0.32799999999999996
+      },
+      "away_stats": {
+        "ppg": 83.6,
+        "pace": 77.4,
+        "efg_pct": 0.539,
+        "to_rate": 0.2,
+        "orb_pct": 0.316,
+        "ft_rate": 0.483,
+        "opp_ppg": 90.0,
+        "fg_pct": 0.46,
+        "three_pct": 0.34600000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "State Farm Center",
+      "neutral_site": false,
+      "home_rank": 10,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Arizona Wildcats",
+      "away_team": "Colorado State Rams",
+      "home_eff": {
+        "offensiveRating": 115.5,
+        "defensiveRating": 104.0,
+        "netRating": 11.5
+      },
+      "away_eff": {
+        "offensiveRating": 101.7,
+        "defensiveRating": 105.5,
+        "netRating": -3.8
+      },
+      "home_stats": {
+        "ppg": 86.8,
+        "pace": 71.8,
+        "efg_pct": 0.556,
+        "to_rate": 0.16,
+        "orb_pct": 0.298,
+        "ft_rate": 0.415,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.498,
+        "three_pct": 0.33299999999999996
+      },
+      "away_stats": {
+        "ppg": 75.6,
+        "pace": 70.9,
+        "efg_pct": 0.542,
+        "to_rate": 0.18,
+        "orb_pct": 0.17600000000000002,
+        "ft_rate": 0.46399999999999997,
+        "opp_ppg": 69.8,
+        "fg_pct": 0.46399999999999997,
+        "three_pct": 0.32799999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 04:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Lahaina Civic Center",
+      "neutral_site": true,
+      "home_rank": 12,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Maryland Terrapins",
+      "away_team": "Tennessee Volunteers",
+      "home_eff": {
+        "offensiveRating": 114.6,
+        "defensiveRating": 106.8,
+        "netRating": 7.9
+      },
+      "away_eff": {
+        "offensiveRating": 104.2,
+        "defensiveRating": 96.7,
+        "netRating": 7.4
+      },
+      "home_stats": {
+        "ppg": 92.5,
+        "pace": 72.4,
+        "efg_pct": 0.541,
+        "to_rate": 0.16,
+        "orb_pct": 0.423,
+        "ft_rate": 0.512,
+        "opp_ppg": 74.25,
+        "fg_pct": 0.484,
+        "three_pct": 0.305
+      },
+      "away_stats": {
+        "ppg": 76.0,
+        "pace": 69.4,
+        "efg_pct": 0.534,
+        "to_rate": 0.2,
+        "orb_pct": 0.247,
+        "ft_rate": 0.423,
+        "opp_ppg": 57.5,
+        "fg_pct": 0.473,
+        "three_pct": 0.307
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Michelob ULTRA Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 14,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "TCU Horned Frogs",
+      "away_team": "Miami Hurricanes",
+      "home_eff": {
+        "offensiveRating": 111.6,
+        "defensiveRating": 102.6,
+        "netRating": 9.0
+      },
+      "away_eff": {
+        "offensiveRating": 109.1,
+        "defensiveRating": 94.7,
+        "netRating": 14.5
+      },
+      "home_stats": {
+        "ppg": 95.0,
+        "pace": 72.6,
+        "efg_pct": 0.493,
+        "to_rate": 0.15,
+        "orb_pct": 0.401,
+        "ft_rate": 0.5720000000000001,
+        "opp_ppg": 67.25,
+        "fg_pct": 0.424,
+        "three_pct": 0.37799999999999995
+      },
+      "away_stats": {
+        "ppg": 85.6,
+        "pace": 73.1,
+        "efg_pct": 0.522,
+        "to_rate": 0.16,
+        "orb_pct": 0.31,
+        "ft_rate": 0.32899999999999996,
+        "opp_ppg": 57.0,
+        "fg_pct": 0.469,
+        "three_pct": 0.28800000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "T-Mobile Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 17,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Michigan Wolverines",
+      "away_team": "Creighton Bluejays",
+      "home_eff": {
+        "offensiveRating": 112.3,
+        "defensiveRating": 103.5,
+        "netRating": 8.8
+      },
+      "away_eff": {
+        "offensiveRating": 108.9,
+        "defensiveRating": 100.7,
+        "netRating": 8.1
+      },
+      "home_stats": {
+        "ppg": 92.0,
+        "pace": 77.0,
+        "efg_pct": 0.532,
+        "to_rate": 0.16,
+        "orb_pct": 0.335,
+        "ft_rate": 0.298,
+        "opp_ppg": 75.5,
+        "fg_pct": 0.46299999999999997,
+        "three_pct": 0.305
+      },
+      "away_stats": {
+        "ppg": 79.8,
+        "pace": 71.1,
+        "efg_pct": 0.521,
+        "to_rate": 0.17,
+        "orb_pct": 0.376,
+        "ft_rate": 0.317,
+        "opp_ppg": 67.8,
+        "fg_pct": 0.435,
+        "three_pct": 0.34
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-24 22:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "T-Mobile Arena",
+      "neutral_site": true,
+      "home_rank": 18,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Florida Gators",
+      "away_team": "Milwaukee Panthers",
+      "home_eff": {
+        "offensiveRating": 118.2,
+        "defensiveRating": 102.9,
+        "netRating": 15.3
+      },
+      "away_eff": {
+        "offensiveRating": 104.8,
+        "defensiveRating": 104.0,
+        "netRating": 0.8
+      },
+      "home_stats": {
+        "ppg": 81.83333333333333,
+        "pace": 66.8,
+        "efg_pct": 0.575,
+        "to_rate": 0.19,
+        "orb_pct": 0.32899999999999996,
+        "ft_rate": 0.502,
+        "opp_ppg": 69.0,
+        "fg_pct": 0.48,
+        "three_pct": 0.431
+      },
+      "away_stats": {
+        "ppg": 76.0,
+        "pace": 74.7,
+        "efg_pct": 0.491,
+        "to_rate": 0.18,
+        "orb_pct": 0.285,
+        "ft_rate": 0.278,
+        "opp_ppg": 77.4,
+        "fg_pct": 0.43799999999999994,
+        "three_pct": 0.315
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Tower Hill Arena",
+      "neutral_site": false,
+      "home_rank": 1,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Ohio State Buckeyes",
+      "away_team": "Vanderbilt Commodores",
+      "home_eff": {
+        "offensiveRating": 113.7,
+        "defensiveRating": 108.9,
+        "netRating": 4.7
+      },
+      "away_eff": {
+        "offensiveRating": 113.6,
+        "defensiveRating": 95.3,
+        "netRating": 18.3
+      },
+      "home_stats": {
+        "ppg": 82.0,
+        "pace": 69.4,
+        "efg_pct": 0.5379999999999999,
+        "to_rate": 0.17,
+        "orb_pct": 0.292,
+        "ft_rate": 0.511,
+        "opp_ppg": 75.2,
+        "fg_pct": 0.475,
+        "three_pct": 0.313
+      },
+      "away_stats": {
+        "ppg": 91.4,
+        "pace": 54.3,
+        "efg_pct": 0.623,
+        "to_rate": 0.21,
+        "orb_pct": 0.325,
+        "ft_rate": 0.31,
+        "opp_ppg": 58.2,
+        "fg_pct": 0.542,
+        "three_pct": 0.39399999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Schottenstein Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": 15,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Louisville Cardinals",
+      "away_team": "Texas Tech Red Raiders",
+      "home_eff": {
+        "offensiveRating": 113.7,
+        "defensiveRating": 105.3,
+        "netRating": 8.4
+      },
+      "away_eff": {
+        "offensiveRating": 108.2,
+        "defensiveRating": 89.7,
+        "netRating": 18.5
+      },
+      "home_stats": {
+        "ppg": 89.66666666666667,
+        "pace": 70.8,
+        "efg_pct": 0.544,
+        "to_rate": 0.13,
+        "orb_pct": 0.4,
+        "ft_rate": 0.379,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.473,
+        "three_pct": 0.284
+      },
+      "away_stats": {
+        "ppg": 82.0,
+        "pace": 70.6,
+        "efg_pct": 0.528,
+        "to_rate": 0.17,
+        "orb_pct": 0.321,
+        "ft_rate": 0.39899999999999997,
+        "opp_ppg": 51.2,
+        "fg_pct": 0.451,
+        "three_pct": 0.324
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Michelob ULTRA Arena",
+      "neutral_site": true,
+      "home_rank": 23,
+      "away_rank": 9,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Alabama Crimson Tide",
+      "away_team": "Baylor Bears",
+      "home_eff": {
+        "offensiveRating": 114.1,
+        "defensiveRating": 107.9,
+        "netRating": 6.2
+      },
+      "away_eff": {
+        "offensiveRating": 114.4,
+        "defensiveRating": 98.8,
+        "netRating": 15.5
+      },
+      "home_stats": {
+        "ppg": 99.4,
+        "pace": 78.9,
+        "efg_pct": 0.574,
+        "to_rate": 0.16,
+        "orb_pct": 0.34,
+        "ft_rate": 0.506,
+        "opp_ppg": 79.0,
+        "fg_pct": 0.475,
+        "three_pct": 0.37200000000000005
+      },
+      "away_stats": {
+        "ppg": 92.4,
+        "pace": 72.3,
+        "efg_pct": 0.557,
+        "to_rate": 0.16,
+        "orb_pct": 0.40399999999999997,
+        "ft_rate": 0.405,
+        "opp_ppg": 61.8,
+        "fg_pct": 0.486,
+        "three_pct": 0.341
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 03:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "T-Mobile Arena",
+      "neutral_site": true,
+      "home_rank": 16,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "St. John's Red Storm",
+      "away_team": "Oregon Ducks",
+      "home_eff": {
+        "offensiveRating": 115.1,
+        "defensiveRating": 97.9,
+        "netRating": 17.2
+      },
+      "away_eff": {
+        "offensiveRating": 118.7,
+        "defensiveRating": 108.4,
+        "netRating": 10.3
+      },
+      "home_stats": {
+        "ppg": 94.0,
+        "pace": 74.7,
+        "efg_pct": 0.5770000000000001,
+        "to_rate": 0.13,
+        "orb_pct": 0.295,
+        "ft_rate": 0.3,
+        "opp_ppg": 64.2,
+        "fg_pct": 0.501,
+        "three_pct": 0.36700000000000005
+      },
+      "away_stats": {
+        "ppg": 95.0,
+        "pace": 68.7,
+        "efg_pct": 0.684,
+        "to_rate": 0.15,
+        "orb_pct": 0.231,
+        "ft_rate": 0.21899999999999997,
+        "opp_ppg": 68.66666666666667,
+        "fg_pct": 0.604,
+        "three_pct": 0.435
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 03:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Michelob ULTRA Arena",
+      "neutral_site": true,
+      "home_rank": 13,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Kansas State Wildcats",
+      "away_team": "Gonzaga Bulldogs",
+      "home_eff": {
+        "offensiveRating": 110.7,
+        "defensiveRating": 103.7,
+        "netRating": 6.9
+      },
+      "away_eff": {
+        "offensiveRating": 114.7,
+        "defensiveRating": 106.2,
+        "netRating": 8.5
+      },
+      "home_stats": {
+        "ppg": 84.0,
+        "pace": 72.0,
+        "efg_pct": 0.611,
+        "to_rate": 0.2,
+        "orb_pct": 0.205,
+        "ft_rate": 0.32799999999999996,
+        "opp_ppg": 68.25,
+        "fg_pct": 0.511,
+        "three_pct": 0.371
+      },
+      "away_stats": {
+        "ppg": 85.25,
+        "pace": 69.0,
+        "efg_pct": 0.551,
+        "to_rate": 0.14,
+        "orb_pct": 0.353,
+        "ft_rate": 0.42,
+        "opp_ppg": 70.75,
+        "fg_pct": 0.494,
+        "three_pct": 0.364
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 05:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "T-Mobile Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 22,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Marquette Golden Eagles",
+      "away_team": "Virginia Cavaliers",
+      "home_eff": {
+        "offensiveRating": 108.4,
+        "defensiveRating": 94.1,
+        "netRating": 14.3
+      },
+      "away_eff": {
+        "offensiveRating": 117.5,
+        "defensiveRating": 102.0,
+        "netRating": 15.5
+      },
+      "home_stats": {
+        "ppg": 76.8,
+        "pace": 68.2,
+        "efg_pct": 0.486,
+        "to_rate": 0.15,
+        "orb_pct": 0.391,
+        "ft_rate": 0.271,
+        "opp_ppg": 58.6,
+        "fg_pct": 0.426,
+        "three_pct": 0.28600000000000003
+      },
+      "away_stats": {
+        "ppg": 90.66666666666667,
+        "pace": 71.3,
+        "efg_pct": 0.588,
+        "to_rate": 0.17,
+        "orb_pct": 0.364,
+        "ft_rate": 0.345,
+        "opp_ppg": 68.83333333333333,
+        "fg_pct": 0.506,
+        "three_pct": 0.368
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 17:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Imperial Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 4,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "LSU Tigers",
+      "away_team": "Arizona State Sun Devils",
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 95.7,
+        "netRating": 14.2
+      },
+      "away_eff": {
+        "offensiveRating": 112.7,
+        "defensiveRating": 108.2,
+        "netRating": 4.5
+      },
+      "home_stats": {
+        "ppg": 88.4,
+        "pace": 74.3,
+        "efg_pct": 0.56,
+        "to_rate": 0.18,
+        "orb_pct": 0.303,
+        "ft_rate": 0.373,
+        "opp_ppg": 61.0,
+        "fg_pct": 0.498,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 82.0,
+        "pace": 65.6,
+        "efg_pct": 0.537,
+        "to_rate": 0.14,
+        "orb_pct": 0.36,
+        "ft_rate": 0.33399999999999996,
+        "opp_ppg": 63.6,
+        "fg_pct": 0.455,
+        "three_pct": 0.34
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Acrisure Arena",
+      "neutral_site": true,
+      "home_rank": 25,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "USC Trojans",
+      "away_team": "South Carolina Gamecocks",
+      "home_eff": {
+        "offensiveRating": 117.6,
+        "defensiveRating": 99.5,
+        "netRating": 18.1
+      },
+      "away_eff": {
+        "offensiveRating": 112.6,
+        "defensiveRating": 104.8,
+        "netRating": 7.8
+      },
+      "home_stats": {
+        "ppg": 96.75,
+        "pace": 74.4,
+        "efg_pct": 0.584,
+        "to_rate": 0.15,
+        "orb_pct": 0.281,
+        "ft_rate": 0.48,
+        "opp_ppg": 65.0,
+        "fg_pct": 0.52,
+        "three_pct": 0.386
+      },
+      "away_stats": {
+        "ppg": 79.0,
+        "pace": 64.3,
+        "efg_pct": 0.552,
+        "to_rate": 0.17,
+        "orb_pct": 0.29600000000000004,
+        "ft_rate": 0.5579999999999999,
+        "opp_ppg": 59.6,
+        "fg_pct": 0.484,
+        "three_pct": 0.38
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 21:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Acrisure Arena",
+      "neutral_site": true,
+      "home_rank": 18,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Nebraska Cornhuskers",
+      "away_team": "Southern Jaguars",
+      "home_eff": {
+        "offensiveRating": 114.6,
+        "defensiveRating": 97.7,
+        "netRating": 16.9
+      },
+      "away_eff": {
+        "offensiveRating": 99.2,
+        "defensiveRating": 111.4,
+        "netRating": -12.1
+      },
+      "home_stats": {
+        "ppg": 88.4,
+        "pace": 70.7,
+        "efg_pct": 0.624,
+        "to_rate": 0.19,
+        "orb_pct": 0.24600000000000002,
+        "ft_rate": 0.429,
+        "opp_ppg": 60.8,
+        "fg_pct": 0.535,
+        "three_pct": 0.368
+      },
+      "away_stats": {
+        "ppg": 67.0,
+        "pace": 72.3,
+        "efg_pct": 0.49700000000000005,
+        "to_rate": 0.26,
+        "orb_pct": 0.304,
+        "ft_rate": 0.345,
+        "opp_ppg": 83.16666666666667,
+        "fg_pct": 0.449,
+        "three_pct": 0.33
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-25 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pinnacle Bank Arena",
+      "neutral_site": false,
+      "home_rank": 24,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Duke Blue Devils",
+      "away_team": "UConn Huskies",
+      "home_eff": {
+        "offensiveRating": 110.9,
+        "defensiveRating": 97.1,
+        "netRating": 13.8
+      },
+      "away_eff": {
+        "offensiveRating": 114.9,
+        "defensiveRating": 99.5,
+        "netRating": 15.4
+      },
+      "home_stats": {
+        "ppg": 87.6,
+        "pace": 74.6,
+        "efg_pct": 0.518,
+        "to_rate": 0.17,
+        "orb_pct": 0.344,
+        "ft_rate": 0.534,
+        "opp_ppg": 65.4,
+        "fg_pct": 0.45299999999999996,
+        "three_pct": 0.282
+      },
+      "away_stats": {
+        "ppg": 83.4,
+        "pace": 68.3,
+        "efg_pct": 0.53,
+        "to_rate": 0.16,
+        "orb_pct": 0.369,
+        "ft_rate": 0.45299999999999996,
+        "opp_ppg": 63.4,
+        "fg_pct": 0.456,
+        "three_pct": 0.33799999999999997
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-26 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "T-Mobile Arena",
+      "neutral_site": true,
+      "home_rank": 5,
+      "away_rank": 3,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Michigan State Spartans",
+      "away_team": "Arkansas Razorbacks",
+      "home_eff": {
+        "offensiveRating": 113.0,
+        "defensiveRating": 99.1,
+        "netRating": 13.9
+      },
+      "away_eff": {
+        "offensiveRating": 110.1,
+        "defensiveRating": 108.6,
+        "netRating": 1.5
+      },
+      "home_stats": {
+        "ppg": 83.6,
+        "pace": 70.5,
+        "efg_pct": 0.534,
+        "to_rate": 0.17,
+        "orb_pct": 0.324,
+        "ft_rate": 0.583,
+        "opp_ppg": 65.2,
+        "fg_pct": 0.449,
+        "three_pct": 0.39
+      },
+      "away_stats": {
+        "ppg": 81.8,
+        "pace": 68.9,
+        "efg_pct": 0.5489999999999999,
+        "to_rate": 0.16,
+        "orb_pct": 0.335,
+        "ft_rate": 0.409,
+        "opp_ppg": 70.4,
+        "fg_pct": 0.49,
+        "three_pct": 0.361
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-26 21:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Little Caesars Arena",
+      "neutral_site": true,
+      "home_rank": 2,
+      "away_rank": 20,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "USC Trojans",
+      "away_team": "Utah State Aggies",
+      "home_eff": {
+        "offensiveRating": 117.6,
+        "defensiveRating": 99.5,
+        "netRating": 18.1
+      },
+      "away_eff": {
+        "offensiveRating": 119.3,
+        "defensiveRating": 104.6,
+        "netRating": 14.7
+      },
+      "home_stats": {
+        "ppg": 96.75,
+        "pace": 74.4,
+        "efg_pct": 0.584,
+        "to_rate": 0.15,
+        "orb_pct": 0.281,
+        "ft_rate": 0.48,
+        "opp_ppg": 65.0,
+        "fg_pct": 0.52,
+        "three_pct": 0.386
+      },
+      "away_stats": {
+        "ppg": 104.6,
+        "pace": 74.6,
+        "efg_pct": 0.645,
+        "to_rate": 0.1,
+        "orb_pct": 0.263,
+        "ft_rate": 0.284,
+        "opp_ppg": 70.6,
+        "fg_pct": 0.5589999999999999,
+        "three_pct": 0.444
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-26 21:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Acrisure Arena",
+      "neutral_site": true,
+      "home_rank": 18,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UCLA Bruins",
+      "away_team": "Saint Mary's Gaels",
+      "home_eff": {
+        "offensiveRating": 118.4,
+        "defensiveRating": 99.6,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 117.4,
+        "defensiveRating": 108.5,
+        "netRating": 8.9
+      },
+      "home_stats": {
+        "ppg": 96.8,
+        "pace": 72.5,
+        "efg_pct": 0.5670000000000001,
+        "to_rate": 0.12,
+        "orb_pct": 0.344,
+        "ft_rate": 0.38,
+        "opp_ppg": 62.4,
+        "fg_pct": 0.49700000000000005,
+        "three_pct": 0.369
+      },
+      "away_stats": {
+        "ppg": 93.6,
+        "pace": 69.0,
+        "efg_pct": 0.616,
+        "to_rate": 0.15,
+        "orb_pct": 0.308,
+        "ft_rate": 0.259,
+        "opp_ppg": 76.8,
+        "fg_pct": 0.524,
+        "three_pct": 0.451
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-26 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Jenny Craig Pavilion",
+      "neutral_site": true,
+      "home_rank": 7,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "LSU Tigers",
+      "away_team": "SMU Mustangs",
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 95.7,
+        "netRating": 14.2
+      },
+      "away_eff": {
+        "offensiveRating": 110.4,
+        "defensiveRating": 105.3,
+        "netRating": 5.0
+      },
+      "home_stats": {
+        "ppg": 88.4,
+        "pace": 74.3,
+        "efg_pct": 0.56,
+        "to_rate": 0.18,
+        "orb_pct": 0.303,
+        "ft_rate": 0.373,
+        "opp_ppg": 61.0,
+        "fg_pct": 0.498,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 88.8,
+        "pace": 74.0,
+        "efg_pct": 0.584,
+        "to_rate": 0.2,
+        "orb_pct": 0.23600000000000002,
+        "ft_rate": 0.5710000000000001,
+        "opp_ppg": 68.4,
+        "fg_pct": 0.498,
+        "three_pct": 0.42700000000000005
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-27 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Acrisure Arena",
+      "neutral_site": true,
+      "home_rank": 25,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Xavier Musketeers",
+      "away_team": "Virginia Cavaliers",
+      "home_eff": {
+        "offensiveRating": 104.7,
+        "defensiveRating": 93.1,
+        "netRating": 11.6
+      },
+      "away_eff": {
+        "offensiveRating": 117.5,
+        "defensiveRating": 102.0,
+        "netRating": 15.5
+      },
+      "home_stats": {
+        "ppg": 85.8,
+        "pace": 75.5,
+        "efg_pct": 0.535,
+        "to_rate": 0.16,
+        "orb_pct": 0.28800000000000003,
+        "ft_rate": 0.392,
+        "opp_ppg": 58.0,
+        "fg_pct": 0.475,
+        "three_pct": 0.293
+      },
+      "away_stats": {
+        "ppg": 90.66666666666667,
+        "pace": 71.3,
+        "efg_pct": 0.588,
+        "to_rate": 0.17,
+        "orb_pct": 0.364,
+        "ft_rate": 0.345,
+        "opp_ppg": 68.83333333333333,
+        "fg_pct": 0.506,
+        "three_pct": 0.368
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-27 16:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Imperial Arena",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": 4,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Vanderbilt Commodores",
+      "away_team": "Southern Jaguars",
+      "home_eff": {
+        "offensiveRating": 113.6,
+        "defensiveRating": 95.3,
+        "netRating": 18.3
+      },
+      "away_eff": {
+        "offensiveRating": 99.2,
+        "defensiveRating": 111.4,
+        "netRating": -12.1
+      },
+      "home_stats": {
+        "ppg": 91.4,
+        "pace": 54.3,
+        "efg_pct": 0.623,
+        "to_rate": 0.21,
+        "orb_pct": 0.325,
+        "ft_rate": 0.31,
+        "opp_ppg": 58.2,
+        "fg_pct": 0.542,
+        "three_pct": 0.39399999999999996
+      },
+      "away_stats": {
+        "ppg": 67.0,
+        "pace": 72.3,
+        "efg_pct": 0.49700000000000005,
+        "to_rate": 0.26,
+        "orb_pct": 0.304,
+        "ft_rate": 0.345,
+        "opp_ppg": 83.16666666666667,
+        "fg_pct": 0.449,
+        "three_pct": 0.33
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-27 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Memorial Gymnasium (TN)",
+      "neutral_site": false,
+      "home_rank": 15,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Kansas Jayhawks",
+      "away_team": "Villanova Wildcats",
+      "home_eff": {
+        "offensiveRating": 116.1,
+        "defensiveRating": 97.3,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 109.3,
+        "defensiveRating": 104.2,
+        "netRating": 5.1
+      },
+      "home_stats": {
+        "ppg": 92.2,
+        "pace": 74.2,
+        "efg_pct": 0.611,
+        "to_rate": 0.16,
+        "orb_pct": 0.263,
+        "ft_rate": 0.517,
+        "opp_ppg": 67.6,
+        "fg_pct": 0.5539999999999999,
+        "three_pct": 0.34299999999999997
+      },
+      "away_stats": {
+        "ppg": 81.4,
+        "pace": 70.4,
+        "efg_pct": 0.546,
+        "to_rate": 0.17,
+        "orb_pct": 0.3,
+        "ft_rate": 0.278,
+        "opp_ppg": 68.4,
+        "fg_pct": 0.46799999999999997,
+        "three_pct": 0.363
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-27 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Allen Fieldhouse",
+      "neutral_site": false,
+      "home_rank": 11,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Houston Cougars",
+      "away_team": "Oakland Golden Grizzlies",
+      "home_eff": {
+        "offensiveRating": 119.0,
+        "defensiveRating": 99.3,
+        "netRating": 19.6
+      },
+      "away_eff": {
+        "offensiveRating": 106.8,
+        "defensiveRating": 116.0,
+        "netRating": -9.2
+      },
+      "home_stats": {
+        "ppg": 88.6,
+        "pace": 68.3,
+        "efg_pct": 0.557,
+        "to_rate": 0.15,
+        "orb_pct": 0.332,
+        "ft_rate": 0.466,
+        "opp_ppg": 63.6,
+        "fg_pct": 0.514,
+        "three_pct": 0.35100000000000003
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 68.1,
+        "efg_pct": 0.46,
+        "to_rate": 0.21,
+        "orb_pct": 0.402,
+        "ft_rate": 0.413,
+        "opp_ppg": 88.42857142857143,
+        "fg_pct": 0.405,
+        "three_pct": 0.284
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 00:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Fertitta Center",
+      "neutral_site": false,
+      "home_rank": 8,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Iowa Hawkeyes",
+      "away_team": "Prairie View A&M Panthers",
+      "home_eff": {
+        "offensiveRating": 109.5,
+        "defensiveRating": 99.7,
+        "netRating": 9.8
+      },
+      "away_eff": {
+        "offensiveRating": 102.4,
+        "defensiveRating": 110.6,
+        "netRating": -8.2
+      },
+      "home_stats": {
+        "ppg": 81.0,
+        "pace": 48.1,
+        "efg_pct": 0.5760000000000001,
+        "to_rate": 0.26,
+        "orb_pct": 0.342,
+        "ft_rate": 0.595,
+        "opp_ppg": 66.0,
+        "fg_pct": 0.5,
+        "three_pct": 0.33299999999999996
+      },
+      "away_stats": {
+        "ppg": 72.66666666666667,
+        "pace": 73.3,
+        "efg_pct": 0.5,
+        "to_rate": 0.19,
+        "orb_pct": 0.27899999999999997,
+        "ft_rate": 0.307,
+        "opp_ppg": 82.66666666666667,
+        "fg_pct": 0.46299999999999997,
+        "three_pct": 0.307
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 05:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Carver-Hawkeye Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "NC State Wolfpack",
+      "away_team": "Elon Phoenix",
+      "home_eff": {
+        "offensiveRating": 112.0,
+        "defensiveRating": 103.3,
+        "netRating": 8.7
+      },
+      "away_eff": {
+        "offensiveRating": 108.1,
+        "defensiveRating": 103.6,
+        "netRating": 4.5
+      },
+      "home_stats": {
+        "ppg": 83.75,
+        "pace": 66.1,
+        "efg_pct": 0.569,
+        "to_rate": 0.15,
+        "orb_pct": 0.32899999999999996,
+        "ft_rate": 0.29,
+        "opp_ppg": 62.25,
+        "fg_pct": 0.478,
+        "three_pct": 0.381
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 67.1,
+        "efg_pct": 0.493,
+        "to_rate": 0.2,
+        "orb_pct": 0.345,
+        "ft_rate": 0.36200000000000004,
+        "opp_ppg": 72.4,
+        "fg_pct": 0.428,
+        "three_pct": 0.324
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 17:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Lenovo Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Northern Iowa Panthers",
+      "away_team": "Robert Morris Colonials",
+      "home_eff": {
+        "offensiveRating": 112.2,
+        "defensiveRating": 115.7,
+        "netRating": -3.5
+      },
+      "away_eff": {
+        "offensiveRating": 96.2,
+        "defensiveRating": 110.0,
+        "netRating": -13.8
+      },
+      "home_stats": {
+        "ppg": 84.5,
+        "pace": 73.7,
+        "efg_pct": 0.547,
+        "to_rate": 0.17,
+        "orb_pct": 0.34600000000000003,
+        "ft_rate": 0.44299999999999995,
+        "opp_ppg": 84.0,
+        "fg_pct": 0.47600000000000003,
+        "three_pct": 0.34700000000000003
+      },
+      "away_stats": {
+        "ppg": 63.0,
+        "pace": 66.8,
+        "efg_pct": 0.48100000000000004,
+        "to_rate": 0.23,
+        "orb_pct": 0.272,
+        "ft_rate": 0.345,
+        "opp_ppg": 71.5,
+        "fg_pct": 0.41700000000000004,
+        "three_pct": 0.292
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "McLeod Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Colgate Raiders",
+      "away_team": "Vermont Catamounts",
+      "home_eff": {
+        "offensiveRating": 106.4,
+        "defensiveRating": 108.3,
+        "netRating": -1.9
+      },
+      "away_eff": {
+        "offensiveRating": 110.0,
+        "defensiveRating": 107.2,
+        "netRating": 2.8
+      },
+      "home_stats": {
+        "ppg": 75.2,
+        "pace": 68.4,
+        "efg_pct": 0.5,
+        "to_rate": 0.16,
+        "orb_pct": 0.368,
+        "ft_rate": 0.16399999999999998,
+        "opp_ppg": 74.2,
+        "fg_pct": 0.431,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 77.6,
+        "pace": 64.4,
+        "efg_pct": 0.545,
+        "to_rate": 0.17,
+        "orb_pct": 0.309,
+        "ft_rate": 0.322,
+        "opp_ppg": 67.4,
+        "fg_pct": 0.479,
+        "three_pct": 0.317
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "David S. Mack Sports and Exhibition Complex",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Georgia Tech Yellow Jackets",
+      "away_team": "Alcorn State Braves",
+      "home_eff": {
+        "offensiveRating": 106.3,
+        "defensiveRating": 107.6,
+        "netRating": -1.3
+      },
+      "away_eff": {
+        "offensiveRating": 97.9,
+        "defensiveRating": 117.6,
+        "netRating": -19.7
+      },
+      "home_stats": {
+        "ppg": 84.6,
+        "pace": 74.3,
+        "efg_pct": 0.525,
+        "to_rate": 0.18,
+        "orb_pct": 0.324,
+        "ft_rate": 0.53,
+        "opp_ppg": 72.4,
+        "fg_pct": 0.447,
+        "three_pct": 0.36200000000000004
+      },
+      "away_stats": {
+        "ppg": 60.833333333333336,
+        "pace": 73.3,
+        "efg_pct": 0.381,
+        "to_rate": 0.23,
+        "orb_pct": 0.435,
+        "ft_rate": 0.335,
+        "opp_ppg": 96.5,
+        "fg_pct": 0.335,
+        "three_pct": 0.264
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "McCamish Pavilion",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Gardner-Webb Runnin' Bulldogs",
+      "away_team": "North Carolina Central Eagles",
+      "home_eff": {
+        "offensiveRating": 98.5,
+        "defensiveRating": 110.3,
+        "netRating": -11.8
+      },
+      "away_eff": {
+        "offensiveRating": 102.7,
+        "defensiveRating": 105.0,
+        "netRating": -2.4
+      },
+      "home_stats": {
+        "ppg": 63.6,
+        "pace": 68.0,
+        "efg_pct": 0.455,
+        "to_rate": 0.22,
+        "orb_pct": 0.33299999999999996,
+        "ft_rate": 0.43200000000000005,
+        "opp_ppg": 81.4,
+        "fg_pct": 0.39399999999999996,
+        "three_pct": 0.29600000000000004
+      },
+      "away_stats": {
+        "ppg": 71.83333333333333,
+        "pace": 69.2,
+        "efg_pct": 0.508,
+        "to_rate": 0.18,
+        "orb_pct": 0.284,
+        "ft_rate": 0.22699999999999998,
+        "opp_ppg": 75.16666666666667,
+        "fg_pct": 0.45399999999999996,
+        "three_pct": 0.37
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 18:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Paul Porter Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Southern Indiana Screaming Eagles",
+      "away_team": "Ball State Cardinals",
+      "home_eff": {
+        "offensiveRating": 100.5,
+        "defensiveRating": 104.7,
+        "netRating": -4.2
+      },
+      "away_eff": {
+        "offensiveRating": 101.5,
+        "defensiveRating": 109.0,
+        "netRating": -7.6
+      },
+      "home_stats": {
+        "ppg": 76.33333333333333,
+        "pace": 70.4,
+        "efg_pct": 0.489,
+        "to_rate": 0.16,
+        "orb_pct": 0.336,
+        "ft_rate": 0.316,
+        "opp_ppg": 71.16666666666667,
+        "fg_pct": 0.431,
+        "three_pct": 0.31
+      },
+      "away_stats": {
+        "ppg": 69.2,
+        "pace": 68.8,
+        "efg_pct": 0.46299999999999997,
+        "to_rate": 0.17,
+        "orb_pct": 0.326,
+        "ft_rate": 0.363,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.386,
+        "three_pct": 0.313
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Liberty Arena (IN)",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Bradley Braves",
+      "away_team": "Chicago State Cougars",
+      "home_eff": {
+        "offensiveRating": 97.8,
+        "defensiveRating": 104.8,
+        "netRating": -7.1
+      },
+      "away_eff": {
+        "offensiveRating": 102.9,
+        "defensiveRating": 113.6,
+        "netRating": -10.7
+      },
+      "home_stats": {
+        "ppg": 62.166666666666664,
+        "pace": 64.1,
+        "efg_pct": 0.456,
+        "to_rate": 0.2,
+        "orb_pct": 0.34,
+        "ft_rate": 0.299,
+        "opp_ppg": 59.833333333333336,
+        "fg_pct": 0.37799999999999995,
+        "three_pct": 0.319
+      },
+      "away_stats": {
+        "ppg": 63.0,
+        "pace": 64.3,
+        "efg_pct": 0.455,
+        "to_rate": 0.22,
+        "orb_pct": 0.389,
+        "ft_rate": 0.363,
+        "opp_ppg": 77.14285714285714,
+        "fg_pct": 0.397,
+        "three_pct": 0.33299999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Carver Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Presbyterian Blue Hose",
+      "away_team": "Sacramento State Hornets",
+      "home_eff": {
+        "offensiveRating": 107.4,
+        "defensiveRating": 115.8,
+        "netRating": -8.4
+      },
+      "away_eff": {
+        "offensiveRating": 97.2,
+        "defensiveRating": 103.1,
+        "netRating": -5.9
+      },
+      "home_stats": {
+        "ppg": 75.75,
+        "pace": 70.1,
+        "efg_pct": 0.505,
+        "to_rate": 0.2,
+        "orb_pct": 0.368,
+        "ft_rate": 0.562,
+        "opp_ppg": 89.0,
+        "fg_pct": 0.447,
+        "three_pct": 0.321
+      },
+      "away_stats": {
+        "ppg": 74.33333333333333,
+        "pace": 82.7,
+        "efg_pct": 0.426,
+        "to_rate": 0.19,
+        "orb_pct": 0.228,
+        "ft_rate": 0.732,
+        "opp_ppg": 77.33333333333333,
+        "fg_pct": 0.369,
+        "three_pct": 0.264
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Templeton Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "High Point Panthers",
+      "away_team": "The Citadel Bulldogs",
+      "home_eff": {
+        "offensiveRating": 106.2,
+        "defensiveRating": 96.3,
+        "netRating": 9.9
+      },
+      "away_eff": {
+        "offensiveRating": 100.2,
+        "defensiveRating": 109.2,
+        "netRating": -8.9
+      },
+      "home_stats": {
+        "ppg": 74.8,
+        "pace": 68.1,
+        "efg_pct": 0.522,
+        "to_rate": 0.2,
+        "orb_pct": 0.317,
+        "ft_rate": 0.43200000000000005,
+        "opp_ppg": 58.8,
+        "fg_pct": 0.46799999999999997,
+        "three_pct": 0.273
+      },
+      "away_stats": {
+        "ppg": 82.2,
+        "pace": 72.1,
+        "efg_pct": 0.5760000000000001,
+        "to_rate": 0.22,
+        "orb_pct": 0.327,
+        "ft_rate": 0.342,
+        "opp_ppg": 69.0,
+        "fg_pct": 0.493,
+        "three_pct": 0.386
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Qubein Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UNC Asheville Bulldogs",
+      "away_team": "Georgia Southern Eagles",
+      "home_eff": {
+        "offensiveRating": 105.7,
+        "defensiveRating": 112.3,
+        "netRating": -6.6
+      },
+      "away_eff": {
+        "offensiveRating": 102.8,
+        "defensiveRating": 110.4,
+        "netRating": -7.6
+      },
+      "home_stats": {
+        "ppg": 79.5,
+        "pace": 73.5,
+        "efg_pct": 0.565,
+        "to_rate": 0.23,
+        "orb_pct": 0.294,
+        "ft_rate": 0.376,
+        "opp_ppg": 83.33333333333333,
+        "fg_pct": 0.48,
+        "three_pct": 0.376
+      },
+      "away_stats": {
+        "ppg": 77.8,
+        "pace": 72.8,
+        "efg_pct": 0.457,
+        "to_rate": 0.15,
+        "orb_pct": 0.369,
+        "ft_rate": 0.39399999999999996,
+        "opp_ppg": 83.2,
+        "fg_pct": 0.382,
+        "three_pct": 0.314
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Kimmel Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "North Carolina A&T Aggies",
+      "away_team": "Delaware State Hornets",
+      "home_eff": {
+        "offensiveRating": 107.6,
+        "defensiveRating": 106.0,
+        "netRating": 1.6
+      },
+      "away_eff": {
+        "offensiveRating": 103.7,
+        "defensiveRating": 106.7,
+        "netRating": -3.1
+      },
+      "home_stats": {
+        "ppg": 64.6,
+        "pace": 57.5,
+        "efg_pct": 0.48100000000000004,
+        "to_rate": 0.18,
+        "orb_pct": 0.375,
+        "ft_rate": 0.546,
+        "opp_ppg": 59.6,
+        "fg_pct": 0.41700000000000004,
+        "three_pct": 0.35200000000000004
+      },
+      "away_stats": {
+        "ppg": 72.4,
+        "pace": 67.8,
+        "efg_pct": 0.5489999999999999,
+        "to_rate": 0.2,
+        "orb_pct": 0.272,
+        "ft_rate": 0.2,
+        "opp_ppg": 68.6,
+        "fg_pct": 0.485,
+        "three_pct": 0.396
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Ellis Corbett Sports Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Morgan State Bears",
+      "away_team": "Manhattan Jaspers",
+      "home_eff": {
+        "offensiveRating": 103.1,
+        "defensiveRating": 104.8,
+        "netRating": -1.7
+      },
+      "away_eff": {
+        "offensiveRating": 97.9,
+        "defensiveRating": 109.6,
+        "netRating": -11.7
+      },
+      "home_stats": {
+        "ppg": 79.0,
+        "pace": 74.2,
+        "efg_pct": 0.469,
+        "to_rate": 0.18,
+        "orb_pct": 0.322,
+        "ft_rate": 0.379,
+        "opp_ppg": 67.5,
+        "fg_pct": 0.415,
+        "three_pct": 0.326
+      },
+      "away_stats": {
+        "ppg": 63.2,
+        "pace": 68.7,
+        "efg_pct": 0.423,
+        "to_rate": 0.17,
+        "orb_pct": 0.358,
+        "ft_rate": 0.37200000000000005,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.386,
+        "three_pct": 0.19
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 19:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Hill Field House",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Eastern Illinois Panthers",
+      "away_team": "Northern Illinois Huskies",
+      "home_eff": {
+        "offensiveRating": 99.7,
+        "defensiveRating": 118.5,
+        "netRating": -18.8
+      },
+      "away_eff": {
+        "offensiveRating": 113.9,
+        "defensiveRating": 111.1,
+        "netRating": 2.8
+      },
+      "home_stats": {
+        "ppg": 66.66666666666667,
+        "pace": 68.2,
+        "efg_pct": 0.505,
+        "to_rate": 0.22,
+        "orb_pct": 0.27399999999999997,
+        "ft_rate": 0.34299999999999997,
+        "opp_ppg": 83.66666666666667,
+        "fg_pct": 0.44,
+        "three_pct": 0.342
+      },
+      "away_stats": {
+        "ppg": 77.0,
+        "pace": 66.0,
+        "efg_pct": 0.512,
+        "to_rate": 0.18,
+        "orb_pct": 0.381,
+        "ft_rate": 0.309,
+        "opp_ppg": 74.16666666666667,
+        "fg_pct": 0.423,
+        "three_pct": 0.33
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Groniger Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Kansas City Roos",
+      "away_team": "Southeast Missouri State Redhawks",
+      "home_eff": {
+        "offensiveRating": 107.3,
+        "defensiveRating": 110.1,
+        "netRating": -2.8
+      },
+      "away_eff": {
+        "offensiveRating": 107.2,
+        "defensiveRating": 109.2,
+        "netRating": -2.0
+      },
+      "home_stats": {
+        "ppg": 74.16666666666667,
+        "pace": 68.7,
+        "efg_pct": 0.551,
+        "to_rate": 0.19,
+        "orb_pct": 0.228,
+        "ft_rate": 0.375,
+        "opp_ppg": 75.5,
+        "fg_pct": 0.467,
+        "three_pct": 0.37799999999999995
+      },
+      "away_stats": {
+        "ppg": 86.8,
+        "pace": 73.8,
+        "efg_pct": 0.564,
+        "to_rate": 0.15,
+        "orb_pct": 0.27399999999999997,
+        "ft_rate": 0.307,
+        "opp_ppg": 71.0,
+        "fg_pct": 0.508,
+        "three_pct": 0.39799999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Swinney Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UNC Wilmington Seahawks",
+      "away_team": "Liberty Flames",
+      "home_eff": {
+        "offensiveRating": 115.5,
+        "defensiveRating": 110.8,
+        "netRating": 4.6
+      },
+      "away_eff": {
+        "offensiveRating": 109.5,
+        "defensiveRating": 109.3,
+        "netRating": 0.2
+      },
+      "home_stats": {
+        "ppg": 96.8,
+        "pace": 74.5,
+        "efg_pct": 0.552,
+        "to_rate": 0.18,
+        "orb_pct": 0.353,
+        "ft_rate": 0.47200000000000003,
+        "opp_ppg": 73.8,
+        "fg_pct": 0.478,
+        "three_pct": 0.35700000000000004
+      },
+      "away_stats": {
+        "ppg": 82.75,
+        "pace": 67.4,
+        "efg_pct": 0.575,
+        "to_rate": 0.11,
+        "orb_pct": 0.285,
+        "ft_rate": 0.278,
+        "opp_ppg": 67.5,
+        "fg_pct": 0.5,
+        "three_pct": 0.359
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Trask Coliseum",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Coastal Carolina Chanticleers",
+      "away_team": "Western Illinois Leathernecks",
+      "home_eff": {
+        "offensiveRating": 100.7,
+        "defensiveRating": 109.9,
+        "netRating": -9.1
+      },
+      "away_eff": {
+        "offensiveRating": 105.2,
+        "defensiveRating": 114.9,
+        "netRating": -9.7
+      },
+      "home_stats": {
+        "ppg": 74.2,
+        "pace": 73.4,
+        "efg_pct": 0.474,
+        "to_rate": 0.18,
+        "orb_pct": 0.33799999999999997,
+        "ft_rate": 0.182,
+        "opp_ppg": 76.6,
+        "fg_pct": 0.42200000000000004,
+        "three_pct": 0.267
+      },
+      "away_stats": {
+        "ppg": 72.2,
+        "pace": 68.5,
+        "efg_pct": 0.486,
+        "to_rate": 0.19,
+        "orb_pct": 0.33799999999999997,
+        "ft_rate": 0.381,
+        "opp_ppg": 78.4,
+        "fg_pct": 0.436,
+        "three_pct": 0.33
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "The HTC Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "New Mexico State Aggies",
+      "away_team": "Denver Pioneers",
+      "home_eff": {
+        "offensiveRating": 105.2,
+        "defensiveRating": 111.1,
+        "netRating": -5.9
+      },
+      "away_eff": {
+        "offensiveRating": 101.4,
+        "defensiveRating": 106.4,
+        "netRating": -5.1
+      },
+      "home_stats": {
+        "ppg": 65.0,
+        "pace": 65.8,
+        "efg_pct": 0.48,
+        "to_rate": 0.27,
+        "orb_pct": 0.336,
+        "ft_rate": 0.401,
+        "opp_ppg": 77.0,
+        "fg_pct": 0.41100000000000003,
+        "three_pct": 0.33299999999999996
+      },
+      "away_stats": {
+        "ppg": 70.5,
+        "pace": 66.6,
+        "efg_pct": 0.509,
+        "to_rate": 0.18,
+        "orb_pct": 0.24600000000000002,
+        "ft_rate": 0.332,
+        "opp_ppg": 69.5,
+        "fg_pct": 0.457,
+        "three_pct": 0.264
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pan American Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Towson Tigers",
+      "away_team": "Buffalo Bulls",
+      "home_eff": {
+        "offensiveRating": 100.8,
+        "defensiveRating": 100.0,
+        "netRating": 0.8
+      },
+      "away_eff": {
+        "offensiveRating": 104.2,
+        "defensiveRating": 106.4,
+        "netRating": -2.2
+      },
+      "home_stats": {
+        "ppg": 67.16666666666667,
+        "pace": 68.1,
+        "efg_pct": 0.47700000000000004,
+        "to_rate": 0.18,
+        "orb_pct": 0.345,
+        "ft_rate": 0.374,
+        "opp_ppg": 62.333333333333336,
+        "fg_pct": 0.429,
+        "three_pct": 0.27899999999999997
+      },
+      "away_stats": {
+        "ppg": 78.0,
+        "pace": 75.0,
+        "efg_pct": 0.5,
+        "to_rate": 0.17,
+        "orb_pct": 0.265,
+        "ft_rate": 0.353,
+        "opp_ppg": 73.0,
+        "fg_pct": 0.434,
+        "three_pct": 0.264
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "The Palestra",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Hofstra Pride",
+      "away_team": "Merrimack Warriors",
+      "home_eff": {
+        "offensiveRating": 101.4,
+        "defensiveRating": 105.7,
+        "netRating": -4.4
+      },
+      "away_eff": {
+        "offensiveRating": 101.6,
+        "defensiveRating": 109.4,
+        "netRating": -7.8
+      },
+      "home_stats": {
+        "ppg": 69.2,
+        "pace": 67.4,
+        "efg_pct": 0.503,
+        "to_rate": 0.23,
+        "orb_pct": 0.321,
+        "ft_rate": 0.23199999999999998,
+        "opp_ppg": 67.4,
+        "fg_pct": 0.434,
+        "three_pct": 0.369
+      },
+      "away_stats": {
+        "ppg": 59.4,
+        "pace": 61.4,
+        "efg_pct": 0.49,
+        "to_rate": 0.18,
+        "orb_pct": 0.336,
+        "ft_rate": 0.256,
+        "opp_ppg": 68.4,
+        "fg_pct": 0.41600000000000004,
+        "three_pct": 0.33299999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "David S. Mack Sports and Exhibition Complex",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Boise State Broncos",
+      "away_team": "North Texas Mean Green",
+      "home_eff": {
+        "offensiveRating": 114.3,
+        "defensiveRating": 109.9,
+        "netRating": 4.4
+      },
+      "away_eff": {
+        "offensiveRating": 104.3,
+        "defensiveRating": 108.8,
+        "netRating": -4.5
+      },
+      "home_stats": {
+        "ppg": 104.5,
+        "pace": 79.9,
+        "efg_pct": 0.593,
+        "to_rate": 0.13,
+        "orb_pct": 0.345,
+        "ft_rate": 0.297,
+        "opp_ppg": 78.75,
+        "fg_pct": 0.5,
+        "three_pct": 0.40299999999999997
+      },
+      "away_stats": {
+        "ppg": 84.0,
+        "pace": 68.8,
+        "efg_pct": 0.5529999999999999,
+        "to_rate": 0.18,
+        "orb_pct": 0.371,
+        "ft_rate": 0.402,
+        "opp_ppg": 64.5,
+        "fg_pct": 0.488,
+        "three_pct": 0.317
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 20:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Mountain America Center",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Louisiana Ragin' Cajuns",
+      "away_team": "McNeese Cowboys",
+      "home_eff": {
+        "offensiveRating": 98.8,
+        "defensiveRating": 112.6,
+        "netRating": -13.9
+      },
+      "away_eff": {
+        "offensiveRating": 113.4,
+        "defensiveRating": 109.7,
+        "netRating": 3.8
+      },
+      "home_stats": {
+        "ppg": 58.25,
+        "pace": 67.3,
+        "efg_pct": 0.368,
+        "to_rate": 0.19,
+        "orb_pct": 0.336,
+        "ft_rate": 0.43200000000000005,
+        "opp_ppg": 64.5,
+        "fg_pct": 0.305,
+        "three_pct": 0.272
+      },
+      "away_stats": {
+        "ppg": 100.33333333333333,
+        "pace": 73.8,
+        "efg_pct": 0.6409999999999999,
+        "to_rate": 0.16,
+        "orb_pct": 0.358,
+        "ft_rate": 0.262,
+        "opp_ppg": 80.66666666666667,
+        "fg_pct": 0.535,
+        "three_pct": 0.45299999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Cajundome",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Mount St. Mary's Mountaineers",
+      "away_team": "Drexel Dragons",
+      "home_eff": {
+        "offensiveRating": 98.0,
+        "defensiveRating": 113.3,
+        "netRating": -15.3
+      },
+      "away_eff": {
+        "offensiveRating": 104.4,
+        "defensiveRating": 107.8,
+        "netRating": -3.4
+      },
+      "home_stats": {
+        "ppg": 61.75,
+        "pace": 72.4,
+        "efg_pct": 0.426,
+        "to_rate": 0.22,
+        "orb_pct": 0.331,
+        "ft_rate": 0.355,
+        "opp_ppg": 83.75,
+        "fg_pct": 0.381,
+        "three_pct": 0.25
+      },
+      "away_stats": {
+        "ppg": 66.75,
+        "pace": 67.4,
+        "efg_pct": 0.509,
+        "to_rate": 0.19,
+        "orb_pct": 0.20199999999999999,
+        "ft_rate": 0.26899999999999996,
+        "opp_ppg": 73.25,
+        "fg_pct": 0.44,
+        "three_pct": 0.306
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Knott Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Stony Brook Seawolves",
+      "away_team": "Delaware Blue Hens",
+      "home_eff": {
+        "offensiveRating": 107.6,
+        "defensiveRating": 110.0,
+        "netRating": -2.4
+      },
+      "away_eff": {
+        "offensiveRating": 102.1,
+        "defensiveRating": 106.6,
+        "netRating": -4.5
+      },
+      "home_stats": {
+        "ppg": 81.25,
+        "pace": 67.4,
+        "efg_pct": 0.547,
+        "to_rate": 0.12,
+        "orb_pct": 0.32299999999999995,
+        "ft_rate": 0.3,
+        "opp_ppg": 60.25,
+        "fg_pct": 0.48200000000000004,
+        "three_pct": 0.308
+      },
+      "away_stats": {
+        "ppg": 77.4,
+        "pace": 68.0,
+        "efg_pct": 0.546,
+        "to_rate": 0.13,
+        "orb_pct": 0.248,
+        "ft_rate": 0.19699999999999998,
+        "opp_ppg": 58.6,
+        "fg_pct": 0.47100000000000003,
+        "three_pct": 0.392
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Stony Brook Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Marshall Thundering Herd",
+      "away_team": "East Texas A&M Lions",
+      "home_eff": {
+        "offensiveRating": 103.9,
+        "defensiveRating": 101.4,
+        "netRating": 2.4
+      },
+      "away_eff": {
+        "offensiveRating": 106.4,
+        "defensiveRating": 107.2,
+        "netRating": -0.8
+      },
+      "home_stats": {
+        "ppg": 76.0,
+        "pace": 74.1,
+        "efg_pct": 0.505,
+        "to_rate": 0.2,
+        "orb_pct": 0.276,
+        "ft_rate": 0.272,
+        "opp_ppg": 71.8,
+        "fg_pct": 0.43799999999999994,
+        "three_pct": 0.32299999999999995
+      },
+      "away_stats": {
+        "ppg": 76.2,
+        "pace": 68.1,
+        "efg_pct": 0.51,
+        "to_rate": 0.22,
+        "orb_pct": 0.40700000000000003,
+        "ft_rate": 0.302,
+        "opp_ppg": 82.4,
+        "fg_pct": 0.42200000000000004,
+        "three_pct": 0.364
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Cam Henderson Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Utah Valley Wolverines",
+      "away_team": "San Jos\u00e9 State Spartans",
+      "home_eff": {
+        "offensiveRating": 111.9,
+        "defensiveRating": 105.2,
+        "netRating": 6.7
+      },
+      "away_eff": {
+        "offensiveRating": 112.8,
+        "defensiveRating": 113.9,
+        "netRating": -1.1
+      },
+      "home_stats": {
+        "ppg": 86.0,
+        "pace": 78.0,
+        "efg_pct": 0.597,
+        "to_rate": 0.22,
+        "orb_pct": 0.257,
+        "ft_rate": 0.392,
+        "opp_ppg": 75.66666666666667,
+        "fg_pct": 0.523,
+        "three_pct": 0.491
+      },
+      "away_stats": {
+        "ppg": 84.2,
+        "pace": 70.4,
+        "efg_pct": 0.617,
+        "to_rate": 0.21,
+        "orb_pct": 0.29,
+        "ft_rate": 0.40700000000000003,
+        "opp_ppg": 79.8,
+        "fg_pct": 0.527,
+        "three_pct": 0.419
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "UCCU Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "American University Eagles",
+      "away_team": "UMass Lowell River Hawks",
+      "home_eff": {
+        "offensiveRating": 107.0,
+        "defensiveRating": 106.7,
+        "netRating": 0.3
+      },
+      "away_eff": {
+        "offensiveRating": 102.9,
+        "defensiveRating": 101.8,
+        "netRating": 1.2
+      },
+      "home_stats": {
+        "ppg": 65.5,
+        "pace": 64.5,
+        "efg_pct": 0.51,
+        "to_rate": 0.19,
+        "orb_pct": 0.22899999999999998,
+        "ft_rate": 0.381,
+        "opp_ppg": 72.25,
+        "fg_pct": 0.436,
+        "three_pct": 0.316
+      },
+      "away_stats": {
+        "ppg": 76.6,
+        "pace": 69.2,
+        "efg_pct": 0.516,
+        "to_rate": 0.14,
+        "orb_pct": 0.284,
+        "ft_rate": 0.375,
+        "opp_ppg": 60.4,
+        "fg_pct": 0.451,
+        "three_pct": 0.33899999999999997
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Bender Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Lafayette Leopards",
+      "away_team": "Maine Black Bears",
+      "home_eff": {
+        "offensiveRating": 100.4,
+        "defensiveRating": 105.3,
+        "netRating": -4.9
+      },
+      "away_eff": {
+        "offensiveRating": 98.2,
+        "defensiveRating": 105.1,
+        "netRating": -6.9
+      },
+      "home_stats": {
+        "ppg": 74.66666666666667,
+        "pace": 58.9,
+        "efg_pct": 0.519,
+        "to_rate": 0.24,
+        "orb_pct": 0.33,
+        "ft_rate": 0.27,
+        "opp_ppg": 70.33333333333333,
+        "fg_pct": 0.447,
+        "three_pct": 0.32
+      },
+      "away_stats": {
+        "ppg": 64.2,
+        "pace": 70.0,
+        "efg_pct": 0.51,
+        "to_rate": 0.24,
+        "orb_pct": 0.184,
+        "ft_rate": 0.39,
+        "opp_ppg": 72.0,
+        "fg_pct": 0.426,
+        "three_pct": 0.37799999999999995
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 21:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Kirby Sports Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Seattle U Redhawks",
+      "away_team": "UC Irvine Anteaters",
+      "home_eff": {
+        "offensiveRating": 103.5,
+        "defensiveRating": 104.5,
+        "netRating": -1.0
+      },
+      "away_eff": {
+        "offensiveRating": 106.7,
+        "defensiveRating": 105.1,
+        "netRating": 1.6
+      },
+      "home_stats": {
+        "ppg": 74.2,
+        "pace": 70.2,
+        "efg_pct": 0.489,
+        "to_rate": 0.17,
+        "orb_pct": 0.301,
+        "ft_rate": 0.449,
+        "opp_ppg": 68.8,
+        "fg_pct": 0.428,
+        "three_pct": 0.318
+      },
+      "away_stats": {
+        "ppg": 83.5,
+        "pace": 71.5,
+        "efg_pct": 0.504,
+        "to_rate": 0.18,
+        "orb_pct": 0.353,
+        "ft_rate": 0.337,
+        "opp_ppg": 62.5,
+        "fg_pct": 0.45399999999999996,
+        "three_pct": 0.36
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Redhawk Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Cal State Bakersfield Roadrunners",
+      "away_team": "Northern Arizona Lumberjacks",
+      "home_eff": {
+        "offensiveRating": 112.8,
+        "defensiveRating": 109.2,
+        "netRating": 3.5
+      },
+      "away_eff": {
+        "offensiveRating": 112.0,
+        "defensiveRating": 116.6,
+        "netRating": -4.5
+      },
+      "home_stats": {
+        "ppg": 87.0,
+        "pace": 72.1,
+        "efg_pct": 0.569,
+        "to_rate": 0.17,
+        "orb_pct": 0.281,
+        "ft_rate": 0.485,
+        "opp_ppg": 71.5,
+        "fg_pct": 0.524,
+        "three_pct": 0.313
+      },
+      "away_stats": {
+        "ppg": 70.0,
+        "pace": 64.5,
+        "efg_pct": 0.5579999999999999,
+        "to_rate": 0.22,
+        "orb_pct": 0.264,
+        "ft_rate": 0.361,
+        "opp_ppg": 82.0,
+        "fg_pct": 0.47200000000000003,
+        "three_pct": 0.34700000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Icardo Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Monmouth Hawks",
+      "away_team": "Saint Joseph's Hawks",
+      "home_eff": {
+        "offensiveRating": 107.5,
+        "defensiveRating": 105.0,
+        "netRating": 2.6
+      },
+      "away_eff": {
+        "offensiveRating": 103.1,
+        "defensiveRating": 102.9,
+        "netRating": 0.2
+      },
+      "home_stats": {
+        "ppg": 69.75,
+        "pace": 69.9,
+        "efg_pct": 0.485,
+        "to_rate": 0.17,
+        "orb_pct": 0.27899999999999997,
+        "ft_rate": 0.306,
+        "opp_ppg": 78.25,
+        "fg_pct": 0.43,
+        "three_pct": 0.34700000000000003
+      },
+      "away_stats": {
+        "ppg": 79.8,
+        "pace": 73.7,
+        "efg_pct": 0.462,
+        "to_rate": 0.11,
+        "orb_pct": 0.314,
+        "ft_rate": 0.483,
+        "opp_ppg": 70.4,
+        "fg_pct": 0.401,
+        "three_pct": 0.317
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Hackensack Meridian Athletic Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Cal State Fullerton Titans",
+      "away_team": "Weber State Wildcats",
+      "home_eff": {
+        "offensiveRating": 109.6,
+        "defensiveRating": 104.9,
+        "netRating": 4.7
+      },
+      "away_eff": {
+        "offensiveRating": 104.9,
+        "defensiveRating": 116.4,
+        "netRating": -11.6
+      },
+      "home_stats": {
+        "ppg": 84.25,
+        "pace": 78.4,
+        "efg_pct": 0.516,
+        "to_rate": 0.13,
+        "orb_pct": 0.276,
+        "ft_rate": 0.265,
+        "opp_ppg": 83.25,
+        "fg_pct": 0.43700000000000006,
+        "three_pct": 0.331
+      },
+      "away_stats": {
+        "ppg": 73.8,
+        "pace": 74.2,
+        "efg_pct": 0.47200000000000003,
+        "to_rate": 0.15,
+        "orb_pct": 0.321,
+        "ft_rate": 0.204,
+        "opp_ppg": 89.2,
+        "fg_pct": 0.423,
+        "three_pct": 0.254
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 22:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Titan Gym",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "South Dakota State Jackrabbits",
+      "away_team": "South Alabama Jaguars",
+      "home_eff": {
+        "offensiveRating": 110.4,
+        "defensiveRating": 98.7,
+        "netRating": 11.7
+      },
+      "away_eff": {
+        "offensiveRating": 110.9,
+        "defensiveRating": 113.8,
+        "netRating": -2.9
+      },
+      "home_stats": {
+        "ppg": 79.6,
+        "pace": 69.5,
+        "efg_pct": 0.518,
+        "to_rate": 0.17,
+        "orb_pct": 0.33799999999999997,
+        "ft_rate": 0.35200000000000004,
+        "opp_ppg": 59.4,
+        "fg_pct": 0.44299999999999995,
+        "three_pct": 0.374
+      },
+      "away_stats": {
+        "ppg": 82.5,
+        "pace": 65.6,
+        "efg_pct": 0.57,
+        "to_rate": 0.14,
+        "orb_pct": 0.28800000000000003,
+        "ft_rate": 0.33399999999999996,
+        "opp_ppg": 74.83333333333333,
+        "fg_pct": 0.51,
+        "three_pct": 0.326
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-28 23:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Convocation Center (LA)",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "San Francisco Dons",
+      "away_team": "Bethune-Cookman Wildcats",
+      "home_eff": {
+        "offensiveRating": 101.5,
+        "defensiveRating": 107.9,
+        "netRating": -6.3
+      },
+      "away_eff": {
+        "offensiveRating": 109.7,
+        "defensiveRating": 110.1,
+        "netRating": -0.3
+      },
+      "home_stats": {
+        "ppg": 72.6,
+        "pace": 67.3,
+        "efg_pct": 0.496,
+        "to_rate": 0.2,
+        "orb_pct": 0.35200000000000004,
+        "ft_rate": 0.522,
+        "opp_ppg": 66.0,
+        "fg_pct": 0.425,
+        "three_pct": 0.322
+      },
+      "away_stats": {
+        "ppg": 58.166666666666664,
+        "pace": 58.9,
+        "efg_pct": 0.488,
+        "to_rate": 0.22,
+        "orb_pct": 0.301,
+        "ft_rate": 0.371,
+        "opp_ppg": 71.66666666666667,
+        "fg_pct": 0.428,
+        "three_pct": 0.35100000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "The Sobrato Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Southern Illinois Salukis",
+      "away_team": "Portland State Vikings",
+      "home_eff": {
+        "offensiveRating": 111.5,
+        "defensiveRating": 112.2,
+        "netRating": -0.7
+      },
+      "away_eff": {
+        "offensiveRating": 109.6,
+        "defensiveRating": 109.1,
+        "netRating": 0.5
+      },
+      "home_stats": {
+        "ppg": 83.25,
+        "pace": 70.9,
+        "efg_pct": 0.5479999999999999,
+        "to_rate": 0.15,
+        "orb_pct": 0.255,
+        "ft_rate": 0.34700000000000003,
+        "opp_ppg": 74.25,
+        "fg_pct": 0.456,
+        "three_pct": 0.386
+      },
+      "away_stats": {
+        "ppg": 80.8,
+        "pace": 72.0,
+        "efg_pct": 0.551,
+        "to_rate": 0.2,
+        "orb_pct": 0.308,
+        "ft_rate": 0.488,
+        "opp_ppg": 77.4,
+        "fg_pct": 0.491,
+        "three_pct": 0.34700000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Banterra Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Santa Clara Broncos",
+      "away_team": "Utah Tech Trailblazers",
+      "home_eff": {
+        "offensiveRating": 110.9,
+        "defensiveRating": 105.8,
+        "netRating": 5.1
+      },
+      "away_eff": {
+        "offensiveRating": 107.2,
+        "defensiveRating": 114.1,
+        "netRating": -6.8
+      },
+      "home_stats": {
+        "ppg": 86.6,
+        "pace": 76.3,
+        "efg_pct": 0.537,
+        "to_rate": 0.18,
+        "orb_pct": 0.294,
+        "ft_rate": 0.314,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.445,
+        "three_pct": 0.387
+      },
+      "away_stats": {
+        "ppg": 80.5,
+        "pace": 73.8,
+        "efg_pct": 0.5379999999999999,
+        "to_rate": 0.15,
+        "orb_pct": 0.268,
+        "ft_rate": 0.28600000000000003,
+        "opp_ppg": 87.25,
+        "fg_pct": 0.47200000000000003,
+        "three_pct": 0.317
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Leavey Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Charleston Southern Buccaneers",
+      "away_team": "Morehead State Eagles",
+      "home_eff": {
+        "offensiveRating": 103.5,
+        "defensiveRating": 108.7,
+        "netRating": -5.2
+      },
+      "away_eff": {
+        "offensiveRating": 104.6,
+        "defensiveRating": 116.3,
+        "netRating": -11.7
+      },
+      "home_stats": {
+        "ppg": 78.0,
+        "pace": 72.4,
+        "efg_pct": 0.524,
+        "to_rate": 0.22,
+        "orb_pct": 0.32,
+        "ft_rate": 0.38799999999999996,
+        "opp_ppg": 75.2,
+        "fg_pct": 0.446,
+        "three_pct": 0.34299999999999997
+      },
+      "away_stats": {
+        "ppg": 81.5,
+        "pace": 71.2,
+        "efg_pct": 0.535,
+        "to_rate": 0.16,
+        "orb_pct": 0.294,
+        "ft_rate": 0.307,
+        "opp_ppg": 80.83333333333333,
+        "fg_pct": 0.479,
+        "three_pct": 0.32799999999999996
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Freedom Hall (TN)",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Duquesne Dukes",
+      "away_team": "South Carolina State Bulldogs",
+      "home_eff": {
+        "offensiveRating": 105.4,
+        "defensiveRating": 106.7,
+        "netRating": -1.4
+      },
+      "away_eff": {
+        "offensiveRating": 105.2,
+        "defensiveRating": 105.9,
+        "netRating": -0.7
+      },
+      "home_stats": {
+        "ppg": 72.6,
+        "pace": 65.1,
+        "efg_pct": 0.5379999999999999,
+        "to_rate": 0.18,
+        "orb_pct": 0.302,
+        "ft_rate": 0.573,
+        "opp_ppg": 65.2,
+        "fg_pct": 0.484,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 75.8,
+        "pace": 73.1,
+        "efg_pct": 0.45299999999999996,
+        "to_rate": 0.16,
+        "orb_pct": 0.38299999999999995,
+        "ft_rate": 0.31,
+        "opp_ppg": 76.2,
+        "fg_pct": 0.401,
+        "three_pct": 0.31
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 00:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "UPMC Cooper Fieldhouse",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Minnesota Golden Gophers",
+      "away_team": "California Golden Bears",
+      "home_eff": {
+        "offensiveRating": 114.3,
+        "defensiveRating": 98.8,
+        "netRating": 15.5
+      },
+      "away_eff": {
+        "offensiveRating": 104.8,
+        "defensiveRating": 109.6,
+        "netRating": -4.8
+      },
+      "home_stats": {
+        "ppg": 82.8,
+        "pace": 66.2,
+        "efg_pct": 0.624,
+        "to_rate": 0.19,
+        "orb_pct": 0.273,
+        "ft_rate": 0.258,
+        "opp_ppg": 59.4,
+        "fg_pct": 0.526,
+        "three_pct": 0.40700000000000003
+      },
+      "away_stats": {
+        "ppg": 82.2,
+        "pace": 71.9,
+        "efg_pct": 0.527,
+        "to_rate": 0.15,
+        "orb_pct": 0.331,
+        "ft_rate": 0.332,
+        "opp_ppg": 78.4,
+        "fg_pct": 0.455,
+        "three_pct": 0.35700000000000004
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Sanford Pentagon",
+      "neutral_site": true,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Notre Dame Fighting Irish",
+      "away_team": "Stonehill Skyhawks",
+      "home_eff": {
+        "offensiveRating": 117.5,
+        "defensiveRating": 106.6,
+        "netRating": 11.0
+      },
+      "away_eff": {
+        "offensiveRating": 98.4,
+        "defensiveRating": 113.1,
+        "netRating": -14.7
+      },
+      "home_stats": {
+        "ppg": 89.66666666666667,
+        "pace": 69.1,
+        "efg_pct": 0.635,
+        "to_rate": 0.16,
+        "orb_pct": 0.264,
+        "ft_rate": 0.38299999999999995,
+        "opp_ppg": 73.83333333333333,
+        "fg_pct": 0.527,
+        "three_pct": 0.46299999999999997
+      },
+      "away_stats": {
+        "ppg": 61.8,
+        "pace": 71.2,
+        "efg_pct": 0.39799999999999996,
+        "to_rate": 0.2,
+        "orb_pct": 0.354,
+        "ft_rate": 0.408,
+        "opp_ppg": 78.4,
+        "fg_pct": 0.34700000000000003,
+        "three_pct": 0.24
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Purcell Pavilion",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UC San Diego Tritons",
+      "away_team": "Loyola Marymount Lions",
+      "home_eff": {
+        "offensiveRating": 109.7,
+        "defensiveRating": 114.6,
+        "netRating": -4.9
+      },
+      "away_eff": {
+        "offensiveRating": 110.8,
+        "defensiveRating": 110.9,
+        "netRating": -0.1
+      },
+      "home_stats": {
+        "ppg": 90.0,
+        "pace": 75.4,
+        "efg_pct": 0.541,
+        "to_rate": 0.12,
+        "orb_pct": 0.359,
+        "ft_rate": 0.299,
+        "opp_ppg": 88.0,
+        "fg_pct": 0.473,
+        "three_pct": 0.32799999999999996
+      },
+      "away_stats": {
+        "ppg": 84.8,
+        "pace": 67.6,
+        "efg_pct": 0.552,
+        "to_rate": 0.14,
+        "orb_pct": 0.33,
+        "ft_rate": 0.21899999999999997,
+        "opp_ppg": 69.6,
+        "fg_pct": 0.47,
+        "three_pct": 0.331
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 03:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "LionTree Arena",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Houston Cougars",
+      "away_team": "Queens University Royals",
+      "home_eff": {
+        "offensiveRating": 119.0,
+        "defensiveRating": 99.3,
+        "netRating": 19.6
+      },
+      "away_eff": {
+        "offensiveRating": 115.3,
+        "defensiveRating": 119.2,
+        "netRating": -3.9
+      },
+      "home_stats": {
+        "ppg": 88.6,
+        "pace": 68.3,
+        "efg_pct": 0.557,
+        "to_rate": 0.15,
+        "orb_pct": 0.332,
+        "ft_rate": 0.466,
+        "opp_ppg": 63.6,
+        "fg_pct": 0.514,
+        "three_pct": 0.35100000000000003
+      },
+      "away_stats": {
+        "ppg": 89.2,
+        "pace": 74.9,
+        "efg_pct": 0.5579999999999999,
+        "to_rate": 0.15,
+        "orb_pct": 0.348,
+        "ft_rate": 0.371,
+        "opp_ppg": 100.2,
+        "fg_pct": 0.489,
+        "three_pct": 0.344
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-11-29 21:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Fertitta Center",
+      "neutral_site": false,
+      "home_rank": 8,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "St. John's Red Storm",
+      "away_team": "Columbia Lions",
+      "home_eff": {
+        "offensiveRating": 115.1,
+        "defensiveRating": 97.9,
+        "netRating": 17.2
+      },
+      "away_eff": {
+        "offensiveRating": 109.7,
+        "defensiveRating": 103.3,
+        "netRating": 6.4
+      },
+      "home_stats": {
+        "ppg": 94.0,
+        "pace": 74.7,
+        "efg_pct": 0.5770000000000001,
+        "to_rate": 0.13,
+        "orb_pct": 0.295,
+        "ft_rate": 0.3,
+        "opp_ppg": 64.2,
+        "fg_pct": 0.501,
+        "three_pct": 0.36700000000000005
+      },
+      "away_stats": {
+        "ppg": 83.6,
+        "pace": 68.9,
+        "efg_pct": 0.541,
+        "to_rate": 0.17,
+        "orb_pct": 0.353,
+        "ft_rate": 0.335,
+        "opp_ppg": 61.8,
+        "fg_pct": 0.478,
+        "three_pct": 0.342
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-01 23:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Carnesecca Arena",
+      "neutral_site": false,
+      "home_rank": 13,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Tennessee Volunteers",
+      "away_team": "Florida State Seminoles",
+      "home_eff": {
+        "offensiveRating": 104.2,
+        "defensiveRating": 96.7,
+        "netRating": 7.4
+      },
+      "away_eff": {
+        "offensiveRating": 113.6,
+        "defensiveRating": 106.4,
+        "netRating": 7.1
+      },
+      "home_stats": {
+        "ppg": 76.0,
+        "pace": 69.4,
+        "efg_pct": 0.534,
+        "to_rate": 0.2,
+        "orb_pct": 0.247,
+        "ft_rate": 0.423,
+        "opp_ppg": 57.5,
+        "fg_pct": 0.473,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 88.8,
+        "pace": 71.3,
+        "efg_pct": 0.502,
+        "to_rate": 0.15,
+        "orb_pct": 0.36200000000000004,
+        "ft_rate": 0.568,
+        "opp_ppg": 69.8,
+        "fg_pct": 0.45899999999999996,
+        "three_pct": 0.243
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 00:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Food City Center",
+      "neutral_site": false,
+      "home_rank": 14,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "North Carolina Tar Heels",
+      "away_team": "Arkansas Razorbacks",
+      "home_eff": {
+        "offensiveRating": 107.7,
+        "defensiveRating": 104.2,
+        "netRating": 3.5
+      },
+      "away_eff": {
+        "offensiveRating": 110.1,
+        "defensiveRating": 108.6,
+        "netRating": 1.5
+      },
+      "home_stats": {
+        "ppg": 83.75,
+        "pace": 71.6,
+        "efg_pct": 0.512,
+        "to_rate": 0.13,
+        "orb_pct": 0.292,
+        "ft_rate": 0.39,
+        "opp_ppg": 70.75,
+        "fg_pct": 0.44,
+        "three_pct": 0.327
+      },
+      "away_stats": {
+        "ppg": 81.8,
+        "pace": 68.9,
+        "efg_pct": 0.5489999999999999,
+        "to_rate": 0.16,
+        "orb_pct": 0.335,
+        "ft_rate": 0.409,
+        "opp_ppg": 70.4,
+        "fg_pct": 0.49,
+        "three_pct": 0.361
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 00:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Dean E. Smith Center",
+      "neutral_site": false,
+      "home_rank": null,
+      "away_rank": 20,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Kansas Jayhawks",
+      "away_team": "Northern Iowa Panthers",
+      "home_eff": {
+        "offensiveRating": 116.1,
+        "defensiveRating": 97.3,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 112.2,
+        "defensiveRating": 115.7,
+        "netRating": -3.5
+      },
+      "home_stats": {
+        "ppg": 92.2,
+        "pace": 74.2,
+        "efg_pct": 0.611,
+        "to_rate": 0.16,
+        "orb_pct": 0.263,
+        "ft_rate": 0.517,
+        "opp_ppg": 67.6,
+        "fg_pct": 0.5539999999999999,
+        "three_pct": 0.34299999999999997
+      },
+      "away_stats": {
+        "ppg": 84.5,
+        "pace": 73.7,
+        "efg_pct": 0.547,
+        "to_rate": 0.17,
+        "orb_pct": 0.34600000000000003,
+        "ft_rate": 0.44299999999999995,
+        "opp_ppg": 84.0,
+        "fg_pct": 0.47600000000000003,
+        "three_pct": 0.34700000000000003
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 01:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Allen Fieldhouse",
+      "neutral_site": false,
+      "home_rank": 11,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Louisville Cardinals",
+      "away_team": "Texas Longhorns",
+      "home_eff": {
+        "offensiveRating": 113.7,
+        "defensiveRating": 105.3,
+        "netRating": 8.4
+      },
+      "away_eff": {
+        "offensiveRating": 118.5,
+        "defensiveRating": 99.6,
+        "netRating": 18.9
+      },
+      "home_stats": {
+        "ppg": 89.66666666666667,
+        "pace": 70.8,
+        "efg_pct": 0.544,
+        "to_rate": 0.13,
+        "orb_pct": 0.4,
+        "ft_rate": 0.379,
+        "opp_ppg": 75.0,
+        "fg_pct": 0.473,
+        "three_pct": 0.284
+      },
+      "away_stats": {
+        "ppg": 93.75,
+        "pace": 70.0,
+        "efg_pct": 0.626,
+        "to_rate": 0.14,
+        "orb_pct": 0.299,
+        "ft_rate": 0.513,
+        "opp_ppg": 60.75,
+        "fg_pct": 0.56,
+        "three_pct": 0.413
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 02:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "KFC Yum! Center",
+      "neutral_site": false,
+      "home_rank": 23,
+      "away_rank": 6,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "LSU Tigers",
+      "away_team": "Wake Forest Demon Deacons",
+      "home_eff": {
+        "offensiveRating": 109.9,
+        "defensiveRating": 95.7,
+        "netRating": 14.2
+      },
+      "away_eff": {
+        "offensiveRating": 110.0,
+        "defensiveRating": 105.0,
+        "netRating": 4.9
+      },
+      "home_stats": {
+        "ppg": 88.4,
+        "pace": 74.3,
+        "efg_pct": 0.56,
+        "to_rate": 0.18,
+        "orb_pct": 0.303,
+        "ft_rate": 0.373,
+        "opp_ppg": 61.0,
+        "fg_pct": 0.498,
+        "three_pct": 0.307
+      },
+      "away_stats": {
+        "ppg": 77.2,
+        "pace": 67.5,
+        "efg_pct": 0.513,
+        "to_rate": 0.16,
+        "orb_pct": 0.348,
+        "ft_rate": 0.396,
+        "opp_ppg": 65.4,
+        "fg_pct": 0.46,
+        "three_pct": 0.29600000000000004
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 02:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pete Maravich Assembly Center",
+      "neutral_site": false,
+      "home_rank": 25,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "Florida Gators",
+      "away_team": "Duke Blue Devils",
+      "home_eff": {
+        "offensiveRating": 118.2,
+        "defensiveRating": 102.9,
+        "netRating": 15.3
+      },
+      "away_eff": {
+        "offensiveRating": 110.9,
+        "defensiveRating": 97.1,
+        "netRating": 13.8
+      },
+      "home_stats": {
+        "ppg": 81.83333333333333,
+        "pace": 66.8,
+        "efg_pct": 0.575,
+        "to_rate": 0.19,
+        "orb_pct": 0.32899999999999996,
+        "ft_rate": 0.502,
+        "opp_ppg": 69.0,
+        "fg_pct": 0.48,
+        "three_pct": 0.431
+      },
+      "away_stats": {
+        "ppg": 87.6,
+        "pace": 74.6,
+        "efg_pct": 0.518,
+        "to_rate": 0.17,
+        "orb_pct": 0.344,
+        "ft_rate": 0.534,
+        "opp_ppg": 65.4,
+        "fg_pct": 0.45299999999999996,
+        "three_pct": 0.282
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 02:30:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Tower Hill Arena",
+      "neutral_site": false,
+      "home_rank": 1,
+      "away_rank": 5,
+      "season_used": 2027,
+      "predictions": {}
+    },
+    {
+      "home_team": "UCLA Bruins",
+      "away_team": "Oregon Ducks",
+      "home_eff": {
+        "offensiveRating": 118.4,
+        "defensiveRating": 99.6,
+        "netRating": 18.8
+      },
+      "away_eff": {
+        "offensiveRating": 118.7,
+        "defensiveRating": 108.4,
+        "netRating": 10.3
+      },
+      "home_stats": {
+        "ppg": 96.8,
+        "pace": 72.5,
+        "efg_pct": 0.5670000000000001,
+        "to_rate": 0.12,
+        "orb_pct": 0.344,
+        "ft_rate": 0.38,
+        "opp_ppg": 62.4,
+        "fg_pct": 0.49700000000000005,
+        "three_pct": 0.369
+      },
+      "away_stats": {
+        "ppg": 95.0,
+        "pace": 68.7,
+        "efg_pct": 0.684,
+        "to_rate": 0.15,
+        "orb_pct": 0.231,
+        "ft_rate": 0.21899999999999997,
+        "opp_ppg": 68.66666666666667,
+        "fg_pct": 0.604,
+        "three_pct": 0.435
+      },
+      "betting_spread": null,
+      "betting_over_under": null,
+      "home_moneyline": null,
+      "away_moneyline": null,
+      "home_ml": null,
+      "away_ml": null,
+      "game_date": "2026-12-02 03:00:00+00:00",
+      "status": "STATUS_SCHEDULED",
+      "venue": "Pauley Pavilion",
+      "neutral_site": false,
+      "home_rank": 7,
+      "away_rank": null,
+      "season_used": 2027,
+      "predictions": {}
+    }
+  ]
+}
